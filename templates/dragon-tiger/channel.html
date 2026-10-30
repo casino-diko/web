@@ -1,0 +1,233 @@
+{{-- channel --}}
+<div class="channel-container dom-resizable selected-lang-{{ locale }}">
+  {{-- mainMul / formatted limits are computed in src/server/dragon-tiger/view.ts (channelContext) --}}
+  <div id="channel">
+    <div id="exit">
+      <span class="exit-ico"></span>
+    </div>
+    <div id="channel-detail">
+      <div class="channel-items">
+        <div class="channel-con -gamename">
+          <span>{!! t('ingame-web.lobby_gamename_dragontiger') !!} {{$tableNum}}</span>
+        </div>
+        <div class="channel-con -gamenumber">
+          <span>{{$round_id}}</span>
+        </div>
+      </div>
+      <div class="channel-items">
+        <div class="channel-con -dealername">
+          <span></span>
+        </div>
+        <div class="channel-con -betrange">
+          <span id="range-disp">
+            {{ channel.dispMin }}
+
+            -
+
+            {{ channel.dispMax }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="range-list" hidden>
+    @foreach(channel.ranges as r)
+      @if(r.selected)
+        <button class="range-select selected" data='{{r.min}}-{{r.max}}'>
+          <span class="range-min">{{r.minFmt}}</span>
+          <span class="range-dash">-</span>
+          <span class="range-max">{{r.maxFmt}}</span>
+        </button>
+      @else
+        <button class="range-select" data='{{r.min}}-{{r.max}}'>
+          <span class="range-min">{{r.minFmt}}</span>
+          <span class="range-dash">-</span>
+          <span class="range-max">{{r.maxFmt}}</span>
+        </button>
+      @endif
+    @endforeach
+  </div>
+
+  <div id="notice" class="maintenance-con"> {{--maintenance-con--}}
+    <div class="maintenance-head">
+      <span class="maintenance-title">{!! t('ingame-web.com_sub_ingameprompts_announcements') !!}</span>
+      <span class="maintenance-close"></span>
+    </div>
+    <div class="maintenance-body">
+      <span id="notice-msg"></span>
+    </div>
+  </div> {{-- // maintenance-con--}}
+
+  {{-- channel details --}}
+  <div id="channel-dropdown"> {{--channel-dropdown--}}
+    <div class="channel-dropdown-con"> {{--channel-dropdwon-con--}}
+      <h4>{!! t('ingame-web.com_sub_betinfoarea_betlimits') !!}</h4>
+      <span id="interactive_pin"></span>
+
+      <div class="table-con table--betinfo"> {{--table-con--}}
+        <div class="table-head">
+          <div class="table-tr">
+            <div class="table-th -bettype">{!! t('ingame-web.com_sub_betinfoarea_bettype') !!}</div>
+            <div class="table-th -min">{!! t('ingame-web.com_sub_betinfoarea_min') !!}</div>
+            <div class="table-th -max">{!! t('ingame-web.com_sub_betinfoarea_max') !!}</div>
+            <div class="table-th -payout">{!! t('ingame-web.com_sub_betinfoarea_payouts') !!}</div>
+          </div>
+        </div>
+        <div class="table-body">
+          <div class="table-tr">
+            <div class="table-td -bettype">{!! t('ingame-web.dragontiger_betlayout_dragon') !!}</div>
+            <div class="table-td bet-limit-min">
+              {{ channel.minFmt }}
+            </div>
+            <div class="table-td bet-limit-max">
+              {{ channel.maxFmt }}
+            </div>
+            <div class="table-td -payout">1:1</div>
+          </div>
+          <div class="table-tr">
+            <div class="table-td -bettype">{!! t('ingame-web.dragontiger_betlayout_tiger') !!}</div>
+            <div class="table-td bet-limit-min">
+              {{ channel.minFmt }}
+            </div>
+            <div class="table-td bet-limit-max">
+              {{ channel.maxFmt }}
+            </div>
+            <div class="table-td -payout">1:1</div>
+          </div>
+          <div class="table-tr">
+            <div class="table-td -bettype">{!! t('ingame-web.dragontiger_betlayout_tie') !!}</div>
+            <div class="table-td bet-limit-tie-min">
+              {{ channel.tieMinFmt }}
+            </div>
+            <div class="table-td bet-limit-tie-max">
+              {{ channel.tieMaxFmt }}
+            </div>
+            <div class="table-td -payout">10:1</div>
+          </div>
+        </div>
+      </div> {{--// table-con--}}
+    </div> {{-- // channel-dropdwon-con--}}
+
+    <div id="liveBetsCon" class="channel-dropdown-con"> {{--channel-dropdwon-con--}}
+      <h4>{!! t('ingame-web.com_sub_betinfoarea_livebets') !!}</h4>
+      <div class="table-con table--livebets"> {{--table-con--}}
+        <div class="table-head">
+          <div class="table-tr">
+            <div class="table-th -bettype">{!! t('ingame-web.com_sub_betinfoarea_bettype') !!}</div>
+            <div class="table-th -bets">{!! t('ingame-web.com_sub_betinfoarea_bets') !!}</div>
+            <div class="table-th -players">{!! t('ingame-web.com_sub_betinfoarea_players') !!}</div>
+          </div>
+        </div>
+        <div class="table-body">
+          <div class="table-tr">
+            <div class="table-td -bettype">
+              <span class="ico-livebets ico-dragon">D</span>
+              {!! t('ingame-web.dragontiger_betlayout_dragon') !!}
+              <div class="bar-percentage bar--dragon">
+                <div class="bar-inner"></div>
+              </div>
+            </div>
+            <div class="table-td -bets "><span class="bets-dragon"></span></div>
+            <div class="table-td -players ">
+              <span class="bets-dragonplayer"></span>
+              <span class="ico-users"></span>
+            </div>
+          </div>
+          <div class="table-tr">
+            <div class="table-td -bettype">
+              <span class="ico-livebets ico-tiger">T</span>
+              {!! t('ingame-web.dragontiger_betlayout_tiger') !!}
+              <div class="bar-percentage bar--tiger">
+                <div class="bar-inner"></div>
+              </div>
+            </div>
+            <div class="table-td -bets "><span class="bets-tiger"></span></div>
+            <div class="table-td -players ">
+              <span class="bets-tigerplayer"></span>
+              <span class="ico-users"></span>
+            </div>
+          </div>
+          <div class="table-tr">
+            <div class="table-td -bettype">
+              <span class="ico-livebets ico-tie">T</span>
+              {!! t('ingame-web.dragontiger_betlayout_tie') !!}
+              <div class="bar-percentage bar--tie">
+                <div class="bar-inner"></div>
+              </div>
+            </div>
+            <div class="table-td -bets "><span class="bets-tie"></span></div>
+            <div class="table-td -players ">
+              <span class="bets-tieplayer"></span>
+              <span class="ico-users"></span>
+            </div>
+          </div>
+
+          <div class="table-tr -total">
+            <div class="table-td -bettype">{!! t('ingame-web.com_sub_betinfoarea_total') !!}</div>
+            <div class="table-td -bets "><span class="bets-total"></span></div>
+            <div class="table-td -players ">
+              <span class="bets-totalplayer"></span>
+              <span class="ico-users-total"></span>
+            </div>
+          </div>
+        </div>
+      </div> {{--// table-con--}}
+    </div> {{-- // channel-dropdwon-con--}}
+  </div> {{-- // channel-dropdown--}}
+
+  @if(hasToken && $junket == 2) {{-- hasToken --}}
+    {{-- Junket --}}
+    <div id="junket-info" class="junket-con">
+      <div id="junketHeader" class="modal-header">
+        <div id="junketRoomName" class="menu-header-txt">{{ vendorObj.title }}</div>
+        <div id="junketRoomExpiry" class="menu-timer menu-header-txt">00:00</div>
+
+        {{--<div class="timer-ico"></div>--}}
+        {{-- <div class="menu-close-ico"></div> --}}
+      </div>
+
+      <div class="junket-body-info">
+        <div class="junket-info-list">
+          <div class="info-list-left">
+            <span class="agent-ico"></span>
+            <span class="agent-name">{{ vendorObj.bankerUsername }}</span>
+          </div>
+          {{-- <span id="junket_interactive_pin"></span> --}}
+          {{--- <div id="agentMoney" class="info-list-right">0</div> --}}
+        </div>
+
+        <div class="junket-info-list">
+          <div class="info-list-left">{!! t('ingame.totalplayers') !!}</div>
+          <div id="totalPlayers" class="info-list-right">0</div>
+        </div>
+
+        <div class="junket-info-list">
+          <div class="info-list-left">{!! t('ingame.totalbets') !!}</div>
+          <div id="totalJunketBets" class="info-list-right">0</div>
+        </div>
+
+        <div class="btn-junket disband-room"><span>{!! t('ingame-web.nihtanjunket_ingame_closeroom') !!}</span></div>
+        <div class="btn-junket change-password"><span>{!! t('ingame-web.com_sub_rooms_changepassword') !!}</span></div>
+      </div>
+
+      <div class="junket-player-con noselect">
+        <div class="junket-player-header">
+          <div class="player-header-list header-username">{!! t('ingame.username') !!}</div>
+          <div class="player-header-list header-credit">{!! t('ingame.credit') !!}</div>
+          <div class="player-header-list header-bets">{!! t('ingame.bets') !!}</div>
+          <div class="player-header-list header-winlose">{!! t('ingame.win') !!}/{!! t('ingame.lose') !!}</div>
+        </div>
+
+        <div class="junket-player-bg">
+          <div class="player-tbl-con">
+            <div class="table-con table--junket"> {{--table-con--}}
+                  <div id="junketPlayerList" class="table-body">
+                      {{-- Player list here --}}
+                  </div>
+                </div> {{--// table-con--}}
+            </div>
+        </div>
+      </div>
+    </div>
+  @endif
+</div>

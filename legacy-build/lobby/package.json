@@ -1,0 +1,20 @@
+{
+  "name": "legacy-build-lobby",
+  "private": true,
+  "description": "Toolchain for the lobby legacy bundles and css (esbuild + dart-sass), see scripts/build-lobby-assets.mjs",
+  "dependencies": {
+    "esbuild": "0.25",
+    "sass": "1.77",
+    "compass-mixins": "0.12",
+    "jquery": "3.2.1",
+    "lodash": "4",
+    "moment": "2",
+    "socket.io-client": "2.0.1",
+    "sweetalert": "2",
+    "babel-polyfill": "6",
+    "es5-shim": "4",
+    "es6-shim": "0.35",
+    "crypto-js": "3.1.9-1",
+    "uuid": "3"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "web",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Player front-end (lobby, baccarat, dragon-tiger, poker) served by Next.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --experimental-strip-types 'test/**/*.test.ts'",
+    "build:legacy": "npm run build:legacy:lobby && npm run build:legacy:baccarat && npm run build:legacy:dragon-tiger && npm run build:legacy:poker",
+    "build:legacy:lobby": "npm --prefix legacy-build/lobby install --no-audit --no-fund && LOBBY_BUILD_MODULES=legacy-build/lobby/node_modules node legacy-build/lobby.mjs",
+    "build:legacy:baccarat": "npm --prefix legacy-build/games ci --no-audit --no-fund && node legacy-build/games/build.mjs baccarat",
+    "build:legacy:dragon-tiger": "npm --prefix legacy-build/games ci --no-audit --no-fund && node legacy-build/games/build.mjs dragon-tiger",
+    "build:legacy:poker": "npm --prefix legacy-build/poker ci --no-audit --no-fund && node legacy-build/poker.mjs"
+  },
+  "dependencies": {
+    "jose": "^5.10.0",
+    "mongoose": "^8.24.7",
+    "next": "^15.5.28",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "typescript": "^5.9.3"
+  }
+}

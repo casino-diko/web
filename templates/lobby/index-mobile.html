@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Arvo:400,700,700i" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/createjs/createjs-2015.11.26.min.js"></script>
+  <script src="/js/createjs/easeljs-0.8.2.min.js"></script>
+  <script src="/js/createjs/tweenjs-0.6.2.min.js"></script>
+  <script src="/js/createjs/soundjs-0.6.2.min.js"></script>
+  <script src="/js/createjs/preloadjs-0.6.2.min.js"></script>
+  <script type="text/javascript" src= "/js/fastclick-master/lib/fastclick.js"></script>
+  <script type="text/javascript">
+    var ka_games = [];
+    window.ka_url = '';
+    window.ka_partner_name = '';
+    window.socket =  {!! json(env.socket) !!};
+    window.poker_domain = {!! json(env.pokerDomain) !!};
+    window.bc_domain = {!! json(env.baccaratDomain) !!};
+    window.sb_domain = '';
+    window.dt_domain = {!! json(env.dragonTigerDomain) !!};
+    window.paigow_domain = '';
+    window.lobby_domain = {!! json(env.lobbyDomain) !!};
+
+    //vendor
+    window.integrationType = {!! json(integrationType) !!};
+
+    // Currency
+    window.currencyAbbrev = {!! json(currencyAbbrev) !!};
+    window.maintenance = {!! json(maintenance) !!};
+    window.currencyMultiplier = {!! json(currencyMultiplier) !!};
+    window.userMultiplier = {!! json(userMultiplier) !!};
+    window.config = {
+      default: '{{ cfg.default }}',
+      language: '{{ cfg.language }}',
+      voice: '{{ cfg.sound.voice }}',
+      effect: '{{ cfg.sound.effect }}',
+      volume: '{{ cfg.sound.volum }}',
+      screen: '{{ cfg.screen }}',
+      tutorial: '{{ cfg.tutorial }}',
+      music: '{{ cfg.sound.music }}',
+      bgm: '{{ cfg.bgm }}'
+    };
+
+    window.rawConfig = {
+      default: {!! json(cfg.raw.default) !!},
+      language: {!! json(cfg.raw.language) !!},
+      screen: {!! json(cfg.raw.language) !!}
+    };
+
+    window.tutorial_enabled = window.config.tutorial == "true";
+    window.theme = window.config.screen;
+
+    window.username =  '{{ user.user_name }}';
+    window.money =  {!! json(money) !!};
+    window.userType =  '{{ user.user_type }}';
+    window.userId =  {!! json(user.id) !!};
+    window.userAuthority = '{{ userAuthority }}';
+    window.casino = @if(currencyAbbrev == 'KRW' || currencyAbbrev == 'THB') 'N' @else 'SS' @endif;
+    window.vendor_id = {!! json(vendor.id) !!};
+    window.vendor_type = '{{ vendor.deployment_type }}';
+    window.reel_yn = {!! json(vendor.reel_yn) !!};
+    window.room_info = {!! json(vendor.room_info_yn) !!};
+    window.mainMultiplier = {!! json(mainMultiplier) !!};
+    window.is_room = {!! json(vendor.is_room) !!};
+    window.game_settings = {!! json(gameSetting) !!};
+    window.vendorSound = '{{ vendor.is_sound }}';
+
+    window.isJunket = {!! json(junket) !!};
+    window.junketAuth = {!! json(vendor.junket_auth) !!};
+    window.vendorName = '{{ vendor.vendor_name }}';
+    window.vendorEndDate = '{{ vendor.junket_end_date }}';
+    window.vendorTables = {!! json(vendorTables) !!};
+    //agent range
+    window.agent_range =  {!! json(agentRange) !!};
+
+    window.bcSetting =  {!! json(baccaratBetSetting) !!};
+
+    window.language = {
+      locale: '{{ locale }}',
+      menu: {
+        cashin          : '{{ t('ingame.cashin') }}',
+        cashout         : '{{ t('ingame.cashout') }}',
+        exit                : '{{ t('ingame.exit') }}',
+        fullscreen          : '{{ t('ingame.fullscreen') }}',
+        howtoplay           : '{{ t('ingame.howtoplay') }}',
+        refreshvideo        : '{{ t('ingame.refreshvideo') }}',
+        playerinfo          : '{{ t('ingame.playerinfo') }}',
+        records             : '{{ t('ingame.records') }}',
+        transfer            : '{{ t('ingame.transfer') }}',
+        modifychips         : '{{ t('ingame.modifychips') }}',
+        multiplayer         : '{{ t('ingame.multiplayer') }}',
+        singleplayer        : '{{ t('ingame.singleplayer') }}',
+        singleplayercaps    : '{{ t('ingame.singleplayercaps') }}',
+        settings            : '{{ t('ingame.settings') }}',
+
+        playerinfocaps      : '{{ t('ingame.playerinfocaps') }}',
+        playername          : '{{ t('ingame.playername') }}',
+        playerbalance       : '{{ t('ingame.playerbalance') }}',
+        roundid             : '{{ t('ingame.roundid') }}',
+        dealernamecaps      : '{{ t('ingame.dealernamecaps') }}',
+        channelcaps         : '{{ t('ingame.channelcaps') }}',
+        dealercaps          : '{{ t('ingame.dealercaps') }}',
+
+        howtoplaycaps       : '{{ t('ingame.howtoplaycaps') }}',
+        gamerules           : '{{ t('ingame.gamerules') }}',
+        gameplaytutorial    : '{{ t('ingame.gameplaytutorial') }}',
+
+        recordscaps         : '{{ t('ingame.recordscaps') }}',
+        transferlogscaps    : '{{ t('ingame.transferlogscaps') }}',
+        datecaps            : '{{ t('ingame.datecaps') }}',
+        typecaps            : '{{ t('ingame.typecaps') }}',
+        oldcreditcaps       : '{{ t('ingame.oldcreditcaps') }}',
+        transferamountcaps  : '{{ t('ingame.transferamountcaps') }}',
+        newcreditcaps       : '{{ t('ingame.newcreditcaps') }}',
+        ipcaps              : '{{ t('ingame.ipcaps') }}',
+        countrycaps         : '{{ t('ingame.countrycaps') }}',
+        gametypecaps     : '{{ t('ingame.gametypecaps') }}',
+
+        betlogscaps         : '{{ t('ingame.betlogscaps') }}',
+        gamenocaps          : '{{ t('ingame.gamenocaps') }}',
+        tablecaps           : '{{ t('ingame.tablecaps') }}',
+        roomcaps            : '{{ t('ingame.roomcaps') }}',
+        startingcreditcaps  : '{{ t('ingame.startingcreditcaps') }}',
+        totalbetcaps        : '{{ t('ingame.totalbetcaps') }}',
+        totalwinningscaps   : '{{ t('ingame.totalwinningscaps') }}',
+        resultcaps          : '{{ t('ingame.resultcaps') }}',
+        betscaps            : '{{ t('ingame.betscaps') }}',
+        winningresultcaps   : '{{ t('ingame.winningresultcaps') }}',
+        wincaps             : '{{ t('ingame.wincaps') }}',
+        losecaps            : '{{ t('ingame.losecaps') }}',
+        betcaps             : '{{ t('ingame.betcaps') }}',
+        payoutcaps          : '{{ t('ingame.payoutcaps') }}',
+        bettypecaps         : '{{ t('ingame.bettypecaps') }}',
+        bonussmall          : '{{ t('ingame.bonussmall') }}',
+        normalsmall         : '{{ t('ingame.normalsmall') }}',
+        freeplay            : '{{ t('ingame.freeplay') }}',
+
+        gamehistorycaps     : '{{ t('ingame.gamehistorycaps') }}',
+
+        transferfundscaps   : '{{ t('ingame.transferfundscaps') }}',
+        enteramount         : '{{ t('ingame.enteramount') }}',
+        availablebalance    : '{{ t('ingame.availablebalance') }}',
+        transfercaps        : '{{ t('ingame.transfercaps') }}',
+
+        modifychipscaps     : '{{ t('ingame.modifychipscaps') }}',
+        changechipshere     : '{{ t('ingame.changechipshere') }}',
+        applynowcaps        : '{{ t('ingame.applynowcaps') }}',
+        clearchipscaps      : '{{ t('ingame.clearchipscaps') }}',
+
+        settingscaps        : '{{ t('ingame.settingscaps') }}',
+        mastervolume        : '{{ t('ingame.mastervolume') }}',
+        soundeffects        : '{{ t('ingame.soundeffects') }}',
+        voice               : '{{ t('ingame.voice') }}',
+        darktheme           : '{{ t('ingame.darktheme') }}',
+        showtutorial        : '{{ t('ingame.showtutorial') }}',
+
+        nodata              : '{{ t('ingame.nodata') }}',
+
+        bankercaps 			    : '{{ t('ingame.bankercaps') }}',
+        heavencaps 			    : '{{ t('ingame.heavencaps') }}',
+        upcaps 				      : '{{ t('ingame.upcaps') }}',
+        downcaps 			      : '{{ t('ingame.downcaps') }}'
+      },
+      channel: {
+        channel             : '{{ t('ingame.channel') }}',
+        bet                 : '{{ t('ingame.bet') }}'
+      },
+      bet_details: {
+        winningscaps        : '{{ t('ingame.winningscaps') }}'
+      },
+      player_info: {
+        win                 : '{{ t('ingame.win') }}',
+        lose                : '{{ t('ingame.lose') }}'
+      },
+      statistics: {
+        autobetcaps         : '{{ t('ingame.autobetcaps') }}',
+        whitecaps           : '{{ t('ingame.whitecaps') }}',
+        redcaps             : '{{ t('ingame.redcaps') }}',
+        gamestatscaps       : '{{ t('ingame.gamestatscaps') }}',
+        statscaps           : '{{ t('ingame.statscaps') }}',
+        livebetscaps        : '{{ t('ingame.livebetscaps') }}',
+        playerscaps         : '{{ t('ingame.playerscaps') }}',
+        last150results      : '{{ t('ingame.last150results') }}',
+      },
+      advanced_bet: {
+        advancebetcaps      : '{{ t('ingame.advancebetcaps') }}',
+        advancebettingcaps  : '{{ t('ingame.advancebettingcaps') }}',
+        rounds              : '{{ t('ingame.rounds') }}',
+        customcaps          : '{{ t('ingame.customcaps') }}',
+        oddcaps             : '{{ t('ingame.oddcaps') }}',
+        evencaps            : '{{ t('ingame.evencaps') }}',
+
+        msgmain             : '{{ t('ingame.msgmain') }}',
+        msgplacebets        : '{{ t('ingame.msgplacebets') }}',
+        msgminimum          : '{{ t('ingame.msgminimum') }}',
+        msgcustom           : '{{ t('ingame.msgcustom') }}',
+
+        msgodd              : '{{ t('ingame.msgodd') }}',
+        msgeven             : '{{ t('ingame.msgeven') }}',
+        msgselectrounds     : '{{ t('ingame.msgselectrounds') }}',
+        msgconfirm          : '{{ t('ingame.msgconfirm') }}',
+        msgcondition1       : '{{ t('ingame.msgcondition1') }}',
+        msgcondition2       : '{{ t('ingame.msgcondition2') }}',
+        msgcondition3       : '{{ t('ingame.msgcondition3') }}',
+        msgwait             : '{{ t('ingame.msgwait') }}',
+        msgoddplaced        : '{{ t('ingame.msgoddplaced') }}',
+        msgevenplaced       : '{{ t('ingame.msgevenplaced') }}',
+        msgclear            : '{{ t('ingame.msgclear') }}',
+        msgbalance          : '{{ t('ingame.msgbalance') }}',
+        msgbetsconfirmed    : '{{ t('ingame.msgbetsconfirmed') }}',
+        msgremaining        : '{{ t('ingame.msgremaining') }}',
+        msgwin              : '{{ t('ingame.msgwin') }}',
+        msgcancelling       : '{{ t('ingame.msgcancelling') }}',
+        msgallbetsdone      : '{{ t('ingame.msgallbetsdone') }}',
+        msgfunds            : '{{ t('ingame.msgfunds') }}'
+      },
+      game_buttons: {
+        confirmcaps         : '{{ t('ingame.confirmcaps') }}',
+        clearcaps           : '{{ t('ingame.clearcaps') }}',
+        repeatcaps          : '{{ t('ingame.repeatcaps') }}',
+        undocaps            : '{{ t('ingame.undocaps') }}'
+      },
+      prompts: {
+        promptnobets        : '{{ t('ingame.promptnobets') }}',
+        promptdealer        : '{{ t('ingame.promptdealer') }}',
+        promptmaxbet        : '{{ t('ingame.promptmaxbet') }}',
+        promptminbet        : '{{ t('ingame.promptminbet') }}',
+        promptshoechange    : '{{ t('ingame.promptshoechange') }}',
+        promptshuffling     : '{{ t('ingame.promptshuffling') }}',
+        promptmaintenance   : '{{ t('ingame.promptmaintenance') }}',
+        promptlanguage      : '{{ t('ingame.promptlanguage') }}',
+        prompttheme         : '{{ t('ingame.prompttheme') }}',
+        promptrefresh       : '{{ t('ingame.promptrefresh') }}',
+        promptyes           : '{{ t('ingame.promptyes') }}',
+        promptcancel        : '{{ t('ingame.promptcancel') }}',
+
+        promptplacebets     : '{{ t('ingame.promptplacebets') }}',
+        promptactivated     : '{{ t('ingame.promptactivated') }}',
+        promptcancelauto    : '{{ t('ingame.promptcancelauto') }}',
+        promptcancelbets    : '{{ t('ingame.promptcancelbets') }}',
+        promptautoactive    : '{{ t('ingame.promptautoactive') }}',
+        promptnoreel        : '{{ t('ingame.promptnoreel') }}',
+        sessionexpire       : '{{ t('ingame.sessionexpire') }}'
+      },
+      level:{
+        vip         : '{{ t('ingame.vip') }}',
+        premium     : '{{ t('ingame.premium') }}',
+        normal      : '{{ t('ingame.normal') }}',
+        flippy      : '{{ t('ingame.flippy') }}',
+        supersix    : '{{ t('ingame.supersix') }}',
+        bonusplus   : '{{ t('ingame.lobby_bonusplus') }}'
+      },
+      modal: {
+        exitnihtancaps      : '{{ t('ingame.exitnihtancaps') }}',
+        redirectcasino      : '{{ t('ingame.redirectcasino') }}',
+        redirectcontinue    : '{{ t('ingame.redirectcontinue') }}',
+        promptyescaps       : '{{ t('ingame.promptyescaps') }}',
+        promptnocaps        : '{{ t('ingame.promptnocaps') }}',
+        okcaps              : '{{ t('ingame.okcaps') }}',
+      },
+      lobby: {
+        livegamescaps     : '{{ t('ingame.livegamescaps') }}',
+        themedgamescaps   : '{{ t('ingame.themedgamescaps') }}',
+        reelgamescaps     : '{{ t('ingame.reelgamescaps') }}',
+        tablegamescaps    : '{{ t('ingame.tablegamescaps') }}',
+        hotlivecaps       : '{{ t('ingame.hotlivecaps') }}',
+        comingsooncaps    : '{{ t('ingame.comingsooncaps') }}',
+        newgamecaps       : '{{ t('ingame.newgamecaps') }}',
+        sooncaps          : '{{ t('ingame.sooncaps') }}',
+        newcaps           : '{{ t('ingame.newcaps') }}',
+
+        classic           : '{{ t('ingame.classic') }}',
+
+        livecaps          : '{{ t('ingame.livecaps') }}',
+        themedcaps        : '{{ t('ingame.themedcaps') }}',
+        reelcaps          : '{{ t('ingame.reelcaps') }}',
+        bethistorycaps    : '{{ t('ingame.bethistorycaps') }}',
+        transactioncaps   : '{{ t('ingame.transactioncaps') }}',
+        howtoplaycaps     : '{{ t('ingame.howtoplaycaps') }}',
+
+        baccarat          : '{{ t('ingame.baccarat') }}',
+        dragontiger       : '{{ t('ingame.dragontiger') }}',
+        poker             : '{{ t('ingame.poker') }}',
+        texas             : "{!! t('ingame.texas') !!}",
+        sicbo             : '{{ t('ingame.sicbo') }}',
+        roulette          : '{{ t('ingame.roulette') }}',
+        redwhite          : '{{ t('ingame.redwhite') }}',
+        spinwin           : "{!! t('ingame.spinwin') !!}",
+        paigow            : '{{ t('ingame.paigow') }}',
+
+        dragoncaps        : '{{ t('ingame.dragoncaps') }}',
+        tigercaps         : '{{ t('ingame.tigercaps') }}',
+        reelcaps          : '{{ t('ingame.reelcaps') }}',
+        gamescaps         : '{{ t('ingame.gamescaps') }}',
+        spincaps          : '{{ t('ingame.spincaps') }}',
+        ncaps             : '{{ t('ingame.ncaps') }}',
+
+        dragon            : '{{ t('ingame.dragon') }}',
+        tiger             : '{{ t('ingame.tiger') }}',
+
+        baccaratcaps      : '{{ t('ingame.baccaratcaps') }}',
+        supersixcaps      : '{{ t('ingame.supersixcaps') }}',
+        dragontigercaps   : '{{ t('ingame.dragontigercaps') }}',
+        pokercaps         : '{{ t('ingame.pokercaps') }}',
+        bonuspluscaps     : '{{ t('ingame.bonuspluscaps') }}',
+        dragonbonuscaps   : '{{ t('ingame.dragonbonuscaps') }}',
+        texascaps         : "{!! t('ingame.texascaps') !!}",
+        sicbocaps         : '{{ t('ingame.sicbocaps') }}',
+        roulettecaps      : '{{ t('ingame.roulettecaps') }}',
+        redwhitecaps      : '{{ t('ingame.redwhitecaps') }}',
+        spinwincaps       : "{!! t('ingame.spinwincaps') !!}",
+        bonusbaccaratcaps : "{{ t('ingame.bonusbaccaratcaps') }}",
+        kagamingreelcaps  : "{{ t('ingame.kagamingreelcaps') }}",
+        betsoftreelcaps   : "{{ t('ingame.betsoftreelcaps') }}",
+        paigowcaps            : '{!! t('ingame.paigowcaps') !!}',
+
+        allgamescaps      : '{{ t('ingame.allgamescaps') }}',
+        hotgamescaps      : '{{ t('ingame.hotgamescaps') }}',
+        entercaps         : '{{ t('ingame.entercaps') }}',
+        latestresultcaps  : '{{ t('ingame.latestresultcaps') }}',
+        gamecaps          : '{{ t('ingame.gamecaps') }}',
+        gameroutecaps     : '{{ t('ingame.gameroutecaps') }}',
+        last5roundscaps   : '{{ t('ingame.last5roundscaps') }}',
+        roadmapcaps       : '{{ t('ingame.roadmapcaps') }}',
+
+
+        playnow           : '{{ t('ingame.playnow') }}',
+        nowbetting        : '{{ t('ingame.nowbetting') }}',
+        bettingend        : '{{ t('ingame.bettingend') }}',
+        result            : '{{ t('ingame.result') }}',
+        set               : '{{ t('ingame.set') }}',
+        game              : '{{ t('ingame.game') }}',
+        deal              : '{{ t('ingame.deal') }}',
+        latestresult      : '{{ t('ingame.latestresult') }}',
+        newround          : '{{ t('ingame.newround') }}',
+        roundhold         : '{{ t('ingame.roundhold') }}',
+        dealing           : '{{ t('ingame.dealing') }}',
+        cardswipe         : '{{ t('ingame.cardswipe') }}',
+        total             : '{{ t('ingame.total') }}',
+
+        bettinghistory    : '{{ t('ingame.bettinghistory') }}',
+        transactions      : '{{ t('ingame.transactions') }}',
+
+        bankercaps        : '{{ t('ingame.bankercaps') }}',
+        playercaps        : '{{ t('ingame.playercaps') }}',
+        dealerspaced      : '{{ t('ingame.dealerspaced') }}',
+        playerspaced      : '{{ t('ingame.playerspaced') }}',
+
+        account           : '{{ t('ingame.account') }}',
+        avatar            : '{{ t('ingame.avatar') }}',
+        language          : '{{ t('ingame.language') }}',
+
+        maintextCap1      : '{{ t('ingame.maintextCap1') }}',
+        subtextCap1       : '{{ t('ingame.subtextCap1') }}',
+
+        maintextCap2      : "{!! t('ingame.maintextCap2') !!}",
+        subtextCap2       : '{{ t('ingame.subtextCap2') }}',
+
+        maintextCap3      : '{{ t('ingame.maintextCap3') }}',
+        subtextCap3       : '{{ t('ingame.subtextCap3') }}',
+
+        request           : '{{ t('ingame.request') }}',
+        join              : '{{ t('ingame.join') }}',
+        create_room       : '{{ t('ingame.create_room') }}',
+        bet_range         : '{{ t('ingame.bet_range') }}',
+        banker_capital    : '{{ t('ingame.banker_capital') }}',
+        paigow_heaven       : '{{ t('ingame.paigow_heaven') }}',
+            paigow_banker       : '{{ t('ingame.paigow_banker') }}',
+            paigow_up             : '{{ t('ingame.paigow_up') }}',
+        paigow_down         : '{{ t('ingame.paigow_down') }}',
+      },
+      red_white: {
+        redwins             : '{{ t('ingame.redwins') }}',
+        whitewins           : '{{ t('ingame.whitewins') }}',
+        bonus               : '{{ t('ingame.rw_bonus') }}',
+        jackpot             : '{{ t('ingame.jackpot') }}',
+        bonuscaps           : '{{ t('ingame.bonuscaps') }}',
+        jackpotcaps         : '{{ t('ingame.jackpotcaps') }}'
+      },
+      poker: {
+        gameno              : '{{ t('ingame.gameno') }}',
+        player              : '{{ t('ingame.player') }}',
+        communitycard       : '{{ t('ingame.communitycard') }}',
+        dealer              : '{{ t('ingame.dealer') }}',
+        betflop             : '{{ t('ingame.betflop') }}',
+        betturn             : '{{ t('ingame.betturn') }}',
+        betriver            : '{{ t('ingame.betriver') }}',
+
+        pokerbonuscaps      : '{{ t('ingame.pokerbonuscaps') }}',
+        antecaps            : '{{ t('ingame.antecaps') }}',
+        flopcaps            : '{{ t('ingame.flopcaps') }}',
+        turncaps            : '{{ t('ingame.turncaps') }}',
+        rivercaps           : '{{ t('ingame.rivercaps') }}'
+      },
+      sicbo: {
+        oddevencaps         : '{{ t('ingame.oddevencaps') }}',
+        bigsmallcaps        : '{{ t('ingame.bigsmallcaps') }}',
+        sumcaps             : '{{ t('ingame.sumcaps') }}',
+        dicecaps            : '{{ t('ingame.dicecaps') }}',
+        hotcaps             : '{{ t('ingame.hotcaps') }}',
+        coldcaps            : '{{ t('ingame.coldcaps') }}',
+        oddcaps             : '{{ t('ingame.oddcaps') }}',
+        evencaps            : '{{ t('ingame.evencaps') }}',
+        bigcaps             : '{{ t('ingame.bigcaps') }}',
+        smallcaps           : '{{ t('ingame.smallcaps') }}',
+        doublecaps          : '{{ t('ingame.doublecaps') }}',
+        triplecaps          : '{{ t('ingame.triplecaps') }}'
+      },
+      dragontiger: {
+        dragonwins      : '{{ t('ingame.dragonwins') }}',
+        tigerwins       : '{{ t('ingame.tigerwins') }}',
+        tiewins         : '{{ t('ingame.tie') }}',
+        suitedtiewins   : '{{ t('ingame.suitedtie') }}'
+      },
+      baccarat: {
+        bankerwins      : '{{ t('ingame.bankerwins') }}',
+        playerwins      : '{{ t('ingame.playerwins') }}',
+        tiewins         : '{{ t('ingame.tie') }}'
+      },
+
+      rooms : {
+        roomname : '{{ t('ingame.room_name') }}',
+        classic : '{{ t('ingame.classic') }}',
+        cancel : '{{ t('ingame.cancel') }}',
+      }
+    }
+
+    window.language2 = {
+      locale: '{{ locale }}',
+
+      /***** Lobby ******/
+      // Game Names
+      lobby_gamename_baccarat: '{{ t('ingame-web.lobby_gamename_baccarat') }}',
+      lobby_gamename_flippybaccarat: '{{ t('ingame-web.lobby_gamename_flippybaccarat') }}',
+      lobby_gamename_supersix: '{{ t('ingame-web.lobby_gamename_supersix') }}',
+      lobby_gamename_dragonbonus: '{{ t('ingame-web.lobby_gamename_dragonbonus') }}',
+      lobby_gamename_sicbo: '{{ t('ingame-web.lobby_gamename_sicbo') }}',
+      lobby_gamename_poker: '{{ t('ingame-web.lobby_gamename_poker') }}',
+      lobby_gamename_texasholdem: '{{ t('ingame-web.lobby_gamename_texasholdem') }}',
+      lobby_gamename_texasholdembonusplus: '{{ t('ingame-web.lobby_gamename_texasholdembonusplus') }}',
+      lobby_gamename_dragontiger: '{{ t('ingame-web.lobby_gamename_dragontiger') }}',
+      lobby_gamename_paigow: '{{ t('ingame-web.lobby_gamename_paigow') }}',
+      lobby_gamename_crazypaigow: '{{ t('ingame-web.lobby_gamename_crazypaigow') }}',
+      lobby_gamename_redwhite: '{{ t('ingame-web.lobby_gamename_redwhite') }}',
+      lobby_gamename_roulette: '{{ t('ingame-web.lobby_gamename_roulette') }}',
+      lobby_gamename_europeanroulette: '{{ t('ingame-web.lobby_gamename_europeanroulette') }}',
+
+      // Header
+      lobby_header_baccarat: '{{ t('ingame-web.lobby_header_baccarat') }}',
+      lobby_header_othergames: '{{ t('ingame-web.lobby_header_othergames') }}',
+      lobby_header_reelgames: '{{ t('ingame-web.lobby_header_reelgames') }}',
+      lobby_header_classic: '{{ t('ingame-web.lobby_header_classic') }}',
+      lobby_header_rooms: '{{ t('ingame-web.lobby_header_rooms') }}',
+      lobby_header_sicborooms: '{{ t('ingame-web.lobby_header_sicborooms') }}',
+      lobby_header_paigowrooms: '{{ t('ingame-web.lobby_header_paigowrooms') }}',
+      lobby_header_multibet: '{{ t('ingame-web.lobby_header_multibet') }}',
+      lobby_header_howtoplay: '{{ t('ingame-web.lobby_header_howtoplay') }}',
+      lobby_header_bethistory: '{{ t('ingame-web.lobby_header_bethistory') }}',
+      lobby_header_transactions: '{{ t('ingame-web.lobby_header_transactions') }}',
+      lobby_header_transactionhistory: '{{ t('ingame-web.lobby_header_transactionhistory') }}',
+      lobby_header_settings: '{{ t('ingame-web.lobby_header_settings') }}',
+      lobby_header_username: '{{ t('ingame-web.lobby_header_username') }}',
+      lobby_header_logout: '{{ t('ingame-web.lobby_header_logout') }}',
+      lobby_header_junket: '{{ t('ingame-web.lobby_header_junket') }}',
+
+      // Settings
+      lobby_settings_video: '{{ t('ingame-web.lobby_settings_video') }}',
+      lobby_settings_videoquality: '{{ t('ingame-web.lobby_settings_videoquality') }}',
+      lobby_settings_hd: '{{ t('ingame-web.lobby_settings_hd') }}',
+      lobby_settings_sd: '{{ t('ingame-web.lobby_settings_sd') }}',
+      lobby_settings_sound: '{{ t('ingame-web.lobby_settings_sound') }}',
+      lobby_settings_dealersvoice: '{{ t('ingame-web.lobby_settings_dealersvoice') }}',
+      lobby_settings_gamesound: '{{ t('ingame-web.lobby_settings_gamesound') }}',
+      lobby_settings_display: '{{ t('ingame-web.lobby_settings_display') }}',
+      lobby_settings_darktheme: '{{ t('ingame-web.lobby_settings_darktheme') }}',
+      lobby_settings_showtutorial: '{{ t('ingame-web.lobby_settings_showtutorial') }}',
+      lobby_settings_language: '{{ t('ingame-web.lobby_settings_language') }}',
+      lobby_settings_avatar: '{{ t('ingame-web.lobby_settings_avatar') }}',
+      lobby_settings_music: '{{ t('ingame-web.lobby_settings_music') }}',
+
+      // Baccarat Page
+      lobby_baccaratpage_main: '{{ t('ingame-web.lobby_baccaratpage_main') }}',
+      lobby_baccaratpage_premium: '{{ t('ingame-web.lobby_baccaratpage_premium') }}',
+      lobby_baccaratpage_vip: '{{ t('ingame-web.lobby_baccaratpage_vip') }}',
+      lobby_baccaratpage_flippymain: '{{ t('ingame-web.lobby_baccaratpage_flippymain') }}',
+      lobby_baccaratpage_flippyvip: '{{ t('ingame-web.lobby_baccaratpage_flippyvip') }}',
+      lobby_baccaratpage_dealing: '{{ t('ingame-web.lobby_baccaratpage_dealing') }}',
+      lobby_baccaratpage_nowbetting00: '{{ t('ingame-web.lobby_baccaratpage_nowbetting00') }}',
+      lobby_baccaratpage_playerwins: '{{ t('ingame-web.lobby_baccaratpage_playerwins') }}',
+      lobby_baccaratpage_bankerwins: '{{ t('ingame-web.lobby_baccaratpage_bankerwins') }}',
+      lobby_baccaratpage_shuffling: '{{ t('ingame-web.lobby_baccaratpage_shuffling') }}',
+      lobby_baccaratpage_player: '{{ t('ingame-web.lobby_baccaratpage_player') }}',
+      lobby_baccaratpage_banker: '{{ t('ingame-web.lobby_baccaratpage_banker') }}',
+      lobby_baccaratpage_singleplayer: '{{ t('ingame-web.lobby_baccaratpage_singleplayer') }}',
+      lobby_baccaratpage_multiplayer: '{{ t('ingame-web.lobby_baccaratpage_multiplayer') }}',
+
+      // Game Status
+      lobby_gamestatus_nowbetting: '{{ t('ingame-web.lobby_gamestatus_nowbetting') }}',
+      lobby_gamestatus_bettingend: '{{ t('ingame-web.lobby_gamestatus_bettingend') }}',
+      lobby_gamestatus_nowdealing: '{{ t('ingame-web.lobby_gamestatus_nowdealing') }}',
+      lobby_gamestatus_shoechange: '{{ t('ingame-web.lobby_gamestatus_shoechange') }}',
+      lobby_gamestatus_maintenance: '{{ t('ingame-web.lobby_gamestatus_maintenance') }}',
+      lobby_gamestatus_shaking: '{{ t('ingame-web.lobby_gamestatus_shaking') }}',
+
+      /***** Common Subpages ******/
+      // Settings
+      com_sub_settings_video: '{{ t('ingame-web.com_sub_settings_video') }}',
+      com_sub_settings_videoquality:'{{ t('ingame-web.com_sub_settings_videoquality') }}',
+      com_sub_settings_hd:'{{ t('ingame-web.com_sub_settings_hd') }}',
+      com_sub_settings_sd: '{{ t('ingame-web.com_sub_settings_sd') }}',
+      com_sub_settings_sound:'{{ t('ingame-web.com_sub_settings_sound') }}',
+      com_sub_settings_dealersvoice:'{{ t('ingame-web.com_sub_settings_dealersvoice') }}',
+      com_sub_settings_gamesound: '{{ t('ingame-web.com_sub_settings_gamesound') }}',
+      com_sub_settings_display:'{{ t('ingame-web.com_sub_settings_display') }}',
+      com_sub_settings_darktheme:'{{ t('ingame-web.com_sub_settings_darktheme') }}',
+      com_sub_settings_showtutorial: '{{ t('ingame-web.com_sub_settings_showtutorial') }}',
+      com_sub_settings_language:'{{ t('ingame-web.com_sub_settings_language') }}',
+      com_sub_settings_avatar:'{{ t('ingame-web.com_sub_settings_avatar') }}',
+      com_sub_settings_music:'{{ t('ingame-web.com_sub_settings_music') }}',
+
+      // Bet layout
+      com_sub_betlayout_singleplayer:'{{ t('ingame-web.com_sub_betlayout_singleplayer') }}',
+      com_sub_betlayout_multiplayer: '{{ t('ingame-web.com_sub_betlayout_multiplayer') }}',
+
+      // Menu Area
+      com_sub_menuarea_betlogs:'{{ t('ingame-web.com_sub_menuarea_betlogs') }}',
+      com_sub_menuarea_gameno:'{{ t('ingame-web.com_sub_menuarea_gameno') }}',
+      com_sub_menuarea_date:'{{ t('ingame-web.com_sub_menuarea_date') }}',
+      com_sub_menuarea_dealername: '{{ t('ingame-web.com_sub_menuarea_dealername') }}',
+      com_sub_menuarea_totalbet:'{{ t('ingame-web.com_sub_menuarea_totalbet') }}',
+      com_sub_menuarea_channel:'{{ t('ingame-web.com_sub_menuarea_channel') }}',
+      com_sub_menuarea_winlose: '{{ t('ingame-web.com_sub_menuarea_winlose') }}',
+      com_sub_menuarea_newbalance:'{{ t('ingame-web.com_sub_menuarea_newbalance') }}',
+      com_sub_menuarea_winningresult:'{{ t('ingame-web.com_sub_menuarea_winningresult') }}',
+      com_sub_menuarea_gamevoid:'{{ t('ingame-web.com_sub_menuarea_gamevoid') }}',
+      com_sub_menuarea_game: '{{ t('ingame-web.com_sub_menuarea_game') }}',
+      com_sub_menuarea_bettype:'{{ t('ingame-web.com_sub_menuarea_bettype') }}',
+      com_sub_menuarea_players:'{{ t('ingame-web.com_sub_menuarea_players') }}',
+      com_sub_menuarea_bets: '{{ t('ingame-web.com_sub_menuarea_bets') }}',
+      com_sub_menuarea_total:'{{ t('ingame-web.com_sub_menuarea_total') }}',
+      com_sub_menuarea_rooms:'{{ t('ingame-web.com_sub_menuarea_rooms') }}',
+      com_sub_menuarea_videosettings:'{{ t('ingame-web.com_sub_menuarea_videosettings') }}',
+      com_sub_menuarea_refreshvideo:'{{ t('ingame-web.com_sub_menuarea_refreshvideo') }}',
+      com_sub_menuarea_fullscreen:'{{ t('ingame-web.com_sub_menuarea_fullscreen') }}',
+      com_sub_menuarea_multibet:'{{ t('ingame-web.com_sub_menuarea_multibet') }}',
+      com_sub_menuarea_chat:'{{ t('ingame-web.com_sub_menuarea_chat') }}',
+      com_sub_menuarea_userinfo:'{{ t('ingame-web.com_sub_menuarea_userinfo') }}',
+      com_sub_menuarea_roominfo:'{{ t('ingame-web.com_sub_menuarea_roominfo') }}',
+      com_sub_menuarea_howtoplay:'{{ t('ingame-web.com_sub_menuarea_howtoplay') }}',
+      com_sub_menuarea_bethistory:'{{ t('ingame-web.com_sub_menuarea_bethistory') }}',
+      com_sub_menuarea_settings:'{{ t('ingame-web.com_sub_menuarea_settings') }}',
+      com_sub_menuarea_allgames:'{{ t('ingame-web.com_sub_menuarea_allgames') }}',
+
+      // Rooms
+      com_sub_rooms_roomnamehere:'{{ t('ingame-web.com_sub_rooms_roomnamehere') }}',
+      com_sub_rooms_roomname:'{{ t('ingame-web.com_sub_rooms_roomname') }}',
+      com_sub_rooms_totalbets:'{{ t('ingame-web.com_sub_rooms_totalbets') }}',
+      com_sub_rooms_totalplayers:'{{ t('ingame-web.com_sub_rooms_totalplayers') }}',
+      com_sub_rooms_minimumcapital:'{{ t('ingame-web.com_sub_rooms_minimumcapital') }}',
+      com_sub_rooms_bankercapital:'{{ t('ingame-web.com_sub_rooms_bankercapital') }}',
+      com_sub_rooms_username:'{{ t('ingame-web.com_sub_rooms_username') }}',
+      com_sub_rooms_balance:'{{ t('ingame-web.com_sub_rooms_balance') }}',
+      com_sub_rooms_changepassword:'{{ t('ingame-web.com_sub_rooms_changepassword') }}',
+      com_sub_rooms_makepublic:'{{ t('ingame-web.com_sub_rooms_makepublic') }}',
+      com_sub_rooms_inputnewroompassword:'{{ t('ingame-web.com_sub_rooms_inputnewroompassword') }}',
+      com_sub_rooms_confirmpassword:'{{ t('ingame-web.com_sub_rooms_confirmpassword') }}',
+      com_sub_rooms_cancel:'{{ t('ingame-web.com_sub_rooms_cancel') }}',
+      com_sub_rooms_confirm:'{{ t('ingame-web.com_sub_rooms_confirm') }}',
+      com_sub_rooms_backtolobby:'{{ t('ingame-web.com_sub_rooms_backtolobby') }}',
+      com_sub_rooms_ok:'{{ t('ingame-web.com_sub_rooms_ok') }}',
+      com_sub_rooms_yes:'{{ t('ingame-web.com_sub_rooms_yes') }}',
+      com_sub_rooms_no:'{{ t('ingame-web.com_sub_rooms_no') }}',
+      com_sub_rooms_removeroom:'{{ t('ingame-web.com_sub_rooms_removeroom') }}',
+      com_sub_rooms_inputroompassword:'{{ t('ingame-web.com_sub_rooms_inputroompassword') }}',
+      com_sub_rooms_removeroompassword:'{{ t('ingame-web.com_sub_rooms_removeroompassword') }}',
+      com_sub_rooms_gameprogress:'{{ t('ingame-web.com_sub_rooms_gameprogress') }}',
+      com_sub_rooms_closetheroom:'{{ t('ingame-web.com_sub_rooms_closetheroom') }}',
+      com_sub_rooms_lowfunds:'{{ t('ingame-web.com_sub_rooms_lowfunds') }}',
+      com_sub_rooms_notenoughbalance:'{{ t('ingame-web.com_sub_rooms_notenoughbalance') }}',
+      com_sub_rooms_notenoughplayers:'{{ t('ingame-web.com_sub_rooms_notenoughplayers') }}',
+      com_sub_rooms_bankerleftroom:'{{ t('ingame-web.com_sub_rooms_bankerleftroom') }}',
+      com_sub_rooms_continuebetting:'{{ t('ingame-web.com_sub_rooms_continuebetting') }}',
+      com_sub_rooms_removebybanker:'{{ t('ingame-web.com_sub_rooms_removebybanker') }}',
+
+      // Bet Info Area
+      com_sub_betinfoarea_betlimits:'{{ t('ingame-web.com_sub_betinfoarea_betlimits') }}',
+      com_sub_betinfoarea_bettype:'{{ t('ingame-web.com_sub_betinfoarea_bettype') }}',
+      com_sub_betinfoarea_min:'{{ t('ingame-web.com_sub_betinfoarea_min') }}',
+      com_sub_betinfoarea_max:'{{ t('ingame-web.com_sub_betinfoarea_max') }}',
+      com_sub_betinfoarea_payouts:'{{ t('ingame-web.com_sub_betinfoarea_payouts') }}',
+      com_sub_betinfoarea_livebets:'{{ t('ingame-web.com_sub_betinfoarea_livebets') }}',
+      com_sub_betinfoarea_bets:'{{ t('ingame-web.com_sub_betinfoarea_bets') }}',
+      com_sub_betinfoarea_players:'{{ t('ingame-web.com_sub_betinfoarea_players') }}',
+      com_sub_betinfoarea_total:'{{ t('ingame-web.com_sub_betinfoarea_total') }}',
+
+      // Bottom Game Details
+      com_sub_bottomgamedetails_bet:'{{ t('ingame-web.com_sub_bottomgamedetails_bet') }}',
+      com_sub_bottomgamedetails_win:'{{ t('ingame-web.com_sub_bottomgamedetails_win') }}',
+      com_sub_bottomgamedetails_modifychips:'{{ t('ingame-web.com_sub_bottomgamedetails_modifychips') }}',
+      com_sub_bottomgamedetails_clearchips:'{{ t('ingame-web.com_sub_bottomgamedetails_clearchips') }}',
+      com_sub_bottomgamedetails_applynow:'{{ t('ingame-web.com_sub_bottomgamedetails_applynow') }}',
+
+      // Ingame Prompts
+      com_sub_ingameprompts_gamenametable:'{{ t('ingame-web.com_sub_ingameprompts_gamenametable') }}',
+      com_sub_ingameprompts_baccarattable:'{{ t('ingame-web.com_sub_ingameprompts_baccarattable') }}',
+      com_sub_ingameprompts_nomorebets:'{{ t('ingame-web.com_sub_ingameprompts_nomorebets') }}',
+      com_sub_ingameprompts_dealerchanged:'{{ t('ingame-web.com_sub_ingameprompts_dealerchanged') }}',
+      com_sub_ingameprompts_maxbetexceeded:'{{ t('ingame-web.com_sub_ingameprompts_maxbetexceeded') }}',
+      com_sub_ingameprompts_minimumbetrequired:'{{ t('ingame-web.com_sub_ingameprompts_minimumbetrequired') }}',
+      com_sub_ingameprompts_shoechange:'{{ t('ingame-web.com_sub_ingameprompts_shoechange') }}',
+      com_sub_ingameprompts_shuffling:'{{ t('ingame-web.com_sub_ingameprompts_shuffling') }}',
+      com_sub_ingameprompts_burncard:'{{ t('ingame-web.com_sub_ingameprompts_burncard') }}',
+      com_sub_ingameprompts_announcements:'{{ t('ingame-web.com_sub_ingameprompts_announcements') }}',
+      com_sub_ingameprompts_alert:'{{ t('ingame-web.com_sub_ingameprompts_alert') }}',
+      com_sub_ingameprompts_notbet7rounds:'{{ t('ingame-web.com_sub_ingameprompts_notbet7rounds') }}',
+      com_sub_ingameprompts_antebetrequired:'{{ t('ingame-web.com_sub_ingameprompts_antebetrequired') }}',
+      com_sub_ingameprompts_unabletochange:'{{ t('ingame-web.com_sub_ingameprompts_unabletochange') }}',
+      com_sub_ingameprompts_betfailed:'{{ t('ingame-web.com_sub_ingameprompts_betfailed') }}',
+      com_sub_ingameprompts_shoechanged:'{{ t('ingame-web.com_sub_ingameprompts_shoechanged') }}',
+      com_sub_ingameprompts_tapactivatesound:'{{ t('ingame-web.com_sub_ingameprompts_tapactivatesound') }}',
+
+      /***** Other Prompts ******/
+      // Mobile
+      other_prompts_mobile_fullscreen:'{{ t('ingame-web.other_prompts_mobile_fullscreen') }}',
+      other_prompts_mobile_nodata:'{{ t('ingame-web.other_prompts_mobile_nodata') }}',
+      other_prompts_mobile_flashplayer:'{{ t('ingame-web.other_prompts_mobile_flashplayer') }}',
+
+      /***** Baccaarat ******/
+      // Bet Layout
+      baccarat_betlayout_player:'{{ t('ingame-web.baccarat_betlayout_player') }}',
+      baccarat_betlayout_banker:'{{ t('ingame-web.baccarat_betlayout_banker') }}',
+      baccarat_betlayout_tie:'{{ t('ingame-web.baccarat_betlayout_tie') }}',
+      baccarat_betlayout_bankerpair:'{{ t('ingame-web.baccarat_betlayout_bankerpair') }}',
+      baccarat_betlayout_playerpair:'{{ t('ingame-web.baccarat_betlayout_playerpair') }}',
+      baccarat_betlayout_big:'{{ t('ingame-web.baccarat_betlayout_big') }}',
+      baccarat_betlayout_small:'{{ t('ingame-web.baccarat_betlayout_small') }}',
+      baccarat_betlayout_bonus:'{{ t('ingame-web.baccarat_betlayout_bonus') }}',
+      baccarat_betlayout_classic:'{{ t('ingame-web.baccarat_betlayout_classic') }}',
+
+      // Winning Display
+      baccarat_winningdisplay_playerwins:'{{ t('ingame-web.baccarat_winningdisplay_playerwins') }}',
+      baccarat_winningdisplay_bankerwins:'{{ t('ingame-web.baccarat_winningdisplay_bankerwins') }}',
+      baccarat_winningdisplay_tie:'{{ t('ingame-web.baccarat_winningdisplay_tie') }}',
+      baccarat_winningdisplay_bonusbaccarat:'{{ t('ingame-web.baccarat_winningdisplay_bonusbaccarat') }}',
+      baccarat_winningdisplay_supersix:'{{ t('ingame-web.baccarat_winningdisplay_supersix') }}',
+      baccarat_winningdisplay_dragonbonus:'{{ t('ingame-web.baccarat_winningdisplay_dragonbonus') }}',
+      baccarat_winningdisplay_openall:'{{ t('ingame-web.baccarat_winningdisplay_openall') }}',
+      baccarat_winningdisplay_open:'{{ t('ingame-web.baccarat_winningdisplay_open') }}',
+      baccarat_winningdisplay_bankerpair:'{{ t('ingame-web.baccarat_winningdisplay_bankerpair') }}',
+      baccarat_winningdisplay_playerpair:'{{ t('ingame-web.baccarat_winningdisplay_playerpair') }}',
+
+      /***** Poker ******/
+      // Bet Layout
+      poker_betlayout_player:'{{ t('ingame-web.poker_betlayout_player') }}',
+      poker_betlayout_dealer:'{{ t('ingame-web.poker_betlayout_dealer') }}',
+      poker_betlayout_community:'{{ t('ingame-web.poker_betlayout_community') }}',
+      poker_betlayout_ante:'{{ t('ingame-web.poker_betlayout_ante') }}',
+      poker_betlayout_flop:'{{ t('ingame-web.poker_betlayout_flop') }}',
+      poker_betlayout_turn:'{{ t('ingame-web.poker_betlayout_turn') }}',
+      poker_betlayout_river:'{{ t('ingame-web.poker_betlayout_river') }}',
+      poker_betlayout_check:'{{ t('ingame-web.poker_betlayout_check') }}',
+      poker_betlayout_raise:'{{ t('ingame-web.poker_betlayout_raise') }}',
+      poker_betlayout_classic:'{{ t('ingame-web.poker_betlayout_classic') }}',
+      poker_betlayout_bonus:'{{ t('ingame-web.poker_betlayout_bonus') }}',
+      poker_betlayout_bonusplus:'{{ t('ingame-web.poker_betlayout_bonusplus') }}',
+      poker_betlayout_pocket:'{{ t('ingame-web.poker_betlayout_pocket') }}',
+
+      // Winning Display
+      poker_winningdisplay_playerwins:'{{ t('ingame-web.poker_winningdisplay_playerwins') }}',
+      poker_winningdisplay_dealerwins:'{{ t('ingame-web.poker_winningdisplay_dealerwins') }}',
+      poker_winningdisplay_royalflush:'{{ t('ingame-web.poker_winningdisplay_royalflush') }}',
+      poker_winningdisplay_straightflush:'{{ t('ingame-web.poker_winningdisplay_straightflush') }}',
+      poker_winningdisplay_fourofakind:'{{ t('ingame-web.poker_winningdisplay_fourofakind') }}',
+      poker_winningdisplay_fullhouse:'{{ t('ingame-web.poker_winningdisplay_fullhouse') }}',
+      poker_winningdisplay_flush:'{{ t('ingame-web.poker_winningdisplay_flush') }}',
+      poker_winningdisplay_straight:'{{ t('ingame-web.poker_winningdisplay_straight') }}',
+      poker_winningdisplay_threeofakind:'{{ t('ingame-web.poker_winningdisplay_threeofakind') }}',
+      poker_winningdisplay_twopairs:'{{ t('ingame-web.poker_winningdisplay_twopairs') }}',
+      poker_winningdisplay_pair:'{{ t('ingame-web.poker_winningdisplay_pair') }}',
+      poker_winningdisplay_highcard:'{{ t('ingame-web.poker_winningdisplay_highcard') }}',
+      poker_winningdisplay_tie:'{{ t('ingame-web.poker_winningdisplay_tie') }}',
+
+      /***** Sicbo ******/
+      // Bet Layout
+      sicbo_betlayout_hot:'{{ t('ingame-web.sicbo_betlayout_hot') }}',
+      sicbo_betlayout_cold:'{{ t('ingame-web.sicbo_betlayout_cold') }}',
+      sicbo_betlayout_odd:'{{ t('ingame-web.sicbo_betlayout_odd') }}',
+      sicbo_betlayout_even:'{{ t('ingame-web.sicbo_betlayout_even') }}',
+      sicbo_betlayout_big:'{{ t('ingame-web.sicbo_betlayout_big') }}',
+      sicbo_betlayout_small:'{{ t('ingame-web.sicbo_betlayout_small') }}',
+      sicbo_betlayout_double:'{{ t('ingame-web.sicbo_betlayout_double') }}',
+      sicbo_betlayout_triple:'{{ t('ingame-web.sicbo_betlayout_triple') }}',
+      sicbo_betlayout_anytriple:'{{ t('ingame-web.sicbo_betlayout_anytriple') }}',
+      sicbo_betlayout_1wins5:'{{ t('ingame-web.sicbo_betlayout_1wins5') }}',
+
+      /***** Dragon Tiger ******/
+      // Bet Layout
+      dragontiger_betlayout_dragon:'{{ t('ingame-web.dragontiger_betlayout_dragon') }}',
+      dragontiger_betlayout_tiger:'{{ t('ingame-web.dragontiger_betlayout_tiger') }}',
+      dragontiger_betlayout_tie:'{{ t('ingame-web.dragontiger_betlayout_tie') }}',
+      dragontiger_betlayout_even:'{{ t('ingame-web.dragontiger_betlayout_even') }}',
+      dragontiger_betlayout_odd:'{{ t('ingame-web.dragontiger_betlayout_odd') }}',
+      dragontiger_betlayout_big:'{{ t('ingame-web.dragontiger_betlayout_big') }}',
+      dragontiger_betlayout_small:'{{ t('ingame-web.dragontiger_betlayout_small') }}',
+      dragontiger_betlayout_suitedtie:'{{ t('ingame-web.dragontiger_betlayout_suitedtie') }}',
+
+      // Winning Display
+      dragontiger_winningdisplay_dragonwins:'{{ t('ingame-web.dragontiger_winningdisplay_dragonwins') }}',
+      dragontiger_winningdisplay_tigerwins:'{{ t('ingame-web.dragontiger_winningdisplay_tigerwins') }}',
+      dragontiger_winningdisplay_tie:'{{ t('ingame-web.dragontiger_winningdisplay_tie') }}',
+
+      /***** Crazy Pai Gow ******/
+      // Bet Layout
+      paigow_betlayout_heaven:'{{ t('ingame-web.paigow_betlayout_heaven') }}',
+      paigow_betlayout_banker:'{{ t('ingame-web.paigow_betlayout_banker') }}',
+      paigow_betlayout_up:'{{ t('ingame-web.paigow_betlayout_up') }}',
+      paigow_betlayout_down:'{{ t('ingame-web.paigow_betlayout_down') }}',
+      paigow_betlayout_classic:'{{ t('ingame-web.paigow_betlayout_classic') }}',
+      paigow_betlayout_bankermode:'{{ t('ingame-web.paigow_betlayout_bankermode') }}',
+      paigow_betlayout_playermode:'{{ t('ingame-web.paigow_betlayout_playermode') }}',
+
+      // Winning Display
+      paigow_winningdisplay_bankerwins:'{{ t('ingame-web.paigow_winningdisplay_bankerwins') }}',
+      paigow_winningdisplay_upwins:'{{ t('ingame-web.paigow_winningdisplay_upwins') }}',
+      paigow_winningdisplay_playerwins:'{{ t('ingame-web.paigow_winningdisplay_playerwins') }}',
+      paigow_winningdisplay_heavenwins:'{{ t('ingame-web.paigow_winningdisplay_heavenwins') }}',
+      paigow_winningdisplay_downwins:'{{ t('ingame-web.paigow_winningdisplay_downwins') }}',
+      paigow_winningdisplay_bankerpair:'{{ t('ingame-web.paigow_winningdisplay_bankerpair') }}',
+      paigow_winningdisplay_uppair:'{{ t('ingame-web.paigow_winningdisplay_uppair') }}',
+      paigow_winningdisplay_heavenpair:'{{ t('ingame-web.paigow_winningdisplay_heavenpair') }}',
+      paigow_winningdisplay_downpair:'{{ t('ingame-web.paigow_winningdisplay_downpair') }}',
+      paigow_winningdisplay_heavendownpair:'{{ t('ingame-web.paigow_winningdisplay_heavendownpair') }}',
+      paigow_winningdisplay_updownpair:'{{ t('ingame-web.paigow_winningdisplay_updownpair') }}',
+      paigow_winningdisplay_upheavenpair:'{{ t('ingame-web.paigow_winningdisplay_upheavenpair') }}',
+      paigow_winningdisplay_upheavendownpair:'{{ t('ingame-web.paigow_winningdisplay_upheavendownpair') }}',
+
+      /***** Nihtan Junket ******/
+      // Lobby
+      nihtanjunket_lobby_roomlimit:'{{ t('ingame-web.nihtanjunket_lobby_roomlimit') }}',
+      nihtanjunket_lobby_createroom:'{{ t('ingame-web.nihtanjunket_lobby_createroom') }}',
+      nihtanjunket_lobby_close:'{{ t('ingame-web.nihtanjunket_lobby_close') }}',
+      nihtanjunket_lobby_roomname:'{{ t('ingame-web.nihtanjunket_lobby_roomname') }}',
+      nihtanjunket_lobby_gameduration:'{{ t('ingame-web.nihtanjunket_lobby_gameduration') }}',
+      nihtanjunket_lobby_nolimit:'{{ t('ingame-web.nihtanjunket_lobby_nolimit') }}',
+      nihtanjunket_lobby_setlimit:'{{ t('ingame-web.nihtanjunket_lobby_setlimit') }}',
+      nihtanjunket_lobby_bettype:'{{ t('ingame-web.nihtanjunket_lobby_bettype') }}',
+      nihtanjunket_lobby_gametype:'{{ t('ingame-web.nihtanjunket_lobby_gametype') }}',
+      nihtanjunket_lobby_betrange:'{{ t('ingame-web.nihtanjunket_lobby_betrange') }}',
+      nihtanjunket_lobby_hours:'{{ t('ingame-web.nihtanjunket_lobby_hours') }}',
+      nihtanjunket_lobby_baccaratclassic:'{{ t('ingame-web.nihtanjunket_lobby_baccaratclassic') }}',
+      nihtanjunket_lobby_supersix:'{{ t('ingame-web.nihtanjunket_lobby_supersix') }}',
+      nihtanjunket_lobby_cancel:'{{ t('ingame-web.nihtanjunket_lobby_cancel') }}',
+      nihtanjunket_lobby_customname:'{{ t('ingame-web.nihtanjunket_lobby_customname') }}',
+      nihtanjunket_lobby_success:'{{ t('ingame-web.nihtanjunket_lobby_success') }}',
+      nihtanjunket_lobby_vroomcreationfailed:'{{ t('ingame-web.nihtanjunket_lobby_vroomcreationfailed') }}',
+      nihtanjunket_lobby_wrongaccess:'{{ t('ingame-web.nihtanjunket_lobby_wrongaccess') }}',
+      nihtanjunket_lobby_enter:'{{ t('ingame-web.nihtanjunket_lobby_enter') }}',
+      nihtanjunket_lobby_join:'{{ t('ingame-web.nihtanjunket_lobby_join') }}',
+      nihtanjunket_lobby_room:'{{ t('ingame-web.nihtanjunket_lobby_room') }}',
+      nihtanjunket_lobby_searchuserid:'{{ t('ingame-web.nihtanjunket_lobby_searchuserid') }}',
+      nihtanjunket_lobby_noroomscreated:'{{ t('ingame-web.nihtanjunket_lobby_noroomscreated') }}',
+      nihtanjunket_lobby_pleasetryagainlater:'{{ t('ingame-web.nihtanjunket_lobby_pleasetryagainlater') }}',
+      nihtanjunket_lobby_exit:'{{ t('ingame-web.nihtanjunket_lobby_exit') }}',
+      nihtanjunket_lobby_roomremovednextround:'{{ t('ingame-web.nihtanjunket_lobby_roomremovednextround') }}',
+      nihtanjunket_lobby_roomcreationfailed:'{{ t('ingame-web.nihtanjunket_lobby_roomcreationfailed') }}',
+      nihtanjunket_lobby_roomcreationfailedncoin:'{{ t('ingame-web.nihtanjunket_lobby_roomcreationfailedncoin') }}',
+      nihtanjunket_lobby_roomfulltojoin:'{{ t('ingame-web.nihtanjunket_lobby_roomfulltojoin') }}',
+      nihtanjunket_lobby_noroomscreated:'{{ t('ingame-web.nihtanjunket_lobby_noroomscreated') }}',
+      nihtanjunket_lobby_roomname4characters:'{{ t('ingame-web.nihtanjunket_lobby_roomname4characters') }}',
+      nihtanjunket_lobby_changetoclassic : '{{ t('ingame-web.nihtanjunket_lobby_changetoclassic') }}',
+
+      nihtanjunket_clientpage_password:'{{ t('ingame-web.nihtanjunket_clientpage_password') }}',
+
+
+      // Ingame
+      nihtanjunket_ingame_user:'{{ t('ingame-web.nihtanjunket_ingame_user') }}',
+      nihtanjunket_ingame_username:'{{ t('ingame-web.nihtanjunket_ingame_user') }}',
+      nihtanjunket_ingame_bets:'{{ t('ingame-web.nihtanjunket_ingame_bets') }}',
+      nihtanjunket_ingame_winlose:'{{ t('ingame-web.nihtanjunket_ingame_winlose') }}',
+      nihtanjunket_ingame_credit:'{{ t('ingame-web.nihtanjunket_ingame_credit') }}',
+      nihtanjunket_ingame_totalplayers:'{{ t('ingame-web.nihtanjunket_ingame_totalplayers') }}',
+      nihtanjunket_ingame_totalbets:'{{ t('ingame-web.nihtanjunket_ingame_totalbets') }}',
+      nihtanjunket_ingame_closeroom:'{{ t('ingame-web.nihtanjunket_ingame_closeroom') }}',
+      nihtanjunket_ingame_balancebet:'{{ t('ingame-web.nihtanjunket_ingame_balancebet') }}',
+      nihtanjunket_ingame_chat:'{{ t('ingame-web.nihtanjunket_ingame_chat') }}',
+      nihtanjunket_ingame_agentdisabledroom:'{{ t('ingame-web.nihtanjunket_ingame_agentdisabledroom') }}',
+      nihtanjunket_ingame_roomisfull:'{{ t('ingame-web.nihtanjunket_ingame_roomisfull') }}',
+      nihtanjunket_lobby_outofdate :'{{ t('ingame-web.nihtanjunket_lobby_outofdate') }}',
+      nihtanjunket_lobby_currentroomoutofdate :'{{ t('ingame-web.nihtanjunket_lobby_currentroomoutofdate') }}',
+    }
+  </script>
+  <style type="text/css">
+    html, body { overflow: hidden; }
+    canvas {
+      transform: translate3d(0,0,0);
+    }
+
+    #all-container, #other-container, #junket-container {
+      width: 1885px;
+      height: 875px;
+      right: 1%;
+      top: 1%;
+      position: absolute;
+    }
+
+    #all-container, #other-container { overflow-y: auto; }
+  </style>
+  <style type="text/css">
+
+    @font-face {
+        font-family: arvoItalic;
+        src: url("/fonts/Arvo-Italic.ttf") format("truetype"); /* IE9 Compat Modes */;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+  	@font-face {
+  		font-family: BebasNeue;
+  		src: url("/fonts/BebasNeue-Regular.ttf") format('truetype'),
+      url("/fonts/BebasNeue.eot"), /* IE9 Compat Modes */
+  		url("/fonts/BebasNeueRegular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  		url("/fonts/BebasNeue.otf") format("opentype"); /* Open Type Font */
+  		font-weight: normal;
+  		font-style: normal;
+  	}
+
+    @font-face {
+        font-family: arvo;
+        src: url("/fonts/Arvo-Regular.ttf") format("truetype"); /* IE9 Compat Modes */;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+  	@font-face {
+  		font-family: arvoBoldItalic;
+  		src: url("/fonts/Arvo-BoldItalic.ttf") format("truetype"); /* IE9 Compat Modes */;
+  		font-weight: normal;
+  		font-style: normal;
+  	}
+  	@font-face {
+  		font-family: arvoBold;
+  		src: url("/fonts/Arvo-Bold.ttf") format("truetype"); /* IE9 Compat Modes */;
+  		font-weight: normal;
+  		font-style: normal;
+  	}
+  	@font-face {
+  		font-family: latoblack;
+  		src: url("/fonts/Lato-Black.ttf") format("truetype"); /* IE9 Compat Modes */;
+  		font-weight: normal;
+  		font-style: normal;
+  	}
+  	@font-face {
+  		font-family: lato;
+  		src: url("/fonts/Lato-Regular.ttf") format("truetype"); /* IE9 Compat Modes */;
+  		font-weight: normal;
+  		font-style: normal;
+  	}
+  </style>
+  <!-- font face here -->
+  <style type="text/css">
+    @font-face {
+      font-family: bebas-regular;
+      src: url("/fonts/BebasNeue-Regular.ttf") format('truetype'),
+      url("/fonts/BebasNeue.eot"), /* IE9 Compat Modes */
+      url("/fonts/BebasNeueRegular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("/fonts/BebasNeue.otf") format("opentype"); /* Open Type Font */
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+        font-family: arvo-regular;
+        src: url("/fonts/Arvo-Regular.ttf") format("truetype"); /* IE9 Compat Modes */;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: arvo-black;
+        src: url("/fonts/Arvo-Bold.ttf") format("truetype"); /* IE9 Compat Modes */;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: avro-bolditalic;
+        src: url("/fonts/Arvo-BoldItalic.ttf") format("truetype"); /* IE9 Compat Modes */;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+      font-family: lato-bold;
+      src: url("/fonts/Lato-Bold.ttf") format("truetype"); /* IE9 Compat Modes */;
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: lato-black;
+      src: url("/fonts/Lato-Black.ttf") format("truetype"); /* IE9 Compat Modes */;
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: lato-regular;
+      src: url("/fonts/Lato-Regular.ttf") format("truetype"); /* IE9 Compat Modes */;
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <style type="text/css">
+    .super-container {
+      width: 1280px;
+      height: 720px;
+      left:50%;
+      top: 50%;
+      position: absolute;
+      transform:translate(-50%, -50%);
+      z-index: 116;
+      overflow: hidden;
+    }
+
+    .super-container.landscape {
+      /* background: url("../img/v3/newdesignlandscape7.jpg");
+      background-size: 100% 100%; */
+      /* background-position: 0px -270px; */
+      /* background-repeat: no-repeat; */
+    }
+
+    .super-container.portrait {
+      /* background: url("../img/v3/newdesignportrait3.jpg");
+      background-size: 100% 100%;
+      background-repeat: no-repeat; */
+    }
+  </style>
+</head>
+<body class="mb newdesign">
+  <span style = "font-family: arvo-regular"></span>
+  <span style = "font-family: arvo-black"></span>
+  <span style = "font-family: lato-regular"></span>
+  <span style = "font-family: lato-bold"></span>
+  <span style = "font-family: lato-black"></span>
+  <span style = "font-family: bebas-regular"></span>
+  <!-- <img src="../img/newdesign.jpg" width="100%" height="100%" alt=""> -->
+  <div class="super-container"> {{--super-container--}}
+    <div class="wrapper" style="display: none;">
+      <div class="wrapper--outer">
+        <div class="wrapper--inner" style="transform: translate(-50%, -50%) perspective(500px) rotateY(-41.3906deg) rotateX(6.91099deg);">
+          <div class="card--wrapper">
+            <div class="card">
+              <div class="card--percent">100%</div>
+              <div class="card--percent">100%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-content"> {{--header-content--}}
+      <div class="header-logo-mb">
+        <div>
+          <i class="ico-nihtan-logo"></i>
+        </div>
+      </div>
+      <div class="header-menu-mb"> {{--header-menu-mb--}}
+        <div class="header-nav-mb">
+          <div id="baccarat-mb" class="header-nav-mb__items -baccarat-mb active"><div>
+            <i class="ico-mb ico-baccarat-mb"></i>
+            <span>{{ t('ingame-web.lobby_header_baccarat') }}</span>
+          </div></div>
+          <div id="others-mb" class="header-nav-mb__items -others-mb"><div>
+            <i class="ico-mb ico-othergames-mb"></i>
+            <span>OTHERS</span>
+          </div></div>
+        </div>
+        <div class="header-menucon-mb">
+          <i class="ico-mb ico-menu-mb"></i>
+        </div>
+      </div> {{-- // header-menu-mb--}}
+    </div> {{-- // header-content--}}
+
+    <div class="body-content"> {{--body-content--}}
+      <div id="baccarat-container" class="game-container"></div>
+      <div id="othergames-container" class="game-container"></div>
+      <div id="reelgames-container" class="game-container">
+        <div class ="reelgames-list kagaming"></div>
+      </div>
+      <div class="menu-con"> {{--menu-con--}}
+        <div class="menu-usercon__items">
+          <div class="userinfo__avatar">
+            <span><img src="/img/avatar/red_queen.png" alt=""></span>
+          </div>
+          <div class="userinfo__dtl">
+            <span class="userinfo-dtl__holdings" style="overflow: hidden;">0.00</span>
+            <span class="userinfo-dtl__name"> </span>
+          </div>
+        </div>
+        <div class="menu-con__items" value="howtoplay">
+          <i class="ico-howtoplay menu-list-bg"></i>
+          <span class="menu-text">{{ t('ingame-web.com_sub_menuarea_howtoplay') }}</span>
+        </div>
+        <div class="menu-con__items" value="betlogs">
+          <i class="ico-bethistory menu-list-bg"></i>
+          <span class="menu-text">{{ t('ingame-web.com_sub_menuarea_betlogs') }}</span>
+        </div>
+        <div class="menu-con__items" value="settings">
+          <i class="ico-settings menu-list-bg"></i>
+          <span class="menu-text">{{ t('ingame-web.com_sub_menuarea_settings') }}</span>
+        </div>
+        <div class="menu-logoutcon__items">
+          <i class="ico-logout menu-list-bg"></i>
+          <span class="menu-text">{{ t('ingame-web.lobby_header_logout') }}</span>
+        </div>
+      </div> {{-- // menu-con--}}
+    </div> {{-- // body-content--}}
+
+    <div class="menu-content howtoplay"> {{--menu-content--}}
+      <div class="menu-content__header">
+        <span class="menu-header-text">{{ t('ingame-web.com_sub_menuarea_howtoplay') }}</span>
+        <span class="menu-close-ico-mobile" value="howtoplay"></span>
+      </div>
+      <div class="menu-content__body"> {{--menu-content__body--}}
+        <div class="modal-option">
+          <div class="modal-select range-hide">
+            <span class="range-disp howtoplay" data="howtoplay">{!! t('ingame-web.lobby_gamename_baccarat') !!}</span>
+          </div>
+        </div>
+        <div class="range-list howtoplay" data="howtoplay">
+          <button class="range-select" data="baccarat-toggle">{!! t('ingame-web.lobby_gamename_baccarat') !!}</button>
+          <button class="range-select" data="poker-toggle">{!! t('ingame-web.lobby_gamename_poker') !!}</button>
+          <button class="range-select" data="dragontiger-toggle">{!! t('ingame-web.lobby_gamename_dragontiger') !!}</button>
+        </div>
+
+        <div id="baccarat-toggle" class="ingame-howtoplay"> {{--baccarat-toggle--}}
+          <div id="top" class="howto-wrap"> {{-- .howto-wrap --}}
+            <div class="scroll-position">
+              <span class="scroll-button">
+                <img src="/img/howtoplay/lobby/Asset 37.png" alt="scroll button">
+              </span>
+            </div>
+            <div class="howto-wrap--accent"></div>
+            <div class="howto-wrap__items clearfix -baccarat"> {{-- .howto-wrap__items --}}
+              <div class="howto-contents"> {{-- .howto-contents --}}
+                <div id="game-objective" class="howto--layers"> {{--howto--layers--}}
+                  {!! t('howto-baccarat.game_objective_desc') !!}
+                </div> {{--// owto--layers--}}
+                <div id="baccarat-cardvalues" class="howto--layers "> {{--howto--layers--}}
+                  <h4>{!! t('howto-baccarat.card_values') !!}</h4>
+                </div> {{--// owto--layers--}}
+                <div class="howto--layers card-values clearfix"> {{-- #howto--layers --}}
+                  <div class="card-values-con clearfix">
+                    <div class="card-values__items -thumb -thumb1">
+                      <img src="/img/howtoplay/baccarat/dark/card_value_1.png" alt="card value" />
+                    </div>
+
+                    <div class="card-values__items -desc">
+                      <p>{!! t('howto-baccarat.card_values_1') !!}</p>
+                    </div>
+                  </div>
+                  <div class="card-values-con clearfix">
+                    <div class="card-values__items -thumb -thumb2">
+                      <img src="/img/howtoplay/baccarat/dark/card_value_2.png" alt="card value" />
+                    </div>
+
+                    <div class="card-values__items -desc">
+                      <p>{!! t('howto-baccarat.card_values_2') !!}</p>
+                    </div>
+                  </div>
+                  <div class="card-values-con clearfix">
+                    <div class="card-values__items -thumb -thumb3">
+                      <img src="/img/howtoplay/baccarat/dark/card_value_3.png" alt="card value" />
+                    </div>
+
+                    <div class="card-values__items -desc">
+                      <p>{!! t('howto-baccarat.card_values_3') !!}</p>
+                    </div>
+                  </div>
+                </div> {{-- // #howto--layers --}}
+                <div id="baccarat-typesofbaccarat" class="howto--layers gameplay-list"> {{--howto--layers--}}
+                  {!! t('howto-baccarat.game_play_list') !!}
+                </div> {{--// owto--layers--}}
+                <div id="baccarat-gameplay" class="howto--layers gameplay-list"> {{--howto--layers--}}
+                  {!! t('howto-baccarat.game_play_list_2') !!}
+                </div> {{--// owto--layers--}}
+                <div id="baccarat-cardhit" class="howto--layers"> {{--howto--layers--}}
+                  <h4>{!! t('howto-baccarat.3_card_hit') !!}</h4>
+                  {!! t('howto-baccarat.3_card_hit_desc') !!}
+                </div> {{--// owto--layers--}}
+                <div class="howto--layers"> {{--howto--layers--}}
+                  <h5>{!! t('howto-baccarat.player_hand') !!}</h5>
+                  <table class="tbl--rules">
+                    <thead>
+                      <tr>
+                        <th class="rules--card-value">{!! t('howto-baccarat.total_card_value') !!}</th>
+                        <th class="rules--action">{!! t('howto-baccarat.action') !!}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{!! t('howto-baccarat.total_card_value_1') !!}</td>
+                        <td>{!! t('howto-baccarat.action_1') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.total_card_value_2') !!}</td>
+                        <td>{!! t('howto-baccarat.action_2') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.total_card_value_3') !!}</td>
+                        <td>{!! t('howto-baccarat.action_3') !!}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div> {{--// owto--layers--}}
+                <div class="howto--layers banker-hand-pc"> {{--howto--layers--}}
+                  <h5>{!! t('howto-baccarat.banker_hand') !!}</h5>
+                  <table class="tbl--rules">
+                    <thead>
+                      <tr>
+                        <th class="rules--card-value">{!! t('howto-baccarat.total_card_value') !!}</th>
+                        <th colspan="2" class="rules--player-card">{!! t('howto-baccarat.player_3_card') !!}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{!! t('howto-baccarat.banker_hand_card_value_1') !!}</td>
+                        <td>{!! t('howto-baccarat.player_3_card_hit_1') !!}</td>
+                        <td>{!! t('howto-baccarat.player_3_card_stand_1') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.banker_hand_card_value_2') !!}</td>
+                        <td>{!! t('howto-baccarat.player_3_card_hit_2') !!}</td>
+                        <td>{!! t('howto-baccarat.player_3_card_stand_2') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.banker_hand_card_value_3') !!}</td>
+                        <td>{!! t('howto-baccarat.player_3_card_hit_3') !!}</td>
+                        <td>{!! t('howto-baccarat.player_3_card_stand_3') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.banker_hand_card_value_4') !!}</td>
+                        <td>{!! t('howto-baccarat.player_3_card_hit_4') !!}</td>
+                        <td>{!! t('howto-baccarat.player_3_card_stand_4') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.banker_hand_card_value_5') !!}</td>
+                        <td colspan="2">{!! t('howto-baccarat.stand') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.banker_hand_card_value_6') !!}</td>
+                        <td colspan="2">{!! t('howto-baccarat.natural_hit') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.banker_hand_card_value_7') !!}</td>
+                        <td colspan="2">{!! t('howto-baccarat.hit') !!}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div> {{--// owto--layers--}}
+
+                <div id="baccarat-flippytable" class="howto--layers"> {{--howto--layers--}}
+                  <h4>{!! t('howto-baccarat.flippy_table') !!}</h4>
+                  {!! t('howto-baccarat.flippy_table_desc1') !!}
+                  <table class="tbl--rules">
+                    <thead>
+                      <tr>
+                        <th class="rules--card-value">{!! t('howto-baccarat.action') !!}</th>
+                        <th class="rules--action">{!! t('howto-baccarat.time_peek') !!}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{!! t('howto-baccarat.flippy_action_1') !!}</td>
+                        <td>{!! t('howto-baccarat.time_peek_1') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.flippy_action_2') !!}</td>
+                        <td>{!! t('howto-baccarat.time_peek_2') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.flippy_action_3') !!}</td>
+                        <td>{!! t('howto-baccarat.time_peek_3') !!}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  {!! t('howto-baccarat.flippy_table_desc2') !!}
+                  <img src="/img/howtoplay/baccarat/dark/flippy_box.png" alt="card value" class="flippy_box" />
+                </div> {{--// owto--layers--}}
+
+                <div id="baccarat-payouts" class="howto--layers"> {{--howto--layers--}}
+                  <h4>{!! t('howto-baccarat.payouts') !!}</h4>
+                  <h5>{!! t('howto-baccarat.classic_table') !!}</h5>
+                  <table class="tbl--rules">
+                    <thead>
+                      <tr>
+                        <th class="rules--card-value">{!! t('howto-baccarat.bet_on') !!}</th>
+                        <th class="rules--action">{!! t('howto-baccarat.payout') !!}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{!! t('howto-baccarat.classic_beton_1') !!}</td>
+                        <td>{!! t('howto-baccarat.classic_result_1') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.classic_beton_2') !!}</td>
+                        <td>{!! t('howto-baccarat.classic_result_2') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.classic_beton_3') !!}</td>
+                        <td>{!! t('howto-baccarat.classic_result_3') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.classic_beton_4') !!}</td>
+                        <td>{!! t('howto-baccarat.classic_result_4') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.classic_beton_5') !!}</td>
+                        <td>{!! t('howto-baccarat.classic_result_5') !!}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <h5>{!! t('howto-baccarat.supersix_table') !!}</h5>
+                  <table class="tbl--rules">
+                    <thead>
+                      <tr>
+                        <th class="rules--card-value">{!! t('howto-baccarat.bet_on') !!}</th>
+                        <th class="rules--action">{!! t('howto-baccarat.payout') !!}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{!! t('howto-baccarat.supersix_beton_1') !!}</td>
+                        <td>{!! t('howto-baccarat.supersix_result_1') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.supersix_beton_2') !!}</td>
+                        <td>{!! t('howto-baccarat.supersix_result_2') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.supersix_beton_3') !!}</td>
+                        <td>{!! t('howto-baccarat.supersix_result_3') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.supersix_beton_4') !!}</td>
+                        <td>{!! t('howto-baccarat.supersix_result_4') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.supersix_beton_5') !!}</td>
+                        <td>{!! t('howto-baccarat.supersix_result_5') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.supersix_beton_6') !!}</td>
+                        <td>{!! t('howto-baccarat.supersix_result_6') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! t('howto-baccarat.supersix_beton_7') !!}</td>
+                        <td>{!! t('howto-baccarat.supersix_result_7') !!}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  {{-- <h5>{!! trans('howto-baccarat.dragonbonus_table') !!}</h5>
+                  <table class="tbl--rules">
+                    <thead>
+                      <tr>
+                        <th class="rules--card-value">{!! trans('howto-baccarat.bet_on') !!}</th>
+                        <th class="rules--action">{!! trans('howto-baccarat.payout') !!}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{!! trans('howto-baccarat.dragonbonus_beton_1') !!}</td>
+                        <td>{!! trans('howto-baccarat.dragonbonus_result_1') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! trans('howto-baccarat.dragonbonus_beton_2') !!}</td>
+                        <td>{!! trans('howto-baccarat.dragonbonus_result_2') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! trans('howto-baccarat.dragonbonus_beton_3') !!}</td>
+                        <td>{!! trans('howto-baccarat.dragonbonus_result_3') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! trans('howto-baccarat.dragonbonus_beton_4') !!}</td>
+                        <td>{!! trans('howto-baccarat.dragonbonus_result_4') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! trans('howto-baccarat.dragonbonus_beton_5') !!}</td>
+                        <td>{!! trans('howto-baccarat.dragonbonus_result_5') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! trans('howto-baccarat.dragonbonus_beton_6') !!}</td>
+                        <td>{!! trans('howto-baccarat.dragonbonus_result_6') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! trans('howto-baccarat.dragonbonus_beton_7') !!}</td>
+                        <td>{!! trans('howto-baccarat.dragonbonus_result_7') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! trans('howto-baccarat.dragonbonus_beton_8') !!}</td>
+                        <td>{!! trans('howto-baccarat.dragonbonus_result_8') !!}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <h5>{!! trans('howto-baccarat.bigsmall_table') !!}</h5>
+                  <table class="tbl--rules">
+                    <thead>
+                      <tr>
+                        <th class="rules--card-value">{!! trans('howto-baccarat.bet_on') !!}</th>
+                        <th class="rules--action">{!! trans('howto-baccarat.payout') !!}</th>
+                        <th class="rules--action">{!! trans('howto-baccarat.condition') !!}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{!! trans('howto-baccarat.bigsmall_beton_1') !!}</td>
+                        <td>{!! trans('howto-baccarat.bigsmall_result_1') !!}</td>
+                        <td>{!! trans('howto-baccarat.bigsmall_condition_1') !!}</td>
+                      </tr>
+                      <tr>
+                        <td>{!! trans('howto-baccarat.bigsmall_beton_2') !!}</td>
+                        <td>{!! trans('howto-baccarat.bigsmall_result_2') !!}</td>
+                        <td>{!! trans('howto-baccarat.bigsmall_condition_2') !!}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <h5>{!! trans('howto-baccarat.dragonbonus_win_sample') !!}</h5>
+                  <ol class="dragonbonus_sample">
+                    <li>
+                      <p>{!! trans('howto-baccarat.win_natural_banker_bonus') !!}</p>
+                      <div class="card-positioning__items clearfix">
+                        <div class="card-positioning-inner"><img src="/img/howtoplay/baccarat/dark/db_banker1.png" alt="db_banker" /></div>
+                        <div class="card-positioning-lbl"><span>{!! trans('howto-baccarat.bonus_sample_banker') !!}</span></div>
+                      </div>
+                      <div class="card-positioning__items clearfix">
+                        <div class="card-positioning-inner"><img src="/img/howtoplay/baccarat/dark/db_player1.png" class="db_player" alt="db_player" /></div>
+                        <div class="card-positioning-lbl"><span>{!! trans('howto-baccarat.bonus_sample_player') !!}</span></div>
+                      </div>
+                    </li>
+                    <li>
+                      <p>{!! trans('howto-baccarat.win_by_8') !!}</p>
+                      <ul>
+                        <li><p>{!! trans('howto-baccarat.win_by_8_desc1') !!}</p></li>
+                        <li><p>{!! trans('howto-baccarat.win_by_8_desc2') !!}</p></li>
+                      </ul>
+                      <div class="card-positioning__items clearfix">
+                        <div class="card-positioning-inner">
+                          <img src="/img/howtoplay/baccarat/dark/db_banker2.png" alt="db_banker" />
+                        </div>
+                        <div class="card-positioning-lbl">
+                          <span>{!! trans('howto-baccarat.bonus_sample_banker') !!}</span>
+                        </div>
+                      </div>
+                      <div class="card-positioning__items clearfix">
+                        <div class="card-positioning-inner">
+                          <img src="/img/howtoplay/baccarat/dark/db_player2.png" class="db_player" alt="db_player" />
+                        </div>
+                        <div class="card-positioning-lbl">
+                          <span>{!! trans('howto-baccarat.bonus_sample_player') !!}</span>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <p>{!! trans('howto-baccarat.win_by_less_4') !!}</p>
+                      <ul>
+                        <li><p>{!! trans('howto-baccarat.win_by_less_4_desc1') !!}</p></li>
+                        <li><p>{!! trans('howto-baccarat.win_by_less_4_desc2') !!}</p></li>
+                      </ul>
+                      <div class="card-positioning__items clearfix">
+                        <div class="card-positioning-inner">
+                          <img src="/img/howtoplay/baccarat/dark/db_banker3.png" alt="db_banker" />
+                        </div>
+                        <div class="card-positioning-lbl">
+                          <span>{!! trans('howto-baccarat.bonus_sample_banker') !!}</span>
+                        </div>
+                      </div>
+                      <div class="card-positioning__items clearfix last-items">
+                        <div class="card-positioning-inner">
+                          <img src="/img/howtoplay/baccarat/dark/db_player3.png" class="db_player" alt="db_player" />
+                        </div>
+                        <div class="card-positioning-lbl">
+                          <span>{!! trans('howto-baccarat.bonus_sample_player') !!}</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ol> --}}
+                </div> {{--// howto--layers--}}
+              </div> {{-- // .howto-contents --}}
+            </div> {{-- // .howto-wrap__items --}}
+            {{-- paste here --}}
+          </div> {{-- // .howto-wrap --}}
+          <div class="howto-submenu"> {{-- .howto-submenu --}}
+            <ul class="gamerules-menu"> {{-- .gamerules-menu --}}
+              <li class="gamerules-menu__items">
+                <a href="#game-objective" class="menu-game-scroll">{!! t('howto-baccarat.game_objective') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#baccarat-cardvalues" class="menu-game-scroll">{!! t('howto-baccarat.card_values') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#baccarat-typesofbaccarat" class="menu-game-scroll">{!! t('howto-baccarat.types_baccarat') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#baccarat-gameplay" class="menu-game-scroll">{!! t('howto-baccarat.game_play') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#baccarat-cardhit" class="menu-game-scroll">{!! t('howto-baccarat.3_card_hit') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#baccarat-flippytable" class="menu-game-scroll">{!! t('howto-baccarat.flippy_table') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#baccarat-payouts" class="menu-game-scroll">{!! t('howto-baccarat.payouts') !!}</a>
+              </li>
+            </ul> {{-- // .gamerules-menu --}}
+          </div> {{-- // .howto-submenu --}}
+        </div> {{-- //baccarat-toggle--}}
+
+        <div id="poker-toggle" class="ingame-howtoplay"> {{--poker-toggle--}}
+          <div id="top" class="howto-wrap"> {{-- .howto-wrap --}}
+            <div class="scroll-position">
+              <span class="scroll-button">
+                <img src="/img/howtoplay/lobby/Asset 37.png" alt="scroll button">
+              </span>
+            </div>
+            <div class="howto-wrap--accent"></div>
+            <div class="howto-wrap__items clearfix -poker"> {{-- .howto-wrap__items --}}
+              <div class="howto-wrap__items clearfix -poker"> {{-- .howto-wrap__items --}}
+                <div class="howto-contents"> {{-- .howto-contents --}}
+                  <div id="game-objective" class="howto--layers"> {{--howto--layers--}}
+                    <h4>{!! t('howto-poker.game_objective') !!}</h4>
+                    {!! t('howto-poker.game_objective_desc_pc') !!}
+                  </div> {{-- // howto--layers--}}
+
+                  <div id="poker-gameplay" class="howto--layers"> {{-- .gameplay --}}
+                    <h4>{!! t('howto-poker.gameplay') !!}</h4>
+
+                    <ul class="gameplay-list gameplay-list--2">
+                      {!! t('howto-poker.gameplay_desc_pc') !!}
+                    </ul>
+                  </div> {{-- // .gameplay --}}
+
+                  @if(t('howto-poker.card_rank') != '')
+                  <div id="poker-card_rank" class="howto--layers"> {{--howto--layers--}}
+                    <h4>{!! t('howto-poker.card_rank') !!}</h4>
+                    {!! t('howto-poker.card_rank_desc_pc') !!}
+                  </div> {{-- // howto--layers--}}
+                  @endif
+
+                  <div id="poker-hand-rankings" class="howto--layers"> {{--howto--layers--}}
+                    <h4>{!! t('howto-poker.poker_hand_rankings') !!}</h4>
+                    <div class="pokerhand-wrap"> {{--pokerhand-wrap--}}
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>1. {!! t('howto-poker.poker_hand_ranking_list_1') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_1_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix">
+                          <img src="/img/howtoplay/poker/dark/poker_handranking_01.png" alt="">
+                        </div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>2. {!! t('howto-poker.poker_hand_ranking_list_2') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_2_desc_pc') !!}</p>
+                        </div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>a.) {!! t('howto-poker.poker_hand_ranking_list_3') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_3_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix"><img src="/img/howtoplay/poker/dark/poker_handranking_2.png" alt=""></div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>b.) {!! t('howto-poker.poker_hand_ranking_list_4') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_4_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix"><img src="/img/howtoplay/poker/dark/poker_handranking_2-1.png" alt=""></div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>3. {!! t('howto-poker.poker_hand_ranking_list_5') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_5_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix"><img src="/img/howtoplay/poker/dark/poker_handranking_3.png" alt=""></div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>4. {!! t('howto-poker.poker_hand_ranking_list_6') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_6_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix"><img src="/img/howtoplay/poker/dark/poker_handranking_4.png" alt=""></div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>5. {!! t('howto-poker.poker_hand_ranking_list_7') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_7_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix"><img src="/img/howtoplay/poker/dark/poker_handranking_5.png" alt=""></div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>6. {!! t('howto-poker.poker_hand_ranking_list_8') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_8_desc_pc') !!}</p>
+                        </div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>a.) {!! t('howto-poker.poker_hand_ranking_list_9') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_9_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix"><img src="/img/howtoplay/poker/dark/poker_handranking_6.png" alt=""></div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>b.) {!! t('howto-poker.poker_hand_ranking_list_10') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_10_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix"><img src="/img/howtoplay/poker/dark/poker_handranking_6-1.png" alt=""></div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>7. {!! t('howto-poker.poker_hand_ranking_list_11') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_11_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix"><img src="/img/howtoplay/poker/dark/poker_handranking_7.png" alt=""></div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>8. {!! t('howto-poker.poker_hand_ranking_list_12') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_12_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix"><img src="/img/howtoplay/poker/dark/poker_handranking_8.png" alt=""></div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>9. {!! t('howto-poker.poker_hand_ranking_list_13') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_13_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix"><img src="/img/howtoplay/poker/dark/poker_handranking_9.png" alt=""></div>
+                      </div>
+                      <div class="pokerhand-con clearfix">
+                        <div class="pokerhand-con__items clearfix">
+                          <h5>10. {!! t('howto-poker.poker_hand_ranking_list_14') !!}</h5>
+                          <p>{!! t('howto-poker.poker_hand_ranking_list_14_desc_pc') !!}</p>
+                        </div>
+                        <div class="pokerhand-con__items clearfix"><img src="/img/howtoplay/poker/dark/poker_handranking_10.png" alt=""></div>
+                      </div>
+                    </div> {{--pokerhand-wrap--}}
+                  </div> {{-- // howto--layers--}}
+
+                  <div id="poker-betting-system" class="howto--layers"> {{--howto--layers--}}
+                    <h4>{!! t('howto-poker.betting_system') !!}</h4>
+                    <table class="tbl--rules">
+                      <thead>
+                        <tr>
+                          <th class="rules--round">{!! t('howto-poker.betting_system_round') !!}</th>
+                          <th class="rules--bet">{!! t('howto-poker.betting_system_bet') !!}</th>
+                          <th class="rules--action">{!! t('howto-poker.betting_system_action') !!}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td rowspan="4">{!! t('howto-poker.betting_system_round_1') !!}</td>
+                          <td>{!! t('howto-poker.betting_system_bet_1') !!}</td>
+                          <td>{!! t('howto-poker.betting_system_action_1_pc') !!}</td>
+                        </tr>
+
+                        <tr>
+                          <td>{!! t('howto-poker.betting_system_bet_2') !!}</td>
+                          <td>{!! t('howto-poker.betting_system_action_2_pc') !!}</td>
+                        </tr>
+
+                        <tr>
+                          <td>{!! t('howto-poker.betting_system_bet_3') !!}</td>
+                          <td>{!! t('howto-poker.betting_system_action_3_pc') !!}</td>
+                        </tr>
+
+                        <tr>
+                          <td>{!! t('howto-poker.betting_system_bet_4') !!}</td>
+                          <td>{!! t('howto-poker.betting_system_action_4_pc') !!}</td>
+                        </tr>
+
+                        <tr>
+                          <td>{!! t('howto-poker.betting_system_round_2') !!}</td>
+                          <td>{!! t('howto-poker.betting_system_bet_5') !!}</td>
+                          <td>{!! t('howto-poker.betting_system_action_5_pc') !!}</td>
+                        </tr>
+
+                        <tr>
+                          <td>{!! t('howto-poker.betting_system_round_3') !!}</td>
+                          <td>{!! t('howto-poker.betting_system_bet_6') !!}</td>
+                          <td>{!! t('howto-poker.betting_system_action_6_pc') !!}</td>
+                        </tr>
+
+                        <tr>
+                          <td>{!! t('howto-poker.betting_system_round_4') !!}</td>
+                          <td>{!! t('howto-poker.betting_system_bet_7') !!}</td>
+                          <td>{!! t('howto-poker.betting_system_action_7_pc') !!}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div> {{-- // howto--layers--}}
+
+                  <div id="poker-antebetpayouts" class="howto--layers"> {{--howto--layers--}}
+                    <h4>{!! t('howto-poker.ante_bet_payouts') !!}</h4>
+                    <ol class="antebet--list">
+                      {!! t('howto-poker.ante_bet_payouts_desc_pc') !!}
+                    </ol>
+                  </div> {{-- // howto--layers--}}
+
+                  <div id="poker-payouts" class="howto--layers bonus-payout"> {{--howto--layers--}}
+                    <h4>{!! t('howto-poker.payouts') !!}</h4>
+                    <h5>{!! t('howto-poker.bonus_bet_payouts') !!}</h5>
+                    <table class="tbl--rules">
+                      <thead>
+                        <tr>
+                          <th class="rules--card">{!! t('howto-poker.players_whole_card') !!}</th>
+                          <th class="rules--payout">{!! t('howto-poker.payout') !!}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{!! t('howto-poker.players_whole_card_1') !!}</td>
+                          <td>{!! t('howto-poker.payout_1') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_whole_card_2') !!}</td>
+                          <td>{!! t('howto-poker.payout_2') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_whole_card_3') !!}</td>
+                          <td>{!! t('howto-poker.payout_3') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_whole_card_4') !!}</td>
+                          <td>{!! t('howto-poker.payout_4') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_whole_card_5') !!}</td>
+                          <td>{!! t('howto-poker.payout_5') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_whole_card_6') !!}</td>
+                          <td>{!! t('howto-poker.payout_6') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_whole_card_7') !!}</td>
+                          <td>{!! t('howto-poker.payout_7') !!}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h5>{!! t('howto-poker.bonus_plus_payouts') !!}</h5>
+                    <ol class="pokerbonusplus--list">
+                      {!! t('howto-poker.bonus_plus_desc') !!}
+                    </ol>
+                    <table class="tbl--rules">
+                      <thead>
+                        <tr>
+                          <th class="rules--card">{!! t('howto-poker.players_poker_hand') !!}</th>
+                          <th class="rules--payout">{!! t('howto-poker.payout') !!}</th>
+                          <th class="rules--beat">{!! t('howto-poker.bad_beat') !!}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{!! t('howto-poker.players_poker_hand_1') !!}</td>
+                          <td>{!! t('howto-poker.payout_8') !!}</td>
+                          <td>{!! t('howto-poker.bad_beat_1') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_poker_hand_2') !!}</td>
+                          <td>{!! t('howto-poker.payout_9') !!}</td>
+                          <td>{!! t('howto-poker.bad_beat_2') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_poker_hand_3') !!}</td>
+                          <td>{!! t('howto-poker.payout_10') !!}</td>
+                          <td>{!! t('howto-poker.bad_beat_3') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_poker_hand_4') !!}</td>
+                          <td>{!! t('howto-poker.payout_11') !!}</td>
+                          <td>{!! t('howto-poker.bad_beat_4') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_poker_hand_5') !!}</td>
+                          <td>{!! t('howto-poker.payout_12') !!}</td>
+                          <td>{!! t('howto-poker.bad_beat_5') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_poker_hand_6') !!}</td>
+                          <td>{!! t('howto-poker.payout_13') !!}</td>
+                          <td>{!! t('howto-poker.bad_beat_6') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_poker_hand_7') !!}</td>
+                          <td>{!! t('howto-poker.payout_14') !!}</td>
+                          <td>{!! t('howto-poker.bad_beat_7') !!}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h5>{!! t('howto-poker.pocket_bonus_payouts') !!}</h5>
+                    <table class="tbl--rules">
+                      <thead>
+                        <tr>
+                          <th class="rules--card">{!! t('howto-poker.players_hole_cards') !!}</th>
+                          <th class="rules--payout">{!! t('howto-poker.payout') !!}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{!! t('howto-poker.players_hole_cards_1') !!}</td>
+                          <td>{!! t('howto-poker.payout_15') !!}</td>
+                        </tr>
+                        <tr>
+                          <td>{!! t('howto-poker.players_hole_cards_2') !!}</td>
+                          <td>{!! t('howto-poker.payout_16') !!}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div> {{-- // howto--layers--}}
+
+                  <div id="poker-same-hand-ranking" class="howto--layers hand-rank"> {{--howto--layers--}}
+                    <h4>{!! t('howto-poker.same_hand_ranking') !!}</h4>
+                    {!! t('howto-poker.same_hand_ranking_desc_pc') !!}
+
+                    <ol class="handranking--list">
+                      <li>
+                        <span>{!! t('howto-poker.same_hand_ranking_1') !!}</span>
+                        <ol class="handranking-sub--list">
+                          <li>
+                            <span>{!! t('howto-poker.same_hand_ranking_1_1_pc') !!}</span>
+                            <div class="handranking--sub--text">
+                              <div>
+                                <p>{!! t('howto-poker.same_hand_ranking_dealer') !!}</p>
+                                <p>{!! t('howto-poker.same_hand_ranking_comcard') !!}</p>
+                                <p>{!! t('howto-poker.same_hand_ranking_player') !!}</p>
+                              </div>
+                              <img src="/img/howtoplay/poker/dark/poker_handranking_11_b.png" alt="playboards">
+                            </div>
+                          </li>
+                        </ol>
+                      </li>
+                      <li>
+                        <span>{!! t('howto-poker.same_hand_ranking_2_pc') !!}</span>
+                        <ol class="handranking-sub--list">
+                          <li>
+                            <span>{!! t('howto-poker.same_hand_ranking_2_1') !!}</span>
+                            <div class="handranking--sub--text">
+                              <div>
+                                <p>{!! t('howto-poker.same_hand_ranking_dealer') !!}</p>
+                                <p>{!! t('howto-poker.same_hand_ranking_comcard') !!}</p>
+                                <p>{!! t('howto-poker.same_hand_ranking_player') !!}</p>
+                              </div>
+                              <img src="/img/howtoplay/poker/dark/poker_handranking_12_b.png" alt="playboards">
+                            </div>
+                          </li>
+                          <li>
+                            <span>{!! t('howto-poker.same_hand_ranking_2_2') !!}</span>
+                            <div class="handranking--sub--text">
+                              <div>
+                                <p>{!! t('howto-poker.same_hand_ranking_dealer') !!}</p>
+                                <p>{!! t('howto-poker.same_hand_ranking_comcard') !!}</p>
+                                <p>{!! t('howto-poker.same_hand_ranking_player') !!}</p>
+                              </div>
+                              <img src="/img/howtoplay/poker/dark/poker_handranking_13_b.png" alt="playboards">
+                            </div>
+                          </li>
+                        </ol>
+                      </li>
+                    </ol>
+                  </div> {{-- // howto--layers--}}
+                </div> {{-- // .howto-contents --}}
+              </div> {{-- // .howto-wrap__items --}}
+            </div> {{-- // .howto-wrap__items --}}
+
+            {{-- paste here --}}
+          </div> {{-- // .howto-wrap --}}
+          <div class="howto-submenu"> {{-- .howto-submenu --}}
+            <ul class="gamerules-menu"> {{-- .gamerules-menu --}}
+              <li class="gamerules-menu__items">
+                <a href="#game-objective" class="menu-game-scroll">{!! t('howto-poker.game_objective') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#poker-gameplay" class="menu-game-scroll">{!! t('howto-poker.gameplay') !!}</a>
+              </li>
+              @if(t('howto-poker.card_rank') != '')
+              <li class="gamerules-menu__items">
+                <a href="#poker-card_rank" class="menu-game-scroll">{!! t('howto-poker.card_rank') !!}</a>
+              </li>
+              @endif
+              <li class="gamerules-menu__items">
+                <a href="#poker-hand-rankings" class="menu-game-scroll">{!! t('howto-poker.poker_hand_rankings') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#poker-betting-system" class="menu-game-scroll">{!! t('howto-poker.betting_system') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#poker-antebetpayouts" class="menu-game-scroll">{!! t('howto-poker.ante_bet_payouts') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#poker-payouts" class="menu-game-scroll">{!! t('howto-poker.payouts') !!}</a>
+              </li>
+              <!-- <li class="gamerules-menu__items">
+                <a href="#poker-bonusbetpayouts" class="menu-game-scroll">{!! t('howto-poker.bonus_bet_payouts') !!}</a>
+              </li> -->
+              <!-- <li class="gamerules-menu__items">
+                <a href="#poker-bonuspluspayouts" class="menu-game-scroll">{!! t('howto-poker.bonus_plus_payouts') !!}</a>
+              </li> -->
+              <!-- <li class="gamerules-menu__items">
+                <a href="#poker-pocketbonuspayouts" class="menu-game-scroll">{!! t('howto-poker.pocket_bonus_payouts') !!}</a>
+              </li> -->
+              <li class="gamerules-menu__items">
+                <a href="#poker-same-hand-ranking" class="menu-game-scroll">{!! t('howto-poker.same_hand_ranking') !!}</a>
+              </li>
+            </ul> {{-- // .gamerules-menu --}}
+          </div> {{-- // .howto-submenu --}}
+        </div> {{-- //poker-toggle--}}
+
+
+        <div id="dragontiger-toggle" class="ingame-howtoplay"> {{--dragontiger-toggle--}}
+          <div id="top" class="howto-wrap"> {{-- .howto-wrap --}}
+            <div class="scroll-position">
+              <span class="scroll-button">
+                <img src="/img/howtoplay/lobby/Asset 37.png" alt="scroll button">
+              </span>
+            </div>
+            <div class="howto-wrap--accent"></div>
+            <div class="howto-wrap__items clearfix -dragontiger"> {{-- .howto-wrap__items --}}
+              <div class="howto-contents"> {{-- .howto-contents --}}
+                <div id="game-objective" class="howto--layers"> {{-- .game-objective --}}
+                  {!! t('howto-dragontiger.gameobj_desc') !!}
+                </div> {{-- // .game-objective --}}
+
+                <div id="dragontiger-gameplay" class="howto--layers"> {{-- .gameplay --}}
+                  <h4>{!! t('howto-dragontiger.gameplay') !!}</h4>
+
+                  <ul class="gameplay-list gameplay-list--2">
+                    {!! t('howto-dragontiger.gameplay_list') !!}
+                  </ul>
+                </div> {{-- // .gameplay --}}
+
+                <div id="dragontiger-typesofbet" class="howto--layers dragon-tiger"> {{-- .type-of-bets --}}
+                  <h4 id="type-of-bets">{!! t('howto-dragontiger.types_of_bet') !!}</h4>
+                  <table class="tbl--typeofbets">
+                    <thead>
+                      <tr>
+                        <th class="bet">{!! t('howto-dragontiger.bet') !!}</th>
+                        <th class="payout">{!! t('howto-dragontiger.payout') !!}</th>
+                        <th class="condition">{!! t('howto-dragontiger.condition_of_winning') !!}</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td class="bet">{!! t('howto-dragontiger.bet_dragon') !!}</td>
+                        <td class="payout">{!! t('howto-dragontiger.payout_1_1') !!}</td>
+                        <td class="condition">{!! t('howto-dragontiger.condition_1') !!}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bet">{!! t('howto-dragontiger.bet_tiger') !!}</td>
+                        <td class="payout">{!! t('howto-dragontiger.payout_1_1') !!}</td>
+                        <td class="condition">{!! t('howto-dragontiger.condition_2') !!}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bet">{!! t('howto-dragontiger.bet_tie') !!}</td>
+                        <td class="payout">{!! t('howto-dragontiger.payout_10_1') !!}</td>
+                        <td class="condition">{!! t('howto-dragontiger.condition_3') !!}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bet">{!! t('howto-dragontiger.bet_bigsmall') !!}</td>
+                        <td class="payout">{!! t('howto-dragontiger.payout_1_1') !!}</td>
+                        <td class="condition">{!! t('howto-dragontiger.condition_4') !!}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bet">{!! t('howto-dragontiger.bet_oddeven') !!}</td>
+                        <td class="payout">{!! t('howto-dragontiger.payout_1_1') !!}</td>
+                        <td class="condition">{!! t('howto-dragontiger.condition_5') !!}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bet">{!! t('howto-dragontiger.bet_suit') !!}</td>
+                        <td class="payout">{!! t('howto-dragontiger.payout_3_1') !!}</td>
+                        <td class="condition">{!! t('howto-dragontiger.condition_7') !!}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bet">{!! t('howto-dragontiger.bet_suitedtie') !!}</td>
+                        <td class="payout">{!! t('howto-dragontiger.payout_50_1') !!}</td>
+                        <td class="condition">{!! t('howto-dragontiger.condition_6') !!}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div> {{--  //.type-of-bets --}}
+
+                <div id="dragontiger-suit" class="howto--layers clearfix"> {{-- #suit --}}
+                  <div class="suit__items -suit">
+                    <h4>{!! t('howto-dragontiger.suit_title') !!}</h4>
+                    <p>{!! t('howto-dragontiger.suit_desc') !!}</p>
+                    <img src="/img/howtoplay/dragontiger/dark/dt_suit1.png" alt="suit" />
+                  </div>
+
+                  <div class="suit__items -suited-tie">
+                    <h4>{!! t('howto-dragontiger.suitedtie_title') !!}</h4>
+                    <p>{!! t('howto-dragontiger.suitedtie_desc') !!}</p>
+                    <img src="/img/howtoplay/dragontiger/dark/dt_suit2.png" alt="suited tie" />
+                  </div>
+                </div> {{-- // #suit --}}
+              </div> {{-- // .howto-contents --}}
+            </div> {{-- // .howto-wrap__items --}}
+
+            {{-- paste here --}}
+          </div> {{-- // .howto-wrap --}}
+          <div class="howto-submenu"> {{-- .howto-submenu --}}
+            <ul class="gamerules-menu"> {{-- .gamerules-menu --}}
+              <li class="gamerules-menu__items">
+                <a href="#game-objective" class="menu-game-scroll">{!! t('howto-dragontiger.game_objective') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#dragontiger-gameplay" class="menu-game-scroll">{!! t('howto-dragontiger.gameplay') !!}</a>
+              </li>
+              <li class="gamerules-menu__items">
+                <a href="#dragontiger-typesofbet" class="menu-game-scroll">{!! t('howto-dragontiger.types_of_bet') !!}</a>
+              </li>
+            </ul> {{-- // .gamerules-menu --}}
+          </div> {{-- // .howto-submenu --}}
+        </div> {{--dragontiger-toggle--}}
+
+      </div> {{-- // menu-content__body--}}
+    </div> {{-- // menu-content--}}
+
+    <div class="menu-content betlogs"> {{--menu-content--}}
+      <div class="menu-content__header">
+        <span class="menu-header-text">{{ t('ingame-web.com_sub_menuarea_betlogs') }}</span>
+        <span class="menu-close-ico-mobile"></span>
+      </div>
+      <div class="menu-content__body"> {{--menu-content__body--}}
+        <div class="modal-option">
+          <div class="modal-select range-hide">
+            <span class="range-disp betlogs" game="baccarat" data="betlogs">{!! t('ingame-web.lobby_gamename_baccarat') !!}</span>
+          </div>
+        </div>
+        <div class="range-list betlogs" data="betlogs">
+          <button class="range-select" game="baccarat" data="baccaratlogs">{!! t('ingame-web.lobby_gamename_baccarat') !!}</button>
+          <button class="range-select" game="poker" data="pokerlogs">{!! t('ingame-web.lobby_gamename_poker') !!}</button>
+          <button class="range-select" game="dragontiger" data="dragontigerlogs">{!! t('ingame-web.lobby_gamename_dragontiger') !!}</button>
+          <button class="range-select" game="allgames" data="alllogs">{!! t('ingame-web.com_sub_menuarea_allgames') !!}</button>
+        </div>
+        <div id="tblBetLogs" class="modal-tbl">
+          <div class="modal-tbl-header">
+            <div class="tbl-header-list -list_gameno">{!! t('ingame-web.com_sub_menuarea_gameno') !!}</div>
+            <div class="tbl-header-list -list_date">{!! t('ingame-web.com_sub_menuarea_date') !!}</div>
+            <div class="tbl-header-list -list_channel">{!! t('ingame-web.com_sub_menuarea_channel') !!}</div>
+            <div class="tbl-header-list -list_dealer">{!! t('ingame-web.com_sub_menuarea_dealername') !!}</div>
+            <div class="tbl-header-list -list_totalbet">{!! t('ingame-web.com_sub_menuarea_totalbet') !!}</div>
+            <div class="tbl-header-list -list_winlose">{!! t('ingame-web.com_sub_menuarea_winlose') !!}</div>
+          </div>
+
+          <div id="tblBodyBetlogs" class="modal-tbl-body"></div>
+          <div class="modal-tbl-footer center-content">
+            <div id="prevPageBetlogs" class="page-ico prev-page-ico"></div>
+            <div id="tblFooterBetlogs"></div>
+            <div id="nextPageBetlogs" class="page-ico next-page-ico"></div>
+          </div>
+        </div>
+        <div class="modal-body modal-body-nodata --betlogs">{!! t('ingame-web.other_prompts_mobile_nodata') !!}</div>
+
+        <div id="modalResult"  class="modal-betlogs-con -betlogsresult"> {{--modal-betlogs-con--}}
+          <div class="modal-con -result noselect">
+            <div class="modal-header modal-header-result">
+              <span class="menu-header-text">{!! t('ingame-web.com_sub_menuarea_betlogs') !!}</span>
+              <span class="menu-close-ico-mobile" value="betlogs"></span>
+            </div>
+
+            <div class="modal-body modal-body-result">
+              <div class="result-header">
+                <div class="result-header-list header-list-left"></div>
+                <div class="result-header-list header-list-center">
+                  <div class="header-result-con center-content"></div>
+                </div>
+                <div class="result-header-list header-list-right"></div>
+              </div>
+              <div class="result-body">
+                <div class="result-main-con center-content"></div>
+              </div>
+              <div class="result-table">
+                <div class="result-table-head">
+                  <div class="result-tr">
+                    <div class="result-th bet-type">{!! t('ingame-web.com_sub_menuarea_bettype') !!}</div>
+                    <div class="result-th bets">{!! t('ingame-web.com_sub_menuarea_bets') !!}</div>
+                    <div class="result-th win-lose">{!! t('ingame-web.com_sub_menuarea_winlose') !!}</div>
+                  </div>
+                </div>
+                <div class="result-table-body">
+                </div>
+              </div>
+
+              {{-- <div class="result-footer">
+                <div class="bets-tbl-header">
+                  <div class="bets-tbl-header-list bets-list-bettype">Bet Type</div>
+                  <div class="bets-tbl-header-list bets-list-bets tbl-align-right">Bets</div>
+                  <div class="bets-tbl-header-list bets-list-winlose tbl-align-right">Win/Lose</div>
+                </div>
+                <div class="bets-tbl-body"></div>
+              </div> --}}
+            </div>
+          </div>
+        </div>{{--modal-betlogs-con--}}
+      </div> {{-- // menu-content__body--}}
+    </div> {{-- // menu-content--}}
+
+    <div class="menu-content settings"> {{--menu-content--}}
+      <div class="menu-content__header">
+        <span class="menu-header-text">{{ t('ingame-web.com_sub_menuarea_settings') }}</span>
+        <span class="menu-close-ico-mobile" value="settings"></span>
+      </div>
+      <div class="menu-content__body"> {{--menu-content__body--}}
+        <div class="modal-body__items clearfix"> {{--modal-body__items--}}
+          <div class="modal-settings-con -sounds"> {{--modal-settings-con--}}
+            <h3>{!! t('ingame-web.com_sub_settings_sound') !!}</h3>
+            <div class="modal-settings__items clearfix">
+              <span class="settings--lbl">{!! t('ingame-web.com_sub_settings_dealersvoice') !!}</span>
+              <div class="settings--tool">
+                <div id="dealerMuteIco" class="settings-ico settings-mute-ico"></div>
+                <div class="settings-volume-bg">
+                  <div id="dealerSndSlider" class="settings-vol-slider"></div>
+                </div>
+                <div id="dealerSndCircle" class="settings-volume-circle"></div>
+                <div id="dealerMaxIco" class="settings-ico settings-max-ico"></div>
+              </div>
+            </div>
+            <div class="modal-settings__items clearfix">
+              <span class="settings--lbl">{!! t('ingame-web.com_sub_settings_gamesound') !!}</span>
+              <div class="settings--tool">
+                <div id="gameMuteIco" class="settings-ico settings-mute-ico"></div>
+                <div class="settings-volume-bg">
+                  <div id="gameSndSlider" class="settings-vol-slider"></div>
+                </div>
+                <div id="gameSndCircle" class="settings-volume-circle"></div>
+                <div id="gameMaxIco" class="settings-ico settings-max-ico"></div>
+              </div>
+            </div>
+            <div class="modal-settings__items clearfix">
+              <span class="settings--lbl">{!! t('ingame-web.com_sub_settings_music') !!}</span>
+              <div class="settings--tool">
+                <div id="musicMuteIco" class="settings-ico settings-mute-ico"></div>
+                <div class="settings-volume-bg">
+                  <div id="musicSndSlider" class="settings-vol-slider"></div>
+                </div>
+                <div id="musicSndCircle" class="settings-volume-circle"></div>
+                <div id="musicMaxIco" class="settings-ico settings-max-ico"></div>
+              </div>
+            </div>
+            <div class="btn-changemusic">
+              <span>Change Music</span>
+            </div>
+          </div> {{-- // modal-settings-con--}}
+          <div class="modal-settings-con -display"> {{--modal-settings-con--}}
+          <h3>{!! t('ingame-web.com_sub_settings_display') !!}</h3>
+          <div class="modal-settings__items clearfix">
+            <span class="settings--lbl">{!! t('ingame-web.com_sub_settings_darktheme') !!}</span>
+            <div id="setTheme" class="settings-switch-bg">
+              <div id="setThemeCircle" class="settings-switch-circle"></div>
+            </div>
+          </div>
+          <div class="modal-settings__items clearfix">
+            <span class="settings--lbl">{!! t('ingame-web.com_sub_settings_showtutorial') !!}</span>
+            <div id="setTut" class="settings-switch-bg switch-tutorial">
+              <div id="setTutCircle" class="settings-switch-circle"></div>
+            </div>
+          </div>
+          <div class="modal-settings__items clearfix">
+            <span class="settings--lbl">{!! t('ingame-web.com_sub_settings_language') !!}</span>
+            <div class="settings-language-con">
+              <div class="flag-con flag-english" value="0">
+                <i class="ico-flag ico-flag--en"></i>
+              </div>
+              <div class="flag-con flag-japan" value="1">
+                <i class="ico-flag ico-flag--jp"></i>
+              </div>
+              <div class="flag-con flag-korea" value="2">
+                <i class="ico-flag ico-flag--kr"></i>
+              </div>
+              <div class="flag-con flag-none">
+              </div>
+              <div class="flag-con flag-chinese" value="3">
+                <i class="ico-flag ico-flag--zh"></i>
+              </div>
+              <div class="flag-con flag-thai" value="4">
+                <i class="ico-flag ico-flag--th"></i>
+              </div>
+            </div>
+          </div>
+        </div> {{-- // modal-settings-con--}}
+        </div> {{-- // modal-body__items--}}
+        <div class="modal-body__items"> {{--modal-body__items--}}
+          <h3>{!! t('ingame.avatar') !!}</h3>
+          <div class="modal-avatar">
+            <ul class="modal-avatar-list clearfix">
+              <li class="modal-avatar-con -red_king" value="0" avatar="red_king">
+                <i class="ico-avatar ico-red_king"></i>
+              </li>
+              <li class="modal-avatar-con -red_queen" value="1" avatar="red_queen">
+                <i class="ico-avatar ico-red_queen"></i>
+              </li>
+              <li class="modal-avatar-con -red_jack" value="2" avatar="red_jack">
+                <i class="ico-avatar ico-red_jack"></i>
+              </li>
+              <li class="modal-avatar-con -red_joker" value="3" avatar="red_joker">
+                <i class="ico-avatar ico-red_joker"></i>
+              </li>
+              <li class="modal-avatar-con -blue_king" value="4" avatar="blue_king">
+                <i class="ico-avatar ico-blue_king"></i>
+              </li>
+              <li class="modal-avatar-con -blue_queen" value="5" avatar="blue_queen">
+                <i class="ico-avatar ico-blue_queen"></i>
+              </li>
+              <li class="modal-avatar-con -blue_jack" value="2" avatar="blue_jack">
+                <i class="ico-avatar ico-blue_jack"></i>
+              </li>
+              <li class="modal-avatar-con -blue_joker" value="7" avatar="blue_joker">
+                <i class="ico-avatar ico-blue_joker"></i>
+              </li>
+            </ul>
+          </div>
+        </div> {{-- // modal-body__items--}}
+      </div> {{-- // menu-content__body--}}
+    </div> {{-- // menu-content--}}
+
+    <div class="menu-content music"> {{--menu-content--}}
+      <i class="menu-close-ico-mobile" value="music"></i>
+      <div class="menu-content__body">
+        <div class="modal-radio clearfix">
+          <div class="modal-radio-con clearfix">
+            <div class="modal-radio-btn checkedRadio">
+              <i><input type="radio" name="music1" class="" value="1" checked ="checked"/></i>
+            </div>
+            <span>Music 1</span>
+          </div>
+
+          <div class="modal-radio-con clearfix">
+            <div class="modal-radio-btn ">
+              <i><input type="radio" name="music2" class="" value="2" checked =""/></i>
+            </div>
+            <span>Music 2</span>
+          </div>
+
+          <div class="modal-radio-con clearfix">
+            <div class="modal-radio-btn ">
+              <i><input type="radio" name="music3" class="" value="3" checked =""/></i>
+            </div>
+            <span>Music 3</span>
+          </div>
+
+          <div class="modal-radio-con clearfix">
+            <div class="modal-radio-btn ">
+              <i><input type="radio" name="music4" class="" value="4" checked =""/></i>
+            </div>
+            <span>Music 4</span>
+          </div>
+
+          <div class="modal-radio-con clearfix">
+            <div class="modal-radio-btn ">
+              <i><input type="radio" name="music5" class="" value="5" checked =""/></i>
+            </div>
+            <span>Music 5</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-content__btn">
+        <div class="btn-col2 btn-music btn-music--cancel">
+          <span>Cancel</span>
+        </div>
+        <div class="btn-col2 btn-music btn-music--apply">
+          <span>Apply Now</span>
+        </div>
+      </div>
+    </div> {{-- // menu-content--}}
+    <div class="menu-content logout">
+      <div id="popup-logoutlobby" class="popup-box popup--alert">
+        <div class="popup__body">
+          <i class="ico-alert"></i>
+          <span class="alert-txt">{{ t('ingame.alert') }}</span>
+          <p>{{ t('ingame-web.com_sub_ingameprompts_exitroom') }}</p>
+        </div>
+        <div class="popup-room-btn">
+          <div id="lobby-cancelremove" type="button" name="button" class="btn-popup popup-btn--cancel">
+            <span>{{ t('ingame.promptnocaps') }}</span>
+          </div>
+          <div id="looby-removeroom" type="button" name="button" class="btn-popup popup-btn--create">
+            <span>{{ t('ingame.promptyescaps') }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notification-container"></div>
+  </div> {{-- // super-container--}}
+</body>
+<script type="text/javascript">
+var toggle = {};
+var settings = {};
+var popup_notification = {};
+var bet_records = {};
+var reelgames = {};
+
+// var resize = function (newWidth, newHeight) {
+//
+//   let container = document.getElementById("SUPER-CONTAINER");
+//   container.style.transform = "scale(" + (newWidth / 1280) + ") ";
+// }
+// resize(window.innerWidth, window.innerHeight);
+</script>
+<script type="text/javascript" src="/osmf/swfobject.min.js"></script>
+<script type="text/javascript" src ="/dist/main-mobile-3.0.js"></script>
+<script type="text/javascript" src="/js/dom-events-3-mobile.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script> -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    // scroll-buton show
+    $('.howto-contents').scroll(function() {
+      if ($(this).scrollTop() > 100 ) {
+        $('.scroll-button').fadeIn();
+      } else {
+        $('.scroll-button').fadeOut();
+      }
+    });
+
+    //scroll-button click
+    $('.scroll-button').click(function() {// When arrow is clicked
+      $('.howto-contents').animate({
+        scrollTop : 0  // Scroll to top of body
+      }, 500);
+    });
+
+  });
+
+  window.finished_load  = false;
+
+</script>
+
+<script>
+  // web parallax
+  $(document).mousemove(function(e){
+    var posX = e.pageX / $(this).width() * 100 - 50;
+    var posY = e.pageY / $(this).height() * 100 - 50;
+    var tiltAmount = .9;
+    $('.wrapper--inner').css({
+      'transform': 'translate(-50%, -50%) perspective(500px) rotateY('+ tiltAmount * posX+'deg ) rotateX( '+ tiltAmount * posY * -1+'deg )'
+    })
+  });
+
+  // mobile parallax
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    var origX, origY;
+    var tiltAmount_mb = .8;
+
+    function origOrientation(event) {
+      origX = event.gamma;
+      origY = event.beta;
+      window.removeEventListener('deviceorientation', origOrientation);
+    }
+    window.addEventListener('deviceorientation', origOrientation);
+
+    function handleOrientation(event) {
+      var x = origX - event.gamma;
+      var y = origY - event.beta;
+
+      $('.card').css({
+        'transform': 'perspective(400px) rotateY( '+ (y * tiltAmount_mb) * -1 +'deg ) rotateX( '+ x * tiltAmount_mb +'deg)'
+      });
+    }
+      window.addEventListener('deviceorientation', handleOrientation);
+  }
+
+  document.addEventListener("touchstart", function(){}, true)
+
+</script>
+</html>

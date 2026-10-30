@@ -1,0 +1,18 @@
+{
+  "name": "legacy-build-poker",
+  "private": true,
+  "description": "Toolchain for the poker legacy bundles (browserify + Babel 5), see legacy-build/poker.mjs",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babelify": "^6.4.0",
+    "browserify": "^13.3.0",
+    "crypto-js": "^3.1.9-1",
+    "es5-shim": "^4.5.9",
+    "es6-shim": "^0.35.3",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "socket.io-client": "^2.0.1",
+    "uglify-js": "^3.19.3",
+    "uuid": "^3.1.0"
+  }
+}
