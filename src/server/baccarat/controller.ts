@@ -18,7 +18,7 @@
 
 import { createHash } from 'node:crypto';
 import type { ClientSession } from 'mongoose';
-import { requireUser, currentUser, type AuthContext } from '@/lib/auth';
+import { requireUser, currentUser, viaExit, type AuthContext } from '@/lib/auth';
 import { config } from '@/lib/config';
 import { defineModel, type Db } from '@/lib/db';
 import { clientIp, isMobile } from '@/lib/http';
@@ -101,9 +101,10 @@ function domains (req: Request) {
 
 const redirect = (url: string) => new Response(null, { status : 302, headers : { location : url } });
 
-const lobbyRedirect = (req: Request, user: any, vendor: any, mobile = false) => {
+const lobbyRedirect = (req: Request, a: AuthContext, mobile = false) => {
+	const { user, vendor } = a;
 	if (vendor.lobby_type === 'integrated') {
-		const url = (mobile && user.mo_redirect_url) || user.pc_redirect_url;
+		const url = viaExit(a, (mobile && user.mo_redirect_url) || user.pc_redirect_url);
 		if (url) return redirect(url);
 	}
 	return redirect(domains(req).LOBBY_DOMAIN);
@@ -341,16 +342,16 @@ export async function init (req: Request, params: Params, opts: PageOptions = {}
 		multiplayer = 0;
 	}
 
-	if (vendorData && range != vendorData.betRange) return lobbyRedirect(req, user, vendor, mobile);
+	if (vendorData && range != vendorData.betRange) return lobbyRedirect(req, a, mobile);
 
 	// junket vendors: disabled tables and rooms
 	const junket = Number(user.is_junket) || 0;
 	if (junket > 0) {
 		const jt = junketTables(vendor);
 		const current = `${GAME}-${table}`.toLowerCase();
-		if (jt.disable_table.some((t: string) => String(t).toLowerCase() === current)) return lobbyRedirect(req, user, vendor, mobile);
+		if (jt.disable_table.some((t: string) => String(t).toLowerCase() === current)) return lobbyRedirect(req, a, mobile);
 		if (junket === 1 && !vendorData && jt.created_room.some((t: string) => String(t).toLowerCase() === current)) {
-			return lobbyRedirect(req, user, vendor, mobile);
+			return lobbyRedirect(req, a, mobile);
 		}
 	}
 
@@ -367,7 +368,7 @@ export async function init (req: Request, params: Params, opts: PageOptions = {}
 		rd,
 		allRange              : currentRange,
 		allRangeRows          : rangeRows(currentRange, range, view.cur.multiplier, view.userMultiplier, view.cur.mainMultiplier),
-		lobby_redirect_url    : jsString(mobile ? (user.mo_redirect_url || user.pc_redirect_url) : user.pc_redirect_url),
+		lobby_redirect_url    : jsString(viaExit(a, mobile ? (user.mo_redirect_url || user.pc_redirect_url) : user.pc_redirect_url)),
 		vendorData            : scriptJson(vendorData || []),
 		vendorDataObj         : vendorData || {},
 		hasToken              : !!token,

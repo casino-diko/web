@@ -98,49 +98,21 @@ Every way in ends in the same signed session cookie (`src/lib/session.ts`). The 
 
 | Route | Who | |
 |---|---|---|
-| `GET /launch` | an operator's players | signed link, below; the player is created on the first visit |
+| `GET /launch` | an operator's players | signed link ([OPERATORS.md](OPERATORS.md)); the player is created on the first visit |
 | `GET/POST /login` | players with a password | login id + password set in the admin back-office; 5 wrong passwords lock the account for 15 minutes (the admin can unlock) |
 | `GET/POST /login/dev` | anyone, `DEV_LOGIN=true` only | pick any player |
-| `GET/POST /logout` | | back to the operator's site (`lobby_url` of the launch), else `/login` |
+| `GET/POST /logout` | | back to the operator's site (`lobby_url` of the launch), else `/login`; in an operator's iframe: through `/exit` |
+| `GET /exit` | embedded sessions | posts `exit` to the operator's page (or redirects to `lobby_url` outside a frame) |
 
-### Launch links (for operators)
+### Operators
 
-```
-https://<player site>/launch?vendor=<vendor_name>&payload=<base64url JSON>&hash=<hex>
+Operators send their players in with signed `/launch` links, as a full page, in an iframe on their own site (`"embed": true`), or in their own app's WebView. The spec, signing examples, the iframe messages and a test checklist are in **[OPERATORS.md](OPERATORS.md)**.
 
-hash = HMAC-SHA256(payload, vendor secret), lower- or upper-case hex,
-       computed over the payload string exactly as it appears in the url
-```
+- `/launch` (`src/lib/launch.ts`): HMAC-SHA256 with `vendors.secret_key`, 5 minutes, each nonce once (`launch_nonces`).
+- Embedded sessions (`src/lib/frame.ts`, `src/lib/session.ts`): a `SameSite=None; Secure; Partitioned` cookie, `Content-Security-Policy: frame-ancestors` with the vendor's `embed_origins` (every other session: `'self'` only), and `/exit` posting `{ source: 'casino-diko', type: 'exit' }` to the operator's page instead of navigating.
+- `npm run launch-link` prints a signed link; `npm run operator-demo` serves a demo operator page embedding the games.
 
-| Payload field | | |
-|---|---|---|
-| `user_id` | required | the operator's player id, 1–64 of `A-Z a-z 0-9 _ . @ -`; unique per vendor |
-| `ts` | required | unix seconds; a link is valid for 5 minutes either side |
-| `nonce` | required | 16–64 of `A-Z a-z 0-9 _ -`, new for every link; a link works once |
-| `user_name` | optional | display name, updated on every launch |
-| `currency` | optional | used only when the player is created (else the vendor's) |
-| `lang` | optional | `en`, `kr`, `jp`, `zh`, `th` |
-| `game`, `table` | optional | `baccarat`, `dragon-tiger` or `poker` and a table number: straight to that table, else the lobby |
-| `lobby_url` | optional | `http(s)` url where logout sends the player |
-
-The vendor secret is generated on the admin back-office's **Vendors** page (64 hex characters; at least 32 are required). It also signs the seamless wallet calls, so a new secret must reach the operator at once. A refused link shows the player "This link has expired"; the reason (bad signature, expired, nonce reused, unknown vendor, …) is in the server log as `[launch] refused`.
-
-Example in Node:
-
-```js
-import { createHmac, randomBytes } from 'node:crypto';
-
-const payload = Buffer.from(JSON.stringify({
-	user_id : 'p-1001', user_name : 'Kim', ts : Math.floor(Date.now() / 1000),
-	nonce : randomBytes(16).toString('hex'), game : 'poker', table : 1, lobby_url : 'https://casino.example/'
-})).toString('base64url');
-const hash = createHmac('sha256', process.env.VENDOR_SECRET).update(payload).digest('hex');
-const url = `https://games.example/launch?${new URLSearchParams({ vendor : 'my-casino', payload, hash })}`;
-```
-
-For testing: `LAUNCH_SECRET=<secret> npm run launch-link -- --vendor demo-transfer --user p-1001 --game poker --table 1` prints a fresh link.
-
-Not built yet: rate limiting by IP (the lockout is per account), and account deletion (needed for the store apps, phase 3 of the phone app plan). Operators that embed the games in an iframe on their own domain will need the session cookie set to `SameSite=None; Secure`.
+Not built yet: rate limiting by IP (the lockout is per account), and account deletion (needed for the store apps, phase 3 of the phone app plan).
 
 ## Phones and the home-screen app
 

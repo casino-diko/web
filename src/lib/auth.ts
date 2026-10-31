@@ -16,7 +16,16 @@
 import { getDb, type Db } from './db';
 import { readSession } from './session';
 
-export type AuthContext = { user : any; vendor : any; db : Db; locale : string };
+// embedded: launched into an operator's iframe (lib/launch.ts `embed`)
+export type AuthContext = { user : any; vendor : any; db : Db; locale : string; embedded : boolean };
+
+/**
+ * A link back to the operator's site, as the pages and redirects use it. In
+ * an embedded session it becomes /exit, which tells the operator's page
+ * (postMessage) instead of loading their site inside the frame.
+ */
+export const viaExit = (auth: Pick<AuthContext, 'embedded'>, url: string | null | undefined) =>
+	(auth.embedded && url ? '/exit' : url);
 
 export async function currentUser (): Promise<AuthContext | null> {
 	const session = await readSession();
@@ -33,7 +42,7 @@ export async function currentUser (): Promise<AuthContext | null> {
 	user.id = user._id;
 	vendor.id = vendor._id;
 
-	return { user, vendor, db, locale : session.locale || 'en' };
+	return { user, vendor, db, locale : session.locale || 'en', embedded : !!session.embed?.length };
 }
 
 const wantsJson = (req: Request) =>

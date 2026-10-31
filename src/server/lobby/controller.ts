@@ -15,7 +15,7 @@
  */
 
 import { createHash, randomInt } from 'node:crypto';
-import { requireUser, currentUser, type AuthContext } from '@/lib/auth';
+import { requireUser, currentUser, viaExit, type AuthContext } from '@/lib/auth';
 import { config as appConfig } from '@/lib/config';
 import { defineModel, type Db } from '@/lib/db';
 import { input, isMobile } from '@/lib/http';
@@ -65,7 +65,7 @@ async function lobbyContext (req: Request, a: AuthContext) {
 	const vendorData = { ...publicVendor, junket_auth : junketAuth, junket_table : jsonText(storedTables) };
 	if (junket === 2) vendorData.secret_key = secret_key;
 
-	const pcRedirectUrl = user.pc_redirect_url || '';
+	const pcRedirectUrl = viaExit(a, user.pc_redirect_url) || '';
 
 	return {
 		locale,

@@ -43,7 +43,7 @@
  */
 
 import type { ClientSession } from 'mongoose';
-import { requireUser, currentUser, type AuthContext } from '@/lib/auth';
+import { requireUser, currentUser, viaExit, type AuthContext } from '@/lib/auth';
 import { config } from '@/lib/config';
 import { defineModel, type Db } from '@/lib/db';
 import { clientIp, isMobile } from '@/lib/http';
@@ -826,7 +826,7 @@ async function pageContext (req: Request, auth: AuthContext, table: number, opts
 			mainMultiplier,
 			integrationType    : scriptString(vendor.integration_type),
 			reel_yn            : scriptNumber(vendor.reel_yn, 0),
-			lobby_redirect_url : scriptString(opts.mobile ? user.mo_redirect_url : user.pc_redirect_url),
+			lobby_redirect_url : scriptString(viaExit(auth, opts.mobile ? user.mo_redirect_url : user.pc_redirect_url)),
 			lobby_type         : scriptString(vendor.lobby_type),
 			allRange           : currentRange,
 			// the scripts read window.gameInfo.multibet at once: a player without saved settings gets {} (as in baccarat)
@@ -847,11 +847,12 @@ async function pageContext (req: Request, auth: AuthContext, table: number, opts
 }
 
 /** junket users: disabled tables / tables with a junket room go back to the lobby */
-function junketRedirect (req: Request, user: any, vendor: any, table: number): string | null {
+function junketRedirect (req: Request, auth: AuthContext, table: number): string | null {
+	const { user, vendor } = auth;
 	if (!(Number(user.is_junket) > 0)) return null;
 	const junket = parseJson(vendor.junket_table, {}) || {};
 	const current = `${GAME}-${table}`.toLowerCase();
-	const back = vendor.lobby_type === 'integrated' && user.pc_redirect_url ? user.pc_redirect_url : `${requestOrigin(req)}/`;
+	const back = vendor.lobby_type === 'integrated' && user.pc_redirect_url ? viaExit(auth, user.pc_redirect_url) as string : `${requestOrigin(req)}/`;
 	if ((junket.disable_table || []).some((t: string) => String(t).toLowerCase() === current)) return back;
 	if (Number(user.is_junket) === 1 && (junket.created_room || []).some((t: string) => String(t).toLowerCase() === current)) return back;
 	return null;
@@ -874,7 +875,7 @@ export async function index (req: Request, params: Params) {
 	const mobile = isMobile(req);
 	const page = await pageContext(req, auth, table, mobile ? { mobile, slave : 'normal' } : { mobile });
 	if ('redirect' in page) return redirect(page.redirect as string);
-	const back = junketRedirect(req, auth.user, auth.vendor, table);
+	const back = junketRedirect(req, auth, table);
 	if (back) return redirect(back);
 
 	return renderPage('poker', mobile ? 'index-mobile-non' : 'index', page.ctx);

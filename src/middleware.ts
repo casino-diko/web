@@ -18,13 +18,15 @@
  |
  */
 
+import { jwtVerify } from 'jose';
 import { NextResponse, type NextRequest } from 'next/server';
+import { frameAncestors } from '@/lib/frame';
 
 const GAME_APPS = ['baccarat', 'dragon-tiger', 'poker'];
 const APPS = ['lobby', ...GAME_APPS];
 
 // routes shared by every app
-const GLOBAL = ['/login', '/logout', '/launch', '/health', '/legacy-assets', '/manifest.webmanifest', '/sw.js',
+const GLOBAL = ['/login', '/logout', '/launch', '/exit', '/health', '/legacy-assets', '/manifest.webmanifest', '/sw.js',
 	// public/shared: files used by every app (HLS video player)
 	'/shared'];
 
@@ -49,7 +51,35 @@ const appFromReferer = (req: NextRequest): string => {
 	}
 };
 
-export function middleware (req: NextRequest) {
+/*
+ | Who may frame the response (lib/frame.ts): our own pages, plus the operator
+ | sites of a session launched with `embed`. /launch and /login answer before
+ | there is a session and set their own.
+ */
+const OWN_FRAME_POLICY = ['/launch', '/login'];
+const SESSION_COOKIE = process.env.SESSION_COOKIE || 'nihtan';
+
+async function framers (req: NextRequest): Promise<string[]> {
+	const token = req.cookies.get(SESSION_COOKIE)?.value;
+	const secret = process.env.SESSION_SECRET || '';
+	if (!token || secret.length < 32) return [];
+	try {
+		const { payload } = await jwtVerify(token, new TextEncoder().encode(secret));
+		return Array.isArray(payload.embed) ? payload.embed.map(String) : [];
+	} catch {
+		return [];
+	}
+}
+
+export async function middleware (req: NextRequest) {
+	const res = route(req);
+	if (!OWN_FRAME_POLICY.includes(req.nextUrl.pathname)) {
+		res.headers.set('content-security-policy', frameAncestors(await framers(req)));
+	}
+	return res;
+}
+
+function route (req: NextRequest) {
 	const { pathname } = req.nextUrl;
 
 	if (GLOBAL.some(p => pathname === p || pathname.startsWith(p + '/'))) {

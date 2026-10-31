@@ -17,7 +17,7 @@
  */
 
 import { createHash } from 'node:crypto';
-import { requireUser, currentUser, type AuthContext } from '@/lib/auth';
+import { requireUser, currentUser, viaExit, type AuthContext } from '@/lib/auth';
 import { config } from '@/lib/config';
 import { defineModel, type Db } from '@/lib/db';
 import { input, isMobile, clientIp } from '@/lib/http';
@@ -150,7 +150,7 @@ async function pageContext (req: Request, a: AuthContext, table: string, opts: {
 	// junket vendors: disabled tables / tables reserved for created rooms
 	if (Number(user.is_junket) > 0) {
 		const junketTable: any = h.jsonValue(vendor.junket_table, {}) || {};
-		const back = () => ({ redirect : vendor.lobby_type === 'integrated' ? user.pc_redirect_url : env.lobby_domain });
+		const back = () => ({ redirect : vendor.lobby_type === 'integrated' ? viaExit(a, user.pc_redirect_url) : env.lobby_domain });
 		const current = `${h.GAME}-${table}`.toLowerCase();
 		if (h.toList(junketTable.disable_table).some((t: any) => String(t).toLowerCase() === current)) return back();
 		const room = `dragontiger-${table}`;
@@ -194,7 +194,7 @@ async function pageContext (req: Request, a: AuthContext, table: string, opts: {
 			integrationType   : vendor.integration_type || 'transfer',
 			reel_yn           : Number(vendor.reel_yn) || 0,
 			room_yn           : Number(vendor.room_info_yn) || 0,
-			lobby_redirect_url: (opts.mobile ? user.mo_redirect_url : user.pc_redirect_url) || '',
+			lobby_redirect_url: viaExit(a, opts.mobile ? user.mo_redirect_url : user.pc_redirect_url) || '',
 			lobby_type        : vendor.lobby_type || '',
 			gameInfo          : h.scriptJson(gameInfo),
 			agentRange        : h.scriptJson(agentRange),

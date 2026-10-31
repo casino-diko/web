@@ -6,6 +6,8 @@
  | (/manifest.webmanifest), icons in public/shared/app, and a service worker
  | (public/sw.js) that only shows public/shared/app/offline.html when a page
  | can't load; it caches nothing else, so it can't serve stale game files.
+ | It stays out of operators' iframes: requests it re-sends there lose the
+ | partitioned session cookie (lib/session.ts).
  |
  | APP_HEAD goes into the <head> of every rendered page (template.ts).
  |
@@ -25,7 +27,8 @@ export const APP_HEAD = [
 	'<meta name="apple-mobile-web-app-capable" content="yes">',
 	'<meta name="apple-mobile-web-app-status-bar-style" content="black">',
 	`<meta name="apple-mobile-web-app-title" content="${esc(config.appName)}">`,
-	'<script>if("serviceWorker" in navigator)addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})</script>'
+	// not inside an operator's iframe: the home-screen app is the top-level site (public/sw.js)
+	'<script>if("serviceWorker" in navigator&&window.parent===window)addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})</script>'
 ].join('\n');
 
 /** adds APP_HEAD right after the first <head>; fragments without one stay as they are */

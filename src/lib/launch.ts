@@ -18,6 +18,9 @@
  |     "game"      : "poker",           optional: baccarat | dragon-tiger | poker,
  |     "table"     : 1,                 with table: straight to that table, else the lobby
  |     "lobby_url" : "https://..."      optional: where logout and "back to lobby" go
+ |     "embed"     : true               optional: the games run in an iframe on the operator's
+ |                                      site (one of vendors.embed_origins): exits post a message
+ |                                      to the page instead of navigating (OPERATORS.md)
  |   }
  |
  | The same secret signs the seamless wallet calls to the operator
@@ -46,6 +49,7 @@ export type Launch = {
 	lang     : string | null;
 	path     : string;                       // where to send the player: '/' or '/<game>/<table>'
 	lobbyUrl : string | null;
+	embed    : boolean;
 };
 
 export class LaunchRefused extends Error {}
@@ -68,7 +72,7 @@ export function launchQuery (vendorName: string, data: object, secret: string): 
  */
 export function verifyLaunch (payload: string, hash: string, secret: string, now: number): Launch {
 	if (!secret || secret.length < MIN_SECRET) throw new LaunchRefused('vendor has no launch secret');
-	if (!/^[A-Za-z0-9_-]{1,4096}$/.test(payload)) throw new LaunchRefused('payload is not base64url');
+	if (payload.length > 4096 || !/^[A-Za-z0-9_-]+={0,2}$/.test(payload)) throw new LaunchRefused('payload is not base64url'); // padding optional
 	if (!/^[0-9a-f]{64}$/i.test(hash)) throw new LaunchRefused('hash is not hex sha256');
 
 	const expected = Buffer.from(signPayload(payload, secret), 'hex');
@@ -120,5 +124,7 @@ export function verifyLaunch (payload: string, hash: string, secret: string, now
 		}
 	}
 
-	return { userId, userName, ts, nonce, currency, lang, path, lobbyUrl };
+	if (data.embed !== undefined && typeof data.embed !== 'boolean') throw new LaunchRefused('embed must be true or false');
+
+	return { userId, userName, ts, nonce, currency, lang, path, lobbyUrl, embed : data.embed === true };
 }
