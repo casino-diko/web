@@ -263,55 +263,19 @@ let main = {
 	},
 	dealerImages : [],
 	createGames (games) {
-		let pos = 0;
-		let cntr = -1;
-		let thumbTop = 240;
-		let otherGamesX = 0;
-		let otherGamesY = 0;
+		// one list of every table (no baccarat / other games tabs): baccarat first, then the
+		// other games, each by table number, two per row
+		const order = ['Baccarat', 'Dragon-Tiger', 'Poker', 'Sicbo', 'Pai-Gow'];
+		const rank = (g) => { let i = order.indexOf(g.gameName); return i < 0 ? order.length : i; };
+		const shown = games.map((g, x) => x).sort((a, b) => (rank(games[a]) - rank(games[b])) || (Number(games[a].tableNumber) - Number(games[b].tableNumber)) || (a - b));
+		const thumbTop = 240;
+		const classes = { 'Baccarat' : Baccarat, 'Dragon-Tiger' : DragonTiger, 'Poker' : Poker, 'Sicbo' : Sicbo, 'Pai-Gow' : PaiGow };
 
-		let otherGamesCount = 0;
-		let allContainerCount = 0;
-
-		for(var x = 0; x < games.length; x++) {
-
-			if(games[x].gameName != 'Baccarat') {
-				if(otherGamesCount%2 == 0) {
-					otherGamesX = 15;
-				} else {
-					otherGamesX = 953;
-				}
-
-				if(otherGamesCount >= 2) {
-					if(otherGamesCount%2 == 0) {
-						otherGamesY += 240;
-					}
-				}
-
-				switch(games[x].gameName) {
-					case 'Dragon-Tiger':
-					this.games[x] = new DragonTiger(games[x], otherGamesX, otherGamesY, 915,215, $('#other-container'), this, window.isJunket);
-					break;
-					case 'Pai-Gow':
-					this.games[x] = new PaiGow(games[x], otherGamesX, otherGamesY, 915,215, $('#other-container'), this, window.isJunket);
-					break;
-					case 'Poker':
-					this.games[x] = new Poker(games[x], otherGamesX, otherGamesY, 915,215, $('#other-container'), this, window.isJunket);
-					break;
-					case 'Sicbo':
-					this.games[x] = new Sicbo(games[x], otherGamesX, otherGamesY, 915,215, $('#other-container'), this, window.isJunket);
-					break;
-				}
-				otherGamesCount++;
-			} else {
-				if(allContainerCount%2 == 0) {
-					allContainerCount = 0;
-					cntr++;
-				}
-
-				this.games[x] = new Baccarat(games[x], (allContainerCount * 938)+15, (cntr * thumbTop), 915,215, $('#all-container'), this, window.isJunket);
-				allContainerCount++;
-			}
-		}
+		shown.forEach((x, pos) => {
+			const Game = classes[games[x].gameName];
+			if (!Game) return;
+			this.games[x] = new Game(games[x], ((pos % 2) * 938) + 15, Math.floor(pos / 2) * thumbTop, 915, 215, $('#all-container'), this, window.isJunket);
+		});
 	},
 	createJunketGames(games, rooms) {
 		let pos = 0;

@@ -257,98 +257,22 @@ let main = {
 	},
 	dealerImages : [],
 	createGames (games) {
-		let pos = 0;
-		let cntr = -1;
-		let thumbTop = 275;
-		let otherGamesX = 0;
-		let otherGamesY = 8;
+		// one list of every table (no baccarat / others tabs): baccarat first, then the other
+		// games, each by table number; one column in portrait, two in landscape
+		const order = ['Baccarat', 'Dragon-Tiger', 'Poker', 'Sicbo', 'Pai-Gow'];
+		const rank = (g) => { let i = order.indexOf(g.gameName); return i < 0 ? order.length : i; };
+		const shown = games.map((g, x) => x).sort((a, b) => (rank(games[a]) - rank(games[b])) || (Number(games[a].tableNumber) - Number(games[b].tableNumber)) || (a - b));
+		const thumbTop = 275;
+		const portrait = window.innerWidth < window.innerHeight && window.matchMedia("(orientation: portrait)").matches;
+		const classes = { 'Baccarat' : Baccarat, 'Dragon-Tiger' : DragonTiger, 'Poker' : Poker, 'Sicbo' : Sicbo, 'Pai-Gow' : PaiGow };
 
-		let otherGamesCount = 0;
-		let baccaratCount = 0;
-		let portraitCount = 0;
-
-		//for sample only
-		let bc1 = _.find(games, function (e) { return e.namespace === 'Baccarat/1' });
-		let bc2 = _.find(games, function (e) { return e.namespace === 'Baccarat/2' });
-		let dt1 = _.find(games, function (e) { return e.namespace === 'Dragon-Tiger/1' });
-		let sic1 = _.find(games, function (e) { return e.namespace === 'Sicbo/1' });
-		let pok1 = _.find(games, function (e) { return e.namespace === 'Poker/1' });
-		let pai1 = _.find(games, function (e) { return e.namespace === 'Pai-Gow/1' });
-
-		let w = this.baseWidth/2;
-		if(window.innerWidth <  window.innerHeight && window.matchMedia("(orientation: portrait)").matches) {
-			// portrait
-			// this.games[0] = new Baccarat(bc1, 40, 8 , 632, 260, $('#baccarat-container'), this, window.isJunket);
-			// this.games[1] = new Baccarat(bc2, 40, 278, 632, 260, $('#baccarat-container'), this, window.isJunket);
-			//
-			// this.games[2] = new DragonTiger(dt1, 40, 8 , 632, 260, $('#othergames-container'), this, window.isJunket);
-			// this.games[3] = new Sicbo(sic1,40, 278, 632, 260, $('#othergames-container'), this, window.isJunket);
-			// this.games[4] = new Poker(pok1,40, 545, 632, 260, $('#othergames-container'), this, window.isJunket);
-			// this.games[5] = new PaiGow(pai1,40, 715, 632, 260, $('#othergames-container'), this, window.isJunket);
-		} else {
-			// this.games[0] = new Baccarat(bc1, 1, 8 , 632, 260, $('#baccarat-container'), this, window.isJunket);
-			// this.games[1] = new Baccarat(bc2, (1 * w)+7, (0 * 200)+8, 632, 260, $('#baccarat-container'), this, window.isJunket);
-			//
-			// this.games[2] = new DragonTiger(dt1, 1, 8, 632, 260, $('#othergames-container'), this, window.isJunket);
-			// this.games[3] = new Sicbo(sic1,(1 * w)+7, (0 * 200)+8, 632, 260, $('#othergames-container'), this, window.isJunket);
-			// this.games[4] = new Poker(pok1,0, 285, 632, 260, $('#othergames-container'), this, window.isJunket);
-			// this.games[5] = new PaiGow(pai1,647, 285, 632, 260, $('#othergames-container'), this, window.isJunket);
-		}
-		//end of sample
-
-		for(var x = 0; x < games.length; x++) {
-
-			if(games[x].gameName != 'Baccarat') {
-
-				if(window.innerWidth <  window.innerHeight && window.matchMedia("(orientation: portrait)").matches) {
-					// portrait
-					otherGamesX = 45;
-					if(otherGamesCount >= 1) {
-						otherGamesY += 275;
-					}
-				} else {
-					if(otherGamesCount%2 == 0) {
-						otherGamesX = 0;
-					} else {
-						otherGamesX = 648;
-					}
-					if(otherGamesCount >= 2) {
-						if(otherGamesCount%2 == 0) {
-							otherGamesY += 275;
-						}
-					}
-				}
-
-				switch(games[x].gameName) {
-					case 'Dragon-Tiger':
-					this.games[x] = new DragonTiger(games[x], otherGamesX, otherGamesY, 632,260, $('#othergames-container'), this, window.isJunket);
-					break;
-					case 'Pai-Gow':
-					this.games[x] = new PaiGow(games[x], otherGamesX, otherGamesY, 632,260, $('#othergames-container'), this, window.isJunket);
-					break;
-					case 'Poker':
-					this.games[x] = new Poker(games[x], otherGamesX, otherGamesY, 632,260, $('#othergames-container'), this, window.isJunket);
-					break;
-					case 'Sicbo':
-					this.games[x] = new Sicbo(games[x], otherGamesX, otherGamesY, 632,260, $('#othergames-container'), this, window.isJunket);
-					break;
-				}
-				otherGamesCount++;
-			} else {
-				if(baccaratCount%2 == 0) {
-					baccaratCount = 0;
-					cntr++;
-				}
-				if(window.innerWidth <  window.innerHeight && window.matchMedia("(orientation: portrait)").matches) {
-					// portrait
-					this.games[x] = new Baccarat(games[x], 45, (portraitCount * thumbTop) + 8, 632,260, $('#baccarat-container'), this, window.isJunket);
-				} else {
-					this.games[x] = new Baccarat(games[x], (baccaratCount * 648), (cntr * thumbTop) + 8, 632,260, $('#baccarat-container'), this, window.isJunket);
-				}
-				baccaratCount++;
-				portraitCount++;
-			}
-		}
+		shown.forEach((x, pos) => {
+			const Game = classes[games[x].gameName];
+			if (!Game) return;
+			const left = portrait ? 45 : (pos % 2) * 648;
+			const top = (portrait ? pos : Math.floor(pos / 2)) * thumbTop + 8;
+			this.games[x] = new Game(games[x], left, top, 632, 260, $('#baccarat-container'), this, window.isJunket);
+		});
 	},
 	createJunketGames(games, rooms) {
 		let pos = 0;
