@@ -829,7 +829,8 @@ async function pageContext (req: Request, auth: AuthContext, table: number, opts
 			lobby_redirect_url : scriptString(opts.mobile ? user.mo_redirect_url : user.pc_redirect_url),
 			lobby_type         : scriptString(vendor.lobby_type),
 			allRange           : currentRange,
-			gameInfo           : scriptJson(gameInfo),
+			// the scripts read window.gameInfo.multibet at once: a player without saved settings gets {} (as in baccarat)
+			gameInfo           : scriptJson(gameInfo || {}),
 			agentRange         : scriptJson(agentRange),
 			junket             : scriptNumber(user.is_junket, 0),
 			vendorTables       : scriptString(jsonText(vendor.junket_table ?? null) ?? ''),

@@ -110,6 +110,7 @@ export default (self, type) => {
   if (window.nonInstall) redirectTo = window.lobby_domain+'non?game=true';
 
   let timer_start = false;
+  let bet_window = null; // round/type of the last "bet start" sound
   let data_push = null;
   let betTime = 0;
   let card_data = {};
@@ -135,7 +136,8 @@ export default (self, type) => {
 	self.user_no_bet_count = 0;
 
   let setCardPositions = () => {
-    if(self.component_card_result.player.length) {
+    // nothing to place until the player's cards are drawn (the dealer may scan a burn card first)
+    if(self.component_card_result.player && self.component_card_result.player.length) {
       if(self.mobile) {
         if(self.component_card_result.player) {
           for(var x = 0; x<self.component_card_result.player.length; x++) {
@@ -269,8 +271,11 @@ export default (self, type) => {
 
       if (!self.component_timer.timer) timer_start = false;
 
-      if (!timer_start) {
-        playSound('bet-start');
+      // the dealer's last tick (0) arrives after our own countdown ran out: don't open a new window for it
+      if (!timer_start && parseInt(data.bettingTime) > 0) {
+        // one sound per betting window, also when the timer restarts inside it
+        if (bet_window !== data.roundId + '/' + data.type) playSound('bet-start');
+        bet_window = data.roundId + '/' + data.type;
 
         self.component_timer.startTime(parseInt(data.bettingTime), false, false, parseInt(data.totalTime));
         timer_start = true;
