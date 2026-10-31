@@ -60547,7 +60547,7 @@ exports['default'] = new blu.Screen({
         }
 
         // opened from the home screen: already full screen, so every phone gets the sound prompt
-        var homeScreenApp = !!(window.navigator.standalone || window.matchMedia && (window.matchMedia('(display-mode: fullscreen)').matches || window.matchMedia('(display-mode: standalone)').matches));
+        var homeScreenApp = !!(/DikoApp\//.test(window.navigator.userAgent) || window.navigator.standalone || window.matchMedia && (window.matchMedia('(display-mode: fullscreen)').matches || window.matchMedia('(display-mode: standalone)').matches));
         if ((getOS() == "iOS" || homeScreenApp) && window.nonInstall) {
             $('#popup-enable-sound').show();
             $('#popup-enable-sound').off().on('click', function () {
