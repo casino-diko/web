@@ -198,7 +198,7 @@ export default() => {
 				$('#SUPER-CONTAINER').scrollTop(0);
 
 				$('#SUPER-CONTAINER').css({
-				 	'transform': 'rotate(90deg) scale('+((window.innerHeight / 1280) )+')',
+				 	'transform': 'rotate(90deg) scale('+Math.min(window.innerHeight / 1280, window.innerWidth / 720)+')',
 				 	'overflow-y': 'hidden'
 			 	})
 
@@ -208,16 +208,11 @@ export default() => {
 				this.canvas.width = 1280;
 				this.canvas.height = 720;
 
-				if(window.screen.height == 412 && window.screen.width == 846) {
-					$('#SUPER-CONTAINER').css({
-						'transform': 'scale('+(((window.innerWidth - 110)/ 1280) )+')',
-				 		'overflow-y': 'scroll'
-					})
-				} else {
-					$('#SUPER-CONTAINER').css({
-						'transform': 'scale('+((window.innerWidth/ 1280) )+')'
-					})
-				}
+				// the whole table fits the screen, centred: by width on screens up to 16:9,
+				// by height on wider ones
+				$('#SUPER-CONTAINER').css({
+					'transform': 'scale('+((newWidth / 1280) )+')'
+				})
 				this.stage.regY = 0;
 				this.stage.rotation = 0
 
