@@ -40,7 +40,7 @@ docker compose run --rm seed            # demo tables, dealers and players
 cd game-server && npm install && npm run dealer   # simulated dealer playing rounds on every table
 ```
 
-Open **http://localhost:3000/login**, pick a demo player, then open a table from the lobby. Full details (ports, demo data, troubleshooting) are in the backend README.
+Open **http://localhost:3000/login/dev**, pick a demo player, then open a table from the lobby. Full details (ports, demo data, troubleshooting) are in the backend README.
 
 After changing this repository, rebuild only the front-end: `cd ../backend && docker compose up -d --build web`.
 
@@ -53,7 +53,7 @@ After changing this repository, rebuild only the front-end: `cd ../backend && do
 cd web
 cp .env.example .env          # defaults match the local backend setup
 npm install
-npm run dev                   # http://localhost:3000/login (hot reload)
+npm run dev                   # http://localhost:3000/login/dev (hot reload)
 ```
 
 | Command | |
@@ -80,7 +80,7 @@ For production use the Docker image (`Dockerfile`): it runs the standalone serve
 | `APP_SOCKET` | `http://localhost:8000` | socket-server url as seen from the browser |
 | `SESSION_SECRET` | none, **required** (32+ characters) | signs the session cookie |
 | `SESSION_SECURE` | `false` | `true` behind https |
-| `DEV_LOGIN` | `false` | `true` enables `/login` (pick any player). **Development only.** |
+| `DEV_LOGIN` | `false` | `true` enables `/login/dev` (pick any player). **Development only.** |
 | `API_URL` | empty | vendor API for seamless wallets |
 | `HLS_URL_TEMPLATE` | empty | live video url per table (see below) |
 
@@ -89,7 +89,57 @@ For production use the Docker image (`Dockerfile`): it runs the standalone serve
 - **Pages are not React.** The former Blade views live in `templates/<app>/*.html`, rendered by a small Blade-compatible engine (`src/lib/template.ts`) from route handlers in `src/app/<app>/`. The API logic is in `src/server/<app>/controller.ts`.
 - **One domain, four apps.** The game scripts request root-relative urls (`/img/...`, `/bet/store/...`). `src/middleware.ts` maps them to the app of the page that made the request (Referer). Each app's static files are in `public/<app>/`.
 - **Bets** are stored in MongoDB in a transaction, guarded by round status and balance. Payouts are settled by the game-server.
-- **Login:** only the development login exists (`DEV_LOGIN`). A vendor launch flow (signed redirect creating the session) still has to be built before going live.
+- **Sign-in:** operators' players arrive through a signed `/launch` link, players created in the admin back-office sign in at `/login` with a password; see [Player sign-in](#player-sign-in).
+
+## Player sign-in
+
+Every way in ends in the same signed session cookie (`src/lib/session.ts`). The code is in `src/server/auth/controller.ts`.
+
+| Route | Who | |
+|---|---|---|
+| `GET /launch` | an operator's players | signed link, below; the player is created on the first visit |
+| `GET/POST /login` | players with a password | login id + password set in the admin back-office; 5 wrong passwords lock the account for 15 minutes (the admin can unlock) |
+| `GET/POST /login/dev` | anyone, `DEV_LOGIN=true` only | pick any player |
+| `GET/POST /logout` | | back to the operator's site (`lobby_url` of the launch), else `/login` |
+
+### Launch links (for operators)
+
+```
+https://<player site>/launch?vendor=<vendor_name>&payload=<base64url JSON>&hash=<hex>
+
+hash = HMAC-SHA256(payload, vendor secret), lower- or upper-case hex,
+       computed over the payload string exactly as it appears in the url
+```
+
+| Payload field | | |
+|---|---|---|
+| `user_id` | required | the operator's player id, 1–64 of `A-Z a-z 0-9 _ . @ -`; unique per vendor |
+| `ts` | required | unix seconds; a link is valid for 5 minutes either side |
+| `nonce` | required | 16–64 of `A-Z a-z 0-9 _ -`, new for every link; a link works once |
+| `user_name` | optional | display name, updated on every launch |
+| `currency` | optional | used only when the player is created (else the vendor's) |
+| `lang` | optional | `en`, `kr`, `jp`, `zh`, `th` |
+| `game`, `table` | optional | `baccarat`, `dragon-tiger` or `poker` and a table number: straight to that table, else the lobby |
+| `lobby_url` | optional | `http(s)` url where logout sends the player |
+
+The vendor secret is generated on the admin back-office's **Vendors** page (64 hex characters; at least 32 are required). It also signs the seamless wallet calls, so a new secret must reach the operator at once. A refused link shows the player "This link has expired"; the reason (bad signature, expired, nonce reused, unknown vendor, …) is in the server log as `[launch] refused`.
+
+Example in Node:
+
+```js
+import { createHmac, randomBytes } from 'node:crypto';
+
+const payload = Buffer.from(JSON.stringify({
+	user_id : 'p-1001', user_name : 'Kim', ts : Math.floor(Date.now() / 1000),
+	nonce : randomBytes(16).toString('hex'), game : 'poker', table : 1, lobby_url : 'https://casino.example/'
+})).toString('base64url');
+const hash = createHmac('sha256', process.env.VENDOR_SECRET).update(payload).digest('hex');
+const url = `https://games.example/launch?${new URLSearchParams({ vendor : 'my-casino', payload, hash })}`;
+```
+
+For testing: `LAUNCH_SECRET=<secret> npm run launch-link -- --vendor demo-transfer --user p-1001 --game poker --table 1` prints a fresh link.
+
+Not built yet: rate limiting by IP (the lockout is per account), and account deletion (needed for the store apps, phase 3 of the phone app plan). Operators that embed the games in an iframe on their own domain will need the session cookie set to `SameSite=None; Secure`.
 
 ## Live video (HLS)
 

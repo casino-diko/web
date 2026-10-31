@@ -12,6 +12,7 @@
     "start": "next start -p 3000",
     "typecheck": "tsc --noEmit",
     "test": "node --test --experimental-strip-types 'test/**/*.test.ts'",
+    "launch-link": "node --experimental-strip-types --no-warnings scripts/launch-link.ts",
     "build:legacy": "npm run build:legacy:lobby && npm run build:legacy:baccarat && npm run build:legacy:dragon-tiger && npm run build:legacy:poker",
     "build:legacy:lobby": "npm --prefix legacy-build/lobby install --no-audit --no-fund && LOBBY_BUILD_MODULES=legacy-build/lobby/node_modules node legacy-build/lobby.mjs",
     "build:legacy:baccarat": "npm --prefix legacy-build/games ci --no-audit --no-fund && node legacy-build/games/build.mjs baccarat",

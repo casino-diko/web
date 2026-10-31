@@ -1,12 +1,6 @@
-import { config } from '@/lib/config';
-import { clearSession } from '@/lib/session';
+import { logout } from '@/server/auth/controller';
 
 export const dynamic = 'force-dynamic';
 
-async function logout () {
-	await clearSession();
-	return new Response(null, { status : 303, headers : { location : config.devLogin ? '/login' : '/rejected' } });
-}
-
-export const GET = logout;
-export const POST = logout;
+export const GET = (req: Request) => logout(req);
+export const POST = (req: Request) => logout(req);

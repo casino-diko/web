@@ -49,5 +49,6 @@ export async function requireUser (req: Request): Promise<AuthContext | Response
 	if (wantsJson(req)) {
 		return Response.json({ error : 'Unauthenticated.' }, { status : 401 });
 	}
-	return Response.redirect(new URL('/login', req.url), 302);
+	// relative: req.url carries the server's bind address (0.0.0.0:3000), not the host the player used
+	return new Response(null, { status : 302, headers : { location : '/login' } });
 }

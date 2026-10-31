@@ -24,7 +24,7 @@ const GAME_APPS = ['baccarat', 'dragon-tiger', 'poker'];
 const APPS = ['lobby', ...GAME_APPS];
 
 // routes shared by every app
-const GLOBAL = ['/login', '/logout', '/health', '/legacy-assets',
+const GLOBAL = ['/login', '/logout', '/launch', '/health', '/legacy-assets',
 	// public/shared: files used by every app (HLS video player)
 	'/shared'];
 

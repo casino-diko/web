@@ -57,6 +57,9 @@ const sharedModels = (conn: Connection) => ({
 	notice      : model(conn, 'notice', () => schema('notice', {})),
 	rooms       : model(conn, 'room', () => schema('rooms', { users : { type : [Number], default : [] } })),
 	videoSettings : model(conn, 'video_setting', () => schema('video_settings', { user_id : Number })),
+	// used launch-link nonces (`<vendor id>:<nonce>`); MongoDB drops each once its link has expired
+	launchNonces : model(conn, 'launch_nonce', () => new Schema({ _id : String, expires_at : Date }, { collection : 'launch_nonces', versionKey : false })
+		.index({ expires_at : 1 }, { expireAfterSeconds : 0 })),
 	nextId      : counter(conn)
 });
 
