@@ -60546,7 +60546,9 @@ exports['default'] = new blu.Screen({
             return os;
         }
 
-        if (getOS() == "iOS" && window.nonInstall) {
+        // opened from the home screen: already full screen, so every phone gets the sound prompt
+        var homeScreenApp = !!(window.navigator.standalone || window.matchMedia && (window.matchMedia('(display-mode: fullscreen)').matches || window.matchMedia('(display-mode: standalone)').matches));
+        if ((getOS() == "iOS" || homeScreenApp) && window.nonInstall) {
             $('#popup-enable-sound').show();
             $('#popup-enable-sound').off().on('click', function () {
                 $('#popup-enable-sound').hide();
@@ -60563,7 +60565,7 @@ exports['default'] = new blu.Screen({
 
         // === New video for non-install version
         if (window.nonInstall) {
-            if (getOS() == "Android") {
+            if (getOS() == "Android" && !homeScreenApp) {
                 $('#popup-gofullscreen').show();
             }
             $('#vidCanvas').show();

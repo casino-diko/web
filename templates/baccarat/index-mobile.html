@@ -209,6 +209,9 @@
 		top: 50%;
 		transform: translate(-50%, -50%);
 		width: 520px;
+		/* the prompt sits outside the scaled game: fit the phone, not the 720px design width */
+		max-width: calc(100vw - 32px);
+		box-sizing: border-box;
 	}
 	.popup-body-con img { max-width: 220px; }
 	.popup-btn-con button {

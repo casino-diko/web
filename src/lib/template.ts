@@ -24,6 +24,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { translator } from './i18n';
 import type { App } from './config';
+import { withAppHead } from './webapp';
 
 type Ctx = Record<string, any>;
 type Node =
@@ -273,4 +274,5 @@ export function htmlResponse (html: string, status = 200): Response {
 	});
 }
 
-export const renderPage = (app: App, name: string, ctx: Ctx = {}) => htmlResponse(render(app, name, ctx));
+// full pages get the home-screen app tags (manifest, icons, service worker)
+export const renderPage = (app: App, name: string, ctx: Ctx = {}) => htmlResponse(withAppHead(render(app, name, ctx)));

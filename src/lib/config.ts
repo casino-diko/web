@@ -36,7 +36,10 @@ export const config = {
 	// vendor API for seamless wallets (former env('API_URL'))
 	apiUrl : (env.API_URL || '').replace(/\/$/, ''),
 
-	devLogin : bool(env.DEV_LOGIN)
+	devLogin : bool(env.DEV_LOGIN),
+
+	// name of the home-screen app (web app manifest, iOS title)
+	appName : env.APP_NAME || 'Nihtan'
 };
 
 export type GameApp = 'baccarat' | 'dragon-tiger' | 'poker';

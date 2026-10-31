@@ -4,7 +4,8 @@
  |--------------------------------------------------------------------------
  | Serves public/<app>/<path> for the root-relative asset urls that
  | src/middleware.ts maps to an app (/img/x.png from a /poker page ->
- | /legacy-assets/poker/img/x.png). A plain middleware rewrite onto
+ | /legacy-assets/poker/img/x.png); responses vary by Referer, since the
+ | same url is a different file for each game. A plain middleware rewrite onto
  | public/<app>/... is not enough: in production builds the rewritten url
  | is matched against the app's dynamic page routes first.
  |
@@ -52,6 +53,9 @@ async function serve (req: Request, ctx: { params : Promise<{ app : string; path
 	const headers: Record<string, string> = {
 		'content-type'  : TYPES[path.extname(file).toLowerCase()] || 'application/octet-stream',
 		'cache-control' : 'public, max-age=3600',
+		// the same url (/img/x.png) is a different file per game, chosen by the Referer
+		// (src/middleware.ts): without this a browser reuses poker's copy on the baccarat page
+		vary            : 'Referer',
 		'accept-ranges' : 'bytes',
 		'last-modified' : info.mtime.toUTCString(),
 		etag

@@ -81,6 +81,7 @@ For production use the Docker image (`Dockerfile`): it runs the standalone serve
 | `SESSION_SECRET` | none, **required** (32+ characters) | signs the session cookie |
 | `SESSION_SECURE` | `false` | `true` behind https |
 | `DEV_LOGIN` | `false` | `true` enables `/login/dev` (pick any player). **Development only.** |
+| `APP_NAME` | `Nihtan` | name of the home-screen app (web app manifest, iOS title) |
 | `API_URL` | empty | vendor API for seamless wallets |
 | `HLS_URL_TEMPLATE` | empty | live video url per table (see below) |
 
@@ -140,6 +141,18 @@ const url = `https://games.example/launch?${new URLSearchParams({ vendor : 'my-c
 For testing: `LAUNCH_SECRET=<secret> npm run launch-link -- --vendor demo-transfer --user p-1001 --game poker --table 1` prints a fresh link.
 
 Not built yet: rate limiting by IP (the lockout is per account), and account deletion (needed for the store apps, phase 3 of the phone app plan). Operators that embed the games in an iframe on their own domain will need the session cookie set to `SameSite=None; Secure`.
+
+## Phones and the home-screen app
+
+Phones get their own pages: the mobile lobby at `/` and the browser game pages at `/{table}` (baccarat in portrait; dragon-tiger and poker drawn rotated for landscape). The site can be added to the home screen:
+
+- `/manifest.webmanifest` (`src/lib/webapp.ts`, name from `APP_NAME`), icons in `public/shared/app/`, and the matching iOS tags, added to the `<head>` of every rendered page.
+- `public/sw.js` only shows `public/shared/app/offline.html` when a page can't load. It caches nothing else on purpose: game files share urls between games (below).
+- Opened from the home screen, the games skip the "play in full screen?" prompt (already full screen) and ask to tap for sound instead, as the browser pages do on iPhone.
+- Install and the service worker need **https** (or localhost).
+- On iPhone, a home-screen app keeps its own cookies: a player who installed it signs in inside it; an operator's launch link opens in Safari, not in the installed app.
+
+Root-relative asset urls (`/img/x.png`) are a different file per game, picked by the Referer (`src/middleware.ts`), so `src/app/legacy-assets` answers with `Vary: Referer`. Without it a browser reused one game's cached files in another game (the baccarat phone page broke after visiting poker).
 
 ## Live video (HLS)
 
