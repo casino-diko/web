@@ -20,6 +20,7 @@
 
 import { jwtVerify } from 'jose';
 import { NextResponse, type NextRequest } from 'next/server';
+import { brandSlot } from '@/lib/brandSlots';
 import { frameAncestors } from '@/lib/frame';
 
 const GAME_APPS = ['baccarat', 'dragon-tiger', 'poker'];
@@ -79,8 +80,24 @@ export async function middleware (req: NextRequest) {
 	return res;
 }
 
+/** files that show the brand are drawn from the admin's settings (lib/brandSlots.ts) */
+function brandRewrite (req: NextRequest, publicPath: string) {
+	if (!brandSlot(publicPath)) return null;
+	const url = req.nextUrl.clone();
+	url.pathname = `/brand-asset/${publicPath}`;
+	return NextResponse.rewrite(url);
+}
+
 function route (req: NextRequest) {
 	const { pathname } = req.nextUrl;
+
+	// a brand file, asked for with its app prefix (/lobby/img/x.png, /shared/app/icon-192.png)
+	// or root-relative by a game page (/img/x.png, /favicon.ico: the Referer's app)
+	if (isAsset(pathname)) {
+		const prefixed = APPS.includes(firstSegment(pathname)) || firstSegment(pathname) === 'shared';
+		const rewrite = brandRewrite(req, prefixed ? pathname.slice(1) : `${appFromReferer(req)}${pathname}`);
+		if (rewrite) return rewrite;
+	}
 
 	if (GLOBAL.some(p => pathname === p || pathname.startsWith(p + '/'))) {
 		return NextResponse.next();

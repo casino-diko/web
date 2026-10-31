@@ -1,7 +1,11 @@
+import { getDb } from '@/lib/db';
 import { manifest } from '@/lib/webapp';
 
 export const dynamic = 'force-dynamic';
 
-export const GET = () => new Response(JSON.stringify(manifest()), {
-	headers : { 'content-type' : 'application/manifest+json', 'cache-control' : 'public, max-age=3600' }
-});
+export async function GET () {
+	await getDb(); // the brand name is current
+	return new Response(JSON.stringify(manifest()), {
+		headers : { 'content-type' : 'application/manifest+json', 'cache-control' : 'no-cache' }
+	});
+}

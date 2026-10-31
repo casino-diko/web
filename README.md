@@ -81,7 +81,7 @@ For production use the Docker image (`Dockerfile`): it runs the standalone serve
 | `SESSION_SECRET` | none, **required** (32+ characters) | signs the session cookie |
 | `SESSION_SECURE` | `false` | `true` behind https |
 | `DEV_LOGIN` | `false` | `true` enables `/login/dev` (pick any player). **Development only.** |
-| `APP_NAME` | `Nihtan` | name of the home-screen app (web app manifest, iOS title) |
+| `APP_NAME` | `Diko` | the brand name until it is set on the admin back-office's Branding page |
 | `API_URL` | empty | vendor API for seamless wallets |
 | `HLS_URL_TEMPLATE` | empty | live video url per table (see below) |
 
@@ -125,6 +125,14 @@ Phones get their own pages: the mobile lobby at `/` and the browser game pages a
 - On iPhone, a home-screen app keeps its own cookies: a player who installed it signs in inside it; an operator's launch link opens in Safari, not in the installed app.
 
 Root-relative asset urls (`/img/x.png`) are a different file per game, picked by the Referer (`src/middleware.ts`), so `src/app/legacy-assets` answers with `Vary: Referer`. Without it a browser reused one game's cached files in another game (the baccarat phone page broke after visiting poker).
+
+## Branding
+
+The brand (name, logo, icon, lobby welcome sound) is set on the admin back-office's **Branding** page and stored in the shared database (`settings` `brand`, `brand_files`). The site re-reads it every few seconds (`src/lib/brand.ts`).
+
+- **Texts**: translations replace the former brand (`Nihtan`, `NIHTAN`, `泥炭`) with the name (`src/lib/brandText.ts`); lowercase `nihtan` is code (keys, files) and stays.
+- **Images and sounds**: the files that showed the former brand are brand slots (`src/lib/brandSlots.ts`). `src/middleware.ts` sends their urls to `/brand-asset/...`, which draws them at the original size (`src/lib/brandAssets.ts`): the uploaded logo or icon fitted, else the name or its first letter in Lato Black; the home-screen icons and favicons too. The lobby's welcome voice plays the upload for the player's language, else the one for all languages, else silence.
+- **Card backs and loading cards** no longer carry a brand: `scripts/card-backs.mjs` redrew them (gold lattice and medallion on the card's red or blue panel) and the results are committed. Run it again after adding card art with branded panels: `node scripts/card-backs.mjs --out <dir>` to review, `--write` to replace.
 
 ## Live video (HLS)
 

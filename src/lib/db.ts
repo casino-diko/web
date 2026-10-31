@@ -57,6 +57,10 @@ const sharedModels = (conn: Connection) => ({
 	notice      : model(conn, 'notice', () => schema('notice', {})),
 	rooms       : model(conn, 'room', () => schema('rooms', { users : { type : [Number], default : [] } })),
 	videoSettings : model(conn, 'video_setting', () => schema('video_settings', { user_id : Number })),
+	// settings the admin back-office writes; { _id : 'brand', name, version } (lib/brand.ts)
+	settings   : model(conn, 'setting', () => new Schema({ _id : String }, { collection : 'settings', strict : false, versionKey : false })),
+	// files the admin uploads: logo, icon, welcome sounds ({ _id : 'logo', content_type, data, version })
+	brandFiles : model(conn, 'brand_file', () => new Schema({ _id : String, content_type : String, data : Buffer, version : Number }, { collection : 'brand_files', strict : false, versionKey : false })),
 	// used launch-link nonces (`<vendor id>:<nonce>`); MongoDB drops each once its link has expired
 	launchNonces : model(conn, 'launch_nonce', () => new Schema({ _id : String, expires_at : Date }, { collection : 'launch_nonces', versionKey : false })
 		.index({ expires_at : 1 }, { expireAfterSeconds : 0 })),
@@ -105,7 +109,11 @@ async function withTransaction<T> (fn: (session: mongoose.ClientSession) => Prom
 }
 
 export async function getDb (): Promise<Db> {
-	if (g.__tgMongo.db) return g.__tgMongo.db;
+	if (g.__tgMongo.db) {
+		// keeps the brand name current for the page about to render (no wait: lib/brand.ts re-reads it every few seconds)
+		g.__tgMongo.refreshBrand?.(g.__tgMongo.db);
+		return g.__tgMongo.db;
+	}
 
 	if (!g.__tgMongo.connecting) {
 		mongoose.set('strictQuery', false);
@@ -119,10 +127,15 @@ export async function getDb (): Promise<Db> {
 		games[app] = gameModels(root.useDb(config.mongo.games[app], { useCache : true }));
 	}
 
-	g.__tgMongo.db = {
+	const db: Db = {
 		shared : sharedModels(root.useDb(config.mongo.sharedDb, { useCache : true })),
 		games,
 		withTransaction
 	};
-	return g.__tgMongo.db;
+	// the brand name before the first page renders, then every few seconds (lib/brand.ts)
+	const { brand } = await import('./brand');
+	await brand(db).catch(e => console.warn('[brand] not loaded:', (e as Error).message));
+	g.__tgMongo.refreshBrand = (d: Db) => { brand(d).catch(() => {}); };
+	g.__tgMongo.db = db;
+	return db;
 }

@@ -38,8 +38,8 @@ export const config = {
 
 	devLogin : bool(env.DEV_LOGIN),
 
-	// name of the home-screen app (web app manifest, iOS title)
-	appName : env.APP_NAME || 'Nihtan'
+	// the brand name until the admin back-office sets one (Branding page, lib/brand.ts)
+	appName : env.APP_NAME || 'Diko'
 };
 
 export type GameApp = 'baccarat' | 'dragon-tiger' | 'poker';

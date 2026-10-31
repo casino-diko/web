@@ -5,12 +5,14 @@
  | Laravel translations converted to lang/<app>/<locale>.json
  | ({ "<file>": { "<key>": "text" } }). t('ingame.bet') behaves like
  | trans(): missing keys fall back to English, then to the key itself.
+ | The former brand name in the texts becomes the current one (brandText.ts).
  |
  */
 
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import type { App } from './config';
+import { brandText } from './brandText';
 
 export const LOCALES = ['en', 'kr', 'jp', 'zh', 'th'];
 const FALLBACK = 'en';
@@ -36,6 +38,7 @@ export function translator (app: App, locale: string) {
 		let text = get(primary, key) ?? get(fallback, key) ?? key;
 		if (typeof text === 'string') {
 			for (const [k, v] of Object.entries(replace)) text = text.replace(new RegExp(`:${k}\\b`, 'g'), String(v));
+			text = brandText(text);
 		}
 		return text;
 	};

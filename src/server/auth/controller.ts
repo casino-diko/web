@@ -30,7 +30,7 @@ import { LAUNCH_MAX_AGE, LaunchRefused, verifyLaunch } from '@/lib/launch';
 import { verifyPassword } from '@/lib/password';
 import { clearSession, readSession, writeSession } from '@/lib/session';
 import { htmlResponse } from '@/lib/template';
-import { APP_HEAD } from '@/lib/webapp';
+import { appHead } from '@/lib/webapp';
 
 export const MAX_FAILURES = 5;
 export const LOCK_MINUTES = 15;
@@ -41,7 +41,7 @@ const redirect = (location: string) => new Response(null, { status : 303, header
 
 const page = (title: string, body: string, status = 200, framers: string[] = []) => withFrame(htmlResponse(`<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-${APP_HEAD}
+${appHead()}
 <style>body{font:15px system-ui,sans-serif;margin:0;background:#111;color:#eee;display:flex;min-height:100vh;align-items:center;justify-content:center}
 main{width:min(340px,100% - 32px)}h1{font-size:22px;margin:0 0 20px}label{display:block;margin:0 0 14px}
 input{display:block;width:100%;box-sizing:border-box;margin-top:6px;padding:10px;font:inherit;color:inherit;background:#1d1d1d;border:1px solid #444;border-radius:6px}
