@@ -26,6 +26,7 @@ import { translator } from './i18n';
 import type { App } from './config';
 import { withAppHead } from './webapp';
 import { withTableNotices } from './tableNotices';
+import { withAssetVersions } from './assetVersions';
 
 type Ctx = Record<string, any>;
 type Node =
@@ -275,7 +276,8 @@ export function htmlResponse (html: string, status = 200): Response {
 	});
 }
 
-// full pages get the home-screen app tags (manifest, icons, service worker);
-// game pages also get the round cancel / void / last rounds notices
+// full pages get the home-screen app tags (manifest, icons, service worker), versioned links to
+// their own scripts and stylesheets (lib/assetVersions.ts); game pages also get the round
+// cancel / void / last rounds notices
 export const renderPage = (app: App, name: string, ctx: Ctx = {}) =>
-	htmlResponse(withTableNotices(withAppHead(render(app, name, ctx)), app, ctx.locale || 'en'));
+	htmlResponse(withAssetVersions(withTableNotices(withAppHead(render(app, name, ctx)), app, ctx.locale || 'en'), app));
