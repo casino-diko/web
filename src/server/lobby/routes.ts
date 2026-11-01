@@ -57,6 +57,8 @@ export const ROUTES: Record<string, Route> = {
 
 	// version 3 mobile
 	'/m'                  : { methods : GET, fn : c.indexMobile3 },
+	// the games' lobby button in a phone browser (lobby_domain + 'non?game=true'): the lobby, with the query
+	'/non'                : { methods : GET, fn : (req) => new Response(null, { status : 302, headers : { Location : '/' + new URL(req.url).search } }) },
 	'/m/alllogs'          : { methods : ANY, fn : c.getAllLogsMobile },
 	'/m/baccaratlogs'     : { methods : ANY, fn : c.getBaccaratBetLogs },
 	'/m/pokerlogs'        : { methods : ANY, fn : c.getPokerBetLogs },

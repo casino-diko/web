@@ -110,19 +110,12 @@ function container_pc() {
 } //container_android
 
 function container_android() {
-  if(window.innerWidth >  window.innerHeight  && window.matchMedia("(orientation: landscape)").matches) {
-    $('.container-wrap').css({
-      'width' : window.innerWidth,
-      'height' : window.screen.height,
-      'position' : ''
-    })
-  } else {
-    $('.container-wrap').css({
-      'width' : window.innerWidth,
-      'height' : window.innerHeight,
-      'position' : ''
-    })
-  }
+  // the window's size: the table (blu-mobile.js) scales itself into it, centred
+  $('.container-wrap').css({
+    'width' : window.innerWidth,
+    'height' : window.innerHeight,
+    'position' : ''
+  })
 } //container_android
 
 function container_ios() {
@@ -143,36 +136,6 @@ function container_ios() {
   }
 }
 
-function bezel() {
-  var newWidth = window.innerWidth;
-  var newHeight = window.innerHeight;
-  var baseRatio = (1920 / 1080),
-  newRatio = newWidth / newHeight;
-  if(newRatio >= baseRatio) {
-    newWidth = newHeight * baseRatio;
-  } else {
-    newWidth = newWidth * baseRatio;
-  }
-  if(window.innerHeight == window.screen.height) {
-    if (window.innerWidth < 992 && window.matchMedia("(orientation: portrait)").matches) {
-      $('#SUPER-CONTAINER').css({
-        'transform': ' rotate(90deg) scale('+((newWidth/ 1280) )+')',
-        'overflow': 'hidden'
-      })
-    }  else {
-      $('#SUPER-CONTAINER').css({
-        'transform': 'scale('+((newWidth / 1280) )+')',
-        'overflow': 'hidden'
-      })
-    }
-
-    $('.container-wrap').css({
-      'width' : newWidth,
-      'height' : newHeight,
-      'position' : ''
-    })
-  }
-} //bezel
 
 
 function setDeviceView() {
@@ -207,13 +170,11 @@ function setDeviceView() {
 
     window.addEventListener('resize', function () {
       container_android();
-      bezel();
     });
 
     window.addEventListener('click', function () {
       if ($('body').attr('id') == 'fullscreen') {
         requestFullscreen(document.documentElement);
-        bezel();
       }
     });
   } else {

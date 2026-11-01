@@ -60449,8 +60449,9 @@ exports['default'] = new blu.Screen({
         this.controllermute(0);
         setTimeout(function () {
             $(".wrapper").hide();
-            $("body").css("background", "none");
-            $("html").css("background", "none");
+            // black around the table when the screen is wider or taller than it
+            $("body").css("background", "#000");
+            $("html").css("background", "#000");
 
             var mobileString = _this.detectmob();
             try {

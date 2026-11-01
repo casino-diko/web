@@ -233,6 +233,8 @@ let main = {
 		    // this.settings.setBgm(window.config.bgm);
 			}
 		}
+		// back from a table (?game=true): no welcome, and a clean address
+		if (window.location.search) window.history.replaceState(null, '', window.location.pathname);
 
 		this.setUser();
 		console.log(this.allGames, "games from main")

@@ -36,6 +36,21 @@ const isAsset = (pathname: string) => /\.[A-Za-z0-9]{1,8}$/.test(pathname);
 
 const firstSegment = (pathname: string) => pathname.split('/')[1] || '';
 
+// the games' files (several hundred per table): phones reuse their copy at once and
+// fetch a changed one in the background, instead of asking about every file on every visit
+const ASSET_CACHE = 'public, max-age=600, stale-while-revalidate=604800';
+
+/*
+ | Opening a page (a game's lobby button: "/non?game=true", "/m?game=true") is the lobby's,
+ | whichever page linked to it. Browsers send Sec-Fetch-Dest only to https and localhost; on a
+ | plain http address a page load is the request that asks for html first, and isn't jQuery's.
+ */
+const isPageLoad = (req: NextRequest): boolean => {
+	const dest = req.headers.get('sec-fetch-dest');
+	if (dest) return dest === 'document';
+	return (req.headers.get('accept') || '').startsWith('text/html') && !req.headers.get('x-requested-with');
+};
+
 const appFromReferer = (req: NextRequest): string => {
 	const referer = req.headers.get('referer');
 	if (!referer) return 'lobby';
@@ -97,6 +112,11 @@ function route (req: NextRequest) {
 		const prefixed = APPS.includes(firstSegment(pathname)) || firstSegment(pathname) === 'shared';
 		const rewrite = brandRewrite(req, prefixed ? pathname.slice(1) : `${appFromReferer(req)}${pathname}`);
 		if (rewrite) return rewrite;
+		if (prefixed && req.method === 'GET') {
+			const res = NextResponse.next();
+			res.headers.set('Cache-Control', ASSET_CACHE);
+			return res;
+		}
 	}
 
 	if (GLOBAL.some(p => pathname === p || pathname.startsWith(p + '/'))) {
@@ -115,7 +135,7 @@ function route (req: NextRequest) {
 		return NextResponse.next();
 	}
 
-	const app = pathname === '/' ? 'lobby' : appFromReferer(req);
+	const app = pathname === '/' || isPageLoad(req) ? 'lobby' : appFromReferer(req);
 	const url = req.nextUrl.clone();
 	url.pathname = isAsset(pathname)
 		? `/legacy-assets/${app}${pathname}`
