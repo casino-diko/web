@@ -31,6 +31,12 @@ const GLOBAL = ['/login', '/logout', '/launch', '/exit', '/health', '/legacy-ass
 	// public/shared: files used by every app (HLS video player)
 	'/shared'];
 
+// the games' lobby button ("/non?game=true" in a phone browser, "/m?game=true" in the app): always
+// the lobby's, whichever game links there. isPageLoad() alone misses it: the home-screen app's
+// service worker (public/sw.js) re-sends page loads with fetch(), which drops Sec-Fetch-Dest: document.
+// No game has a page at exactly these paths (theirs are /non/<Game>/..., /m/<Game>/...).
+const LOBBY_ENTRIES = ['/non', '/m'];
+
 // static files are served by src/app/legacy-assets (see there why)
 const isAsset = (pathname: string) => /\.[A-Za-z0-9]{1,8}$/.test(pathname);
 
@@ -135,7 +141,7 @@ function route (req: NextRequest) {
 		return NextResponse.next();
 	}
 
-	const app = pathname === '/' || isPageLoad(req) ? 'lobby' : appFromReferer(req);
+	const app = pathname === '/' || LOBBY_ENTRIES.includes(pathname) || isPageLoad(req) ? 'lobby' : appFromReferer(req);
 	const url = req.nextUrl.clone();
 	url.pathname = isAsset(pathname)
 		? `/legacy-assets/${app}${pathname}`
