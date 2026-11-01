@@ -57291,44 +57291,44 @@ Object.defineProperty(exports, "__esModule", {
 
 exports["default"] = function () {
 	var black_theme = {
-		"base_color": "#191919",
+		"base_color": "#16181c",
 		"text_color": "#fff",
-		"bar_color": "#4e4e4e",
-		"menu_text_color": "#ecdb7e",
-		"btnBorder": "#ff9b28",
-		"gradColor2": "#363636",
+		"bar_color": "#262a31",
+		"menu_text_color": "#d3d8df",
+		"btnBorder": "#a3e635",
+		"gradColor2": "#1e2228",
 		"labelcolor": "#a6a6a6",
-		"modal_txt_color": "#ff9c28",
-		"dealer_channel_rgb": "rgba(16,16,16,0.9)",
-		"table_border": "rgba(255,255,255,0.5)",
+		"modal_txt_color": "#a3e635",
+		"dealer_channel_rgb": "rgba(12,13,15,0.9)",
+		"table_border": "rgba(211,216,223,0.5)",
 		"tableBg": "transparent",
 		"roadMap_bg": "rgba(255,255,255,0.2)",
 		"roadMap_border": "rgba(255,255,255,0.2)",
 		"bet_record_tab": "#9c9c9c",
-		"bet_record_tab_act": "#2b2b2b",
+		"bet_record_tab_act": "#16181c",
 		"tbl_header": "#a7a7a7",
-		"tbl_border": "#646464",
-		"tbl_hover": "#3d3d3d",
-		"btn_pagination": "#ff9b28",
-		"btn_pagination_active": "#2b2b2b",
+		"tbl_border": "#262a31",
+		"tbl_hover": "#1e2228",
+		"btn_pagination": "#a3e635",
+		"btn_pagination_active": "#16181c",
 		"pagination_num": "#4d4d4d",
-		"btn_pagination_active_num": "#ff9b28",
-		"btn_pagination_border": "#ff9b28",
+		"btn_pagination_active_num": "#a3e635",
+		"btn_pagination_border": "#a3e635",
 		"dealer_color": "#fff",
 		/** multibet here */
-		"multibetgradColor1": "#454545",
-		"multibetgradColor2": "#232323",
-		"multibetnav_arrow": "#ebdb7f",
-		"multibetnav_disabled_arrow": "#877f51",
-		"plusBtn": "#efdf82",
-		"closebtn": "#d33030",
-		"inactive": "rgba(60, 60, 60, 0.78)",
-		"active": "rgba(119, 119, 119, 0.73)",
-		"selected": "#58595b",
+		"multibetgradColor1": "#1e2228",
+		"multibetgradColor2": "#16181c",
+		"multibetnav_arrow": "#d3d8df",
+		"multibetnav_disabled_arrow": "#5c636c",
+		"plusBtn": "#d3d8df",
+		"closebtn": "#a3e635",
+		"inactive": "rgba(30, 34, 40, 0.78)",
+		"active": "rgba(58, 64, 72, 0.8)",
+		"selected": "#262a31",
 		// new
-		"bar_separator": "#5b5b5b",
-		"betdetailsBorder": "#2b2b2b",
-		"betdetailsBorderHeader": "#aa9f6b"
+		"bar_separator": "#262a31",
+		"betdetailsBorder": "#262a31",
+		"betdetailsBorderHeader": "#9aa3ae"
 	};
 
 	var white_theme = {
@@ -57834,7 +57834,7 @@ exports['default'] = function () {
 			}
 
 			var announcementIconBg = new createjs.Shape();
-			announcementIconBg.graphics.beginFill('#f1e382').drawRoundRectComplex(0, 0, 60, 55, 0, 0, 0, 10);
+			announcementIconBg.graphics.beginFill('#d3d8df').drawRoundRectComplex(0, 0, 60, 55, 0, 0, 0, 10);
 			this.announcementCon.addChild(announcementIconBg);
 
 			var announcementIcon = new createjs.Bitmap(this.context.getResources('notice_ico'));
@@ -57844,7 +57844,7 @@ exports['default'] = function () {
 			this.announcementCon.addChild(announcementIcon);
 
 			var announcementTextBg = new createjs.Shape();
-			announcementTextBg.graphics.beginLinearGradientFill(['#59090a', 'rgba(89, 9, 10, 0.1)'], [0, 1], 0, 0, 1470, 0).drawRect(0, 0, 1470, 56); //.drawRoundRectComplex(0, 0, 550, 56, 0, 0, 10, 0);
+			announcementTextBg.graphics.beginLinearGradientFill(['#16181c', 'rgba(22, 24, 28, 0.1)'], [0, 1], 0, 0, 1470, 0).drawRect(0, 0, 1470, 56); //.drawRoundRectComplex(0, 0, 550, 56, 0, 0, 10, 0);
 			announcementTextBg.x = 60;
 			announcementTextBg.y = -1;
 			this.announcementCon.addChild(announcementTextBg);
@@ -59382,6 +59382,8 @@ exports['default'] = function () {
 			this.setRound(window.round_id);
 		},
 		setDealer: function setDealer(dealer) {
+			// the dealer's pose behind the betting table (public/shared/table-dealer)
+			if (window.tgDealer && dealer) window.tgDealer.show(dealer.image);
 			// let image = new Image();
 			// image.src = dealer.image;
 			// this.dealer_image.image = image;
@@ -59465,7 +59467,7 @@ exports['default'] = function (link) {
 			this.y = this.context.stage.baseHeight - h;
 
 			this.background = new createjs.Shape();
-			this.background.graphics.f('#2b2b2b').drawRect(0, 0, 482, h);
+			this.background.graphics.f('#16181c').drawRect(0, 0, 482, h);
 			this.background.regX = 242;
 
 			this.addChild(this.background);
@@ -60055,7 +60057,7 @@ exports["default"] = function () {
       this.countdown = false;
 
       this._lastRoundsBg = new createjs.Shape();
-      this._lastRoundsBg.graphics.beginFill("#2b2b2b").drawRoundRect(0, 0, 130, 125, 8);
+      this._lastRoundsBg.graphics.beginFill("#16181c").drawRoundRect(0, 0, 130, 125, 8);
       this._lastRoundsBg.alpha = 0.8;
       this.addChild(this._lastRoundsBg);
 
@@ -60632,7 +60634,7 @@ exports["default"] = function () {
 
 			//Modal Header
 			this._modalHeader = new createjs.Shape();
-			this._modalHeader.graphics.beginLinearGradientFill(["#EEDE7E", "#a99143"], [0, 1], 0, 0, this._modalWidth, 0).drawRect(0, 0, this._modalWidth, 35);
+			this._modalHeader.graphics.beginLinearGradientFill(["#d3d8df", "#9aa3ae"], [0, 1], 0, 0, this._modalWidth, 0).drawRect(0, 0, this._modalWidth, 35);
 			this.addChild(this._modalHeader);
 
 			//Header Text
@@ -60644,7 +60646,7 @@ exports["default"] = function () {
 			this.addChild(this._headerTxt);
 
 			//Header Close button
-			this._headerClose = new createjs.Text("X", "bold 25px arial", "#D32F2F");
+			this._headerClose = new createjs.Text("X", "bold 25px arial", "#a3e635");
 			this._headerClose.x = this._modalWidth - 25;
 			this._headerClose.y = this._modalHeader.y + 4;
 			this.addChild(this._headerClose);
@@ -60665,13 +60667,13 @@ exports["default"] = function () {
 			});
 
 			this._modalBg = new createjs.Shape();
-			this._modalBg.graphics.beginFill("#2b2b2b").moveTo(0, 0).moveTo(0, 0).lineTo(this._modalWidth, 0).lineTo(this._modalWidth, this._modalHeight).lineTo(this._modalWidth - 105, this._modalHeight).lineTo(this._modalWidth - 105, this._modalHeight + 90).lineTo(0, this._modalHeight + 90).closePath();
+			this._modalBg.graphics.beginFill("#16181c").moveTo(0, 0).moveTo(0, 0).lineTo(this._modalWidth, 0).lineTo(this._modalWidth, this._modalHeight).lineTo(this._modalWidth - 105, this._modalHeight).lineTo(this._modalWidth - 105, this._modalHeight + 90).lineTo(0, this._modalHeight + 90).closePath();
 			this._modalBg.y = this._modalHeader.y + 35;
 			this.addChild(this._modalBg);
 
 			//Button clear chips border
 			this.btnClearChips = new createjs.Shape();
-			this.btnClearChips.graphics.beginStroke("#F1E382");
+			this.btnClearChips.graphics.beginStroke("#d3d8df");
 			this.btnClearChips.graphics.setStrokeStyle(2);
 			this.btnClearChips.graphics.drawRect(0, 0, 166, 36);
 			this.btnClearChips.x = 62;
@@ -60685,14 +60687,14 @@ exports["default"] = function () {
 			this.btnClearChipsHit.alpha = 0.01;
 			this.btnClearChipsHit.cursor = "pointer";
 
-			this.txtClearChips = new createjs.Text(window.language2.com_sub_bottomgamedetails_clearchips, window.language.locale == "zh" ? (0, _factoriesFactories.fontFormat)(25, 'normal', 'lato') : (0, _factoriesFactories.fontFormat)(18, 'bold', 'lato'), "#F1E382");
+			this.txtClearChips = new createjs.Text(window.language2.com_sub_bottomgamedetails_clearchips, window.language.locale == "zh" ? (0, _factoriesFactories.fontFormat)(25, 'normal', 'lato') : (0, _factoriesFactories.fontFormat)(18, 'bold', 'lato'), "#d3d8df");
 			this.txtClearChips.textAlign = "center";
 			this.txtClearChips.textBaseline = "middle";
 			this.txtClearChips.x = this.btnClearChips.x + 166 / 2;
 			this.txtClearChips.y = this.btnClearChips.y + 36 / 2;
 
 			this.btnApply = new createjs.Shape();
-			this.btnApply.graphics.beginLinearGradientFill(["#EEDE7E", "#a99143"], [0, 1], 0, 0, 0, 166).drawRect(0, 0, 166, 36);
+			this.btnApply.graphics.beginLinearGradientFill(["#bef264", "#84cc16"], [0, 1], 0, 0, 0, 166).drawRect(0, 0, 166, 36);
 			this.btnApply.x = this.btnClearChipsHit.x + 166 + 23;
 			this.btnApply.y = this.btnClearChips.y - 1;
 			this.btnApply.cursor = "pointer";
@@ -61339,7 +61341,7 @@ exports["default"] = function () {
         if (i == 0) {
           this.howToTab[i].graphics.clear().beginFill(this.context.theme_color[window.theme].bet_record_tab_act);
           this.howToTabIcon[i].gotoAndPlay("active");
-          this.howToTabLbl[i].color = "#ff9b28";
+          this.howToTabLbl[i].color = "#a3e635";
           this.howToTab[i].targ = "gamerules";
         } // end if
         if (i == 1) {
@@ -61370,7 +61372,7 @@ exports["default"] = function () {
 
             _this.howToTab[i].graphics.clear().beginFill(_this.context.theme_color[window.theme].bet_record_tab_act);
             _this.howToTabIcon[i].gotoAndPlay("active");
-            _this.howToTabLbl[i].color = "#ff9b28";
+            _this.howToTabLbl[i].color = "#a3e635";
           });
         })(i);
       } //for loop
@@ -61390,7 +61392,7 @@ exports["default"] = function () {
         if (i == 0) {
           this.howToTab[i].graphics.clear().beginFill(this.context.theme_color[window.theme].bet_record_tab_act);
           this.howToTabIcon[i].gotoAndPlay("active");
-          this.howToTabLbl[i].color = "#ff9b28";
+          this.howToTabLbl[i].color = "#a3e635";
         } // end if
       }
     },
@@ -61540,7 +61542,7 @@ exports["default"] = function () {
 
 			for (var x = 0; x <= 4; x++) {
 				line[x] = new createjs.Shape();
-				line[x].graphics.setStrokeStyle(1).beginStroke("#4a4a4a");
+				line[x].graphics.setStrokeStyle(1).beginStroke("#262a31");
 				line[x].graphics.moveTo(0, 50 * x + 1 + 83);
 				line[x].graphics.lineTo(450, 50 * x + 1 + 83);
 				line[x].graphics.endStroke();
@@ -61752,7 +61754,7 @@ exports["default"] = function () {
 
 			//Volume line bg
 			this.volumeBg = new createjs.Shape();
-			this.volumeBg.graphics.beginFill("#1d1d1d").drawRoundRect(0, 0, 115, 4, 2);
+			this.volumeBg.graphics.beginFill("#0c0d0f").drawRoundRect(0, 0, 115, 4, 2);
 			this.volumeBg.x = this.volumeMute.x + 30;
 			this.volumeBg.y = this.volumeMute.y + 8;
 			this.volumeBg.setBounds(0, 0, 115, 4);
@@ -61762,13 +61764,13 @@ exports["default"] = function () {
 
 			//Volume line bg
 			this.volumeCurrent = new createjs.Shape();
-			this.volumeCurrent.graphics.beginFill("#7cb342").drawRoundRect(0, 0, saved_vol, 5, 2);
+			this.volumeCurrent.graphics.beginFill("#a3e635").drawRoundRect(0, 0, saved_vol, 5, 2);
 			this.volumeCurrent.x = this.volumeMute.x + 30;
 			this.volumeCurrent.y = this.volumeMute.y + 8;
 			this.volumeCurrent.setBounds(0, 0, saved_vol, 5);
 
 			this.volumeCircle = new createjs.Shape();
-			this.volumeCircle.graphics.beginFill("#2e7d32").drawCircle(0, 0, 16);
+			this.volumeCircle.graphics.beginFill("#d3d8df").drawCircle(0, 0, 16);
 			this.volumeCircle.x = this.volumeCurrent.x + saved_vol;
 			this.volumeCircle.y = this.volumeMute.y + 10;
 			this.volumeCircle.cursor = "pointer";
@@ -61810,7 +61812,7 @@ exports["default"] = function () {
 					enableSetting(1, _this);
 				}
 
-				_this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, _this.pos > 0 ? _this.pos - 80 : 0, 5, 2);
+				_this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, _this.pos > 0 ? _this.pos - 80 : 0, 5, 2);
 				_this.volumeCurrent.setBounds(0, 0, _this.pos, 5);
 
 				if (evt.currentTarget.x >= volumeStart && evt.currentTarget.x <= volumeEnd) {
@@ -61837,7 +61839,7 @@ exports["default"] = function () {
 					_this.pos = 185;
 				}
 
-				_this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, _this.pos > 0 ? _this.pos - 80 : _this.pos, 5, 2);
+				_this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, _this.pos > 0 ? _this.pos - 80 : _this.pos, 5, 2);
 				_this.volumeCurrent.setBounds(0, 0, _this.pos, 5);
 
 				var number = (_this.volumeCurrent.getBounds().width - 70) / _this.default_vol;
@@ -61856,7 +61858,7 @@ exports["default"] = function () {
 			//Mute volume button click event
 			this.volumeMute.addEventListener("mousedown", function (e) {
 				newVolume = 0;
-				_this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, newVolume, 5, 2);
+				_this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, newVolume, 5, 2);
 				_this.volumeCircle.x = _this.volumeCurrent.x;
 				_this.volumeMute.gotoAndPlay("mute");
 				_this.volumeMax.gotoAndPlay("mute");
@@ -61865,7 +61867,7 @@ exports["default"] = function () {
 			//Max volume button click event
 			this.volumeMax.addEventListener("mousedown", function (e) {
 				newVolume = 115;
-				_this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, newVolume, 5, 2);
+				_this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, newVolume, 5, 2);
 				_this.volumeCircle.x = _this.volumeCurrent.x + newVolume;
 				_this.volumeMute.gotoAndPlay("normal");
 				_this.volumeMax.gotoAndPlay("normal");
@@ -61878,12 +61880,12 @@ exports["default"] = function () {
 				this.settingsName[i].y = lblsettingsY;
 
 				this.settingsToggle[i] = new createjs.Shape();
-				this.settingsToggle[i].graphics.beginFill("#fff").drawRoundRect(0, 0, 65, 25, 14);
+				this.settingsToggle[i].graphics.beginFill("#a3e635").drawRoundRect(0, 0, 65, 25, 14);
 				this.settingsToggle[i].x = this.volumeMax.x - 40;
 				this.settingsToggle[i].y = lblsettingsY - 3;
 
 				this.settingsCircle[i] = new createjs.Shape();
-				this.settingsCircle[i].graphics.beginFill("#2e7d32").drawCircle(0, 0, 10);
+				this.settingsCircle[i].graphics.beginFill("#0c0d0f").drawCircle(0, 0, 10);
 
 				this.settingsCircle[i].x = this.settingsToggle[i].x + 50;
 				this.settingsCircle[i].y = this.settingsToggle[i].y + 12.5;
@@ -61904,32 +61906,32 @@ exports["default"] = function () {
 				this.addChild(this.settingsName[i], this.settingsToggle[i], this.settingsCircle[i], this.settingsToggleHit[i]);
 
 				if (!parseInt(window.config.voice) && this.settingsToggleHit[i].name.toLowerCase() == "voice") {
-					this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-					this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+					this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+					this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 					this.settingsToggleHit[i].status = "disabled";
 
 					createjs.Tween.get(this.settingsCircle[i], { loop: false }).to({ x: this.settingsCircle[i].x - 35 }, 100);
 				}
 
 				if (!parseInt(window.config.effect) && this.settingsToggleHit[i].name.toLowerCase() == "sound effects") {
-					this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-					this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+					this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+					this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 					this.settingsToggleHit[i].status = "disabled";
 
 					createjs.Tween.get(this.settingsCircle[i], { loop: false }).to({ x: this.settingsCircle[i].x - 35 }, 100);
 				}
 
 				if (window.config.screen == "white" && this.settingsToggleHit[i].name.toLowerCase() == "dark theme") {
-					this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-					this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+					this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+					this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 					this.settingsToggleHit[i].status = "disabled";
 
 					createjs.Tween.get(this.settingsCircle[i], { loop: false }).to({ x: this.settingsCircle[i].x - 35 }, 100);
 				}
 
 				if (!window.tutorial_enabled && this.settingsToggleHit[i].name.toLowerCase() == "show tutorial") {
-					this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-					this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+					this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+					this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 					this.settingsToggleHit[i].status = "disabled";
 
 					createjs.Tween.get(this.settingsCircle[i], { loop: false }).to({ x: this.settingsCircle[i].x - 35 }, 100);
@@ -61951,8 +61953,8 @@ exports["default"] = function () {
 
 				createjs.Tween.get(self.settingsCircle[i], { loop: false }).to({ x: disabledX }, 0);
 
-				self.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-				self.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+				self.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+				self.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 				self.settingsToggleHit[i].status = "disabled";
 
 				if (self.settingsToggleHit[i].name.toLowerCase() == "voice") {
@@ -61982,8 +61984,8 @@ exports["default"] = function () {
 
 				createjs.Tween.get(self.settingsCircle[i], { loop: false }).to({ x: enabledX }, 0);
 
-				self.settingsToggle[i].graphics.clear().beginFill("#fff").drawRoundRect(0, 0, 65, 25, 14);
-				self.settingsCircle[i].graphics.clear().beginFill("#2e7d32").drawCircle(0, 0, 10);
+				self.settingsToggle[i].graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, 65, 25, 14);
+				self.settingsCircle[i].graphics.clear().beginFill("#0c0d0f").drawCircle(0, 0, 10);
 				self.settingsToggleHit[i].status = "enabled";
 
 				if (self.settingsToggleHit[i].name.toLowerCase() == "voice") {
@@ -62011,8 +62013,8 @@ exports["default"] = function () {
 		disableTutorial: function disableTutorial() {
 			createjs.Tween.get(this.settingsCircle[3], { loop: false }).to({ x: 175 }, 0);
 
-			this.settingsToggle[3].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-			this.settingsCircle[3].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+			this.settingsToggle[3].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+			this.settingsCircle[3].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 			this.settingsToggleHit[3].status = "disabled";
 		},
 		changeTheme: function changeTheme(new_theme) {
@@ -62210,11 +62212,11 @@ exports['default'] = function () {
       // Display
       if (window.config.screen == 'black') {
         $('#setTheme').addClass('switch-active');
-        $('#setThemeCircle').css({ 'margin-left': '35px', 'background': '#327e3e' });
+        $('#setThemeCircle').css({ 'margin-left': '35px', 'background': '#0c0d0f' });
       }
       if (window.config.tutorial == 'true') {
         $('#setTut').addClass('switch-active');
-        $('#setTutCircle').css({ 'margin-left': '35px', 'background': '#327e3e' });
+        $('#setTutCircle').css({ 'margin-left': '35px', 'background': '#0c0d0f' });
       }
       $('.settings-switch-bg').click(function (e) {
         _this.setSwitchToggle(e.currentTarget);
@@ -62329,12 +62331,12 @@ exports['default'] = function () {
       if ($(target).hasClass('switch-active')) {
         isActive = false;
         $(target).removeClass('switch-active');
-        $(target).children(':first').css('background', '#d42e30');
+        $(target).children(':first').css('background', '#d3d8df');
         $(target).children(':first').animate({ 'margin-left': '2px' }, 'fast');
       } else {
         isActive = true;
         $(target).addClass('switch-active');
-        $(target).children(':first').css('background', '#307f3e');
+        $(target).children(':first').css('background', '#0c0d0f');
         $(target).children(':first').animate({ 'margin-left': '35px' }, 'fast');
       }
 
@@ -62540,7 +62542,7 @@ exports["default"] = function () {
 			this.txtBalance.textAlign = "center";
 
 			this.fundsBg = new createjs.Shape();
-			this.fundsBg.graphics.beginFill("#ff9c28").drawRect(0, 0, this._modalWidth, 50);
+			this.fundsBg.graphics.beginFill("#a3e635").drawRect(0, 0, this._modalWidth, 50);
 			this.fundsBg.y = this.txtBalance.y + 25;
 
 			this.txtTotalFunds = new createjs.Text("99,000,000", "bold 23px arial", "#000");
@@ -62751,7 +62753,7 @@ exports["default"] = function (links) {
 			this.addChild(this.qualitySD);
 
 			var radioSD = new createjs.Shape();
-			radioSD.graphics.beginFill('#424242').drawCircle(0, 0, 12);
+			radioSD.graphics.beginFill('#262a31').drawCircle(0, 0, 12);
 			radioSD.x = this.qualitySD.x + 45;
 			radioSD.y = this.qualitySD.y + 7;
 			radioSD.cursor = 'pointer';
@@ -62759,7 +62761,7 @@ exports["default"] = function (links) {
 			this.addChild(radioSD);
 
 			var activeCircle = new createjs.Shape();
-			activeCircle.graphics.beginFill('#2e7d32').drawCircle(0, 0, 8);
+			activeCircle.graphics.beginFill('#a3e635').drawCircle(0, 0, 8);
 			activeCircle.x = radioHD.x;
 			activeCircle.y = radioHD.y;
 			activeCircle.cursor = 'pointer';
@@ -62784,7 +62786,7 @@ exports["default"] = function (links) {
 		},
 
 		setActiveQuality: function setActiveQuality(active, inactive, activeCircle) {
-			inactive.graphics.clear().beginFill('#424242').drawCircle(0, 0, 12);
+			inactive.graphics.clear().beginFill('#262a31').drawCircle(0, 0, 12);
 			active.graphics.clear().beginFill('#fff').drawCircle(0, 0, 12);
 
 			activeCircle.x = active.x;
@@ -62836,7 +62838,7 @@ exports["default"] = function () {
       this.y = this.context.stage.baseHeight / 2 - 155;
 
       this.gold_instance = new createjs.Shape();
-      this.gold_instance.graphics.beginLinearGradientFill(["transparent", "#d8bd69", "transparent"], [0, 0.5, 1], -65, 65, this.context.stage.baseWidth - 180, 0).drawRect(0, 0, this.context.stage.baseWidth - 180, 50);
+      this.gold_instance.graphics.beginLinearGradientFill(["transparent", "#d3d8df", "transparent"], [0, 0.5, 1], -65, 65, this.context.stage.baseWidth - 180, 0).drawRect(0, 0, this.context.stage.baseWidth - 180, 50);
       this.gold_instance.setBounds(0, 0, this.context.stage.baseWidth - 180, 50);
       this.gold_instance.regX = this.gold_instance.getBounds().width / 2;
       this.gold_instance.scaleX = 0;
@@ -62852,7 +62854,7 @@ exports["default"] = function () {
       var prompt_w = this.context.stage.baseWidth - 100;
       var prompt_h = 50;
       this.autobet_prompt_bg = new createjs.Shape();
-      this.autobet_prompt_bg.graphics.beginLinearGradientFill(["transparent", "#26a69a", "transparent"], [0, 0.5, 1], 0, 0, prompt_w, 0).drawRect(0, 0, prompt_w, prompt_h);
+      this.autobet_prompt_bg.graphics.beginLinearGradientFill(["transparent", "#4d7c0f", "transparent"], [0, 0.5, 1], 0, 0, prompt_w, 0).drawRect(0, 0, prompt_w, prompt_h);
       this.autobet_prompt_bg.name = "autobet_prompt_bg";
       this.autobet_prompt_bg.regX = prompt_w / 2;
       this.autobet_prompt_bg.visible = false;
@@ -62967,7 +62969,7 @@ exports["default"] = function () {
 
       this.winsArray = [];
       this.clearStacksTimeout = null;
-      this.background = '#E5C160';
+      this.background = '#d3d8df';
       this.removedArrs = [];
       this.init = 0;
       $("#testanimate").on("click", function () {
@@ -63086,7 +63088,7 @@ exports["default"] = function () {
       var notif_box = $('<div></div>').addClass('notif-box');
       //switch background
       if (this.winsArray[this.winsArray.length - 1]) {
-        this.background = this.winsArray[this.winsArray.length - 1].background == "#E5C160" ? '#F1E382' : "#E5C160";
+        this.background = this.winsArray[this.winsArray.length - 1].background == "#d3d8df" ? '#eef1f4' : "#d3d8df";
       }
       notif_box.background = this.background;
       //initial position
@@ -63903,12 +63905,12 @@ exports['default'] = function (config) {
 			var container = new createjs.Container();
 
 			var shape = new createjs.Shape();
-			container.strokeFill = shape.graphics.ss(2).s('#d7bd6a').command;
+			container.strokeFill = shape.graphics.ss(2).s('#d3d8df').command;
 			container.fillCmd = shape.graphics.beginLinearGradientFill(["rgba(255,255,255,0.01)", "rgba(255,255,255,0.01)", "rgba(255,255,255,0.01)"], [0, 0.5, 1], 0, 0, width, 0).command;
 			shape.graphics.drawRoundRect(0, 0, width, 30, 15);
 			container.addChild(shape);
 
-			container.text = new createjs.Text(text, (0, _factoriesFactories.fontFormat)(16, 'black', 'lato', true), "#d9bf6b");;
+			container.text = new createjs.Text(text, (0, _factoriesFactories.fontFormat)(16, 'black', 'lato', true), "#d3d8df");;
 			container.text.x = isCenter ? width / 2 : 120;
 			container.text.y = 30 / 2;
 			container.text.textAlign = 'center';
@@ -63918,22 +63920,22 @@ exports['default'] = function (config) {
 
 			container.hover = function () {
 				container.strokeFill.style = 'transparent';
-				container.fillCmd.linearGradient(["#d8be6a", "#efe180", "#d9bf6b"], [0, 0.5, 1], 0, 0, width, 0);
-				container.text.color = '#202020';
+				container.fillCmd.linearGradient(["#84cc16", "#a3e635", "#84cc16"], [0, 0.5, 1], 0, 0, width, 0);
+				container.text.color = '#0c0d0f';
 			};
 
 			container.active = function () {
 				container.strokeFill.style = 'transparent';
-				container.fillCmd.linearGradient(["#d8be6a", "#efe180", "#d9bf6b"], [0, 0.5, 1], 0, 0, width, 0);
+				container.fillCmd.linearGradient(["#84cc16", "#a3e635", "#84cc16"], [0, 0.5, 1], 0, 0, width, 0);
 				container.isActive = true;
-				container.text.color = '#202020';
+				container.text.color = '#0c0d0f';
 			};
 
 			container['default'] = function () {
-				container.strokeFill.style = '#d7bd6a';
+				container.strokeFill.style = '#d3d8df';
 				container.fillCmd.linearGradient(["rgba(255,255,255,0.01)", "rgba(255,255,255,0.01)", "rgba(255,255,255,0.01)"], [0, 0.5, 1], 0, 0, width, 0);
 				container.isActive = false;
-				container.text.color = '#d7bd6a';
+				container.text.color = '#d3d8df';
 			};
 
 			return container;
@@ -64431,7 +64433,7 @@ exports["default"] = function (win_assets) {
 				this.win_suit_obj[x].ox = pos.xValues[x];
 
 				this.lines_obj[x] = new createjs.Shape();
-				this.lines_obj[x].graphics.beginFill("#d8bd69").drawRect(0, 0, 6, 90);
+				this.lines_obj[x].graphics.beginFill("#d3d8df").drawRect(0, 0, 6, 90);
 				this.lines_obj[x].setBounds(0, 0, 6, 90);
 				this.lines_obj[x].regX = this.lines_obj[x].getTransformedBounds().width / 2;
 				this.lines_obj[x].regY = 0;
@@ -64441,7 +64443,7 @@ exports["default"] = function (win_assets) {
 
 			//gold bar
 			this.gold_instance = new createjs.Shape();
-			this.gold_instance.graphics.beginLinearGradientFill(["rgba(215, 189, 105,0.0)", "#d7bd69", "rgba(215, 189, 105,0.0)"], [0, 0.5, 1], 0, 0, 850, 0).drawRect(0, 0, 850, 80);
+			this.gold_instance.graphics.beginLinearGradientFill(["rgba(211, 216, 223,0.0)", "#d3d8df", "rgba(211, 216, 223,0.0)"], [0, 0.5, 1], 0, 0, 850, 0).drawRect(0, 0, 850, 80);
 			this.regX = 850 / 2;
 			this.gold_instance.regX = 850 / 2;
 			this.gold_instance.x = 850 / 2;
@@ -64611,7 +64613,7 @@ exports["default"] = function (win_assets) {
 
 			for (var x = 0; x < textArray.length; x++) {
 				this.win_text[x] = new createjs.Text(textArray[x].toUpperCase(), (0, _factoriesFactories.fontFormat)(65, "black", 'arvo', true), color);
-				this.win_text[x].shadow = new createjs.Shadow("#ecd489", 4, 4, 0);
+				this.win_text[x].shadow = new createjs.Shadow("#eef1f4", 4, 4, 0);
 				this.win_text[x].textBaseline = "middle";
 				this.win_text[x].skewX = 10;
 
@@ -74345,32 +74347,32 @@ confirmButton = confirmButton || function (state) {
 	confirmButton.gotoAndStop = function (state) {
 		switch (state) {
 			case "disabled":
-				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#282828").drawCircle(57, 55, 43);
+				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#16181c").drawCircle(57, 55, 43);
 				this.check_1.graphics.clear().f("#a1a1a2").drawRoundRect(-10, 90, 70, 13, 4);
 				this.check_2.graphics.clear().f("#a1a1a2").drawRoundRect(-12, 60, 13, 40, 4);
 				this.c_text.color = "#797979";
 				break;
 
 			case "up":
-				this.button_bg.graphics.clear().beginLinearGradientFill(["#279144", "#37b14a", "#279144"], [0, 0.5, 1], 0, 0, 130, 0, 170, 0).drawCircle(57, 55, 43);
+				this.button_bg.graphics.clear().beginLinearGradientFill(["#84cc16", "#a3e635", "#84cc16"], [0, 0.5, 1], 0, 0, 130, 0, 170, 0).drawCircle(57, 55, 43);
 				this.button_bg.shadow = new createjs.Shadow("rgba(0,0,0,0.5)", 0, 2, 5);
-				this.check_1.graphics.clear().f("#fff").drawRoundRect(-10, 90, 70, 13, 4);
-				this.check_2.graphics.clear().f("#fff").drawRoundRect(-12, 60, 13, 40, 4);
-				this.c_text.color = "#fff";
+				this.check_1.graphics.clear().f("#0c0d0f").drawRoundRect(-10, 90, 70, 13, 4);
+				this.check_2.graphics.clear().f("#0c0d0f").drawRoundRect(-12, 60, 13, 40, 4);
+				this.c_text.color = "#0c0d0f";
 				break;
 
 			case "click":
-				this.button_bg.graphics.clear().beginFill("#246342").drawCircle(57, 55, 43);
-				this.check_1.graphics.clear().f("#1b3c29").drawRoundRect(-10, 90, 70, 13, 4);
-				this.check_2.graphics.clear().f("#1b3c29").drawRoundRect(-12, 60, 13, 40, 4);
-				this.c_text.color = "#1b3c29";
+				this.button_bg.graphics.clear().beginFill("#65a30d").drawCircle(57, 55, 43);
+				this.check_1.graphics.clear().f("#1a2e05").drawRoundRect(-10, 90, 70, 13, 4);
+				this.check_2.graphics.clear().f("#1a2e05").drawRoundRect(-12, 60, 13, 40, 4);
+				this.c_text.color = "#1a2e05";
 				break;
 
 			case "after_click":
-				this.button_bg.graphics.clear().beginLinearGradientFill(["#266443", "#33805c", "#266443"], [0, 0.5, 1], 0, 0, 130, 0, 170, 0).drawCircle(57, 55, 43);
-				this.check_1.graphics.clear().f("#fff").drawRoundRect(-10, 90, 70, 13, 4);
-				this.check_2.graphics.clear().f("#fff").drawRoundRect(-12, 60, 13, 40, 4);
-				this.c_text.color = "#1b3c29";
+				this.button_bg.graphics.clear().beginLinearGradientFill(["#a3e635", "#bef264", "#a3e635"], [0, 0.5, 1], 0, 0, 130, 0, 170, 0).drawCircle(57, 55, 43);
+				this.check_1.graphics.clear().f("#0c0d0f").drawRoundRect(-10, 90, 70, 13, 4);
+				this.check_2.graphics.clear().f("#0c0d0f").drawRoundRect(-12, 60, 13, 40, 4);
+				this.c_text.color = "#1a2e05";
 				break;
 
 		}
@@ -74424,7 +74426,7 @@ clearButton = clearButton || function (state) {
 	clearButton.gotoAndStop = function (state) {
 		switch (state) {
 			case "disabled":
-				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#282828").drawCircle(57, 55, 43);
+				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#16181c").drawCircle(57, 55, 43);
 				this.cross_1.graphics.clear().beginFill("#8a898b").drawRoundRect(48, -8, 52, 12, 4);
 				this.cross_2.graphics.clear().beginFill("#8a898b").drawRoundRect(-16, 68, 52, 12, 4);
 				this.clear_button_text.color = "#797979";
@@ -74510,7 +74512,7 @@ repeatButton = repeatButton || function (state) {
 	arrow_container.y = 8;
 	arrow_container.scaleX = arrow_container.scaleY = 1;
 
-	var repeat_button_text = new createjs.Text(window.language.game_buttons.repeatcaps, "bold 16px lato , helvetica", "#ffd086");
+	var repeat_button_text = new createjs.Text(window.language.game_buttons.repeatcaps, "bold 16px lato , helvetica", "#1e2228");
 	repeat_button_text.textAlign = "center";
 	repeat_button_text.x = 58;
 	repeat_button_text.y = 60;
@@ -74528,9 +74530,9 @@ repeatButton = repeatButton || function (state) {
 		switch (state) {
 			case "disabled":
 
-				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#282828").drawCircle(57, 53, 43);
-				this.arrow_1.graphics.clear().beginFill("#282828").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.arrow2_1.graphics.clear().beginFill("#282828").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#16181c").drawCircle(57, 53, 43);
+				this.arrow_1.graphics.clear().beginFill("#16181c").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.arrow2_1.graphics.clear().beginFill("#16181c").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
 				this.arrow.graphics.clear().beginFill("#8a898b").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
 				this.arrow2.graphics.clear().beginFill("#8a898b").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
 				this.repeat_icon.graphics.clear().ss(6).beginStroke("#8a898b").drawRoundRect(38, 28, 40, 26, 8);
@@ -74538,34 +74540,34 @@ repeatButton = repeatButton || function (state) {
 				break;
 
 			case "up":
-				this.button_bg.graphics.clear().beginLinearGradientFill(["#d28328", "#ed9e22", "#d28328"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 43);
+				this.button_bg.graphics.clear().beginLinearGradientFill(["#aab2bc", "#d3d8df", "#aab2bc"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 43);
 				this.button_bg.shadow = new createjs.Shadow("rgba(0,0,0,0.5)", 0, 2, 5);
-				this.arrow_1.graphics.clear().beginFill("#d28328").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.arrow2_1.graphics.clear().beginFill("#d28328").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.arrow.graphics.clear().beginFill("#ffd086").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.arrow2.graphics.clear().beginFill("#ffd086").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.repeat_icon.graphics.clear().ss(6).beginStroke("#ffd086").drawRoundRect(38, 28, 40, 26, 8);
-				this.repeat_button_text.color = "#ffd086";
+				this.arrow_1.graphics.clear().beginFill("#aab2bc").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.arrow2_1.graphics.clear().beginFill("#aab2bc").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.arrow.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.arrow2.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.repeat_icon.graphics.clear().ss(6).beginStroke("#1e2228").drawRoundRect(38, 28, 40, 26, 8);
+				this.repeat_button_text.color = "#1e2228";
 				break;
 
 			case "click":
-				this.button_bg.graphics.clear().beginFill("#b16b29").drawCircle(57, 53, 43);
-				this.arrow_1.graphics.clear().beginFill("#b16b29").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.arrow2_1.graphics.clear().beginFill("#b16b29").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.arrow.graphics.clear().beginFill("#5d3b15").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.arrow2.graphics.clear().beginFill("#5d3b15").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.repeat_icon.graphics.clear().ss(6).beginStroke("#5d3b15").drawRoundRect(38, 28, 40, 26, 8);
-				this.repeat_button_text.color = "#5d3b15";
+				this.button_bg.graphics.clear().beginFill("#9aa3ae").drawCircle(57, 53, 43);
+				this.arrow_1.graphics.clear().beginFill("#9aa3ae").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.arrow2_1.graphics.clear().beginFill("#9aa3ae").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.arrow.graphics.clear().beginFill("#3a4048").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.arrow2.graphics.clear().beginFill("#3a4048").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.repeat_icon.graphics.clear().ss(6).beginStroke("#3a4048").drawRoundRect(38, 28, 40, 26, 8);
+				this.repeat_button_text.color = "#3a4048";
 				break;
 
 			case "after_click":
-				this.button_bg.graphics.clear().beginLinearGradientFill(["#a26b13", "#c08000", "#a26b13"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 43);
-				this.arrow_1.graphics.clear().beginFill("#a26b13").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.arrow2_1.graphics.clear().beginFill("#a26b13").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.arrow.graphics.clear().beginFill("#bfa680").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.arrow2.graphics.clear().beginFill("#bfa680").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-				this.repeat_icon.graphics.clear().ss(6).beginStroke("#bfa680").drawRoundRect(38, 28, 40, 26, 8);
-				this.repeat_button_text.color = "#5d3b15";
+				this.button_bg.graphics.clear().beginLinearGradientFill(["#d3d8df", "#eef1f4", "#d3d8df"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 43);
+				this.arrow_1.graphics.clear().beginFill("#d3d8df").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.arrow2_1.graphics.clear().beginFill("#d3d8df").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.arrow.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.arrow2.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+				this.repeat_icon.graphics.clear().ss(6).beginStroke("#1e2228").drawRoundRect(38, 28, 40, 26, 8);
+				this.repeat_button_text.color = "#3a4048";
 				break;
 		}
 	};
@@ -74587,7 +74589,7 @@ var initstance = {};
 var initButton = function initButton() {
 	// === gamebutton backgrounds init
 	var buttton_sold_bg_1 = new createjs.Shape();
-	buttton_sold_bg_1.graphics.beginFill("#2b2b2b").drawCircle(0, 0, 62);
+	buttton_sold_bg_1.graphics.beginFill("#16181c").drawCircle(0, 0, 62);
 	buttton_sold_bg_1.x = -135 - (20 + 16);
 	buttton_sold_bg_1.y = 14 + 5;
 	buttton_sold_bg_1.alpha = 0.5;
@@ -74597,7 +74599,7 @@ var initButton = function initButton() {
 	initstance.buttton_sold_bg_1 = buttton_sold_bg_1;
 
 	var buttton_sold_bg_2 = new createjs.Shape();
-	buttton_sold_bg_2.graphics.beginFill("#2b2b2b").drawCircle(0, 0, 62);
+	buttton_sold_bg_2.graphics.beginFill("#16181c").drawCircle(0, 0, 62);
 	buttton_sold_bg_2.y = 14 + 5;
 	buttton_sold_bg_2.x = -(28 + 30);
 	buttton_sold_bg_2.alpha = 0.5;
@@ -74607,7 +74609,7 @@ var initButton = function initButton() {
 	initstance.buttton_sold_bg_2 = buttton_sold_bg_2;
 
 	var buttton_sold_bg_3 = new createjs.Shape();
-	buttton_sold_bg_3.graphics.beginFill("#2b2b2b").drawCircle(0, 0, 62);
+	buttton_sold_bg_3.graphics.beginFill("#16181c").drawCircle(0, 0, 62);
 	buttton_sold_bg_3.y = 14 + 5;
 	buttton_sold_bg_3.x = 135 - (34 + 44);
 	buttton_sold_bg_3.alpha = 0.5;
@@ -75980,7 +75982,7 @@ if(multibetgames[x].gameName == "Poker"){gameNameText = window.language.gamename
 // === timer
 this.games[x].timer = (0,_multiTimer2['default'])(); //new createjs.Shape();
 this.games[x].timer.set({x:10,y:44,oy:44,alpha:1,visible:false});this.games[x].addChild(this.games[x].timer); // === mininmize icon
-var min_hit=new createjs.Shape();min_hit.graphics.beginFill("rgba(255,255,255,0.01)").drawRect(0,0,this.g_height,35);min_hit.set({rotation:0,x:-165,y:-10,is_minimize_btn:true});if(multibetgames[x].gameName === 'Sicbo'){min_hit.set({rotation:0,x:-355,y:-10,is_minimize_btn:true,scaleX:2});}this.games[x].minimize_btn = new createjs.Container();var min_arrow1=new createjs.Shape();min_arrow1.graphics.beginFill("#efdf82").drawRoundRect(0,-2,4,20,2.5);min_arrow1.rotation = 35;min_arrow1.is_minimize_btn = true;var min_arrow2=new createjs.Shape();min_arrow2.graphics.beginFill("#efdf82").drawRoundRect(0,0,4,20,2.5);min_arrow2.rotation = -35;min_arrow2.is_minimize_btn = true;this.games[x].minimize_btn.addChild(min_hit,min_arrow1,min_arrow2);this.games[x].betareas_container.addChild(this.games[x].minimize_btn);this.games[x].minimize_btn.set({x:this.games[x].betareas_container.children[0].getBounds().width - 25,ox:this.games[x].betareas_container.children[0].getBounds().width - 25});this.games[x].minimize_btn.y = 25;this.games[x].minimize_btn.is_minimize_btn = true;this.games[x].minimize_btn.target_game = this.games[x];this.games[x].minimize_btn.rotation = -90;this.games[x].minimize_btn.addEventListener("click",function(e){_this.toggleMinimize(e.currentTarget);});this.games[x].minimize_btn.addEventListener("mouseover",function(e){$('body').css('cursor','pointer');e.currentTarget.children[0].graphics.clear().beginFill("rgba(255,255,255,0.2)").drawRect(0,0,_this.g_height,35);});this.games[x].minimize_btn.addEventListener("mouseout",function(e){$('body').css('cursor','default');e.currentTarget.children[0].graphics.clear().beginFill("rgba(255,255,255,0.01)").drawRect(0,0,_this.g_height,35);}); // link icon
+var min_hit=new createjs.Shape();min_hit.graphics.beginFill("rgba(255,255,255,0.01)").drawRect(0,0,this.g_height,35);min_hit.set({rotation:0,x:-165,y:-10,is_minimize_btn:true});if(multibetgames[x].gameName === 'Sicbo'){min_hit.set({rotation:0,x:-355,y:-10,is_minimize_btn:true,scaleX:2});}this.games[x].minimize_btn = new createjs.Container();var min_arrow1=new createjs.Shape();min_arrow1.graphics.beginFill("#d3d8df").drawRoundRect(0,-2,4,20,2.5);min_arrow1.rotation = 35;min_arrow1.is_minimize_btn = true;var min_arrow2=new createjs.Shape();min_arrow2.graphics.beginFill("#d3d8df").drawRoundRect(0,0,4,20,2.5);min_arrow2.rotation = -35;min_arrow2.is_minimize_btn = true;this.games[x].minimize_btn.addChild(min_hit,min_arrow1,min_arrow2);this.games[x].betareas_container.addChild(this.games[x].minimize_btn);this.games[x].minimize_btn.set({x:this.games[x].betareas_container.children[0].getBounds().width - 25,ox:this.games[x].betareas_container.children[0].getBounds().width - 25});this.games[x].minimize_btn.y = 25;this.games[x].minimize_btn.is_minimize_btn = true;this.games[x].minimize_btn.target_game = this.games[x];this.games[x].minimize_btn.rotation = -90;this.games[x].minimize_btn.addEventListener("click",function(e){_this.toggleMinimize(e.currentTarget);});this.games[x].minimize_btn.addEventListener("mouseover",function(e){$('body').css('cursor','pointer');e.currentTarget.children[0].graphics.clear().beginFill("rgba(255,255,255,0.2)").drawRect(0,0,_this.g_height,35);});this.games[x].minimize_btn.addEventListener("mouseout",function(e){$('body').css('cursor','default');e.currentTarget.children[0].graphics.clear().beginFill("rgba(255,255,255,0.01)").drawRect(0,0,_this.g_height,35);}); // link icon
 var ss=new createjs.SpriteSheet({images:["/img/multibet/link_icon.png"],frames:{width:34,height:15}});this.games[x].link_icon = new createjs.Sprite(ss);this.games[x].link_icon.x = 175;this.games[x].link_icon.y = 80;this.games[x].link_icon.oy = 80;this.games[x].link_icon.hitArea = new createjs.Shape();this.games[x].link_icon.hitArea.graphics.beginFill("#000").drawRect(0,0,34,15);this.games[x].link_icon.on("mouseover",function(e){if(_this.isRoom)return;e.target.gotoAndStop(1);$('body').css('cursor','pointer');});this.games[x].link_icon.on("mouseout",function(e){if(_this.isRoom)return;e.target.gotoAndStop(0);$('body').css('cursor','default');});this.games[x].link_icon.redirecting = false;this.games[x].addChild(this.games[x].link_icon);this.games[x].link_icon.on("click",function(e){if(_this.isRoom)return;e.target.redirecting = true;var link=e.target.parent.links.game;window.location = link;}); // plus icon
 var plushit=new createjs.Shape();plushit.graphics.beginFill("rgba(255,255,255,0.01)").drawRect(-15,-15,30,30);this.games[x].addChild(plushit);this.games[x].plus_icon = new createjs.Container();this.games[x].plus_icon.x = 195 - 6;this.games[x].plus_icon.y = 18;this.games[x].plus_icon.addChild(plushit); // this.games[x].is_selected = false;
 var plus1=new createjs.Shape();plus1.graphics.beginFill(this.color_settings.plusBtn).drawRoundRect(0,-8,4,21,2);var plus2=new createjs.Shape();plus2.graphics.beginFill(this.color_settings.plusBtn).drawRoundRect(-8,0,21,4,2);this.games[x].plus_icon.addChild(plus1,plus2);this.games[x].targ_game = this.games[x];this.games[x].addChild(this.games[x].plus_icon);this.games[x].plus_icon.active = function(e){createjs.Tween.get(e).to({rotation:45},150);e.children[1].graphics.clear().beginFill(_this.color_settings.closebtn).drawRoundRect(0,-8,4,21,2);e.children[2].graphics.clear().beginFill(_this.color_settings.closebtn).drawRoundRect(-8,0,21,4,2);};this.games[x].plus_icon['default'] = function(e){createjs.Tween.get(e).to({rotation:0},150);e.children[1].graphics.clear().beginFill(_this.color_settings.plusBtn).drawRoundRect(0,-8,4,21,2);e.children[2].graphics.clear().beginFill(_this.color_settings.plusBtn).drawRoundRect(-8,0,21,4,2);};var eye_hit_icon=new createjs.Shape();eye_hit_icon.graphics.beginFill("rgba(0,0,0,0.03)").drawRect(0,0,40,28);var eye=new createjs.SpriteSheet({images:[this.context.getResources(window.theme + '_eye_icon')],frames:{width:74 / 2,height:23},animations:{"up":[0],"hover":[1]}});this.games[x].eyeImg = new createjs.Sprite(eye,"up"); // this.games[x].eyeImg.scaleX = this.games[x].eyeImg.scaleY = 0.36;
@@ -76015,30 +76017,30 @@ setTimeout(function(){(0,_multibetTableDraw2['default'])(_this2).drawBaccaratRoa
 setTimeout(function(){(0,_multibetTableDraw2['default'])(_this2).drawDtRoadMap(game.data.marks,game); //eye view roadmap
 // drawTables(this).updateDtScoreBoard(game.data.marks, game);//eye view roadmap
 },2500);}},toggleMinimize:function toggleMinimize(minButton){if(!minButton.target_game.minimized){minButton.rotation = 90;minButton.children[0].set({x:-25,y:-10,scaleX:1});if(minButton.target_game.data.gameName == 'Sicbo'){minButton.children[0].set({rotation:0,x:-25,y:-10,is_minimize_btn:true,scaleX:2});}minButton.x = minButton.target_game.betareas_container.children[0].getTransformedBounds().width - 10;createjs.Tween.get(minButton.target_game.betareas_container).to({x:minButton.target_game.betareas_container.x - (minButton.target_game.betareas_container.children[0].getTransformedBounds().width - 40)},100);minButton.target_game.minimized = true;minButton.target_game.cosmetics_container.visible = false;minButton.target_game.betareas_container.children.forEach(function(area,x){if(area.table){area.visible = false;}});if(minButton.target_game.betboard_2){minButton.target_game.betboard_2.visible = false;}if(minButton.target_game.is_active){minButton.target_game.game_buttons_container.visible = true;}}else {(function(){minButton.x = minButton.target_game.betareas_container.children[0].getTransformedBounds().width - 30;minButton.rotation = -90;minButton.children[0].set({rotation:0,x:-165,y:-6,is_minimize_btn:true,scaleX:1});if(minButton.target_game.data.gameName == 'Sicbo'){minButton.children[0].set({rotation:0,x:-355,y:-6,is_minimize_btn:true,scaleX:2});}createjs.Tween.get(minButton.target_game.betareas_container).to({x:minButton.target_game.betareas_container.x + (minButton.target_game.betareas_container.children[0].getTransformedBounds().width - 40)},100);minButton.target_game.minimized = false;minButton.target_game.cosmetics_container.visible = true;var areasToShow=undefined;if(minButton.target_game.data.slave && minButton.target_game.currentSlave === 'supersix'){areasToShow = ['supersix'];}if(minButton.target_game.data.slave && minButton.target_game.currentSlave === 'bonus'){areasToShow = ['bonus_banker','bonus_player','big','small'];}if(minButton.target_game.data.slave && minButton.target_game.currentSlave === 'bonusplus'){areasToShow = ['pocket','bonusplus'];}if(minButton.target_game.data.slave && minButton.target_game.currentSlave === 'normal' && minButton.target_game.data.gameName === 'Poker'){areasToShow = ['bonus'];}if(minButton.target_game.data.gameName === 'Sicbo'){areasToShow = ['big','small'];}minButton.target_game.betareas_container.children.forEach(function(area,x){if(area.table != "bonus" && area.table != "supersix" && area.table != "bonus_banker" && area.table != "bonus_player" && area.table != "big" && area.table != "small" && area.table != "bonusplus" && area.table != "pocket"){area.visible = true;}if(_.includes(areasToShow,area.table)){area.visible = true;}});if(minButton.target_game.betboard_2){minButton.target_game.betboard_2.visible = true;}})();}},resetSlave:function resetSlave(data){var tables=['supersix','small','big','bonus_banker','bonus_player','bonusplus','pocket'];this.selected_games.forEach(function(game){if(game.data.gameName === data.gameName && data.tableNumber === game.data.tableNumber){if(game.isBetting)return;else {game.link_icon.y = game.link_icon.oy;game.eye_icon.is_show = false;game.minimize_btn.x = game.minimize_btn.ox;if(data.gameName == 'Baccarat'){game.currentSlave = 'normal';if(!game.data.slave.length)return; // reset shape and buttons position
-game.slave_buttons.forEach(function(button){button.x = button.ox;button.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#fff39f","#c3a240"],[0,1],0,0,0,15).drawRoundRect(0,0,button.children[0].getBounds().width,20,10);}); // == setting degfault ttogle button to classic
-game.normal_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240","#fff39f"],[0,1],0,0,0,15).drawRoundRect(0,0,game.normal_toggle.children[0].getBounds().width,20,10);createjs.Tween.get(game.betareas_container.children[0]).to({scaleX:1},100).call(function(e){game.player_win_val.x = game.betareas_container.children[0].getTransformedBounds().width - 55;},[game]);createjs.Tween.get(game.game_buttons_container).to({x:game.game_buttons_container.ox},100);for(var x=0;x < game.betarea.length;x++) {game.betarea[x].x = game.betarea[x].ox;game.betarea[x].payout_multiplier = game.betarea[x].o_payout_multiplier;if(game.betarea[x].table == "tie"){game.betarea[x].graphics.clear().beginFill("#689f38").drawRoundRect(0,0,game.betarea[x].getBounds().width,114,2);game.betarea[x].setBounds(0,0,game.betarea[x].getBounds().width,114);} // end if
+game.slave_buttons.forEach(function(button){button.x = button.ox;button.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#eef1f4","#aab2bc"],[0,1],0,0,0,15).drawRoundRect(0,0,button.children[0].getBounds().width,20,10);}); // == setting degfault ttogle button to classic
+game.normal_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#84cc16","#bef264"],[0,1],0,0,0,15).drawRoundRect(0,0,game.normal_toggle.children[0].getBounds().width,20,10);createjs.Tween.get(game.betareas_container.children[0]).to({scaleX:1},100).call(function(e){game.player_win_val.x = game.betareas_container.children[0].getTransformedBounds().width - 55;},[game]);createjs.Tween.get(game.game_buttons_container).to({x:game.game_buttons_container.ox},100);for(var x=0;x < game.betarea.length;x++) {game.betarea[x].x = game.betarea[x].ox;game.betarea[x].payout_multiplier = game.betarea[x].o_payout_multiplier;if(game.betarea[x].table == "tie"){game.betarea[x].graphics.clear().beginFill("#689f38").drawRoundRect(0,0,game.betarea[x].getBounds().width,114,2);game.betarea[x].setBounds(0,0,game.betarea[x].getBounds().width,114);} // end if
 if(_.includes(tables,game.betarea[x].table)){game.betarea[x].visible = false;}} //end for
 for(var a=0;a < game.cosmetics_container.children.length;a++) {game.cosmetics_container.children[a].x = game.cosmetics_container.children[a].ox;if(game.cosmetics_container.children[a].supersixSlave || game.cosmetics_container.children[a].bonusSlave){game.cosmetics_container.children[a].visible = false;} // end if
 } // end for
 }else if(data.gameName == 'Poker' && data.slave){if(!game.data.slave.length)return; // == setting degfault ttogle button to classic
-game.poker_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240","#fff39f"],[0,1],0,0,0,15).drawRoundRect(0,0,game.poker_toggle.children[0].getBounds().width,20,10);game.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#fff39f","#c3a240"],[0,1],0,0,0,15).drawRoundRect(0,0,game.bonus_plus_toggle.children[0].getBounds().width,20,10);game.bonus_plus_toggle.x = game.bonus_plus_toggle.ox;game.poker_toggle.x = game.poker_toggle.ox;game.currentSlave = 'normal';createjs.Tween.get(game.betareas_container.children[0]).to({scaleX:1},100).call(function(game){game.player_win_val.x = game.betareas_container.children[0].getTransformedBounds().width - 55;},[game]);createjs.Tween.get(game.game_buttons_container).to({x:game.game_buttons_container.ox},100);var areas=['flop_area','turn_area','river_area'];areas.forEach(function(a){game[a].x = game[a].ox;});for(var x=0;x < game.betarea.length;x++) {if(_.includes(tables,game.betarea[x].table)){game.betarea[x].visible = false;}else {game.betarea[x].x = game.betarea[x].ox;game.betarea[x].visible = true;}}game.cosmetics_container.children.forEach(function(c){try{c.x = c.ox;game.visible = true;}catch(err) {}});} //end else if
+game.poker_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#84cc16","#bef264"],[0,1],0,0,0,15).drawRoundRect(0,0,game.poker_toggle.children[0].getBounds().width,20,10);game.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#eef1f4","#aab2bc"],[0,1],0,0,0,15).drawRoundRect(0,0,game.bonus_plus_toggle.children[0].getBounds().width,20,10);game.bonus_plus_toggle.x = game.bonus_plus_toggle.ox;game.poker_toggle.x = game.poker_toggle.ox;game.currentSlave = 'normal';createjs.Tween.get(game.betareas_container.children[0]).to({scaleX:1},100).call(function(game){game.player_win_val.x = game.betareas_container.children[0].getTransformedBounds().width - 55;},[game]);createjs.Tween.get(game.game_buttons_container).to({x:game.game_buttons_container.ox},100);var areas=['flop_area','turn_area','river_area'];areas.forEach(function(a){game[a].x = game[a].ox;});for(var x=0;x < game.betarea.length;x++) {if(_.includes(tables,game.betarea[x].table)){game.betarea[x].visible = false;}else {game.betarea[x].x = game.betarea[x].ox;game.betarea[x].visible = true;}}game.cosmetics_container.children.forEach(function(c){try{c.x = c.ox;game.visible = true;}catch(err) {}});} //end else if
 } //end if
-}});return;},toggleSlave:function toggleSlave(data,button,type){var _this3=this;var parentTarget=button.parent.parent.parent;if(parentTarget.currentSlave === type)return;if(parentTarget.isBetting){return;}this.resetSlave(data);if(parentTarget.data.gameName == 'Baccarat'){parentTarget.slave_buttons.forEach(function(button){button.x = button.ox;button.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#fff39f","#c3a240"],[0,1],0,0,0,15).drawRoundRect(0,0,button.children[0].getBounds().width,20,10);});}if(parentTarget.data.gameName == 'Poker'){parentTarget.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#fff39f","#c3a240"],[0,1],0,0,0,15).drawRoundRect(0,0,parentTarget.bonus_plus_toggle.children[0].getBounds().width,20,10);parentTarget.poker_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#fff39f","#c3a240"],[0,1],0,0,0,15).drawRoundRect(0,0,parentTarget.poker_toggle.children[0].getBounds().width,20,10);parentTarget.bonus_plus_toggle.x = parentTarget.bonus_plus_toggle.ox;parentTarget.poker_toggle.x = parentTarget.poker_toggle.ox;}this.selected_games.forEach(function(e,i){if(e.data.gameName == data.gameName && data.tableNumber == e.data.tableNumber){if(data.gameName == "Baccarat"){ // == superix baccarat
-switch(type){case "supersix":parentTarget.currentSlave = 'supersix';button.graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240","#fff39f"],[0,1],0,0,0,15).drawRoundRect(0,0,button.getBounds().width,20,10);e.slave_visible = true;for(var x=0;x < e.betarea.length;x++) {if(e.betarea[x].table == "tie"){e.betarea[x].graphics.clear().beginFill("#689f38").drawRoundRect(0,0,e.betarea[x].getBounds().width,114 / 2 - 2,2);e.betarea[x].setBounds(0,0,e.betarea[x].getBounds().width,114 / 2 - 2);} //end if
+}});return;},toggleSlave:function toggleSlave(data,button,type){var _this3=this;var parentTarget=button.parent.parent.parent;if(parentTarget.currentSlave === type)return;if(parentTarget.isBetting){return;}this.resetSlave(data);if(parentTarget.data.gameName == 'Baccarat'){parentTarget.slave_buttons.forEach(function(button){button.x = button.ox;button.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#eef1f4","#aab2bc"],[0,1],0,0,0,15).drawRoundRect(0,0,button.children[0].getBounds().width,20,10);});}if(parentTarget.data.gameName == 'Poker'){parentTarget.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#eef1f4","#aab2bc"],[0,1],0,0,0,15).drawRoundRect(0,0,parentTarget.bonus_plus_toggle.children[0].getBounds().width,20,10);parentTarget.poker_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#eef1f4","#aab2bc"],[0,1],0,0,0,15).drawRoundRect(0,0,parentTarget.poker_toggle.children[0].getBounds().width,20,10);parentTarget.bonus_plus_toggle.x = parentTarget.bonus_plus_toggle.ox;parentTarget.poker_toggle.x = parentTarget.poker_toggle.ox;}this.selected_games.forEach(function(e,i){if(e.data.gameName == data.gameName && data.tableNumber == e.data.tableNumber){if(data.gameName == "Baccarat"){ // == superix baccarat
+switch(type){case "supersix":parentTarget.currentSlave = 'supersix';button.graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#84cc16","#bef264"],[0,1],0,0,0,15).drawRoundRect(0,0,button.getBounds().width,20,10);e.slave_visible = true;for(var x=0;x < e.betarea.length;x++) {if(e.betarea[x].table == "tie"){e.betarea[x].graphics.clear().beginFill("#689f38").drawRoundRect(0,0,e.betarea[x].getBounds().width,114 / 2 - 2,2);e.betarea[x].setBounds(0,0,e.betarea[x].getBounds().width,114 / 2 - 2);} //end if
 if(e.betarea[x].table == "supersix"){e.betarea[x].visible = true;} //end if
 if(e.betarea[x].table == "banker"){e.betarea[x].payout_multiplier = 1;} //end if
 } //end for
 for(var a=0;a < e.cosmetics_container.children.length;a++) {if(e.cosmetics_container.children[a].supersixSlave){e.cosmetics_container.children[a].visible = true;} //end if
 } //end for
 // this.context.component_multibetBetting.repeatBetEvent({currentTarget: {target_game: parentTarget}}, true , true); // check if slave has bets
-parentTarget.data.slave = "supersix";_this3.context.component_multibetRoadmap.baccarat_roadmap(i,_this3.selected_games,parentTarget.data);break;case "normal":parentTarget.currentSlave = 'normal';button.graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240","#fff39f"],[0,1],0,0,0,15).drawRoundRect(0,0,button.getBounds().width,20,10);e.slave_visible = false;for(var x=0;x < e.betarea.length;x++) {if(e.betarea[x].table == "tie"){e.betarea[x].graphics.clear().beginFill("#689f38").drawRoundRect(0,0,e.betarea[x].getBounds().width,114,2);e.betarea[x].setBounds(0,0,e.betarea[x].getBounds().width,114);} // end if
+parentTarget.data.slave = "supersix";_this3.context.component_multibetRoadmap.baccarat_roadmap(i,_this3.selected_games,parentTarget.data);break;case "normal":parentTarget.currentSlave = 'normal';button.graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#84cc16","#bef264"],[0,1],0,0,0,15).drawRoundRect(0,0,button.getBounds().width,20,10);e.slave_visible = false;for(var x=0;x < e.betarea.length;x++) {if(e.betarea[x].table == "tie"){e.betarea[x].graphics.clear().beginFill("#689f38").drawRoundRect(0,0,e.betarea[x].getBounds().width,114,2);e.betarea[x].setBounds(0,0,e.betarea[x].getBounds().width,114);} // end if
 } // end for
-parentTarget.data.slave = "";_this3.context.component_multibetRoadmap.baccarat_roadmap(i,_this3.selected_games);break;case "bonus":if(e.betareas_container.children[0].scaleX > 1)return;parentTarget.currentSlave = 'bonus';if(e.game_buttons_container.x == e.game_buttons_container.ox){createjs.Tween.get(e.game_buttons_container).to({x:634.4 + 222},200);}createjs.Tween.get(e.betareas_container.children[0]).to({scaleX:1.3},200).call(function(e,parentTarget){e.player_win_val.x = e.betareas_container.children[0].getTransformedBounds().width - 55;e.minimize_btn.x = e.betareas_container.children[0].getTransformedBounds().width - 25;e.bonus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240","#fff39f"],[0,1],0,0,0,15).drawRoundRect(0,0,e.bonus_toggle.children[0].getBounds().width,20,10);e.slave_buttons.forEach(function(button){button.x += 74;});for(var x=0;x < e.betarea.length;x++) {if(e.betarea[x].table == "big" || e.betarea[x].table == "small" || e.betarea[x].table == "bonus_player" || e.betarea[x].table == "bonus_banker"){e.betarea[x].visible = true;} // end if
+parentTarget.data.slave = "";_this3.context.component_multibetRoadmap.baccarat_roadmap(i,_this3.selected_games);break;case "bonus":if(e.betareas_container.children[0].scaleX > 1)return;parentTarget.currentSlave = 'bonus';if(e.game_buttons_container.x == e.game_buttons_container.ox){createjs.Tween.get(e.game_buttons_container).to({x:634.4 + 222},200);}createjs.Tween.get(e.betareas_container.children[0]).to({scaleX:1.3},200).call(function(e,parentTarget){e.player_win_val.x = e.betareas_container.children[0].getTransformedBounds().width - 55;e.minimize_btn.x = e.betareas_container.children[0].getTransformedBounds().width - 25;e.bonus_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#84cc16","#bef264"],[0,1],0,0,0,15).drawRoundRect(0,0,e.bonus_toggle.children[0].getBounds().width,20,10);e.slave_buttons.forEach(function(button){button.x += 74;});for(var x=0;x < e.betarea.length;x++) {if(e.betarea[x].table == "big" || e.betarea[x].table == "small" || e.betarea[x].table == "bonus_player" || e.betarea[x].table == "bonus_banker"){e.betarea[x].visible = true;} // end if
 if(e.betarea[x].table != "big" && e.betarea[x].table != "bonus_player"){e.betarea[x].x += 74;}} // end for
 for(var a=0;a < e.cosmetics_container.children.length;a++) {if(e.cosmetics_container.children[a].bonusSlave){e.cosmetics_container.children[a].visible = true;if(e.cosmetics_container.children[a].move)e.cosmetics_container.children[a].x += 74;} // end if
 else {e.cosmetics_container.children[a].x += 74;}} // end for
 // this.context.component_multibetBetting.repeatBetEvent({currentTarget: {target_game: parentTarget}}, true , true); // check if slave has bets
-},[e,parentTarget]);parentTarget.data.slave = "bonus";_this3.context.component_multibetRoadmap.baccarat_roadmap(i,_this3.selected_games);break;}_this3.disconnectSocket(parentTarget);_this3.connectToSocket(parentTarget);}else if(data.gameName == "Poker"){switch(type){case "classicPoker":parentTarget.currentSlave = 'normal';e.poker_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240","#fff39f"],[0,1],0,0,0,15).drawRoundRect(0,0,e.poker_toggle.children[0].getBounds().width,20,10);break;case "bonusplus":parentTarget.currentSlave = 'bonusplus';e.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240","#fff39f"],[0,1],0,0,0,15).drawRoundRect(0,0,e.bonus_plus_toggle.children[0].getBounds().width,20,10);if(e.betareas_container.children[0].scaleX > 1)return;parentTarget.currentSlave = 'bonusplus';if(e.game_buttons_container.x == e.game_buttons_container.ox){createjs.Tween.get(e.game_buttons_container).to({x:507 + 235},200);}createjs.Tween.get(e.betareas_container.children[0]).to({scaleX:1.3},200).call(function(e,parentTarget){parentTarget.slave_buttons.forEach(function(slaveB){slaveB.x = slaveB.ox + 54;});e.minimize_btn.x = e.betareas_container.children[0].getTransformedBounds().width - 25;e.player_win_val.x = e.betareas_container.children[0].getTransformedBounds().width - 55;var areas=['flop_area','turn_area','river_area'];areas.forEach(function(a){e[a].x = e[a].ox + 130;});e.betarea.forEach(function(table){if(table.table == 'bonusplus' || table.table == 'pocket')table.visible = true;if(table.table == 'bonus')table.visible = false;if(table.table == 'ante')table.x = table.ox + 130;});e.cosmetics_container.children.forEach(function(c){try{c.x = c.ox + 130;}catch(err) {}});_this3.context.component_multibetBetting.repeatBetEvent({currentTarget:{target_game:parentTarget}},true,true,true); // check if slave has bets
+},[e,parentTarget]);parentTarget.data.slave = "bonus";_this3.context.component_multibetRoadmap.baccarat_roadmap(i,_this3.selected_games);break;}_this3.disconnectSocket(parentTarget);_this3.connectToSocket(parentTarget);}else if(data.gameName == "Poker"){switch(type){case "classicPoker":parentTarget.currentSlave = 'normal';e.poker_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#84cc16","#bef264"],[0,1],0,0,0,15).drawRoundRect(0,0,e.poker_toggle.children[0].getBounds().width,20,10);break;case "bonusplus":parentTarget.currentSlave = 'bonusplus';e.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(["#84cc16","#bef264"],[0,1],0,0,0,15).drawRoundRect(0,0,e.bonus_plus_toggle.children[0].getBounds().width,20,10);if(e.betareas_container.children[0].scaleX > 1)return;parentTarget.currentSlave = 'bonusplus';if(e.game_buttons_container.x == e.game_buttons_container.ox){createjs.Tween.get(e.game_buttons_container).to({x:507 + 235},200);}createjs.Tween.get(e.betareas_container.children[0]).to({scaleX:1.3},200).call(function(e,parentTarget){parentTarget.slave_buttons.forEach(function(slaveB){slaveB.x = slaveB.ox + 54;});e.minimize_btn.x = e.betareas_container.children[0].getTransformedBounds().width - 25;e.player_win_val.x = e.betareas_container.children[0].getTransformedBounds().width - 55;var areas=['flop_area','turn_area','river_area'];areas.forEach(function(a){e[a].x = e[a].ox + 130;});e.betarea.forEach(function(table){if(table.table == 'bonusplus' || table.table == 'pocket')table.visible = true;if(table.table == 'bonus')table.visible = false;if(table.table == 'ante')table.x = table.ox + 130;});e.cosmetics_container.children.forEach(function(c){try{c.x = c.ox + 130;}catch(err) {}});_this3.context.component_multibetBetting.repeatBetEvent({currentTarget:{target_game:parentTarget}},true,true,true); // check if slave has bets
 _this3.pokerCheck(parentTarget);},[e,parentTarget]);break;}_this3.disconnectSocket(parentTarget);_this3.connectToSocket(parentTarget);}_this3.context.component_multibetBetting.checkButtonState(e);} // end cehck
 });parentTarget.logs = [];},updateEyeData:function updateEyeData(data){if(this.selected_games.length){ //selected games
 for(var x=0;x < this.selected_games.length;x++) {if(this.selected_games[x].game == data.tableId + "_" + data.gameName){this.context.component_multibetRoadmap.update(this.selected_games[x].data,this.selected_games); //updates mini roadmap
@@ -76061,7 +76063,7 @@ switch(data.gameName){case "Poker":this.selected_games[x].data.meta = data.meta;
 		 * displays result win/lose state to game
 		 * @param (obj, string, bol)
 		 */winLoseState:function winLoseState(game,winner,win){if(game.data.gameName != "Sicbo"){if(winner == "tiger" || winner == "banker" || winner == "dealer"){game.children[1].graphics.clear().beginFill("#7f1d1d").drawRect(0,0,218,this.g_height);}else if(winner == "tie" || winner == "suited tie"){game.children[1].graphics.clear().beginFill("#689f38").drawRect(0,0,218,this.g_height);}else {game.children[1].graphics.clear().beginFill("#0c3e66").drawRect(0,0,218,this.g_height);}}else {game.children[1].graphics.clear().beginFill("#0c3e66").drawRect(0,0,218,this.g_height + this.g_height);}},tableWinning:function tableWinning(area,isStyle){var color="rgba(255,255,255,0.4)";if(isStyle){area.graphics.clear().beginFill(color).drawRoundRect(0,0,area.getBounds().width,area.getBounds().height,!area.radius?5:area.radius);}createjs.Tween.get(area).to({alpha:1},200).to({alpha:0},200).to({alpha:1},200).to({alpha:0},200).to({alpha:1},200).to({alpha:0},200).to({alpha:1},200).call(function(area){var color="rgba(255,255,255,0.01)";if(area.parent.parent.data.gameName.toLowerCase() === 'sicbo'){area.graphics.clear().beginFill(color).drawRoundRect(0,0,area.getBounds().width,area.getBounds().height,!area.radius?5:area.radius);}},[area]);},playerWinLose:function playerWinLose(win,game,amt){if(win){ // game.gamenum.visible = false;
-game.gamenum.color = "#000";game.game_round.color = "#000";game.game_description.color = "#000";game.player_win_val.text = "+ " + this.numberWithCommas(amt);game.player_win_val.visible = true;game.children[1].graphics.clear().beginLinearGradientFill(["#d9be6a","#f0e182","#d9be6a"],[0,0.5,1],60,0,150,0,150,0).drawRect(0,0,218,this.g_height);if(game.game.indexOf("icbo") > -1){game.children[1].graphics.clear().beginLinearGradientFill(["#d9be6a","#f0e182","#d9be6a"],[0,0.5,1],20,0,100,0,150,0).drawRect(0,0,218,this.g_height + this.g_height);}}else {game.betareas_container.children[0].graphics.clear().beginFill(this.color_settings.inactive).drawRect(0,0,game.betareas_container.children[0].getBounds().width,game.betareas_container.children[0].getBounds().height);game.children[1].graphics.clear().beginLinearGradientFill([this.color_settings.multibetgradColor1,this.color_settings.multibetgradColor2],[0,1],0,0,0,100).drawRect(0,0,218,this.g_height);if(game.game.indexOf("icbo") > -1){game.children[1].graphics.clear().beginLinearGradientFill([this.color_settings.multibetgradColor1,this.color_settings.multibetgradColor2],[0,1],0,0,0,100).drawRect(0,0,218,this.g_height + this.g_height);}}},defaultState:function defaultState(game){game.game_description.visible = true; // game.game_round.visible = true;
+game.gamenum.color = "#000";game.game_round.color = "#000";game.game_description.color = "#000";game.player_win_val.text = "+ " + this.numberWithCommas(amt);game.player_win_val.visible = true;game.children[1].graphics.clear().beginLinearGradientFill(["#84cc16","#a3e635","#84cc16"],[0,0.5,1],60,0,150,0,150,0).drawRect(0,0,218,this.g_height);if(game.game.indexOf("icbo") > -1){game.children[1].graphics.clear().beginLinearGradientFill(["#84cc16","#a3e635","#84cc16"],[0,0.5,1],20,0,100,0,150,0).drawRect(0,0,218,this.g_height + this.g_height);}}else {game.betareas_container.children[0].graphics.clear().beginFill(this.color_settings.inactive).drawRect(0,0,game.betareas_container.children[0].getBounds().width,game.betareas_container.children[0].getBounds().height);game.children[1].graphics.clear().beginLinearGradientFill([this.color_settings.multibetgradColor1,this.color_settings.multibetgradColor2],[0,1],0,0,0,100).drawRect(0,0,218,this.g_height);if(game.game.indexOf("icbo") > -1){game.children[1].graphics.clear().beginLinearGradientFill([this.color_settings.multibetgradColor1,this.color_settings.multibetgradColor2],[0,1],0,0,0,100).drawRect(0,0,218,this.g_height + this.g_height);}}},defaultState:function defaultState(game){game.game_description.visible = true; // game.game_round.visible = true;
 // game.player_win_val.visible = false;
 game.gamenum.visible = true;if(game.is_active){game.betareas_container.children[0].graphics.clear().beginFill(this.color_settings.active).drawRect(0,0,game.betareas_container.children[0].getBounds().width,game.betareas_container.children[0].getBounds().height);game.children[1].graphics.clear().beginFill(this.color_settings.selected).drawRect(0,0,218,this.g_height);if(game.game.indexOf("icbo") > -1){game.children[1].graphics.clear().beginFill(this.color_settings.selected).drawRect(0,0,218,this.g_height + this.g_height);}if(game.game.toLowerCase().indexOf("poker") > -1){game.poker_raise_button.visible = false; //new createjs.Shape();
 game.poker_fold_button.visible = false; //new createjs.Shape();
@@ -76125,14 +76127,14 @@ var poker_area=["flop","turn","river"];for(var x=0;x < poker_area.length;x++) {f
 if(game.data.gameName == "Poker"){game.game_description.text = window.language.gamename.poker_game;game.flop_area.is_dropped = false;game.turn_area.is_dropped = false;game.river_area.is_dropped = false;}game.logs = [];if(game.data.gameName == "Baccarat"){game.banker_val.text = 0;game.player_val.text = 0;game.game_description.text = window.language.gamename.baccarat_game;}if(game.data.gameName == "Dragon-Tiger"){game.game_description.text = window.language.gamename.dragontiger_game;}if(game.data.gameName == "Sicbo"){game.game_description.text = window.language.gamename.sicbo_game;}game.game_description.color = this.color_settings.text_color;game.game_round.color = this.color_settings.text_color;game.gamenum.color = this.color_settings.text_color;game.betarea = game.betarea.map(function(g){g.total_bet_amt = 0;g.alreadyMax = false;g.is_win = false;return g;});this.defaultState(game);this.slaveButtonState(game,"enabled");game.is_repeat = false;game.is_confirmed = false;game.isBetting = false;game.betting_start = true; //flag for new round check
 game.chips_container.removeAllChildren();game.response_confirmed = false;game.response_cleared = false;game.temp_prev_bet = [];this.context.component_multibetBetting.setTempMoney();game.totalWinning = 0;if(game.previous_bet){game.previous_bet = _.map(game.previous_bet,function(e){e.is_confirmed = false;return e;});}game.bets = [];game.betarea.forEach(function(area){area.total_bet_amt = 0;area.payout_multiplier = !area.o_payout_multiplier?area.payout_multiplier:area.o_payout_multiplier;});this.context.component_multibetBetting.checkButtonState(game);if(game.data.gameName == "Poker"){game.fold_check_container.removeAllChildren();game.phase = "";game.flop_area.total_bet_amt = 0;game.turn_area.total_bet_amt = 0;game.river_area.total_bet_amt = 0;}},setExtraEyeData:function setExtraEyeData(_target){var cnt=0;if(_target.data.gameName == 'Pula-Puti'){var redCount=0;var whiteCount=0;var goldCount=0;_target.g_resultCircle = [];for(var i in _target.data.gameInfo) {_target.g_resultCircle[i] = new createjs.Shape();if(_target.data.gameInfo[i] == 'R'){_target.g_resultCircle[i].graphics.beginStroke('#6d0a0a').setStrokeStyle(1).beginFill('#c62828').drawCircle(0,0,12);redCount++;}else if(_target.data.gameInfo[i] == 'W'){_target.g_resultCircle[i].graphics.beginStroke('#3d3d3d').setStrokeStyle(1).beginFill('#fff').drawCircle(0,0,12);whiteCount++;}else {_target.g_resultCircle[i].graphics.beginStroke('#966e25').setStrokeStyle(1).beginFill('#e5b241').drawCircle(0,0,12);goldCount++;}_target.g_resultCircle[i].x = cnt * 28 + 35;_target.g_resultCircle[i].y = 140;_target.eye_panel_container.addChild(_target.g_resultCircle[i]);cnt++;}if(redCount >= 2 && goldCount == 0){_target.last_res_text = new createjs.Text(redCount,'33px bebasneue',"#b71c1c");}else if(whiteCount >= 2 && goldCount == 0){_target.last_res_text = new createjs.Text(whiteCount,'33px bebasneue',"#fff");}else {_target.last_res_text = new createjs.Text(goldCount,'33px bebasneue',"#e5b241");} // end if
 _target.eye_panel_container.addChild(_target.last_res_text);_target.last_res_text.set({textAlign:'center',textBaseline:'middle',x:4 * 28 + 35,y:140});} //end if pula puti
-},createToggleButton:function createToggleButton(type){var btn_container=new createjs.Container();btn_container.y = 165;var btn=new createjs.Shape();btn_container.addChild(btn);var def=["#fff39f","#c3a240"];if(type === 'classicPoker' || type === 'normal'){def = ["#c3a240","#fff39f"];}btn.graphics.ss(1).s("#8a6d34").beginLinearGradientFill(def,[0,1],0,0,0,15).drawRoundRect(0,0,80,20,10);btn.setBounds(0,0,80,18);btn_container.regX = 80 / 2;var text=new createjs.Text("","14px latoregular",'#000');text.set({x:10,y:10,textAlign:'left',textBaseline:'middle'});btn_container.addChild(text);switch(type){case "supersix":var image_asset=new createjs.Bitmap(this.context.getResources("super6btn_multibet"));btn_container.addChild(image_asset);image_asset.set({x:62,y:4});text.text = window.language.multibet_betareas.supersix;if(window.language.locale == 'zh'){image_asset.set({x:60,y:3});text.set({x:22,y:10});}break;case "normal":var image_asset=new createjs.Bitmap(this.context.getResources("classic_multibet"));btn_container.addChild(image_asset);image_asset.set({x:58,y:4});text.set({x:6,y:10});text.text = window.language.multibet_betareas.classic;if(window.language.locale == 'zh'){image_asset.set({x:55,y:4});text.set({x:22,y:10});}break;case "bonus":var image_asset=new createjs.Bitmap(this.context.getResources("bonus_multibet"));btn_container.addChild(image_asset);image_asset.set({x:62,y:4});text.text = window.language.multibet_betareas.bonusbaccarat;if(window.language.locale == 'zh'){image_asset.set({x:56,y:3});text.set({x:22,y:10});}break;case "classicPoker":var image_asset=new createjs.Bitmap(this.context.getResources("classicPoker_multibet"));btn_container.addChild(image_asset);image_asset.set({x:58,y:2});text.set({x:10});text.text = window.language.multibet_betareas.classicPoker;if(window.language.locale == 'zh'){image_asset.set({x:54,y:2});text.set({x:10});}break;case "bonusplus":var image_asset=new createjs.Bitmap(this.context.getResources("bonus_multibet"));btn_container.addChild(image_asset);image_asset.set({x:62,y:4});text.text = window.language.multibet_betareas.bonuspluspoker;if(window.language.locale == 'zh'){image_asset.set({x:58,y:3});text.set({x:22,y:10});}break;}return btn_container;},maintenanceChange:function maintenanceChange(data){ //ovveride
+},createToggleButton:function createToggleButton(type){var btn_container=new createjs.Container();btn_container.y = 165;var btn=new createjs.Shape();btn_container.addChild(btn);var def=["#eef1f4","#aab2bc"];if(type === 'classicPoker' || type === 'normal'){def = ["#84cc16","#bef264"];}btn.graphics.ss(1).s("#5c636c").beginLinearGradientFill(def,[0,1],0,0,0,15).drawRoundRect(0,0,80,20,10);btn.setBounds(0,0,80,18);btn_container.regX = 80 / 2;var text=new createjs.Text("","14px latoregular",'#000');text.set({x:10,y:10,textAlign:'left',textBaseline:'middle'});btn_container.addChild(text);switch(type){case "supersix":var image_asset=new createjs.Bitmap(this.context.getResources("super6btn_multibet"));btn_container.addChild(image_asset);image_asset.set({x:62,y:4});text.text = window.language.multibet_betareas.supersix;if(window.language.locale == 'zh'){image_asset.set({x:60,y:3});text.set({x:22,y:10});}break;case "normal":var image_asset=new createjs.Bitmap(this.context.getResources("classic_multibet"));btn_container.addChild(image_asset);image_asset.set({x:58,y:4});text.set({x:6,y:10});text.text = window.language.multibet_betareas.classic;if(window.language.locale == 'zh'){image_asset.set({x:55,y:4});text.set({x:22,y:10});}break;case "bonus":var image_asset=new createjs.Bitmap(this.context.getResources("bonus_multibet"));btn_container.addChild(image_asset);image_asset.set({x:62,y:4});text.text = window.language.multibet_betareas.bonusbaccarat;if(window.language.locale == 'zh'){image_asset.set({x:56,y:3});text.set({x:22,y:10});}break;case "classicPoker":var image_asset=new createjs.Bitmap(this.context.getResources("classicPoker_multibet"));btn_container.addChild(image_asset);image_asset.set({x:58,y:2});text.set({x:10});text.text = window.language.multibet_betareas.classicPoker;if(window.language.locale == 'zh'){image_asset.set({x:54,y:2});text.set({x:10});}break;case "bonusplus":var image_asset=new createjs.Bitmap(this.context.getResources("bonus_multibet"));btn_container.addChild(image_asset);image_asset.set({x:62,y:4});text.text = window.language.multibet_betareas.bonuspluspoker;if(window.language.locale == 'zh'){image_asset.set({x:58,y:3});text.set({x:22,y:10});}break;}return btn_container;},maintenanceChange:function maintenanceChange(data){ //ovveride
 this.multibetGames.forEach(function(mul){window.all_games.forEach(function(all){if('' + mul.gameName + mul.tableNumber == '' + all.gameName + all.tableNumber){mul = all;}});});switch(data.gameName){case "Baccarat":case "Poker":for(var x=0;x < this.multibetGames.length;x++) {if('' + data.gameName + data.tableId == '' + this.multibetGames[x].gameName + this.multibetGames[x].tableNumber){for(var i=0;i < this.multibetGames[x].maintenanceSetting.maintenance.length;i++) {if(this.multibetGames[x].maintenanceSetting.maintenance[i].type === data.data.slave){this.multibetGames[x].maintenanceSetting.maintenance[i].info.forEach(function(m){if(m.division == data.data.division){m.status = data.data.status;}});} // if all change all status
 if(data.data.slave == "all"){this.multibetGames[x].maintenanceSetting.maintenance[i].info.forEach(function(m){if(m.division == data.data.division){m.status = data.data.status;}});}}}} // end for
 break;case "Dragon-Tiger":case "Sicbo":for(var x=0;x < this.multibetGames.length;x++) {if('' + data.gameName + data.tableId == '' + this.multibetGames[x].gameName + this.multibetGames[x].tableNumber){this.multibetGames[x].maintenanceSetting.forEach(function(m){if(m.division == data.data.division){m.status = data.data.status;}});}} // end for
 break;}this.filterGames();if(parseInt(data.data.status) && _.find(this.selected_games,function(a){return '' + data.gameName + data.tableId === '' + a.data.gameName + a.data.tableNumber;})){this.reRender("remove",_.find(this.selected_games,function(a){return '' + data.gameName + data.tableId === '' + a.data.gameName + a.data.tableNumber;}));}this.createGames(window.all_games);}, // end setmaintenance
 filterGames:function filterGames(){var _this10=this;window.all_games = _.filter(this.multibetGames,function(e){var mtns=[];if(e.maintenanceSetting.maintenance){mtns = _.map(e.maintenanceSetting.maintenance,function(m){if(_.find(m.info,function(s){return parseInt(s.status);})){return _.find(m.info,function(s){return parseInt(s.status);});}});mtns = _.filter(mtns,function(o){ // filtering undefined
-return o;});if(!mtns.length){return e.namespace != "Baccarat/" + window.tableNum;}}else {return e.namespace != "Baccarat/" + window.tableNum && !parseInt(e.maintenanceSetting[0].status) && !parseInt(e.maintenanceSetting[1].status);}});window.all_games = _.filter(window.all_games,function(a){if(_.find(_this10.selected_games,function(e){return e.data.namespace === a.namespace;})){return a.namespace != _.find(_this10.selected_games,function(e){return e.data.namespace === a.namespace;}).data.namespace;}else {return a;}});},numberWithCommas:function numberWithCommas(x){try{return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");}catch(e) {}},slaveButtonState:function slaveButtonState(target,type){if(target.data.gameName == 'Sicbo' || target.data.gameName == 'Dragon-Tiger')return;var colors={selected:["#c3a240","#fff39f"],disabled:["#797979","#797979"],enabled:["#fff39f","#c3a240"]};target.slave_buttons.forEach(function(e){ // disable all
-e.children[0].graphics.clear().ss(1).s("#5f5f5f").beginLinearGradientFill(colors[type],[0,1],0,0,0,15).drawRoundRect(0,0,e.children[0].getBounds().width,20,10);});switch(target.currentSlave){case "normal":if(target.data.gameName.toLowerCase() === 'baccarat'){target.normal_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(colors.selected,[0,1],0,0,0,15).drawRoundRect(0,0,target.normal_toggle.children[0].getBounds().width,20,10);}else if(target.data.gameName.toLowerCase() === 'poker'){target.poker_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(colors.selected,[0,1],0,0,0,15).drawRoundRect(0,0,target.poker_toggle.children[0].getBounds().width,20,10);}break;case "supersix":target.supersix_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(colors.selected,[0,1],0,0,0,15).drawRoundRect(0,0,target.supersix_toggle.children[0].getBounds().width,20,10);break;case "bonus":target.bonus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(colors.selected,[0,1],0,0,0,15).drawRoundRect(0,0,target.bonus_toggle.children[0].getBounds().width,20,10);break;case "bonusplus":target.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(colors.selected,[0,1],0,0,0,15).drawRoundRect(0,0,target.bonus_plus_toggle.children[0].getBounds().width,20,10);break;}}});return instance;};module.exports = exports['default'];
+return o;});if(!mtns.length){return e.namespace != "Baccarat/" + window.tableNum;}}else {return e.namespace != "Baccarat/" + window.tableNum && !parseInt(e.maintenanceSetting[0].status) && !parseInt(e.maintenanceSetting[1].status);}});window.all_games = _.filter(window.all_games,function(a){if(_.find(_this10.selected_games,function(e){return e.data.namespace === a.namespace;})){return a.namespace != _.find(_this10.selected_games,function(e){return e.data.namespace === a.namespace;}).data.namespace;}else {return a;}});},numberWithCommas:function numberWithCommas(x){try{return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");}catch(e) {}},slaveButtonState:function slaveButtonState(target,type){if(target.data.gameName == 'Sicbo' || target.data.gameName == 'Dragon-Tiger')return;var colors={selected:["#84cc16","#bef264"],disabled:["#797979","#797979"],enabled:["#eef1f4","#aab2bc"]};target.slave_buttons.forEach(function(e){ // disable all
+e.children[0].graphics.clear().ss(1).s("#5f5f5f").beginLinearGradientFill(colors[type],[0,1],0,0,0,15).drawRoundRect(0,0,e.children[0].getBounds().width,20,10);});switch(target.currentSlave){case "normal":if(target.data.gameName.toLowerCase() === 'baccarat'){target.normal_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(colors.selected,[0,1],0,0,0,15).drawRoundRect(0,0,target.normal_toggle.children[0].getBounds().width,20,10);}else if(target.data.gameName.toLowerCase() === 'poker'){target.poker_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(colors.selected,[0,1],0,0,0,15).drawRoundRect(0,0,target.poker_toggle.children[0].getBounds().width,20,10);}break;case "supersix":target.supersix_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(colors.selected,[0,1],0,0,0,15).drawRoundRect(0,0,target.supersix_toggle.children[0].getBounds().width,20,10);break;case "bonus":target.bonus_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(colors.selected,[0,1],0,0,0,15).drawRoundRect(0,0,target.bonus_toggle.children[0].getBounds().width,20,10);break;case "bonusplus":target.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#5c636c").beginLinearGradientFill(colors.selected,[0,1],0,0,0,15).drawRoundRect(0,0,target.bonus_plus_toggle.children[0].getBounds().width,20,10);break;}}});return instance;};module.exports = exports['default'];
 
 },{"../../factories/factories":503,"../../factories/formatter":504,"../../factories/scoreboard_draw":508,"../../lib/XPacket":511,"../../listeners/multibet-events":512,"./multiButtons":469,"./multiTimer":471,"./multibetPrediction":477,"./multibetTableDraw":479}],474:[function(require,module,exports){
 'use strict';
@@ -80566,7 +80568,7 @@ exports['default'] = function () {
 			this.addChild(this.background);
 
 			this.goldContainer = new createjs.Shape();
-			this.goldContainer.graphics.beginLinearGradientFill(['#d7bc6a', '#ebda7b', '#d7bc6a'], [0, 0.5, 1], 0, 0, w, 0).drawRect(0, 0, w, 45);
+			this.goldContainer.graphics.beginLinearGradientFill(['#84cc16', '#a3e635', '#84cc16'], [0, 0.5, 1], 0, 0, w, 0).drawRect(0, 0, w, 45);
 			this.addChild(this.goldContainer);
 
 			//labels
@@ -80585,7 +80587,7 @@ exports['default'] = function () {
 			this.addChild(this.winning_label);
 
 			//values
-			this.user_money = new createjs.Text("0", (0, _factoriesFactories.fontFormat)(22, 'normal', 'bebas', false), "#000");
+			this.user_money = new createjs.Text("0", (0, _factoriesFactories.fontFormat)(22, 'normal', 'bebas', false), "#0c0d0f");
 			this.user_money.textAlign = "right";
 			this.user_money.x = 194;
 			this.user_money.y = 45 / 2 + 2;
@@ -80661,13 +80663,13 @@ exports['default'] = function () {
 			}
 
 			var chipCircle = new createjs.Shape();
-			chipCircle.graphics.f('#3C3C3C').drawCircle(0, 0, 15);
+			chipCircle.graphics.f('#0c0d0f').drawCircle(0, 0, 15);
 			chipCircle.regX = chipCircle.regY = -15;
 			chipCircle.x = 12;
 			chipCircle.y = 8;
 			this.addChild(chipCircle);
 			var chipCircleInner = new createjs.Shape();
-			chipCircleInner.graphics.beginStroke('#d7bc6a').setStrokeDash([8, 4], 0).setStrokeStyle(2).drawCircle(0, 0, 12);
+			chipCircleInner.graphics.beginStroke('#a3e635').setStrokeDash([8, 4], 0).setStrokeStyle(2).drawCircle(0, 0, 12);
 			chipCircleInner.regX = -12;
 			chipCircleInner.regY = -17.5;
 			chipCircleInner.x = 12;
@@ -80675,7 +80677,7 @@ exports['default'] = function () {
 			chipCircleInner.rotation = -11;
 			this.addChild(chipCircleInner);
 
-			var chipText = new createjs.Text(currency, '800 ' + currencySize + ' lato-bold', '#d7bc6a');
+			var chipText = new createjs.Text(currency, '800 ' + currencySize + ' lato-bold', '#a3e635');
 			chipText.x = 27;
 			chipText.y = 15;
 			chipText.textAlign = "center";
@@ -80695,7 +80697,7 @@ exports['default'] = function () {
 
 			//user details
 			var avatarBg = new createjs.Shape();
-			avatarBg.graphics.ss(0.8).s('#5c5a5b').beginFill('#dcc871').drawCircle(0, 0, 14);
+			avatarBg.graphics.ss(0.8).s('#262a31').beginFill('#d3d8df').drawCircle(0, 0, 14);
 			avatarBg.x = 29;
 			avatarBg.y = 145;
 			this.addChild(avatarBg);
@@ -80724,7 +80726,7 @@ exports['default'] = function () {
 			this.total_win_amt.color = this.context.theme_color[new_theme].text_color;
 			this.user_name.color = this.context.theme_color[new_theme].text_color;
 			this.background.graphics.clear().beginFill(this.context.theme_color[window.theme].base_color).drawRect(0, 0, w, 180);
-			this.goldContainer.graphics.clear().beginLinearGradientFill(['#d7bc6a', '#ebda7b', '#d7bc6a'], [0, 0.5, 1], 0, 0, w, 0).drawRect(0, 0, w, 45);
+			this.goldContainer.graphics.clear().beginLinearGradientFill(['#84cc16', '#a3e635', '#84cc16'], [0, 0.5, 1], 0, 0, w, 0).drawRect(0, 0, w, 45);
 		},
 		setUserAvatar: function setUserAvatar() {
 			var avatar = window.config['default'].split("_")[0];
@@ -80986,7 +80988,7 @@ exports['default'] = function () {
 			this.addChild(this.dealer_text);
 
 			var community_bg = new createjs.Shape();
-			community_bg.graphics.beginFill("#5b5b5b").drawRoundRect(0, 0, 286, 150, 10);
+			community_bg.graphics.beginFill("#262a31").drawRoundRect(0, 0, 286, 150, 10);
 			community_bg.x = dealer_bg.x + 151 + 33;
 			community_bg.y = dealer_bg.y;
 			community_bg.isBg = true;
@@ -81307,8 +81309,8 @@ exports['default'] = function () {
 
         play: function play() {
             this.visible = true;
-            this.playerCardObj[0].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
-            this.playerCardObj[1].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
+            this.playerCardObj[0].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
+            this.playerCardObj[1].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
         },
 
         playFlop: function playFlop() {
@@ -81324,9 +81326,9 @@ exports['default'] = function () {
                 }, 200).call(function () {
                     self.playerCardObj[0].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2, 0, 4);
                     self.playerCardObj[1].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2, 0, 4);
-                    self.communityCardObj[0].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
-                    self.communityCardObj[1].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
-                    self.communityCardObj[2].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
+                    self.communityCardObj[0].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
+                    self.communityCardObj[1].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
+                    self.communityCardObj[2].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
                 });
             }
         },
@@ -81343,7 +81345,7 @@ exports['default'] = function () {
                     scaleX: cardScale
                 }, 200).wait(300).call(function () {
                     self.communityCardObj[i].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2, 0, 4);
-                    self.communityCardObj[3].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
+                    self.communityCardObj[3].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
                 });
             };
 
@@ -81363,9 +81365,9 @@ exports['default'] = function () {
             }, 200).call(function () {
                 self.communityCardObj[3].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2, 0, 4);
                 setTimeout(function () {
-                    self.communityCardObj[4].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
-                    self.dealerCardObj[0].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
-                    self.dealerCardObj[1].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
+                    self.communityCardObj[4].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
+                    self.dealerCardObj[0].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
+                    self.dealerCardObj[1].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
                 }, 300);
             });
         },
@@ -81816,7 +81818,7 @@ exports['default'] = function (links, type) {
 					voidContainer.x = -390;
 
 					var voidShape = new createjs.Shape();
-					voidShape.graphics.beginFill("#262525").drawRect(0, -10, 880, 36);
+					voidShape.graphics.beginFill("#16181c").drawRect(0, -10, 880, 36);
 					voidShape.setBounds(0, -10, 880, 36);
 					voidContainer.addChild(voidShape);
 
@@ -81885,7 +81887,7 @@ exports['default'] = function (links, type) {
 			this.tableContainer.y = -70;
 
 			var detailHeaderBg = new createjs.Shape();
-			detailHeaderBg.graphics.beginFill('#ff9b28').drawRoundRect(0, 0, mdlDetailWidth - 3, 45, 7);
+			detailHeaderBg.graphics.beginFill('#a3e635').drawRoundRect(0, 0, mdlDetailWidth - 3, 45, 7);
 			detailHeaderBg.x = detailBg.x + 2;
 			detailHeaderBg.y = detailBg.y + 2;
 			this.betDetails.addChild(detailHeaderBg);
@@ -82818,7 +82820,7 @@ exports["default"] = function () {
 					var voidContainer = new createjs.Container();
 
 					var voidShape = new createjs.Shape();
-					voidShape.graphics.beginFill("#212120").drawRect(-15, -4, 512, 45);
+					voidShape.graphics.beginFill("#16181c").drawRect(-15, -4, 512, 45);
 					voidContainer.addChild(voidShape);
 					voidContainer.y = 36 + x * 46.1 + 1.5;
 					voidContainer.x = 0;
@@ -82920,7 +82922,7 @@ exports["default"] = function (config, type) {
 			} //end for
 
 			//Define colors
-			this.default_color = "rgba(255,255,255,1)";
+			this.default_color = "rgba(211,216,223,1)";
 
 			this.ante_color = {
 				"default": ["rgba(3, 95, 102, 0.5)", "rgba(3, 95, 102, 0.5)"],
@@ -83600,8 +83602,8 @@ exports['default'] = function () {
 		win_suit_obj: [],
 		lines_obj: [],
 		main: function main() {
-			this.total_win_text = new createjs.Text("", (0, _factoriesFactories.fontFormat)(45, 'normal', 'bebas', false), "#f1be29");
-			this.total_win_text.shadow = new createjs.Shadow("#ffd73e", 0, 0, 6);
+			this.total_win_text = new createjs.Text("", (0, _factoriesFactories.fontFormat)(45, 'normal', 'bebas', false), "#a3e635");
+			this.total_win_text.shadow = new createjs.Shadow("#bef264", 0, 0, 6);
 			this.total_win_text.textAlign = "center";
 			this.total_win_text.textBaseline = "middle";
 			this.total_win_text.alpha = 0;
@@ -83617,7 +83619,7 @@ exports['default'] = function () {
 			this.addChild(this.winpopupContainer);
 
 			this.clearStacksTimeout = null;
-			this.background = '#E5C160';
+			this.background = '#d3d8df';
 
 			this.shineContainer = new createjs.Container();
 			this.shineContainer.x = this.context.component_betDetails.x;
@@ -83736,10 +83738,10 @@ exports['default'] = function () {
 			var winpopupRec = new createjs.Shape();
 
 			if (this.winsArray[this.winsArray.length - 1]) {
-				this.background = this.winsArray[this.winsArray.length - 1].background == "#E5C160" ? '#F1E382' : "#E5C160";
+				this.background = this.winsArray[this.winsArray.length - 1].background == "#d3d8df" ? '#eef1f4' : "#d3d8df";
 			}
 
-			winpopupRec.graphics.f(this.background).drawRect(0, 0, 260, 64).f('#568E23').drawRect(0, 0, 10, 64);
+			winpopupRec.graphics.f(this.background).drawRect(0, 0, 260, 64).f('#a3e635').drawRect(0, 0, 10, 64);
 			winArrCon.addChild(winpopupRec);
 			winArrCon.background = this.background;
 
@@ -83888,10 +83890,10 @@ exports["default"] = function () {
 			this.gold_spotlight_container = new createjs.Container();
 
 			var spotlight_1 = new createjs.Shape();
-			spotlight_1.graphics.beginRadialGradientFill(["#edd791", "rgba(216, 182, 88, 0.01)"], [0, 1], 0, 0, 30, 0, 0, 220).drawCircle(0, 0, 220);
+			spotlight_1.graphics.beginRadialGradientFill(["#eef1f4", "rgba(211, 216, 223, 0.01)"], [0, 1], 0, 0, 30, 0, 0, 220).drawCircle(0, 0, 220);
 
 			var spotlight_2 = new createjs.Shape();
-			spotlight_2.graphics.beginRadialGradientFill(["#edd791", "rgba(216, 182, 88, 0.01)"], [0, 1], 0, 0, 70, 0, 0, 200).drawCircle(0, 0, 200);
+			spotlight_2.graphics.beginRadialGradientFill(["#eef1f4", "rgba(211, 216, 223, 0.01)"], [0, 1], 0, 0, 70, 0, 0, 200).drawCircle(0, 0, 200);
 
 			this.gold_spotlight_container.addChild(spotlight_1, spotlight_2);
 			this.gold_spotlight_container.regX = 220 / 2;
@@ -84649,12 +84651,12 @@ var confirmButton = function confirmButton(scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").drawCircle(0, 0, 66);
+  this.bg.graphics.beginFill("#16181c").drawCircle(0, 0, 66);
   this.bg.alpha = 0.5;
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042", "#585659", "#696a6e"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 2, 56);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228", "#262a31", "#2e333b"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 2, 56);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -84750,22 +84752,22 @@ var confirmButton = function confirmButton(scale) {
     _this.container.currentAnimation = type;
     switch (type) {
       case 'up':
-        _this.base.graphics.clear().beginLinearGradientFill(["#266443", "#389368", "#266443"], [0, 0.5, 1], 0, 0, 90, 0).drawCircle(45, 45, 45);
-        _this.fillCmd.style = "#fffde7";
-        _this.fillCmd2.style = "#fffde7";
-        _this.timer_text.color = "#fffde7";
+        _this.base.graphics.clear().beginLinearGradientFill(["#84cc16", "#a3e635", "#84cc16"], [0, 0.5, 1], 0, 0, 90, 0).drawCircle(45, 45, 45);
+        _this.fillCmd.style = "#0c0d0f";
+        _this.fillCmd2.style = "#0c0d0f";
+        _this.timer_text.color = "#0c0d0f";
         break;
       case 'click':
-        _this.base.graphics.clear().beginFill('#266443').drawCircle(45, 45, 45);
-        _this.fillCmd.style = "#91af94";
-        _this.fillCmd2.style = "#91af94";
-        _this.timer_text.color = "#91af94";
+        _this.base.graphics.clear().beginFill('#65a30d').drawCircle(45, 45, 45);
+        _this.fillCmd.style = "#1a2e05";
+        _this.fillCmd2.style = "#1a2e05";
+        _this.timer_text.color = "#1a2e05";
         break;
       case 'hover':
-        _this.base.graphics.clear().beginLinearGradientFill(["#268f44", "#37b14a", "#268f44"], [0, 0.5, 1], 0, 0, 90, 0).drawCircle(45, 45, 45);
-        _this.fillCmd.style = "#fffde7";
-        _this.fillCmd2.style = "#fffde7";
-        _this.timer_text.color = "#fffde7";
+        _this.base.graphics.clear().beginLinearGradientFill(["#a3e635", "#bef264", "#a3e635"], [0, 0.5, 1], 0, 0, 90, 0).drawCircle(45, 45, 45);
+        _this.fillCmd.style = "#0c0d0f";
+        _this.fillCmd2.style = "#0c0d0f";
+        _this.timer_text.color = "#0c0d0f";
         break;
       case 'disabled':
         _this.base.graphics.clear().ss(1).s('#808080').drawCircle(45, 45, 45);
@@ -84789,13 +84791,13 @@ var clearButton = function clearButton(scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").arc(0, 0, 68, 10, 0);
+  this.bg.graphics.beginFill("#16181c").arc(0, 0, 68, 10, 0);
   this.bg.alpha = 0.5;
   this.bg.rotation = -16;
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042", "#585659", "#696a6e"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228", "#262a31", "#2e333b"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -84861,13 +84863,13 @@ var undoButton = function undoButton(scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").arc(0, 0, 68, 10, 0);
+  this.bg.graphics.beginFill("#16181c").arc(0, 0, 68, 10, 0);
   this.bg.alpha = 0.5;
   this.bg.rotation = -16;
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042", "#585659", "#696a6e"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228", "#262a31", "#2e333b"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -84899,20 +84901,20 @@ var undoButton = function undoButton(scale) {
     _this3.container.currentAnimation = type;
     switch (type) {
       case 'up':
-        _this3.base.graphics.clear().beginLinearGradientFill(["#1480a2", "#0094db", "#1480a2"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
-        _this3.fillCmd.style = "#8dc6d7";
+        _this3.base.graphics.clear().beginLinearGradientFill(["#aab2bc", "#d3d8df", "#aab2bc"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
+        _this3.fillCmd.style = "#1e2228";
         break;
       case 'click':
-        _this3.base.graphics.clear().beginFill('#2b79af').drawCircle(44, 44, 44);
-        _this3.fillCmd.style = "#5b9fc2";
+        _this3.base.graphics.clear().beginFill('#9aa3ae').drawCircle(44, 44, 44);
+        _this3.fillCmd.style = "#3a4048";
         break;
       case 'hover':
-        _this3.base.graphics.clear().beginLinearGradientFill(["#1895bd", "#2ab7fa", "#1895bd"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
-        _this3.fillCmd.style = "#8dc6d7";
+        _this3.base.graphics.clear().beginLinearGradientFill(["#d3d8df", "#eef1f4", "#d3d8df"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
+        _this3.fillCmd.style = "#1e2228";
         break;
       case 'disabled':
         _this3.base.graphics.clear().ss(1).s('#808080').drawCircle(44, 44, 44);
-        _this3.fillCmd.style = "#657176";
+        _this3.fillCmd.style = "#6f757d";
         break;
     }
 
@@ -84930,13 +84932,13 @@ var repeatButton = function repeatButton(scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").arc(0, 0, 68, 10, 0);
+  this.bg.graphics.beginFill("#16181c").arc(0, 0, 68, 10, 0);
   this.bg.alpha = 0.5;
   this.bg.rotation = -16;
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042", "#585659", "#696a6e"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228", "#262a31", "#2e333b"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -84975,24 +84977,24 @@ var repeatButton = function repeatButton(scale) {
     _this4.container.currentAnimation = type;
     switch (type) {
       case 'up':
-        _this4.base.graphics.clear().beginLinearGradientFill(["#9e6510", "#c77f14", "#9e6510"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
-        _this4.fillCmd.style = "#edc38c";
-        _this4.fillCmd2.style = "#edc38c";
+        _this4.base.graphics.clear().beginLinearGradientFill(["#aab2bc", "#d3d8df", "#aab2bc"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
+        _this4.fillCmd.style = "#1e2228";
+        _this4.fillCmd2.style = "#1e2228";
         break;
       case 'click':
-        _this4.base.graphics.clear().beginFill('#b16b29').drawCircle(44, 44, 44);
-        _this4.fillCmd.style = "#ce965a";
-        _this4.fillCmd2.style = "#ce965a";
+        _this4.base.graphics.clear().beginFill('#9aa3ae').drawCircle(44, 44, 44);
+        _this4.fillCmd.style = "#3a4048";
+        _this4.fillCmd2.style = "#3a4048";
         break;
       case 'hover':
-        _this4.base.graphics.clear().beginLinearGradientFill(["#d18228", "#ee9f22", "#d18228"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
-        _this4.fillCmd.style = "#edc38c";
-        _this4.fillCmd2.style = "#edc38c";
+        _this4.base.graphics.clear().beginLinearGradientFill(["#d3d8df", "#eef1f4", "#d3d8df"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
+        _this4.fillCmd.style = "#1e2228";
+        _this4.fillCmd2.style = "#1e2228";
         break;
       case 'disabled':
         _this4.base.graphics.clear().ss(1).s('#808080').drawCircle(44, 44, 44);
-        _this4.fillCmd.style = "#797168";
-        _this4.fillCmd2.style = "#797168";
+        _this4.fillCmd.style = "#6f757d";
+        _this4.fillCmd2.style = "#6f757d";
         break;
     }
 
@@ -91835,7 +91837,7 @@ exports["default"] = function (self) {
 
 	//grey loading bar
 	self.grey_loading = new createjs.Shape();
-	self.grey_loading.graphics.beginFill("#2d2d2d").drawRect(0, 0, 320, 3);
+	self.grey_loading.graphics.beginFill("#262a31").drawRect(0, 0, 320, 3);
 	self.grey_loading.setBounds(0, 0, 320, 5);
 	self.grey_loading.x = -190;
 	self.grey_loading.y = 16;
@@ -91843,7 +91845,7 @@ exports["default"] = function (self) {
 	self.loading_container.addChild(self.grey_loading);
 	//gold loadiung
 	self.gold_loading = new createjs.Shape();
-	self.gold_loading.graphics.beginFill("#e0b226").drawRect(0, 0, 320, 3);
+	self.gold_loading.graphics.beginFill("#a3e635").drawRect(0, 0, 320, 3);
 	self.gold_loading.x = self.grey_loading.x;
 	self.gold_loading.y = self.grey_loading.y;
 	self.gold_loading.scaleX = 0;
@@ -91859,7 +91861,7 @@ exports["default"] = function (self) {
 	/** clover **/
 	self.clover_image = new createjs.Sprite(spriteSheet, "clover-grey");
 	self.clover_image.x = 100;
-	self.clover_image.shadow = new createjs.Shadow("#e0b226", 0, 0, 0);
+	self.clover_image.shadow = new createjs.Shadow("#a3e635", 0, 0, 0);
 	self.clover_image.scaleX = self.clover_image.scaleY = 1.2;
 	/** diamond **/
 	self.dimanond_image = new createjs.Sprite(spriteSheet, "diamond-grey");
@@ -91879,13 +91881,13 @@ exports["default"] = function (self) {
 	self.stage.addChild(self.loading_chip_container);
 
 	var grey_bg = new createjs.Shape();
-	grey_bg.graphics.beginFill("#2f2f2f").drawCircle(0, 0, 100);
+	grey_bg.graphics.beginFill("#16181c").drawCircle(0, 0, 100);
 	grey_bg.x = self.stage.baseWidth / 2 - 32;
 	grey_bg.y = self.stage.baseHeight / 2 + 4;
 
 	self.loading_chip_container.addChild(grey_bg);
 
-	self.loadingText = new createjs.Text("0%", "60px arial", "#fccd40");
+	self.loadingText = new createjs.Text("0%", "60px arial", "#a3e635");
 	self.loadingText.textBaseline = "bottom";
 	self.loadingText.textAlign = "center";
 	self.loadingText.x = self.stage.baseWidth / 2 - 28;
@@ -91919,13 +91921,13 @@ exports["default"] = function (self) {
 	self.circle_grey = new createjs.Shape();
 	self.circle_red = new createjs.Shape();
 
-	self.circle_grey.graphics.ss(1).beginStroke("#2e2e2e").drawCircle(125 / 2, 125 / 2, 125);
+	self.circle_grey.graphics.ss(1).beginStroke("#262a31").drawCircle(125 / 2, 125 / 2, 125);
 	self.circle_grey.regX = 125 / 2;
 	self.circle_grey.regY = 125 / 2;
 	self.circle_grey.x = self.stage.baseWidth / 2 - 32;
 	self.circle_grey.y = self.stage.baseHeight / 2 + 4;
 
-	self.circle_red.graphics.ss(1).beginStroke("#b62320").drawCircle(120 / 2, 120 / 2, 120);
+	self.circle_red.graphics.ss(1).beginStroke("#a3e635").drawCircle(120 / 2, 120 / 2, 120);
 	self.circle_red.regX = 120 / 2;
 	self.circle_red.regY = 120 / 2;
 	self.circle_red.x = self.stage.baseWidth / 2 - 30;

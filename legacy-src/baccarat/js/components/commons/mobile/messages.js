@@ -9,7 +9,7 @@ export default() => {
       this.y  = this.context.stage.canvas.height/2 - 160;
 
       this.gold_instance =  new createjs.Shape();
-      this.gold_instance.graphics.beginLinearGradientFill(["rgba(216, 189, 105, 0)","#d8bd69","rgba(216, 189, 105, 0)"], [0, 0.5, 1], 0, 0,this.context.stage.canvas.width, 0)
+      this.gold_instance.graphics.beginLinearGradientFill(["rgba(211, 216, 223, 0)","#d3d8df","rgba(211, 216, 223, 0)"], [0, 0.5, 1], 0, 0,this.context.stage.canvas.width, 0)
       .drawRect(0, 0, this.context.stage.canvas.width, 80);
       this.gold_instance.setBounds(0, 0, this.context.stage.canvas.width, 80)
       this.gold_instance.regX = this.gold_instance.getBounds().width / 2;
@@ -104,7 +104,7 @@ export default() => {
      font = '32px lato-black';
    }
 
-   this.gold_instance.graphics.clear().beginLinearGradientFill(["transparent","#d8bd69","#d8bd69","#d8bd69","transparent"], [0, 0.5, 0.5, 0.5, 1], -30, 30,width- 30, 0).drawRect(0, 0, width, height);
+   this.gold_instance.graphics.clear().beginLinearGradientFill(["transparent","#d3d8df","#d3d8df","#d3d8df","transparent"], [0, 0.5, 0.5, 0.5, 1], -30, 30,width- 30, 0).drawRect(0, 0, width, height);
    this.gold_instance.setBounds(0, 0, width, height)
    this.gold_instance.regX = this.gold_instance.getBounds().width / 2;
 

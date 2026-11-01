@@ -132,7 +132,7 @@ export default () => {
         if (i == 0) {
           this.howToTab[i].graphics.clear().beginFill(this.context.theme_color[this.theme].bet_record_tab_act);
           this.howToTabIcon[i].gotoAndPlay("active");
-          this.howToTabLbl[i].color = "#ff9b28";
+          this.howToTabLbl[i].color = "#a3e635";
           this.howToTab[i].targ = "gamerules"
         } // end if
         if (i == 1) {
@@ -162,7 +162,7 @@ export default () => {
 
             this.howToTab[i].graphics.clear().beginFill(this.context.theme_color[this.theme].bet_record_tab_act);
             this.howToTabIcon[i].gotoAndPlay("active");
-            this.howToTabLbl[i].color = "#ff9b28";
+            this.howToTabLbl[i].color = "#a3e635";
           })
         }(i));
       } //for loop
@@ -182,7 +182,7 @@ export default () => {
         if (i == 0) {
           this.howToTab[i].graphics.clear().beginFill(this.context.theme_color[this.theme].bet_record_tab_act);
           this.howToTabIcon[i].gotoAndPlay("active");
-          this.howToTabLbl[i].color = "#ff9b28";
+          this.howToTabLbl[i].color = "#a3e635";
         } // end if
       }
     },

@@ -211,7 +211,7 @@ export default () => {
 
 			timer.x = 16;
 			timer.y = 16;
-			timer.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+			timer.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 
 			timer.scaleX = 0.8;
 			timer.scaleY = 0.8;

@@ -71,13 +71,13 @@ settings = {
     if ($(target).hasClass('switch-active')) {
       isActive = false;
       $(target).removeClass('switch-active');
-      $(target).children(':first').css('background', '#d42e30');
+      $(target).children(':first').css('background', '#d3d8df');
       $(target).children(':first').animate({'margin-left': '2px'}, 'fast');
     }
     else {
       isActive = true;
       $(target).addClass('switch-active');
-      $(target).children(':first').css('background', '#307f3e');
+      $(target).children(':first').css('background', '#a3e635');
       $(target).children(':first').animate({'margin-left': '35px'}, 'fast');
     }
 

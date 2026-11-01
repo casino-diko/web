@@ -108,7 +108,7 @@ export default (config) => {
 			let posY = this.context.stage.baseHeight /2 + 84;
 
       this.tableBg = new createjs.Shape();
-      this.tableBg.graphics.beginFill('#572e34').drawRect(0,y,width, 700)
+      this.tableBg.graphics.beginFill('#16181c').drawRect(0,y,width, 700)
       this.tableBg.visible = hide;
       this.addChild(this.tableBg)
 
@@ -633,7 +633,7 @@ export default (config) => {
 
       console.log('hide', hide);
 
-      this.tableBg.graphics.clear().beginFill('#572e34').drawRect(0,y,width, 700)
+      this.tableBg.graphics.clear().beginFill('#16181c').drawRect(0,y,width, 700)
       this.tableBg.visible = false;
 
       console.log('classic_outline', this.classic_outline);

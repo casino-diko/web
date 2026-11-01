@@ -645,7 +645,7 @@ export default(links) => {
 
           let winColor = '#fff';
           let winResultColor = '#1565c0'
-          let bordercolor = '#d6bb69';
+          let bordercolor = '#d3d8df';
           let winText = result.winner;
           let resultType = '';
           let resultTypeInitials = winText == 'banker' ? 'B' : winText == 'player' ? 'P' : 'T';

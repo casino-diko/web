@@ -41,7 +41,7 @@ export default() => {
 			this.toolTip = new createjs.Shape();
 			this.toolTipCon.addChild(this.toolTip);
 
-			this.toolTip.graphics.f("rgba(22,22,22,0.8)").ss(2).s('#cdb871').moveTo(0,0)
+			this.toolTip.graphics.f("rgba(22,24,28,0.8)").ss(2).s('#d3d8df').moveTo(0,0)
 			.lineTo(200,0)
 			.lineTo(200,50)
 			.lineTo(110,50)

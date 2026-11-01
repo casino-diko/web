@@ -15,7 +15,7 @@ export default () => {
     main() {
       this.winsArray = [];
       this.clearStacksTimeout = null;
-      this.background = '#E5C160';
+      this.background = '#d3d8df';
       this.removedArrs = [];
       this.init = 0;
       $("#testanimate").on("click", () => {
@@ -131,7 +131,7 @@ export default () => {
       let notif_box = $('<div></div>').addClass('notif-box');
       //switch background
       if (this.winsArray[this.winsArray.length - 1]) {
-        this.background = this.winsArray[this.winsArray.length - 1].background == "#E5C160" ? '#F1E382' : "#E5C160";
+        this.background = this.winsArray[this.winsArray.length - 1].background == "#d3d8df" ? '#e6e9ed' : "#d3d8df";
       }
       notif_box.background = this.background;
       //initial position

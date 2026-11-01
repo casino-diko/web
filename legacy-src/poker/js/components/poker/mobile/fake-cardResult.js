@@ -80,8 +80,8 @@ export default()=> {
         
         play() {
             this.visible =true;
-            this.playerCardObj[0].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0,0,15);
-            this.playerCardObj[1].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0,0,15);
+            this.playerCardObj[0].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0,0,15);
+            this.playerCardObj[1].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0,0,15);
         },
 
         playFlop() {
@@ -102,9 +102,9 @@ export default()=> {
                 .call(() => {
                     self.playerCardObj[0].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2,0,4)
                     self.playerCardObj[1].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2,0,4)
-                    self.communityCardObj[0].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0,0,15);
-                    self.communityCardObj[1].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0,0,15);
-                    self.communityCardObj[2].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0,0,15);
+                    self.communityCardObj[0].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0,0,15);
+                    self.communityCardObj[1].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0,0,15);
+                    self.communityCardObj[2].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0,0,15);
                 });
             }
 
@@ -128,7 +128,7 @@ export default()=> {
                 .wait(300)
                 .call(() => {
                     self.communityCardObj[i].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2,0,4);
-                    self.communityCardObj[3].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0,0,15);
+                    self.communityCardObj[3].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0,0,15);
                 });
             }   
         },
@@ -148,9 +148,9 @@ export default()=> {
             .call(() => {
                 self.communityCardObj[3].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2,0,4)
                 setTimeout(() => {
-                    self.communityCardObj[4].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0,0,15);
-                    self.dealerCardObj[0].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0,0,15);
-                    self.dealerCardObj[1].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0,0,15);
+                    self.communityCardObj[4].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0,0,15);
+                    self.dealerCardObj[0].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0,0,15);
+                    self.dealerCardObj[1].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0,0,15);
                 }, 300);
             });
         },

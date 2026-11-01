@@ -43476,44 +43476,44 @@ Object.defineProperty(exports, "__esModule", {
 
 exports["default"] = function () {
 	var black_theme = {
-		"base_color": "#191919",
+		"base_color": "#16181c",
 		"text_color": "#fff",
-		"bar_color": "#4e4e4e",
-		"menu_text_color": "#ecdb7e",
-		"btnBorder": "#ff9b28",
-		"gradColor2": "#363636",
+		"bar_color": "#262a31",
+		"menu_text_color": "#d3d8df",
+		"btnBorder": "#a3e635",
+		"gradColor2": "#1e2228",
 		"labelcolor": "#a6a6a6",
-		"modal_txt_color": "#ff9c28",
-		"dealer_channel_rgb": "rgba(16,16,16,0.9)",
-		"table_border": "rgba(255,255,255,0.5)",
+		"modal_txt_color": "#a3e635",
+		"dealer_channel_rgb": "rgba(12,13,15,0.9)",
+		"table_border": "rgba(211,216,223,0.5)",
 		"tableBg": "transparent",
 		"roadMap_bg": "rgba(255,255,255,0.2)",
 		"roadMap_border": "rgba(255,255,255,0.2)",
 		"bet_record_tab": "#9c9c9c",
-		"bet_record_tab_act": "#2b2b2b",
+		"bet_record_tab_act": "#16181c",
 		"tbl_header": "#a7a7a7",
-		"tbl_border": "#646464",
-		"tbl_hover": "#3d3d3d",
-		"btn_pagination": "#ff9b28",
-		"btn_pagination_active": "#2b2b2b",
+		"tbl_border": "#262a31",
+		"tbl_hover": "#1e2228",
+		"btn_pagination": "#a3e635",
+		"btn_pagination_active": "#16181c",
 		"pagination_num": "#4d4d4d",
-		"btn_pagination_active_num": "#ff9b28",
-		"btn_pagination_border": "#ff9b28",
+		"btn_pagination_active_num": "#a3e635",
+		"btn_pagination_border": "#a3e635",
 		"dealer_color": "#fff",
 		/** multibet here */
-		"multibetgradColor1": "#454545",
-		"multibetgradColor2": "#232323",
-		"multibetnav_arrow": "#ebdb7f",
-		"multibetnav_disabled_arrow": "#877f51",
-		"plusBtn": "#efdf82",
-		"closebtn": "#d33030",
-		"inactive": "rgba(60, 60, 60, 0.78)",
-		"active": "rgba(119, 119, 119, 0.73)",
-		"selected": "#58595b",
+		"multibetgradColor1": "#1e2228",
+		"multibetgradColor2": "#16181c",
+		"multibetnav_arrow": "#d3d8df",
+		"multibetnav_disabled_arrow": "#5c636c",
+		"plusBtn": "#d3d8df",
+		"closebtn": "#a3e635",
+		"inactive": "rgba(30, 34, 40, 0.78)",
+		"active": "rgba(58, 64, 72, 0.8)",
+		"selected": "#262a31",
 		// new
-		"bar_separator": "#5b5b5b",
-		"betdetailsBorder": "#2b2b2b",
-		"betdetailsBorderHeader": "#aa9f6b"
+		"bar_separator": "#262a31",
+		"betdetailsBorder": "#262a31",
+		"betdetailsBorderHeader": "#9aa3ae"
 	};
 
 	var white_theme = {
@@ -44046,7 +44046,7 @@ exports['default'] = function () {
 			}
 
 			var announcementIconBg = new createjs.Shape();
-			announcementIconBg.graphics.beginFill('#f1e382').drawRoundRectComplex(0, 0, 60, 55, 0, 0, 0, 10);
+			announcementIconBg.graphics.beginFill('#d3d8df').drawRoundRectComplex(0, 0, 60, 55, 0, 0, 0, 10);
 			this.announcementCon.addChild(announcementIconBg);
 
 			var announcementIcon = new createjs.Bitmap(this.context.getResources('notice_ico'));
@@ -44056,7 +44056,7 @@ exports['default'] = function () {
 			this.announcementCon.addChild(announcementIcon);
 
 			var announcementTextBg = new createjs.Shape();
-			announcementTextBg.graphics.beginLinearGradientFill(['#59090a', 'rgba(89, 9, 10, 0.1)'], [0, 1], 0, 0, 570, 0).drawRect(0, 0, 570, 56); //.drawRoundRectComplex(0, 0, 550, 56, 0, 0, 10, 0);
+			announcementTextBg.graphics.beginLinearGradientFill(['#16181c', 'rgba(22, 24, 28, 0.1)'], [0, 1], 0, 0, 570, 0).drawRect(0, 0, 570, 56); //.drawRoundRectComplex(0, 0, 550, 56, 0, 0, 10, 0);
 			announcementTextBg.x = 60;
 			announcementTextBg.y = -1;
 			this.announcementCon.addChild(announcementTextBg);
@@ -44363,7 +44363,7 @@ exports["default"] = function (opposite_bet) {
 
 				chips_bg[x] = new createjs.Shape();
 				chips_bg[x].graphics.ss(0.5).beginStroke("#fff").beginLinearGradientFill(["transparent", "#636467"], [0, 1], 0, -60, 0, 20).drawCircle(0, 0, 50);
-				chips_bg[x].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
+				chips_bg[x].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
 				chips_bg[x].x = this.context.stage.baseWidth - 78;
 				chips_bg[x].cache(-50, -50, 100, 100);
 				chips_bg[x].y = x * 120 + 145;
@@ -45156,6 +45156,8 @@ exports["default"] = function () {
 			this.setRound(window.round_id);
 		},
 		setDealer: function setDealer(dealer) {
+			// the dealer's pose behind the betting table (public/shared/table-dealer)
+			if (window.tgDealer && dealer) window.tgDealer.show(dealer.image);
 			var image = new Image();
 			image.src = dealer.image;
 			this.dealer_image.image = image;
@@ -45243,18 +45245,18 @@ exports['default'] = function (link) {
       **/
 
       var gradient_background_1 = new createjs.Shape();
-      gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d", "#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244", "#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
+      gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#262a31", "#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c", "#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
       gradient_background_1.y = 12;
       this.addChild(gradient_background_1);
 
       var gradient_background_2 = new createjs.Shape();
-      gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d", "#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244", "#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
+      gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#262a31", "#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c", "#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
       gradient_background_2.x = -140;
       gradient_background_2.y = 12;
       this.addChild(gradient_background_2);
 
       var gradient_background_3 = new createjs.Shape();
-      gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d", "#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244", "#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
+      gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#262a31", "#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c", "#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
       gradient_background_3.x = 140;
       gradient_background_3.y = 12;
       this.addChild(gradient_background_3);
@@ -45476,25 +45478,25 @@ exports['default'] = function (link) {
             break;
 
           case "up":
-            this.button_bg.graphics.clear().beginLinearGradientFill(["#1998c2", "#2ab7f9", "#1998c2"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
+            this.button_bg.graphics.clear().beginLinearGradientFill(["#d3d8df", "#eef1f4", "#d3d8df"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
             this.button_bg.shadow = new createjs.Shadow("rgba(0,0,0,0.5)", 0, 2, 5);
-            this.undo_img.graphics.clear().ss(6).beginStroke("#9ee0ef").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
-            this.undo_img1.graphics.clear().beginFill("#9ee0ef").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.undo_button_text.color = "#9ee0ef";
+            this.undo_img.graphics.clear().ss(6).beginStroke("#1e2228").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
+            this.undo_img1.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.undo_button_text.color = "#1e2228";
             break;
 
           case "click":
-            this.button_bg.graphics.clear().beginFill("#2b79af").drawCircle(57, 53, 48);
-            this.undo_img.graphics.clear().ss(6).beginStroke("#1b3244").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
-            this.undo_img1.graphics.clear().beginFill("#1b3244").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.undo_button_text.color = "#1b3244";
+            this.button_bg.graphics.clear().beginFill("#9aa3ae").drawCircle(57, 53, 48);
+            this.undo_img.graphics.clear().ss(6).beginStroke("#3a4048").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
+            this.undo_img1.graphics.clear().beginFill("#3a4048").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.undo_button_text.color = "#3a4048";
             break;
 
           case "after_click":
-            this.button_bg.graphics.clear().beginLinearGradientFill(["#1381a5", "#0094da", "#1381a5"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
-            this.undo_img.graphics.clear().ss(6).beginStroke("#8dc6d7").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
-            this.undo_img1.graphics.clear().beginFill("#8dc6d7").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.undo_button_text.color = "#1b3244";
+            this.button_bg.graphics.clear().beginLinearGradientFill(["#aab2bc", "#d3d8df", "#aab2bc"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
+            this.undo_img.graphics.clear().ss(6).beginStroke("#1e2228").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
+            this.undo_img1.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.undo_button_text.color = "#3a4048";
             break;
         }
       };
@@ -45666,25 +45668,25 @@ exports['default'] = function (link) {
             break;
 
           case "up":
-            this.button_bg.graphics.clear().beginLinearGradientFill(["#279144", "#37b14a", "#279144"], [0, 0.5, 1], 0, 0, 130, 0, 170, 0).drawCircle(69, 64, 58);
+            this.button_bg.graphics.clear().beginLinearGradientFill(["#84cc16", "#a3e635", "#84cc16"], [0, 0.5, 1], 0, 0, 130, 0, 170, 0).drawCircle(69, 64, 58);
             this.button_bg.shadow = new createjs.Shadow("rgba(0,0,0,0.5)", 0, 2, 5);
-            this.check_1.graphics.clear().f("#fff").drawRoundRect(-10, 90, 70, 13, 4);
-            this.check_2.graphics.clear().f("#fff").drawRoundRect(-12, 60, 13, 40, 4);
-            this.c_text.color = "#fdfce6";
+            this.check_1.graphics.clear().f("#0c0d0f").drawRoundRect(-10, 90, 70, 13, 4);
+            this.check_2.graphics.clear().f("#0c0d0f").drawRoundRect(-12, 60, 13, 40, 4);
+            this.c_text.color = "#0c0d0f";
             break;
 
           case "click":
             // console.log(this, "click");
-            this.button_bg.graphics.clear().beginFill("#246342").drawCircle(69, 64, 58);
-            this.check_1.graphics.clear().f("#1b3c29").drawRoundRect(-10, 90, 70, 13, 4);
-            this.check_2.graphics.clear().f("#1b3c29").drawRoundRect(-12, 60, 13, 40, 4);
-            this.c_text.color = "#1b3c29";
+            this.button_bg.graphics.clear().beginFill("#65a30d").drawCircle(69, 64, 58);
+            this.check_1.graphics.clear().f("#1a2e05").drawRoundRect(-10, 90, 70, 13, 4);
+            this.check_2.graphics.clear().f("#1a2e05").drawRoundRect(-12, 60, 13, 40, 4);
+            this.c_text.color = "#1a2e05";
             break;
 
           case "after_click":
-            this.button_bg.graphics.clear().beginLinearGradientFill(["#266443", "#33805c", "#266443"], [0, 0.5, 1], 0, 0, 130, 0, 170, 0).drawCircle(69, 64, 58);
-            this.check_1.graphics.clear().f("#fff").drawRoundRect(-10, 90, 70, 13, 4);
-            this.check_2.c_text.clear().f("#fff").drawRoundRect(-12, 60, 13, 40, 4);
+            this.button_bg.graphics.clear().beginLinearGradientFill(["#a3e635", "#bef264", "#a3e635"], [0, 0.5, 1], 0, 0, 130, 0, 170, 0).drawCircle(69, 64, 58);
+            this.check_1.graphics.clear().f("#0c0d0f").drawRoundRect(-10, 90, 70, 13, 4);
+            this.check_2.c_text.clear().f("#0c0d0f").drawRoundRect(-12, 60, 13, 40, 4);
             break;
         }
       };
@@ -45836,33 +45838,33 @@ exports['default'] = function (link) {
             break;
 
           case "up":
-            this.button_bg.graphics.clear().beginLinearGradientFill(["#d28328", "#ed9e22", "#d28328"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
+            this.button_bg.graphics.clear().beginLinearGradientFill(["#aab2bc", "#d3d8df", "#aab2bc"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
             this.button_bg.shadow = new createjs.Shadow("rgba(0,0,0,0.5)", 0, 2, 5);
-            this.arrow_1.graphics.clear().beginFill("#d28328").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.arrow2_1.graphics.clear().beginFill("#d28328").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.arrow.graphics.clear().beginFill("#ffd086").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.arrow2.graphics.clear().beginFill("#ffd086").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.repeat_icon.graphics.clear().ss(6).beginStroke("#ffd086").drawRoundRect(38, 28, 40, 26, 8);
-            this.repeat_button_text.color = "#ffd086";
+            this.arrow_1.graphics.clear().beginFill("#aab2bc").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.arrow2_1.graphics.clear().beginFill("#aab2bc").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.arrow.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.arrow2.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.repeat_icon.graphics.clear().ss(6).beginStroke("#1e2228").drawRoundRect(38, 28, 40, 26, 8);
+            this.repeat_button_text.color = "#1e2228";
             break;
 
           case "click":
-            this.button_bg.graphics.clear().beginFill("#b16b29").drawCircle(57, 53, 48);
-            this.arrow_1.graphics.clear().beginFill("#b16b29").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.arrow2_1.graphics.clear().beginFill("#b16b29").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.arrow.graphics.clear().beginFill("#5d3b15").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.arrow2.graphics.clear().beginFill("#5d3b15").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.repeat_icon.graphics.clear().ss(6).beginStroke("#5d3b15").drawRoundRect(38, 28, 40, 26, 8);
+            this.button_bg.graphics.clear().beginFill("#9aa3ae").drawCircle(57, 53, 48);
+            this.arrow_1.graphics.clear().beginFill("#9aa3ae").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.arrow2_1.graphics.clear().beginFill("#9aa3ae").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.arrow.graphics.clear().beginFill("#3a4048").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.arrow2.graphics.clear().beginFill("#3a4048").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.repeat_icon.graphics.clear().ss(6).beginStroke("#3a4048").drawRoundRect(38, 28, 40, 26, 8);
             this.repeat_button_text.color = "#8a898b";
             break;
 
           case "after_click":
-            this.button_bg.graphics.clear().beginLinearGradientFill(["#a26b13", "#c08000", "#a26b13"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
-            this.arrow_1.graphics.clear().beginFill("#a26b13").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.arrow2_1.graphics.clear().beginFill("#a26b13").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.arrow.graphics.clear().beginFill("#bfa680").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.arrow2.graphics.clear().beginFill("#bfa680").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.repeat_icon.graphics.clear().ss(6).beginStroke("#bfa680").drawRoundRect(38, 28, 40, 26, 8);
+            this.button_bg.graphics.clear().beginLinearGradientFill(["#d3d8df", "#eef1f4", "#d3d8df"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
+            this.arrow_1.graphics.clear().beginFill("#d3d8df").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.arrow2_1.graphics.clear().beginFill("#d3d8df").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.arrow.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.arrow2.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.repeat_icon.graphics.clear().ss(6).beginStroke("#1e2228").drawRoundRect(38, 28, 40, 26, 8);
             this.repeat_button_text.color = "#8a898b";
             break;
         }
@@ -45880,29 +45882,29 @@ exports['default'] = function (link) {
       cloneButtonsCon.y = this.context.stage.baseHeight - 88;
 
       var gradient_background_1 = new createjs.Shape();
-      gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d", "#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244", "#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
+      gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#262a31", "#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c", "#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
       gradient_background_1.y = 12;
       gradient_background_1.cache(-70, -70, 140, 140);
       cloneButtonsCon.addChild(gradient_background_1);
 
       var gradient_background_2 = new createjs.Shape();
-      gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d", "#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244", "#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
+      gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#262a31", "#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c", "#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
       gradient_background_2.x = -140;
       gradient_background_2.y = 12;
       gradient_background_2.cache(-70, -70, 140, 140);
       cloneButtonsCon.addChild(gradient_background_2);
 
       var gradient_background_3 = new createjs.Shape();
-      gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d", "#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244", "#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
+      gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#262a31", "#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c", "#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
       gradient_background_3.x = 140;
       gradient_background_3.y = 12;
       gradient_background_3.cache(-70, -70, 140, 140);
       cloneButtonsCon.addChild(gradient_background_3);
 
       if (!no_glow) {
-        gradient_background_1.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
-        gradient_background_2.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
-        gradient_background_3.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
+        gradient_background_1.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
+        gradient_background_2.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
+        gradient_background_3.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
       }
 
       var confirmButton = this.makeConfirmButton();
@@ -46177,7 +46179,7 @@ exports["default"] = function () {
       this.countdown = false;
 
       this._lastRoundsBg = new createjs.Shape();
-      this._lastRoundsBg.graphics.beginFill('#2b2b2b').drawRoundRectComplex(0, 0, 120, 120, 0, 0, 8, 8);
+      this._lastRoundsBg.graphics.beginFill('#16181c').drawRoundRectComplex(0, 0, 120, 120, 0, 0, 8, 8);
       this._lastRoundsBg.alpha = 0.8;
       this.addChild(this._lastRoundsBg);
 
@@ -46523,7 +46525,7 @@ exports["default"] = function () {
 			var toggle_spriteSheet = new createjs.SpriteSheet(toggle_spritesheet_data);
 			var toggleMenu = new createjs.Sprite(toggle_spriteSheet, "up");
 			toggleMenu.x = this.context.stage.baseWidth - 115;
-			toggleMenu.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
+			toggleMenu.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
 			toggleMenu.y = 5;
 			menuCon.addChild(toggleMenu);
 
@@ -46541,7 +46543,7 @@ exports["default"] = function () {
 			var refresh_spriteSheet = new createjs.SpriteSheet(refresh_spritesheet_data);
 			var refreshMenu = new createjs.Sprite(refresh_spriteSheet, "up");
 			refreshMenu.x = this.context.stage.baseWidth - 207;
-			refreshMenu.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
+			refreshMenu.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
 			refreshMenu.y = 3;
 
 			menuCon.addChild(refreshMenu);
@@ -47101,7 +47103,7 @@ exports["default"] = function (links, bet_type) {
 				if (i == 0) {
 					this.betRecordsTab[i].graphics.clear().beginFill(this.context.theme_color[window.theme].bet_record_tab_act);
 					this.betRecordstabIcon[i].gotoAndPlay("active");
-					this.betRecordstabLbl[i].color = "#ff9b28";
+					this.betRecordstabLbl[i].color = "#a3e635";
 				}
 
 				this.addChild(this.betRecordsTab[i], this.betRecordstabIcon[i], this.betRecordstabLbl[i]);
@@ -47117,7 +47119,7 @@ exports["default"] = function (links, bet_type) {
 
 						_this.betRecordsTab[i].graphics.clear().beginFill(_this.context.theme_color[window.theme].bet_record_tab_act);
 						_this.betRecordstabIcon[i].gotoAndPlay("active");
-						_this.betRecordstabLbl[i].color = "#ff9b28";
+						_this.betRecordstabLbl[i].color = "#a3e635";
 
 						// Chande data on display
 						if (_this.betRecordsTab[i].name == "transfer-" + window.theme) {
@@ -47255,7 +47257,7 @@ exports["default"] = function (links, bet_type) {
 
 					this.betRecordsTab[0].graphics.clear().beginFill(this.context.theme_color[window.theme].bet_record_tab_act);
 					this.betRecordstabIcon[0].gotoAndPlay("active");
-					this.betRecordstabLbl[0].color = "#ff9b28";
+					this.betRecordstabLbl[0].color = "#a3e635";
 
 					this._transferLogsCon.visible = true;
 					this._betLogsCon.visible = false;
@@ -47581,7 +47583,7 @@ exports["default"] = function (links, bet_type) {
 					voidContainer.x = 10;
 
 					var voidShape = new createjs.Shape();
-					voidShape.graphics.beginFill("#262525").drawRect(0, -10, 980, 36);
+					voidShape.graphics.beginFill("#16181c").drawRect(0, -10, 980, 36);
 					voidShape.setBounds(0, -10, 980, 36);
 					voidContainer.addChild(voidShape);
 
@@ -48190,7 +48192,7 @@ exports["default"] = function () {
 			window.theme == "white" ? this.chipsBg.alpha = 0.3 : this.chipsBg.alpha = 1;
 
 			this.btnApply = new createjs.Shape();
-			this.btnApply.graphics.beginFill("#ff9b28").drawRect(0, 0, 140, 40);
+			this.btnApply.graphics.beginFill("#a3e635").drawRect(0, 0, 140, 40);
 			this.btnApply.x = 120;
 			this.btnApply.y = this._modalHeader.y + 418;
 			this.btnApply.cursor = "pointer";
@@ -48662,7 +48664,7 @@ exports["default"] = function () {
         if (i == 0) {
           this.howToTab[i].graphics.clear().beginFill(this.context.theme_color[this.theme].bet_record_tab_act);
           this.howToTabIcon[i].gotoAndPlay("active");
-          this.howToTabLbl[i].color = "#ff9b28";
+          this.howToTabLbl[i].color = "#a3e635";
           this.howToTab[i].targ = "gamerules";
         } // end if
         if (i == 1) {
@@ -48692,7 +48694,7 @@ exports["default"] = function () {
 
             _this.howToTab[i].graphics.clear().beginFill(_this.context.theme_color[_this.theme].bet_record_tab_act);
             _this.howToTabIcon[i].gotoAndPlay("active");
-            _this.howToTabLbl[i].color = "#ff9b28";
+            _this.howToTabLbl[i].color = "#a3e635";
           });
         })(i);
       } //for loop
@@ -48712,7 +48714,7 @@ exports["default"] = function () {
         if (i == 0) {
           this.howToTab[i].graphics.clear().beginFill(this.context.theme_color[this.theme].bet_record_tab_act);
           this.howToTabIcon[i].gotoAndPlay("active");
-          this.howToTabLbl[i].color = "#ff9b28";
+          this.howToTabLbl[i].color = "#a3e635";
         } // end if
       }
     },
@@ -48889,7 +48891,7 @@ exports["default"] = function () {
 
 			for (var x = 0; x <= 4; x++) {
 				line[x] = new createjs.Shape();
-				line[x].graphics.setStrokeStyle(1).beginStroke("#4a4a4a");
+				line[x].graphics.setStrokeStyle(1).beginStroke("#262a31");
 				line[x].graphics.moveTo(0, 50 * x + 1 + 83);
 				line[x].graphics.lineTo(450, 50 * x + 1 + 83);
 				line[x].graphics.endStroke();
@@ -49105,7 +49107,7 @@ exports["default"] = function () {
 
 			//Volume line bg
 			this.volumeBg = new createjs.Shape();
-			this.volumeBg.graphics.beginFill("#1d1d1d").drawRoundRect(0, 0, 115, 4, 2);
+			this.volumeBg.graphics.beginFill("#0c0d0f").drawRoundRect(0, 0, 115, 4, 2);
 			this.volumeBg.x = this.volumeMute.x + 30;
 			this.volumeBg.y = this.volumeMute.y + 8;
 			this.volumeBg.setBounds(0, 0, 115, 4);
@@ -49115,13 +49117,13 @@ exports["default"] = function () {
 
 			//Volume line bg
 			this.volumeCurrent = new createjs.Shape();
-			this.volumeCurrent.graphics.beginFill("#7cb342").drawRoundRect(0, 0, saved_vol, 5, 2);
+			this.volumeCurrent.graphics.beginFill("#a3e635").drawRoundRect(0, 0, saved_vol, 5, 2);
 			this.volumeCurrent.x = this.volumeMute.x + 30;
 			this.volumeCurrent.y = this.volumeMute.y + 8;
 			this.volumeCurrent.setBounds(0, 0, saved_vol, 5);
 
 			this.volumeCircle = new createjs.Shape();
-			this.volumeCircle.graphics.beginFill("#2e7d32").drawCircle(0, 0, 16);
+			this.volumeCircle.graphics.beginFill("#d3d8df").drawCircle(0, 0, 16);
 			this.volumeCircle.x = this.volumeCurrent.x + saved_vol;
 			this.volumeCircle.y = this.volumeMute.y + 10;
 			this.volumeCircle.cursor = "pointer";
@@ -49175,7 +49177,7 @@ exports["default"] = function () {
 						_this.enableSetting(1);
 					}
 
-					_this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, _this.pos > 0 ? _this.pos - 80 : 0, 5, 2);
+					_this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, _this.pos > 0 ? _this.pos - 80 : 0, 5, 2);
 					_this.volumeCurrent.setBounds(0, 0, _this.pos, 5);
 
 					if (evt.currentTarget.x >= volumeStart && evt.currentTarget.x <= volumeEnd) {
@@ -49204,7 +49206,7 @@ exports["default"] = function () {
 						_this.pos = 185;
 					}
 
-					_this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, _this.pos > 0 ? _this.pos - 80 : _this.pos, 5, 2);
+					_this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, _this.pos > 0 ? _this.pos - 80 : _this.pos, 5, 2);
 					_this.volumeCurrent.setBounds(0, 0, _this.pos, 5);
 
 					var number = (_this.volumeCurrent.getBounds().width - 70) / _this.default_vol;
@@ -49222,7 +49224,7 @@ exports["default"] = function () {
 				if (!parseInt(window.vendorSound)) return;
 
 				newVolume = 0;
-				_this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, newVolume, 5, 2);
+				_this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, newVolume, 5, 2);
 				_this.volumeCircle.x = _this.volumeCurrent.x;
 				_this.volumeMute.gotoAndPlay("mute");
 				_this.volumeMax.gotoAndPlay("mute");
@@ -49242,7 +49244,7 @@ exports["default"] = function () {
 				if (!parseInt(window.vendorSound)) return;
 
 				newVolume = 115;
-				_this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, newVolume, 5, 2);
+				_this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, newVolume, 5, 2);
 				_this.volumeCircle.x = _this.volumeCurrent.x + newVolume;
 				_this.volumeMute.gotoAndPlay("normal");
 				_this.volumeMax.gotoAndPlay("normal");
@@ -49272,12 +49274,12 @@ exports["default"] = function () {
 				this.settingsName[i].y = lblsettingsY;
 
 				this.settingsToggle[i] = new createjs.Shape();
-				this.settingsToggle[i].graphics.beginFill("#fff").drawRoundRect(0, 0, 65, 25, 14);
+				this.settingsToggle[i].graphics.beginFill("#a3e635").drawRoundRect(0, 0, 65, 25, 14);
 				this.settingsToggle[i].x = this.volumeMax.x - 40;
 				this.settingsToggle[i].y = lblsettingsY - 3;
 
 				this.settingsCircle[i] = new createjs.Shape();
-				this.settingsCircle[i].graphics.beginFill("#2e7d32").drawCircle(0, 0, 10);
+				this.settingsCircle[i].graphics.beginFill("#0c0d0f").drawCircle(0, 0, 10);
 
 				this.settingsCircle[i].x = this.settingsToggle[i].x + 50;
 				this.settingsCircle[i].y = this.settingsToggle[i].y + 12.5;
@@ -49298,32 +49300,32 @@ exports["default"] = function () {
 				this.addChild(this.settingsName[i], this.settingsToggle[i], this.settingsCircle[i], this.settingsToggleHit[i]);
 
 				if (!parseInt(window.config.voice) && this.settingsToggleHit[i].name.toLowerCase() == "voice") {
-					this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-					this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+					this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+					this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 					this.settingsToggleHit[i].status = "disabled";
 
 					createjs.Tween.get(this.settingsCircle[i], { loop: false }).to({ x: this.settingsCircle[i].x - 35 }, 100);
 				}
 
 				if (!parseInt(window.config.effect) && this.settingsToggleHit[i].name.toLowerCase() == "sound effects") {
-					this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-					this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+					this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+					this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 					this.settingsToggleHit[i].status = "disabled";
 
 					createjs.Tween.get(this.settingsCircle[i], { loop: false }).to({ x: this.settingsCircle[i].x - 35 }, 100);
 				}
 
 				if (window.config.screen == "white" && this.settingsToggleHit[i].name.toLowerCase() == "dark theme") {
-					this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-					this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+					this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+					this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 					this.settingsToggleHit[i].status = "disabled";
 
 					createjs.Tween.get(this.settingsCircle[i], { loop: false }).to({ x: this.settingsCircle[i].x - 35 }, 100);
 				}
 
 				if (!window.tutorial_enabled && this.settingsToggleHit[i].name.toLowerCase() == "show tutorial") {
-					this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-					this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+					this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+					this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 					this.settingsToggleHit[i].status = "disabled";
 
 					createjs.Tween.get(this.settingsCircle[i], { loop: false }).to({ x: this.settingsCircle[i].x - 35 }, 100);
@@ -49345,8 +49347,8 @@ exports["default"] = function () {
 
 				createjs.Tween.get(self.settingsCircle[i], { loop: false }).to({ x: disabledX }, 0);
 
-				self.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-				self.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+				self.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+				self.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 				self.settingsToggleHit[i].status = "disabled";
 
 				if (self.settingsToggleHit[i].name.toLowerCase() == "voice") {
@@ -49376,8 +49378,8 @@ exports["default"] = function () {
 
 			createjs.Tween.get(this.settingsCircle[i], { loop: false }).to({ x: this.enabledX }, 0);
 
-			this.settingsToggle[i].graphics.clear().beginFill("#fff").drawRoundRect(0, 0, 65, 25, 14);
-			this.settingsCircle[i].graphics.clear().beginFill("#2e7d32").drawCircle(0, 0, 10);
+			this.settingsToggle[i].graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, 65, 25, 14);
+			this.settingsCircle[i].graphics.clear().beginFill("#0c0d0f").drawCircle(0, 0, 10);
 			this.settingsToggleHit[i].status = "enabled";
 
 			if (this.settingsToggleHit[i].name.toLowerCase() == "voice") {
@@ -49404,8 +49406,8 @@ exports["default"] = function () {
 		disableTutorial: function disableTutorial() {
 			createjs.Tween.get(this.settingsCircle[3], { loop: false }).to({ x: 175 }, 0);
 
-			this.settingsToggle[3].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-			this.settingsCircle[3].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+			this.settingsToggle[3].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+			this.settingsCircle[3].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 			this.settingsToggleHit[3].status = "disabled";
 		},
 		changeTheme: function changeTheme(new_theme) {
@@ -49553,7 +49555,7 @@ exports["default"] = function () {
 		},
 		setVolume: function setVolume(src, newCoor) {
 			this.currVol = Math.round((newCoor - 840) / 170 * 10) / 10;
-			this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, this.default_vol * parseFloat(this.currVol), 5, 2);
+			this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, this.default_vol * parseFloat(this.currVol), 5, 2);
 
 			this.context.playerVid.volume = this.currVol;
 
@@ -49574,8 +49576,8 @@ exports["default"] = function () {
 			for (var i = 0; i < 2; i++) {
 				createjs.Tween.get(this.settingsCircle[i], { loop: false }).to({ x: 175 }, 0);
 
-				this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-				this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+				this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+				this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 				this.settingsToggleHit[i].status = "disabled";
 			}
 
@@ -49590,8 +49592,8 @@ exports["default"] = function () {
 			for (var i = 0; i < 2; i++) {
 				createjs.Tween.get(this.settingsCircle[i], { loop: false }).to({ x: 210 }, 0);
 
-				this.settingsToggle[i].graphics.clear().beginFill("#fff").drawRoundRect(0, 0, 65, 25, 14);
-				this.settingsCircle[i].graphics.clear().beginFill("#2e7d32").drawCircle(0, 0, 10);
+				this.settingsToggle[i].graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, 65, 25, 14);
+				this.settingsCircle[i].graphics.clear().beginFill("#0c0d0f").drawCircle(0, 0, 10);
 				this.settingsToggleHit[i].status = "enabled";
 			}
 		}
@@ -49679,7 +49681,7 @@ exports["default"] = function () {
 			this.txtBalance.textAlign = "center";
 
 			this.fundsBg = new createjs.Shape();
-			this.fundsBg.graphics.beginFill("#ff9c28").drawRect(0, 0, this._modalWidth, 50);
+			this.fundsBg.graphics.beginFill("#a3e635").drawRect(0, 0, this._modalWidth, 50);
 			this.fundsBg.y = this.txtBalance.y + 25;
 
 			this.txtTotalFunds = new createjs.Text("", "bold 23px arial", "#000");
@@ -49745,7 +49747,7 @@ exports["default"] = function () {
 			this.y = this.context.stage.baseHeight / 2 - 160;
 
 			this.gold_instance = new createjs.Shape();
-			this.gold_instance.graphics.beginLinearGradientFill(["transparent", "#d8bd69", "transparent"], [0, 0.5, 1], -65, 65, this.context.stage.baseWidth - 100, 0).drawRect(0, 0, this.context.stage.baseWidth, 80);
+			this.gold_instance.graphics.beginLinearGradientFill(["transparent", "#d3d8df", "transparent"], [0, 0.5, 1], -65, 65, this.context.stage.baseWidth - 100, 0).drawRect(0, 0, this.context.stage.baseWidth, 80);
 			this.gold_instance.setBounds(0, 0, this.context.stage.baseWidth, 80);
 			this.gold_instance.regX = this.gold_instance.getBounds().width / 2;
 			this.gold_instance.scaleX = 0;
@@ -50575,7 +50577,7 @@ exports['default'] = function () {
 
 			timer.x = -76;
 			timer.y = -63;
-			timer.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
+			timer.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
 			timer.scaleX = 0.9;
 			timer.scaleY = 0.9;
 
@@ -50633,7 +50635,7 @@ exports["default"] = function (win_assets) {
 				this.win_suit_obj[x].ox = pos.xValues[x];
 
 				this.lines_obj[x] = new createjs.Shape();
-				this.lines_obj[x].graphics.beginFill("#d8bd69").drawRect(0, 0, 6, 90);
+				this.lines_obj[x].graphics.beginFill("#d3d8df").drawRect(0, 0, 6, 90);
 				this.lines_obj[x].setBounds(0, 0, 6, 90);
 				this.lines_obj[x].regX = this.lines_obj[x].getTransformedBounds().width / 2;
 				this.lines_obj[x].regY = 0;
@@ -50643,7 +50645,7 @@ exports["default"] = function (win_assets) {
 
 			//gold bar
 			this.gold_instance = new createjs.Shape();
-			this.gold_instance.graphics.beginLinearGradientFill(["transparent", "#d8bd69", "transparent"], [0, 0.5, 1], 0, 0, this.context.stage.baseWidth - 180, 0).drawRect(0, 0, this.context.stage.baseWidth - 180, 90);
+			this.gold_instance.graphics.beginLinearGradientFill(["transparent", "#d3d8df", "transparent"], [0, 0.5, 1], 0, 0, this.context.stage.baseWidth - 180, 0).drawRect(0, 0, this.context.stage.baseWidth - 180, 90);
 			this.regX = (this.context.stage.baseWidth - 180) / 2;
 			this.gold_instance.regX = (this.context.stage.baseWidth - 180) / 2;
 			this.gold_instance.x = (this.context.stage.baseWidth - 180) / 2;
@@ -50812,7 +50814,7 @@ exports["default"] = function (win_assets) {
 
 			for (var x = 0; x < textArray.length; x++) {
 				this.win_text[x] = new createjs.Text(textArray[x].toUpperCase(), window.language.locale == "zh" ? "400 80px arvo" : "700 80px arvo", color);
-				this.win_text[x].shadow = new createjs.Shadow("#ecd489", 4, 4, 0);
+				this.win_text[x].shadow = new createjs.Shadow("#eef1f4", 4, 4, 0);
 				this.win_text[x].textBaseline = "middle";
 				this.win_text[x].skewX = 10;
 				var posX = x * 62;
@@ -50985,14 +50987,14 @@ exports["default"] = function (self) {
 			this.flop_bet_button = new createjs.Container();
 
 			var c_button = new createjs.Shape();
-			c_button.graphics.beginLinearGradientFill(["#279144", "#37b14a", "#279144"], [0, 0.5, 1], 0, 0, 130, 0, 170, 0).drawCircle(0, 0, 58);
+			c_button.graphics.beginLinearGradientFill(["#84cc16", "#a3e635", "#84cc16"], [0, 0.5, 1], 0, 0, 130, 0, 170, 0).drawCircle(0, 0, 58);
 
 			var check_1 = new createjs.Shape();
-			check_1.graphics.beginFill("#fff").drawRoundRect(-26, -8, 70, 13, 4);
+			check_1.graphics.beginFill("#0c0d0f").drawRoundRect(-26, -8, 70, 13, 4);
 			check_1.rotation = -40;
 
 			var check_2 = new createjs.Shape();
-			check_2.graphics.beginFill("#fff").drawRoundRect(-26, -35, 13, 40, 4);
+			check_2.graphics.beginFill("#0c0d0f").drawRoundRect(-26, -35, 13, 40, 4);
 			check_2.rotation = -40;
 
 			check_2.scaleX = check_1.scaleX = 0.88;
@@ -51000,7 +51002,7 @@ exports["default"] = function (self) {
 			check_1.x = check_2.x = 2;
 			check_1.y = check_2.y = -8;
 
-			var text = new createjs.Text("RAISE", "16px helvetica", "#fff");
+			var text = new createjs.Text("RAISE", "16px helvetica", "#0c0d0f");
 			text.textAlign = "center";
 			text.y = 15;
 
@@ -51025,7 +51027,7 @@ exports["default"] = function (self) {
 
 			// === turn bet button
 
-			var text2 = new createjs.Text("CALL", "16px helvetica", "#fff");
+			var text2 = new createjs.Text("CALL", "16px helvetica", "#0c0d0f");
 			text2.textAlign = "center";
 			text2.y = 15;
 
@@ -51047,7 +51049,7 @@ exports["default"] = function (self) {
 
 			// === river bet button
 
-			var text3 = new createjs.Text("CALL", "16px helvetica", "#fff");
+			var text3 = new createjs.Text("CALL", "16px helvetica", "#0c0d0f");
 			text3.textAlign = "center";
 			text3.y = 15;
 
@@ -51816,7 +51818,7 @@ exports["default"] = function () {
 			this.bg.alpha = 0.8;
 			this.addChild(this.bg);
 
-			this.user_money = new createjs.Text("0", "26px bebas-regular", this.context.theme_color[window.theme].menu_text_color);
+			this.user_money = new createjs.Text("0", "26px bebas-regular", window.theme == 'white' ? this.context.theme_color[window.theme].menu_text_color : "#a3e635");
 			this.user_money.textAlign = "right";
 			this.user_money.x = 180;
 			this.user_money.y = 15;
@@ -52182,7 +52184,7 @@ exports["default"] = function () {
 			this.addChild(dealer_bg);
 
 			var community_bg = new createjs.Shape();
-			community_bg.graphics.beginFill("#555555").drawRoundRect(150, 0, 295, 128, 10);
+			community_bg.graphics.beginFill("#262a31").drawRoundRect(150, 0, 295, 128, 10);
 			community_bg.isBg = true;
 			this.addChild(community_bg);
 
@@ -52486,8 +52488,8 @@ exports['default'] = function () {
 
         play: function play() {
             this.visible = true;
-            this.playerCardObj[0].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
-            this.playerCardObj[1].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
+            this.playerCardObj[0].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
+            this.playerCardObj[1].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
         },
 
         playFlop: function playFlop() {
@@ -52503,9 +52505,9 @@ exports['default'] = function () {
                 }, 200).call(function () {
                     self.playerCardObj[0].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2, 0, 4);
                     self.playerCardObj[1].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2, 0, 4);
-                    self.communityCardObj[0].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
-                    self.communityCardObj[1].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
-                    self.communityCardObj[2].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
+                    self.communityCardObj[0].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
+                    self.communityCardObj[1].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
+                    self.communityCardObj[2].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
                 });
             }
         },
@@ -52522,7 +52524,7 @@ exports['default'] = function () {
                     scaleX: cardScale
                 }, 200).wait(300).call(function () {
                     self.communityCardObj[i].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2, 0, 4);
-                    self.communityCardObj[3].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
+                    self.communityCardObj[3].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
                 });
             };
 
@@ -52542,9 +52544,9 @@ exports['default'] = function () {
             }, 200).call(function () {
                 self.communityCardObj[3].shadow = new createjs.Shadow("rgba(0,0,0,0.8)", -2, 0, 4);
                 setTimeout(function () {
-                    self.communityCardObj[4].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
-                    self.dealerCardObj[0].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
-                    self.dealerCardObj[1].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 15);
+                    self.communityCardObj[4].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
+                    self.dealerCardObj[0].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
+                    self.dealerCardObj[1].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 15);
                 }, 300);
             });
         },
@@ -53112,22 +53114,22 @@ exports['default'] = function () {
             var glowShape = new createjs.Shape();
 
             glowShape.graphics.f('rgba(0,0,0,0.01)').drawRect(0, 0, prop.width, prop.height);
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.4], 0, 0, -30, -30).moveTo(-30, -30).drawRoundRectComplex(-30, -30, 30, 30, 30, 0, 0, 0);
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.8], 0, 0, 0, -30).moveTo(0, -30).drawRect(0, -30, prop.width, 30);
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.4], prop.width, 0, prop.width + 30, -30).moveTo(prop.width, -30).drawRoundRectComplex(prop.width, -30, 30, 30, 0, 30, 0, 0);
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.8], prop.width, 0, prop.width + 30, 0).moveTo(prop.width, 0).drawRect(prop.width, 0, 30, prop.height);
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.4], prop.width, prop.height, prop.width + 30, prop.height + 30).moveTo(prop.width, prop.height).drawRoundRectComplex(prop.width, prop.height, 30, 30, 0, 0, 30, 0);
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.8], 0, prop.height, 0, prop.height + 30).moveTo(0, prop.height).drawRect(0, prop.height, prop.width, 30);
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.4], 0, prop.height, -30, prop.height + 30).moveTo(-30, prop.height).drawRoundRectComplex(-30, prop.height, 30, 30, 0, 0, 0, 30);
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.8], 0, 0, -30, 0).moveTo(-30, 0).drawRect(-30, 0, 30, prop.height);
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.4], 0, 0, -30, -30).moveTo(-30, -30).drawRoundRectComplex(-30, -30, 30, 30, 30, 0, 0, 0);
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.8], 0, 0, 0, -30).moveTo(0, -30).drawRect(0, -30, prop.width, 30);
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.4], prop.width, 0, prop.width + 30, -30).moveTo(prop.width, -30).drawRoundRectComplex(prop.width, -30, 30, 30, 0, 30, 0, 0);
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.8], prop.width, 0, prop.width + 30, 0).moveTo(prop.width, 0).drawRect(prop.width, 0, 30, prop.height);
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.4], prop.width, prop.height, prop.width + 30, prop.height + 30).moveTo(prop.width, prop.height).drawRoundRectComplex(prop.width, prop.height, 30, 30, 0, 0, 30, 0);
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.8], 0, prop.height, 0, prop.height + 30).moveTo(0, prop.height).drawRect(0, prop.height, prop.width, 30);
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.4], 0, prop.height, -30, prop.height + 30).moveTo(-30, prop.height).drawRoundRectComplex(-30, prop.height, 30, 30, 0, 0, 0, 30);
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.8], 0, 0, -30, 0).moveTo(-30, 0).drawRect(-30, 0, 30, prop.height);
 
             if (prop.radius) {
                 // for rounded corners
                 //-- left top
-                glowShape.graphics.rf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.8], prop.radius[0] * 0.5, prop.radius[0] * 0.5, 0, 0, 0, 30).moveTo(0, 0).lineTo(prop.radius[0], 0).curveTo(prop.radius[0] * 0.2, prop.radius[0] * 0.2, 0, prop.radius[0]).closePath();
-                glowShape.graphics.rf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.8], prop.width - prop.radius[1] * 0.5, prop.radius[1] * 0.5, 0, prop.width, 0, 30).moveTo(prop.width - prop.radius[1], 0).curveTo(prop.width - prop.radius[1] * 0.2, prop.radius[1] * 0.2, prop.width, prop.radius[1]).lineTo(prop.width, 0).closePath();
-                glowShape.graphics.rf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.8], prop.width - prop.radius[2] * 0.5, prop.height - prop.radius[2] * 0.5, 0, prop.width, prop.height, 30).moveTo(prop.width, prop.height - prop.radius[2]).curveTo(prop.width - prop.radius[2] * 0.2, prop.height - prop.radius[2] * 0.2, prop.width - prop.radius[2], prop.height).lineTo(prop.width, prop.height).closePath();
-                glowShape.graphics.rf(['rgba(241, 227, 130, 0.6)', 'rgba(160, 152, 92, 0.05)'], [0, 0.8], prop.radius[3] * 0.5, prop.height - prop.radius[3] * 0.5, 0, 0, prop.height, 30).moveTo(0, prop.height - prop.radius[3]).curveTo(prop.radius[3] * 0.2, prop.height - prop.radius[3] * 0.2, prop.radius[3], prop.height).lineTo(0, prop.height).closePath();
+                glowShape.graphics.rf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.8], prop.radius[0] * 0.5, prop.radius[0] * 0.5, 0, 0, 0, 30).moveTo(0, 0).lineTo(prop.radius[0], 0).curveTo(prop.radius[0] * 0.2, prop.radius[0] * 0.2, 0, prop.radius[0]).closePath();
+                glowShape.graphics.rf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.8], prop.width - prop.radius[1] * 0.5, prop.radius[1] * 0.5, 0, prop.width, 0, 30).moveTo(prop.width - prop.radius[1], 0).curveTo(prop.width - prop.radius[1] * 0.2, prop.radius[1] * 0.2, prop.width, prop.radius[1]).lineTo(prop.width, 0).closePath();
+                glowShape.graphics.rf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.8], prop.width - prop.radius[2] * 0.5, prop.height - prop.radius[2] * 0.5, 0, prop.width, prop.height, 30).moveTo(prop.width, prop.height - prop.radius[2]).curveTo(prop.width - prop.radius[2] * 0.2, prop.height - prop.radius[2] * 0.2, prop.width - prop.radius[2], prop.height).lineTo(prop.width, prop.height).closePath();
+                glowShape.graphics.rf(['rgba(211, 216, 223, 0.6)', 'rgba(154, 163, 174, 0.05)'], [0, 0.8], prop.radius[3] * 0.5, prop.height - prop.radius[3] * 0.5, 0, 0, prop.height, 30).moveTo(0, prop.height - prop.radius[3]).curveTo(prop.radius[3] * 0.2, prop.height - prop.radius[3] * 0.2, prop.radius[3], prop.height).lineTo(0, prop.height).closePath();
             }
 
             glow.addChild(glowShape);
@@ -53367,7 +53369,7 @@ exports['default'] = function (links, type) {
 					voidContainer.x = -390;
 
 					var voidShape = new createjs.Shape();
-					voidShape.graphics.beginFill("#262525").drawRect(0, -10, 980, 36);
+					voidShape.graphics.beginFill("#16181c").drawRect(0, -10, 980, 36);
 					voidShape.setBounds(0, -10, 980, 36);
 					voidContainer.addChild(voidShape);
 
@@ -53436,7 +53438,7 @@ exports['default'] = function (links, type) {
 			this.tableContainer.y = -110;
 
 			var detailHeaderBg = new createjs.Shape();
-			detailHeaderBg.graphics.beginFill('#ff9b28').drawRoundRect(0, 0, mdlDetailWidth - 3, 45, 7);
+			detailHeaderBg.graphics.beginFill('#a3e635').drawRoundRect(0, 0, mdlDetailWidth - 3, 45, 7);
 			detailHeaderBg.x = detailBg.x + 2;
 			detailHeaderBg.y = detailBg.y + 2;
 			this.betDetails.addChild(detailHeaderBg);
@@ -54054,7 +54056,7 @@ var instance = null;
 exports["default"] = function (config, type) {
 	instance = instance || new blu.Component({
 		bet_areas: [],
-		default_color: "#fff",
+		default_color: "#d3d8df",
 		hit_color: "rgba(255, 58, 58, 0.4)",
 		fill_color: "rgba(255,255,255,0.1)",
 
@@ -54064,8 +54066,8 @@ exports["default"] = function (config, type) {
 		side_bet_2: "#558b2f",
 		side_bet_1: "#454c33",
 
-		bonus_color: "#ddc671",
-		bonusplus_color: "#ddc671",
+		bonus_color: "#d3d8df",
+		bonusplus_color: "#d3d8df",
 
 		flop_area: null,
 		turn_area: null,
@@ -54655,10 +54657,10 @@ exports["default"] = function (config, type) {
 
 			var betCon = new createjs.Container();
 			var ante = this.makeAnte();
-			ante.outer.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
+			ante.outer.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
 
 			var bonus = this.makeBonus();
-			bonus.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
+			bonus.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
 
 			betCon.addChild(bonus, bonus.board_img, ante, ante.board_img);
 			return betCon;
@@ -54667,7 +54669,7 @@ exports["default"] = function (config, type) {
 		cloneFlop: function cloneFlop() {
 			var flopCon = new createjs.Container();
 			var flop = this.makeFlop();
-			flop.outer.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
+			flop.outer.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
 
 			flopCon.addChild(flop, flop.flop_label);
 			return flopCon;
@@ -54676,7 +54678,7 @@ exports["default"] = function (config, type) {
 		cloneTurn: function cloneTurn() {
 			var turnCon = new createjs.Container();
 			var turn = this.makeTurn();
-			turn.outer.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
+			turn.outer.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
 
 			turnCon.addChild(turn, turn.turn_label);
 			return turnCon;
@@ -54685,7 +54687,7 @@ exports["default"] = function (config, type) {
 		cloneRiver: function cloneRiver() {
 			var riverCon = new createjs.Container();
 			var river = this.makeRiver();
-			river.outer.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0, 0, 30);
+			river.outer.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0, 0, 30);
 
 			riverCon.addChild(river, river.river_label);
 			return riverCon;
@@ -55114,7 +55116,7 @@ exports["default"] = function () {
 		winning_chips: [],
 		main: function main() {
 
-			this.total_win_text = new createjs.Text("", "30px bebas-regular", "#f1be29");
+			this.total_win_text = new createjs.Text("", "30px bebas-regular", "#a3e635");
 			this.total_win_text.textAlign = "center";
 			this.total_win_text.textBaseline = "middle";
 
@@ -55132,7 +55134,7 @@ exports["default"] = function () {
 			this.addChild(this.winpopupContainer);
 
 			this.clearStacksTimeout = null;
-			this.background = '#E5C160';
+			this.background = '#d3d8df';
 			this.removedArrs = [];
 			this.init = 0;
 		},
@@ -55255,10 +55257,10 @@ exports["default"] = function () {
 			var winpopupRec = new createjs.Shape();
 
 			if (this.winsArray[this.winsArray.length - 1]) {
-				this.background = this.winsArray[this.winsArray.length - 1].background == "#E5C160" ? '#F1E382' : "#E5C160";
+				this.background = this.winsArray[this.winsArray.length - 1].background == "#d3d8df" ? '#eef1f4' : "#d3d8df";
 			}
 
-			winpopupRec.graphics.f(this.background).drawRect(0, 0, 260, 64).f('#568E23').drawRect(0, 0, 10, 64);
+			winpopupRec.graphics.f(this.background).drawRect(0, 0, 260, 64).f('#a3e635').drawRect(0, 0, 10, 64);
 			winArrCon.addChild(winpopupRec);
 			winArrCon.background = this.background;
 
@@ -55450,10 +55452,10 @@ exports["default"] = function () {
 			this.gold_spotlight_container = new createjs.Container();
 
 			var spotlight_1 = new createjs.Shape();
-			spotlight_1.graphics.beginRadialGradientFill(["#edd791", "rgba(216, 182, 88, 0.01)"], [0, 1], 0, 0, 20, 0, 0, 220).drawCircle(0, 0, 220);
+			spotlight_1.graphics.beginRadialGradientFill(["#eef1f4", "rgba(211, 216, 223, 0.01)"], [0, 1], 0, 0, 20, 0, 0, 220).drawCircle(0, 0, 220);
 
 			var spotlight_2 = new createjs.Shape();
-			spotlight_2.graphics.beginRadialGradientFill(["#edd791", "rgba(216, 182, 88, 0.01)"], [0, 1], 0, 0, 50, 0, 0, 200).drawCircle(0, 0, 200);
+			spotlight_2.graphics.beginRadialGradientFill(["#eef1f4", "rgba(211, 216, 223, 0.01)"], [0, 1], 0, 0, 50, 0, 0, 200).drawCircle(0, 0, 200);
 
 			this.gold_spotlight_container.addChild(spotlight_1, spotlight_2);
 			this.gold_spotlight_container.regX = 220 / 2;
@@ -55945,12 +55947,12 @@ var confirmButton = function confirmButton(scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").drawCircle(0, 0, 66);
+  this.bg.graphics.beginFill("#16181c").drawCircle(0, 0, 66);
   this.bg.alpha = 0.5;
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042", "#585659", "#696a6e"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 2, 56);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228", "#262a31", "#2e333b"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 2, 56);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -56046,22 +56048,22 @@ var confirmButton = function confirmButton(scale) {
     _this.container.currentAnimation = type;
     switch (type) {
       case 'up':
-        _this.base.graphics.clear().beginLinearGradientFill(["#266443", "#389368", "#266443"], [0, 0.5, 1], 0, 0, 90, 0).drawCircle(45, 45, 45);
-        _this.fillCmd.style = "#fffde7";
-        _this.fillCmd2.style = "#fffde7";
-        _this.timer_text.color = "#fffde7";
+        _this.base.graphics.clear().beginLinearGradientFill(["#84cc16", "#a3e635", "#84cc16"], [0, 0.5, 1], 0, 0, 90, 0).drawCircle(45, 45, 45);
+        _this.fillCmd.style = "#0c0d0f";
+        _this.fillCmd2.style = "#0c0d0f";
+        _this.timer_text.color = "#0c0d0f";
         break;
       case 'click':
-        _this.base.graphics.clear().beginFill('#266443').drawCircle(45, 45, 45);
-        _this.fillCmd.style = "#91af94";
-        _this.fillCmd2.style = "#91af94";
-        _this.timer_text.color = "#91af94";
+        _this.base.graphics.clear().beginFill('#65a30d').drawCircle(45, 45, 45);
+        _this.fillCmd.style = "#1a2e05";
+        _this.fillCmd2.style = "#1a2e05";
+        _this.timer_text.color = "#1a2e05";
         break;
       case 'hover':
-        _this.base.graphics.clear().beginLinearGradientFill(["#268f44", "#37b14a", "#268f44"], [0, 0.5, 1], 0, 0, 90, 0).drawCircle(45, 45, 45);
-        _this.fillCmd.style = "#fffde7";
-        _this.fillCmd2.style = "#fffde7";
-        _this.timer_text.color = "#fffde7";
+        _this.base.graphics.clear().beginLinearGradientFill(["#a3e635", "#bef264", "#a3e635"], [0, 0.5, 1], 0, 0, 90, 0).drawCircle(45, 45, 45);
+        _this.fillCmd.style = "#0c0d0f";
+        _this.fillCmd2.style = "#0c0d0f";
+        _this.timer_text.color = "#0c0d0f";
         break;
       case 'disabled':
         _this.base.graphics.clear().ss(1).s('#808080').drawCircle(45, 45, 45);
@@ -56085,13 +56087,13 @@ var clearButton = function clearButton(scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").arc(0, 0, 68, 10, 0);
+  this.bg.graphics.beginFill("#16181c").arc(0, 0, 68, 10, 0);
   this.bg.alpha = 0.5;
   this.bg.rotation = -16;
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042", "#585659", "#696a6e"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228", "#262a31", "#2e333b"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -56157,13 +56159,13 @@ var undoButton = function undoButton(scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").arc(0, 0, 68, 10, 0);
+  this.bg.graphics.beginFill("#16181c").arc(0, 0, 68, 10, 0);
   this.bg.alpha = 0.5;
   this.bg.rotation = -16;
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042", "#585659", "#696a6e"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228", "#262a31", "#2e333b"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -56195,20 +56197,20 @@ var undoButton = function undoButton(scale) {
     _this3.container.currentAnimation = type;
     switch (type) {
       case 'up':
-        _this3.base.graphics.clear().beginLinearGradientFill(["#1480a2", "#0094db", "#1480a2"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
-        _this3.fillCmd.style = "#8dc6d7";
+        _this3.base.graphics.clear().beginLinearGradientFill(["#aab2bc", "#d3d8df", "#aab2bc"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
+        _this3.fillCmd.style = "#1e2228";
         break;
       case 'click':
-        _this3.base.graphics.clear().beginFill('#2b79af').drawCircle(44, 44, 44);
-        _this3.fillCmd.style = "#5b9fc2";
+        _this3.base.graphics.clear().beginFill('#9aa3ae').drawCircle(44, 44, 44);
+        _this3.fillCmd.style = "#3a4048";
         break;
       case 'hover':
-        _this3.base.graphics.clear().beginLinearGradientFill(["#1895bd", "#2ab7fa", "#1895bd"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
-        _this3.fillCmd.style = "#8dc6d7";
+        _this3.base.graphics.clear().beginLinearGradientFill(["#d3d8df", "#eef1f4", "#d3d8df"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
+        _this3.fillCmd.style = "#1e2228";
         break;
       case 'disabled':
         _this3.base.graphics.clear().ss(1).s('#808080').drawCircle(44, 44, 44);
-        _this3.fillCmd.style = "#657176";
+        _this3.fillCmd.style = "#6f757d";
         break;
     }
 
@@ -56226,13 +56228,13 @@ var repeatButton = function repeatButton(scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").arc(0, 0, 68, 10, 0);
+  this.bg.graphics.beginFill("#16181c").arc(0, 0, 68, 10, 0);
   this.bg.alpha = 0.5;
   this.bg.rotation = -16;
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042", "#585659", "#696a6e"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228", "#262a31", "#2e333b"], [0, 0.5, 1], 0, 0, 0, 100).drawCircle(0, 0, 53);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -56271,24 +56273,24 @@ var repeatButton = function repeatButton(scale) {
     _this4.container.currentAnimation = type;
     switch (type) {
       case 'up':
-        _this4.base.graphics.clear().beginLinearGradientFill(["#9e6510", "#c77f14", "#9e6510"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
-        _this4.fillCmd.style = "#edc38c";
-        _this4.fillCmd2.style = "#edc38c";
+        _this4.base.graphics.clear().beginLinearGradientFill(["#aab2bc", "#d3d8df", "#aab2bc"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
+        _this4.fillCmd.style = "#1e2228";
+        _this4.fillCmd2.style = "#1e2228";
         break;
       case 'click':
-        _this4.base.graphics.clear().beginFill('#b16b29').drawCircle(44, 44, 44);
-        _this4.fillCmd.style = "#ce965a";
-        _this4.fillCmd2.style = "#ce965a";
+        _this4.base.graphics.clear().beginFill('#9aa3ae').drawCircle(44, 44, 44);
+        _this4.fillCmd.style = "#3a4048";
+        _this4.fillCmd2.style = "#3a4048";
         break;
       case 'hover':
-        _this4.base.graphics.clear().beginLinearGradientFill(["#d18228", "#ee9f22", "#d18228"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
-        _this4.fillCmd.style = "#edc38c";
-        _this4.fillCmd2.style = "#edc38c";
+        _this4.base.graphics.clear().beginLinearGradientFill(["#d3d8df", "#eef1f4", "#d3d8df"], [0, 0.5, 1], 0, 0, 88, 0).drawCircle(44, 44, 44);
+        _this4.fillCmd.style = "#1e2228";
+        _this4.fillCmd2.style = "#1e2228";
         break;
       case 'disabled':
         _this4.base.graphics.clear().ss(1).s('#808080').drawCircle(44, 44, 44);
-        _this4.fillCmd.style = "#797168";
-        _this4.fillCmd2.style = "#797168";
+        _this4.fillCmd.style = "#6f757d";
+        _this4.fillCmd2.style = "#6f757d";
         break;
     }
 
@@ -60002,7 +60004,7 @@ exports["default"] = function (self) {
 
 	//grey loading bar
 	self.grey_loading = new createjs.Shape();
-	self.grey_loading.graphics.beginFill("#2d2d2d").drawRect(0, 0, 320, 3);
+	self.grey_loading.graphics.beginFill("#262a31").drawRect(0, 0, 320, 3);
 	self.grey_loading.setBounds(0, 0, 320, 5);
 	self.grey_loading.x = -190;
 	self.grey_loading.y = 16;
@@ -60010,7 +60012,7 @@ exports["default"] = function (self) {
 	self.loading_container.addChild(self.grey_loading);
 	//gold loadiung
 	self.gold_loading = new createjs.Shape();
-	self.gold_loading.graphics.beginFill("#e0b226").drawRect(0, 0, 320, 3);
+	self.gold_loading.graphics.beginFill("#a3e635").drawRect(0, 0, 320, 3);
 	self.gold_loading.x = self.grey_loading.x;
 	self.gold_loading.y = self.grey_loading.y;
 	self.gold_loading.scaleX = 0;
@@ -60026,7 +60028,7 @@ exports["default"] = function (self) {
 	/** clover **/
 	self.clover_image = new createjs.Sprite(spriteSheet, "clover-grey");
 	self.clover_image.x = 100;
-	self.clover_image.shadow = new createjs.Shadow("#e0b226", 0, 0, 0);
+	self.clover_image.shadow = new createjs.Shadow("#a3e635", 0, 0, 0);
 	self.clover_image.scaleX = self.clover_image.scaleY = 1.2;
 	/** diamond **/
 	self.dimanond_image = new createjs.Sprite(spriteSheet, "diamond-grey");
@@ -60046,13 +60048,13 @@ exports["default"] = function (self) {
 	self.stage.addChild(self.loading_chip_container);
 
 	var grey_bg = new createjs.Shape();
-	grey_bg.graphics.beginFill("#2f2f2f").drawCircle(0, 0, 100);
+	grey_bg.graphics.beginFill("#16181c").drawCircle(0, 0, 100);
 	grey_bg.x = self.stage.baseWidth / 2 - 32;
 	grey_bg.y = self.stage.baseHeight / 2 + 4;
 
 	self.loading_chip_container.addChild(grey_bg);
 
-	self.loadingText = new createjs.Text("0%", "60px arial", "#fccd40");
+	self.loadingText = new createjs.Text("0%", "60px arial", "#a3e635");
 	self.loadingText.textBaseline = "bottom";
 	self.loadingText.textAlign = "center";
 	self.loadingText.x = self.stage.baseWidth / 2 - 28;
@@ -60086,13 +60088,13 @@ exports["default"] = function (self) {
 	self.circle_grey = new createjs.Shape();
 	self.circle_red = new createjs.Shape();
 
-	self.circle_grey.graphics.ss(1).beginStroke("#2e2e2e").drawCircle(125 / 2, 125 / 2, 125);
+	self.circle_grey.graphics.ss(1).beginStroke("#262a31").drawCircle(125 / 2, 125 / 2, 125);
 	self.circle_grey.regX = 125 / 2;
 	self.circle_grey.regY = 125 / 2;
 	self.circle_grey.x = self.stage.baseWidth / 2 - 32;
 	self.circle_grey.y = self.stage.baseHeight / 2 + 4;
 
-	self.circle_red.graphics.ss(1).beginStroke("#b62320").drawCircle(120 / 2, 120 / 2, 120);
+	self.circle_red.graphics.ss(1).beginStroke("#a3e635").drawCircle(120 / 2, 120 / 2, 120);
 	self.circle_red.regX = 120 / 2;
 	self.circle_red.regY = 120 / 2;
 	self.circle_red.x = self.stage.baseWidth / 2 - 30;

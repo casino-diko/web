@@ -8,7 +8,7 @@
   left: 0;
 }
 .channel-con {
-  background: rgba(22, 22, 22, 0.9);
+  background: rgba(22,24,28,0.9);
   display: block;
   float: left;
   height: 85px;
@@ -32,7 +32,7 @@
 }
 
 .channel-exit:before {
-  background: #5e5a57;
+  background: #3a3f48;
   width: 3px;
   height: 70%;
   content: '';
@@ -102,7 +102,7 @@
   font: normal 25px bebas-regular;
 }
 .channel-rangelist {
-  background: rgba(22, 22, 22, 0.9);
+  background: rgba(22,24,28,0.9);
   position: absolute;
   top: 84px;
   width: 100%;
@@ -114,7 +114,7 @@
   width: 100%;
 }
 .channel-rangelist ul li {
-  border-top: 1px solid #42403e;
+  border-top: 1px solid #262a31;
   display: block;
   height: 60px;
   position: relative;
@@ -131,7 +131,7 @@
 }
 .channel-rangelist  ul li.selected span{
   font-family: lato-black;
-  color: #eadd7f;
+  color: #d3d8df;
 }
 .channel-rangelist ul li span.range-min {
   text-align: right;
@@ -165,7 +165,7 @@
 .betlimit-con:not(:last-child) { margin-bottom: 20px; }
 
 .betlimit-con h3 {
-  color: #eee181;
+  color: #d3d8df;
   display: block;
   font: bold 24px lato-black;
   padding-left: 30px;
@@ -202,9 +202,9 @@
   padding-right: 30px;
   width: 24%;
 }
-.betlimit-table.tbl--head .betlimit-table-tr { background: #5e5e5e; }
+.betlimit-table.tbl--head .betlimit-table-tr { background: #3a3f48; }
 .betlimit-table.tbl--head .betlimit-table-td {
-  background: #5e5e5e;
+  background: #3a3f48;
   color: #fff;
   font: bold 25px lato-black;
 }
@@ -214,7 +214,7 @@
 .betlimit-table-td.-players { text-align: right; width: 25%; }
 
 .betlimit-table-tr.-total .betlimit-table-td {
-  color: #eee080;
+  color: #d3d8df;
   font-weight: bold;
   text-transform: uppercase;
 }

@@ -10,13 +10,13 @@ export default () => {
       this.y = this.context.stage.baseHeight / 2 - 155;
 
       this.gold_instance = new createjs.Shape();
-      this.gold_instance.graphics.beginLinearGradientFill(["transparent", "#d8bd69", "transparent"], [0, 0.5, 1], -65, 65, this.context.stage.baseWidth - 180, 0).drawRect(0, 0, this.context.stage.baseWidth - 180, 50);
+      this.gold_instance.graphics.beginLinearGradientFill(["transparent", "#d3d8df", "transparent"], [0, 0.5, 1], -65, 65, this.context.stage.baseWidth - 180, 0).drawRect(0, 0, this.context.stage.baseWidth - 180, 50);
       this.gold_instance.setBounds(0, 0, this.context.stage.baseWidth - 180, 50);
       this.gold_instance.regX = this.gold_instance.getBounds().width / 2;
       this.gold_instance.scaleX = 0;
       this.addChild(this.gold_instance);
 
-      this.message_text = new createjs.Text("", fontFormat(36, 'bold', 'lato', true), "#2d2d2d");
+      this.message_text = new createjs.Text("", fontFormat(36, 'bold', 'lato', true), "#0c0d0f");
       this.message_text.textAlign = "center";
       this.message_text.scaleX = 0;
       this.addChild(this.message_text);

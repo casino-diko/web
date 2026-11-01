@@ -325,90 +325,90 @@ export default (config) => {
 
       // draw lines
       let line = new createjs.Shape();
-      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.2,0.8,1], 0,0,width,0)
+      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.2,0.8,1], 0,0,width,0)
       line.graphics.moveTo(0,0).lineTo(width,0)
       width = 1460;
 
       let startX = -130;
-      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0)
+      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0)
       line.graphics.moveTo(startX, height).lineTo(width, height);
 
       // dragon even line
       startX = -14;
       let areaWidth = 277;
       height = 37;
-      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)'], [0,1], startX,0,areaWidth/2,0)
+      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)'], [0,1], startX,0,areaWidth/2,0)
       line.graphics.moveTo(startX,height).lineTo(startX + areaWidth, height);
 
       // tiger even line
       startX = 1083;
-      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(255,255,255,1)','rgba(255,255,255,0.7)','rgba(255,255,255,0)'], [0,0.7,1], startX,0, startX + areaWidth,0)
+      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(211,216,223,0.8)','rgba(211,216,223,0.56)','rgba(211,216,223,0)'], [0,0.7,1], startX,0, startX + areaWidth,0)
       line.graphics.moveTo(startX,height).lineTo(startX + areaWidth, height);
 
       // dragon odd line
       startX = -37;
       height = 74;
       areaWidth = 289;
-      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)'], [0,1], startX,0,areaWidth/2,0)
+      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)'], [0,1], startX,0,areaWidth/2,0)
       line.graphics.moveTo(startX,height).lineTo(startX + areaWidth - 2, height + 1);
 
       // tiger odd line
       startX = 1100;
-      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(255,255,255,1)','rgba(255,255,255,0.7)','rgba(255,255,255,0)'], [0,0.7,1], startX,0, startX + areaWidth - 7,0)
+      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(211,216,223,0.8)','rgba(211,216,223,0.56)','rgba(211,216,223,0)'], [0,0.7,1], startX,0, startX + areaWidth - 7,0)
       line.graphics.moveTo(startX,height).lineTo(startX + areaWidth - 7, height);
 
       // tie line
       areaWidth = 269;
       startX = areaWidth;
-      line.graphics.ss(1.5).s("#fff");
+      line.graphics.ss(1.5).s('rgba(211,216,223,0.8)');
       line.graphics.moveTo(startX + areaWidth, height + 3).lineTo(startX + (areaWidth*2), height + 3);
 
       // dragon big line
       startX = -63;
       height = 116;
       areaWidth = 298;
-      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)'], [0,1], startX,0,(areaWidth/2) - 90,0)
+      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)'], [0,1], startX,0,(areaWidth/2) - 90,0)
       line.graphics.moveTo(startX,height).lineTo(startX + areaWidth, height);
 
       // even big line
       startX = 1115;
       height = 116;
       areaWidth = 293;
-      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(255,255,255,1)','rgba(255,255,255,0.7)','rgba(255,255,255,0)'], [0,0.7,1], startX,0, startX + areaWidth,0)
+      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(211,216,223,0.8)','rgba(211,216,223,0.56)','rgba(211,216,223,0)'], [0,0.7,1], startX,0, startX + areaWidth,0)
       line.graphics.moveTo(startX,height).lineTo(startX + areaWidth, height);
 
       // suit line
       startX = -92;
       height = 161;
       areaWidth = 621;
-      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)'], [0,1], startX,0,areaWidth - 600,0)
+      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)'], [0,1], startX,0,areaWidth - 600,0)
       line.graphics.moveTo(startX,height).lineTo(startX + areaWidth, height);
 
       startX = 820;
       height = 161;
       areaWidth = 617;
-      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(255,255,255,1)', 'rgba(255,255,255,0.8)', 'rgba(255,255,255,0)'], [0, 0.8,1], startX,0, startX + areaWidth,0)
+      line.graphics.ss(1.5).beginLinearGradientStroke(['rgba(211,216,223,0.8)', 'rgba(211,216,223,0.64)', 'rgba(211,216,223,0)'], [0, 0.8,1], startX,0, startX + areaWidth,0)
       line.graphics.moveTo(startX,height).lineTo(startX + areaWidth, height);
 
 
       startX = 0;
       areaWidth = 58;
       height = 210;
-      line.graphics.ss(1.5).s("#fff");
+      line.graphics.ss(1.5).s('rgba(211,216,223,0.8)');
       line.graphics.moveTo(areaWidth,161).lineTo(areaWidth - 24, height);
 
       areaWidth = 376;
-      line.graphics.ss(1.5).s("#fff");
+      line.graphics.ss(1.5).s('rgba(211,216,223,0.8)');
       line.graphics.moveTo(areaWidth,161).lineTo(areaWidth - 10, height);
 
       startX = 600;
       areaWidth = 377;
-      line.graphics.ss(1.5).s("#fff");
+      line.graphics.ss(1.5).s('rgba(211,216,223,0.8)');
       line.graphics.moveTo(startX + areaWidth,161).lineTo(startX + areaWidth + 12, height);
 
       startX = startX + 316;
       areaWidth = 377;
-      line.graphics.ss(1.5).s("#fff");
+      line.graphics.ss(1.5).s('rgba(211,216,223,0.8)');
       line.graphics.moveTo(startX + areaWidth,161).lineTo(startX + areaWidth + 22, height);
 
 
@@ -417,7 +417,7 @@ export default (config) => {
       startX = 0;
       areaWidth = 277;
       height = 209;
-      line.graphics.ss(1.5).s("#fff");
+      line.graphics.ss(1.5).s('rgba(211,216,223,0.8)');
       line.graphics.moveTo(areaWidth,0).lineTo(startX + areaWidth - 78, height);
 
       // areaWidth = 240;
@@ -427,18 +427,18 @@ export default (config) => {
       areaWidth = 277;
       startX = areaWidth;
       areaWidth = 271;
-      line.graphics.ss(1.5).s("#fff");
+      line.graphics.ss(1.5).s('rgba(211,216,223,0.8)');
       line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth - 24, height);
 
       startX = startX+areaWidth;
       areaWidth = 251;
-      line.graphics.ss(1.5).s("#fff");
+      line.graphics.ss(1.5).s('rgba(211,216,223,0.8)');
       line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth + 26, height);
 
 
       startX = startX+areaWidth;
       areaWidth = 270;
-      line.graphics.ss(1.5).s("#fff");
+      line.graphics.ss(1.5).s('rgba(211,216,223,0.8)');
       line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth + 85, height);
 
       // areaWidth = 310;
@@ -573,189 +573,189 @@ export default (config) => {
 
       //DRAGON ODD EVEN
       width = 542;
-      line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,0.8)','rgba(255,255,255,1)', 'rgba(255,255,255,1)'], [0,0.8,1,1], 0,0,(width/2) - 100,0)
+      line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.64)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)'], [0,0.8,1,1], 0,0,(width/2) - 100,0)
 			line.graphics.moveTo(startX,0).lineTo(width,0)
 
       height = 30;
       startX = -10;
-      line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,0.8)','rgba(255,255,255,1)', 'rgba(255,255,255,1)'], [0,0.8,1,1], startX,0,(width/2) - 100,0)
+      line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.64)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)'], [0,0.8,1,1], startX,0,(width/2) - 100,0)
 			line.graphics.moveTo(startX,height).lineTo(width - 5 ,height)
 
       startX = 127;
-      line.graphics.ss(1).s("#fff");
+      line.graphics.ss(1).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX,0).lineTo(startX-14 ,height)
 
       startX = startX + 140;
-      line.graphics.ss(1).s("#fff");
+      line.graphics.ss(1).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX,0).lineTo(startX-12 ,height)
 
       startX = startX + 138;
-      line.graphics.ss(1).s("#fff");
+      line.graphics.ss(1).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX,0).lineTo(startX-10 ,height)
 
       startX = startX + 137;
-      line.graphics.ss(1).s("#fff");
+      line.graphics.ss(1).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX,0).lineTo(startX-5 ,height)
 
       //Tiger ODD EVEN
       startX = 795;
       width = 536;
-      line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,0.8)','rgba(255,255,255,1)', 'rgba(255,255,255,1)'], [1,1,0.8,0], startX, 0 ,startX + width,0)
+      line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.64)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)'], [1,1,0.8,0], startX, 0 ,startX + width,0)
 			line.graphics.moveTo(startX,0).lineTo(startX + width,0)
 
-      line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,0.8)','rgba(255,255,255,1)', 'rgba(255,255,255,1)'], [1,1,0.8,0], startX, 0 ,startX + width + 10,0)
+      line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.64)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)'], [1,1,0.8,0], startX, 0 ,startX + width + 10,0)
 			line.graphics.moveTo(startX + 3,height).lineTo(startX + width +3,height)
 
-      line.graphics.ss(1).s("#fff");
+      line.graphics.ss(1).s('rgba(211,216,223,0.8)');
       line.graphics.moveTo(startX,0).lineTo(startX + 4.5 ,height)
 
       startX = startX + 140;
-      line.graphics.ss(1).s("#fff");
+      line.graphics.ss(1).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX,0).lineTo(startX + 7 ,height)
 
       startX = startX + 138;
-      line.graphics.ss(1).s("#fff");
+      line.graphics.ss(1).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX,0).lineTo(startX + 11 ,height)
 
       startX = startX + 136;
-      line.graphics.ss(1).s("#fff");
+      line.graphics.ss(1).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX,0).lineTo(startX + 15 ,height)
 
       width = 1350
       height = 40;
       startX = -15;
-      line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+      line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 22;
 			width = width + 22;
 			height = height + 31;
-			line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 22;
 			width = width + 22;
 			height = height + 33;
-			line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 26;
 			width = width + 26;
 			height = height + 37;
-			line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 30;
 			width = width + 30;
 			height = height + 40;
-			line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
       //DRAGON
       height = 40;
       startX = 163;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-3, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-3, height + 7);
 
       startX = startX + 188;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-3, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-3, height + 7);
 
       startX = startX + 186;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-1, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-1, height + 7);
 
 
       height = height + 25;
       startX = 151;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-7, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-7, height + 13);
 
       startX = startX + 192;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-4, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-4, height + 13);
 
       startX = startX + 191;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-2, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-2, height + 13);
 
 
       height = height + 33;
       startX = 136;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-6, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-6, height + 13);
 
       startX = startX + 197;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-5, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-5, height + 13);
 
       startX = startX + 196;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-2, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-2, height + 13);
 
 
       height = height + 36;
       startX = 118;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-6, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-6, height + 13);
 
       startX = startX + 204;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-5, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-5, height + 13);
 
       startX = startX + 203;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-2, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-2, height + 13);
 
       height = height + 39;
       startX = 98;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-3, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-3, height + 7);
 
       startX = startX + 210;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-2, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-2, height + 7);
 
       startX = startX + 212;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX-1, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX-1, height + 7);
 
 
       //Tiger
       height = 40;
       startX = 800;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX + 1, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX + 1, height + 7);
 
       startX = startX + 188;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX + 2, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX + 2, height + 7);
 
       startX = startX + 188;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX + 2.5, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX + 2.5, height + 7);
 
       height = height + 25;
       startX = 804;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+2, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+2, height + 13);
 
       startX = startX + 191;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+4, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+4, height + 13);
 
       startX = startX + 192;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+5, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+5, height + 13);
 
       height = height + 33;
       startX = 808;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+2, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+2, height + 13);
 
       startX = startX + 198;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+4, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+4, height + 13);
 
       startX = startX + 197;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+6, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+6, height + 13);
 
       height = height + 36;
       startX = 813;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+2, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+2, height + 13);
 
       startX = startX + 203;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+4, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+4, height + 13);
 
       startX = startX + 203;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+6, height + 13);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+6, height + 13);
 
       height = height + 39;
       startX = 818;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+1, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+1, height + 7);
 
       startX = startX + 210;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+2, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+2, height + 7);
 
       startX = startX + 211;
-      line.graphics.ss(0.5).s('#fff').moveTo(startX, height).lineTo(startX+3.5, height + 7);
+      line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX, height).lineTo(startX+3.5, height + 7);
 
 			outline_container.addChild(line);
 

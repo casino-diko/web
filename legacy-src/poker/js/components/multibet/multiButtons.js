@@ -43,32 +43,32 @@ confirmButton = confirmButton || function(state) {
 	confirmButton.gotoAndStop = function (state)  {
 		switch(state) {
 			case "disabled" :
-				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#282828").drawCircle(57,55,43);
+				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#16181c").drawCircle(57,55,43);
 				this.check_1.graphics.clear().f("#a1a1a2").drawRoundRect(-10,90,70,13,4);
 				this.check_2.graphics.clear().f("#a1a1a2").drawRoundRect(-12,60,13,40,4);
 				this.c_text.color = "#797979"
 				break;
 
 			case "up" :
-				this.button_bg.graphics.clear().beginLinearGradientFill(["#279144","#37b14a","#279144"],[0,0.5,1], 0,0,130,0,170,0).drawCircle(57,55,43);
+				this.button_bg.graphics.clear().beginLinearGradientFill(["#84cc16","#a3e635","#84cc16"],[0,0.5,1], 0,0,130,0,170,0).drawCircle(57,55,43);
 				this.button_bg.shadow = new createjs.Shadow("rgba(0,0,0,0.5)",0,2,5)
-				this.check_1.graphics.clear().f("#fff").drawRoundRect(-10,90,70,13,4);
-				this.check_2.graphics.clear().f("#fff").drawRoundRect(-12,60,13,40,4);
-				this.c_text.color = "#fff"
+				this.check_1.graphics.clear().f("#0c0d0f").drawRoundRect(-10,90,70,13,4);
+				this.check_2.graphics.clear().f("#0c0d0f").drawRoundRect(-12,60,13,40,4);
+				this.c_text.color = "#0c0d0f"
 				break;
 
 			case "click" :
-				this.button_bg.graphics.clear().beginFill("#246342").drawCircle(57,55,43);
-				this.check_1.graphics.clear().f("#1b3c29").drawRoundRect(-10,90,70,13,4);
-				this.check_2.graphics.clear().f("#1b3c29").drawRoundRect(-12,60,13,40,4);
-				this.c_text.color = "#1b3c29"
+				this.button_bg.graphics.clear().beginFill("#65a30d").drawCircle(57,55,43);
+				this.check_1.graphics.clear().f("#1a2e05").drawRoundRect(-10,90,70,13,4);
+				this.check_2.graphics.clear().f("#1a2e05").drawRoundRect(-12,60,13,40,4);
+				this.c_text.color = "#1a2e05"
 				break;
 
 			case "after_click" :
-				this.button_bg.graphics.clear().beginLinearGradientFill(["#266443","#33805c","#266443"],[0,0.5,1], 0,0,130,0,170,0).drawCircle(57,55,43);
-				this.check_1.graphics.clear().f("#fff").drawRoundRect(-10,90,70,13,4);
-				this.check_2.graphics.clear().f("#fff").drawRoundRect(-12,60,13,40,4);
-				this.c_text.color = "#1b3c29"
+				this.button_bg.graphics.clear().beginLinearGradientFill(["#a3e635","#bef264","#a3e635"],[0,0.5,1], 0,0,130,0,170,0).drawCircle(57,55,43);
+				this.check_1.graphics.clear().f("#0c0d0f").drawRoundRect(-10,90,70,13,4);
+				this.check_2.graphics.clear().f("#0c0d0f").drawRoundRect(-12,60,13,40,4);
+				this.c_text.color = "#1a2e05"
 				break;
 
 		}
@@ -124,7 +124,7 @@ clearButton = clearButton || function(state) {
 	clearButton.gotoAndStop = function (state) {
 		switch(state) {
 			case "disabled" :
-				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#282828").drawCircle(57,55,43);
+				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#16181c").drawCircle(57,55,43);
 				this.cross_1.graphics.clear().beginFill("#8a898b").drawRoundRect(48,-8,52,12,4);
 				this.cross_2.graphics.clear().beginFill("#8a898b").drawRoundRect(-16,68,52,12,4);
 				this.clear_button_text.color = "#797979";
@@ -211,7 +211,7 @@ repeatButton = repeatButton || function(state) {
 	arrow_container.y = 8;
 	arrow_container.scaleX = arrow_container.scaleY = 1;
 
-	let repeat_button_text = new createjs.Text(window.language.game_buttons.repeatcaps, "bold 16px lato , helvetica", "#ffd086");
+	let repeat_button_text = new createjs.Text(window.language.game_buttons.repeatcaps, "bold 16px lato , helvetica", "#1e2228");
 	repeat_button_text.textAlign = "center";
 	repeat_button_text.x = 58;
 	repeat_button_text.y = 60;
@@ -229,9 +229,9 @@ repeatButton = repeatButton || function(state) {
 		switch(state) {
 			case "disabled" :
 
-				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#282828").drawCircle(57,53,43);
-				this.arrow_1.graphics.clear().beginFill("#282828").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.arrow2_1.graphics.clear().beginFill("#282828").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.button_bg.graphics.clear().beginStroke("rgba(255,255,255,0.5)").beginFill("#16181c").drawCircle(57,53,43);
+				this.arrow_1.graphics.clear().beginFill("#16181c").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.arrow2_1.graphics.clear().beginFill("#16181c").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
 				this.arrow.graphics.clear().beginFill("#8a898b").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
 				this.arrow2.graphics.clear().beginFill("#8a898b").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
 				this.repeat_icon.graphics.clear().ss(6).beginStroke("#8a898b").drawRoundRect(38,28,40,26,8);
@@ -239,34 +239,34 @@ repeatButton = repeatButton || function(state) {
 				break;
 
 			case "up" :
-				this.button_bg.graphics.clear().beginLinearGradientFill(["#d28328","#ed9e22","#d28328"],[0,0.5,1], 30,0,80,0,140,0).drawCircle(57,53,43);
+				this.button_bg.graphics.clear().beginLinearGradientFill(["#aab2bc","#d3d8df","#aab2bc"],[0,0.5,1], 30,0,80,0,140,0).drawCircle(57,53,43);
 				this.button_bg.shadow = new createjs.Shadow("rgba(0,0,0,0.5)",0,2,5)
-				this.arrow_1.graphics.clear().beginFill("#d28328").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.arrow2_1.graphics.clear().beginFill("#d28328").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.arrow.graphics.clear().beginFill("#ffd086").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.arrow2.graphics.clear().beginFill("#ffd086").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.repeat_icon.graphics.clear().ss(6).beginStroke("#ffd086").drawRoundRect(38,28,40,26,8);
-				this.repeat_button_text.color = "#ffd086";
+				this.arrow_1.graphics.clear().beginFill("#aab2bc").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.arrow2_1.graphics.clear().beginFill("#aab2bc").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.arrow.graphics.clear().beginFill("#1e2228").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.arrow2.graphics.clear().beginFill("#1e2228").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.repeat_icon.graphics.clear().ss(6).beginStroke("#1e2228").drawRoundRect(38,28,40,26,8);
+				this.repeat_button_text.color = "#1e2228";
 				break;
 
 			case "click" :
-				this.button_bg.graphics.clear().beginFill("#b16b29").drawCircle(57,53,43);
-				this.arrow_1.graphics.clear().beginFill("#b16b29").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.arrow2_1.graphics.clear().beginFill("#b16b29").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.arrow.graphics.clear().beginFill("#5d3b15").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.arrow2.graphics.clear().beginFill("#5d3b15").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.repeat_icon.graphics.clear().ss(6).beginStroke("#5d3b15").drawRoundRect(38,28,40,26,8);
-				this.repeat_button_text.color = "#5d3b15";
+				this.button_bg.graphics.clear().beginFill("#9aa3ae").drawCircle(57,53,43);
+				this.arrow_1.graphics.clear().beginFill("#9aa3ae").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.arrow2_1.graphics.clear().beginFill("#9aa3ae").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.arrow.graphics.clear().beginFill("#3a4048").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.arrow2.graphics.clear().beginFill("#3a4048").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.repeat_icon.graphics.clear().ss(6).beginStroke("#3a4048").drawRoundRect(38,28,40,26,8);
+				this.repeat_button_text.color = "#3a4048";
 				break;
 
 			case "after_click" :
-				this.button_bg.graphics.clear().beginLinearGradientFill(["#a26b13","#c08000","#a26b13"],[0,0.5,1], 30,0,80,0,140,0).drawCircle(57,53,43);
-				this.arrow_1.graphics.clear().beginFill("#a26b13").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.arrow2_1.graphics.clear().beginFill("#a26b13").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.arrow.graphics.clear().beginFill("#bfa680").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.arrow2.graphics.clear().beginFill("#bfa680").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-				this.repeat_icon.graphics.clear().ss(6).beginStroke("#bfa680").drawRoundRect(38,28,40,26,8);
-				this.repeat_button_text.color = "#5d3b15";
+				this.button_bg.graphics.clear().beginLinearGradientFill(["#d3d8df","#eef1f4","#d3d8df"],[0,0.5,1], 30,0,80,0,140,0).drawCircle(57,53,43);
+				this.arrow_1.graphics.clear().beginFill("#d3d8df").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.arrow2_1.graphics.clear().beginFill("#d3d8df").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.arrow.graphics.clear().beginFill("#1e2228").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.arrow2.graphics.clear().beginFill("#1e2228").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+				this.repeat_icon.graphics.clear().ss(6).beginStroke("#1e2228").drawRoundRect(38,28,40,26,8);
+				this.repeat_button_text.color = "#3a4048";
 				break;
 		}
 	}
@@ -289,7 +289,7 @@ let initstance = {};
 const initButton =  function () {
 	// === gamebutton backgrounds init
 		let buttton_sold_bg_1 = new createjs.Shape();
-		buttton_sold_bg_1.graphics.beginFill("#2b2b2b").drawCircle(0,0,62);
+		buttton_sold_bg_1.graphics.beginFill("#16181c").drawCircle(0,0,62);
 		buttton_sold_bg_1.x  = -135 - (20+16);
 		buttton_sold_bg_1.y  = 14 + 5;
 		buttton_sold_bg_1.alpha = 0.5;
@@ -299,7 +299,7 @@ const initButton =  function () {
 		initstance.buttton_sold_bg_1 = buttton_sold_bg_1;
 
 		let buttton_sold_bg_2 = new createjs.Shape();
-		buttton_sold_bg_2.graphics.beginFill("#2b2b2b").drawCircle(0,0,62);
+		buttton_sold_bg_2.graphics.beginFill("#16181c").drawCircle(0,0,62);
 		buttton_sold_bg_2.y = 14+ 5;
 		buttton_sold_bg_2.x = - (28+30)
 		buttton_sold_bg_2.alpha = 0.5;
@@ -309,7 +309,7 @@ const initButton =  function () {
 		initstance.buttton_sold_bg_2 = buttton_sold_bg_2;
 
 		let buttton_sold_bg_3 = new createjs.Shape();
-		buttton_sold_bg_3.graphics.beginFill("#2b2b2b").drawCircle(0,0,62);
+		buttton_sold_bg_3.graphics.beginFill("#16181c").drawCircle(0,0,62);
 		buttton_sold_bg_3.y = 14+ 5;
 		buttton_sold_bg_3.x = 135 - (34+44);
 		buttton_sold_bg_3.alpha = 0.5;

@@ -149,7 +149,7 @@ class Game {
 		let w = 19.8, h = 19.7;
 
 		this.lines = new createjs.Shape();
-		this.lines.graphics.ss(.8).s('#2b2b2b').moveTo(0,29)
+		this.lines.graphics.ss(.8).s('#262a31').moveTo(0,29)
 				
 		this.lines.graphics.moveTo(moveToX, moveToY+16)
 		for(var i = 0; i <= row ; i++) {

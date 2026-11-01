@@ -25,7 +25,7 @@ export default() => {
 			this.bg.alpha = 0.8;
 			this.addChild(this.bg);
 
-			this.user_money = new createjs.Text("0", "26px bebas-regular", this.context.theme_color[window.theme].menu_text_color);
+			this.user_money = new createjs.Text("0", "26px bebas-regular", window.theme == "black" ? "#a3e635" : this.context.theme_color[window.theme].menu_text_color);
 			this.user_money.textAlign = "left";
 			this.user_money.x = 170;
 			this.user_money.y = 15;
@@ -137,7 +137,7 @@ export default() => {
 
 			this.bg.graphics.clear().beginFill(this.context.theme_color[new_theme].base_color).drawRoundRectComplex(0, 0, 200, 110, 0, 10, 10, 0);
 			this.bg.cache(0, 0, 200, 110);
-			this.user_money.color = this.context.theme_color[new_theme].menu_text_color;
+			this.user_money.color = new_theme == "black" ? "#a3e635" : this.context.theme_color[new_theme].menu_text_color;
 			this.total_bet_amt.color = this.context.theme_color[new_theme].text_color;
 			this.total_win_amt.color = this.context.theme_color[new_theme].text_color;
 			this.chip_icon.image = this.context.getResources(chip);

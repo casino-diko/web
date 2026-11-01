@@ -18,8 +18,8 @@ export default() => {
 		win_suit_obj: [],
 		lines_obj: [],
 		main() {
-			this.total_win_text = new createjs.Text("", fontFormat(45, 'normal', 'bebas', false), "#f1be29");
-			this.total_win_text.shadow = new createjs.Shadow("#ffd73e", 0, 0, 6);
+			this.total_win_text = new createjs.Text("", fontFormat(45, 'normal', 'bebas', false), "#a3e635");
+			this.total_win_text.shadow = new createjs.Shadow("#bef264", 0, 0, 6);
 			this.total_win_text.textAlign = "center";
 			this.total_win_text.textBaseline = "middle";
 			this.total_win_text.alpha = 0;
@@ -35,7 +35,7 @@ export default() => {
 			this.addChild(this.winpopupContainer);
 
 			this.clearStacksTimeout = null;
-			this.background = '#E5C160';
+			this.background = '#d3d8df';
 
 			this.shineContainer = new createjs.Container();
 			this.shineContainer.x = this.context.component_betDetails.x;
@@ -162,10 +162,10 @@ export default() => {
 			let winpopupRec = new createjs.Shape();
 
 			if (this.winsArray[this.winsArray.length - 1]) {
-				this.background = this.winsArray[this.winsArray.length - 1].background == "#E5C160" ? '#F1E382' : "#E5C160";
+				this.background = this.winsArray[this.winsArray.length - 1].background == "#d3d8df" ? '#eef1f4' : "#d3d8df";
 			}
 
-			winpopupRec.graphics.f(this.background).drawRect(0,0,260, 64).f('#568E23').drawRect(0,0, 10, 64);
+			winpopupRec.graphics.f(this.background).drawRect(0,0,260, 64).f('#a3e635').drawRect(0,0, 10, 64);
 			winArrCon.addChild(winpopupRec);
 			winArrCon.background = this.background;
 

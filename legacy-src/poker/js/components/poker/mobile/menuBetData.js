@@ -164,7 +164,7 @@ export default (links, type) => {
           voidContainer.x = -390;
 
           let voidShape = new createjs.Shape();
-          voidShape.graphics.beginFill("#262525").drawRect(0, -10, 980, 36);
+          voidShape.graphics.beginFill("#16181c").drawRect(0, -10, 980, 36);
           voidShape.setBounds(0, -10, 980, 36);
           voidContainer.addChild(voidShape);
 
@@ -228,7 +228,7 @@ export default (links, type) => {
 			this.tableContainer.y = - 110;
 
 			let detailHeaderBg = new createjs.Shape();
-			detailHeaderBg.graphics.beginFill('#ff9b28').drawRoundRect(0, 0, mdlDetailWidth-3, 45, 7);
+			detailHeaderBg.graphics.beginFill('#a3e635').drawRoundRect(0, 0, mdlDetailWidth-3, 45, 7);
 			detailHeaderBg.x = detailBg.x + 2;
 			detailHeaderBg.y = detailBg.y + 2;
 			this.betDetails.addChild(detailHeaderBg);

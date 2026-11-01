@@ -40,12 +40,12 @@ export default() => {
 			this.chipval = this.context.component_chips.chipval[window.currencyAbbrev];
 
 			this._modalBg = new createjs.Shape();
-			this._modalBg.graphics.beginFill('rgba(22, 22, 22, 0.9)').drawRect(0, 0, this._modalWidth, this._modalHeight);
+			this._modalBg.graphics.beginFill('rgba(22, 24, 28, 0.9)').drawRect(0, 0, this._modalWidth, this._modalHeight);
 			this.addChild(this._modalBg);
 
 			//Button clear chips border
 			this.btnClearChips = new createjs.Shape();
-			this.btnClearChips.graphics.f('#F1E382').drawRect(0,0,270, 67);
+			this.btnClearChips.graphics.f('#d3d8df').drawRect(0,0,270, 67);
 			this.btnClearChips.x = 260;
 			this.btnClearChips.y = 530;
 
@@ -64,12 +64,12 @@ export default() => {
 			this.txtClearChips.y = this.btnClearChips.y + (67/2);
 
 			this.btnApply = new createjs.Shape();
-			this.btnApply.graphics.f('#68A12E').drawRect(0,0,270, 67);
+			this.btnApply.graphics.f('#a3e635').drawRect(0,0,270, 67);
 			this.btnApply.x = this.btnClearChipsHit.x + 270 + 32;
 			this.btnApply.y = this.btnClearChipsHit.y;
 			this.btnApply.cursor = "pointer";
 
-			this.txtBtnApply = new createjs.Text(window.language.menu.applynowcaps, window.language.locale == "zh" ? fontFormat(25, 'normal', 'lato') : fontFormat(22, 'bold', 'lato'), "#fff");
+			this.txtBtnApply = new createjs.Text(window.language.menu.applynowcaps, window.language.locale == "zh" ? fontFormat(25, 'normal', 'lato') : fontFormat(22, 'bold', 'lato'), "#0c0d0f");
 			this.txtBtnApply.y = this.btnApply.y + (67/2);
 			this.txtBtnApply.x = this.btnApply.x + (270/2);
 			this.txtBtnApply.textAlign = "center";
@@ -200,7 +200,7 @@ export default() => {
 
 					//background chip
 					chip_container[i].bg = new createjs.Shape();
-					chip_container[i].bg.graphics.beginLinearGradientFill(["transparent","#636467"], [0, 1], 0, -60, 0, 22).drawCircle(0, 0, 60);
+					chip_container[i].bg.graphics.beginLinearGradientFill(["transparent","#4a505a"], [0, 1], 0, -60, 0, 22).drawCircle(0, 0, 60);
 					chip_container[i].bg.regX = chip_container[i].bg.regY = -60;
 					chip_container[i].bg.x = chip_container[i].x;
 					chip_container[i].bg.y = chip_container[i].y + 3;
@@ -280,7 +280,7 @@ export default() => {
 					this.allchips_container.addChild(user_chip_container[j]);
 
 					user_chip_container[j].bg = new createjs.Shape();
-					user_chip_container[j].bg.graphics.ss(1).beginLinearGradientFill(["transparent","#636467"], [0, 1], 0, -72, 0, 36).drawCircle(0, 0, 72);
+					user_chip_container[j].bg.graphics.ss(1).beginLinearGradientFill(["transparent","#4a505a"], [0, 1], 0, -72, 0, 36).drawCircle(0, 0, 72);
 					user_chip_container[j].bg.regX = -72;
 					user_chip_container[j].bg.regY = -72;
 					user_chip_container[j].bg.x = user_chip_container[j].x;
@@ -441,7 +441,7 @@ export default() => {
 				btnX = 260;
 				btnY = 530
 			}
-			this._modalBg.graphics.clear().beginFill('rgba(22, 22, 22, 0.9)').drawRect(0, 0, this._modalWidth, this._modalHeight);
+			this._modalBg.graphics.clear().beginFill('rgba(22, 24, 28, 0.9)').drawRect(0, 0, this._modalWidth, this._modalHeight);
 			this.btnClearChips.x = btnX;
 			this.btnClearChips.y = btnY;
 			this.btnClearChipsHit.x = this.btnClearChips.x;

@@ -43,7 +43,7 @@
 }
 
 .junket-body-info {
-  background: rgba(22, 22, 22, 0.9);
+  background: rgba(22,24,28,0.9);
   float: left;
   width: 100%;
   height: 150px;
@@ -96,21 +96,21 @@
   color: #fff;
 }
 .change-password {
-  background: #171717;
-  border: 1px solid #f0e385;
-  color: #f0e385;
+  background: #16181c;
+  border: 1px solid #d3d8df;
+  color: #d3d8df;
 }
 
 .room-info, .room-users, .room-balance {
-  /*background: rgba(22, 22, 22, 0.9);*/
-  background: #dcc869;
+  /*background: rgba(22,24,28,0.9);*/
+  background: #d3d8df;
   color: #000;
 }
 .btn-junket.room-info.active,
 .btn-junket.room-balance.active,
 .btn-junket.room-users.active {
-  background: rgba(22, 22, 22, 0.9);
-  color: #dcc869;
+  background: rgba(22,24,28,0.9);
+  color: #d3d8df;
 }
 
 #agentMoney { top: -2px; }
@@ -126,7 +126,7 @@
   position: relative;
   top: -3px;
   left: 20px;
-  color: #ede382;
+  color: #d3d8df;
   font-weight: bold;
 }
 
@@ -134,13 +134,13 @@
   float: left;
   width: 100%;
   height: auto;
-  background: rgba(22, 22, 22, 0.9);
+  background: rgba(22,24,28,0.9);
   padding-top:16px;
   display: none
 }
 .junket-player-header {
   height: 40px;
-  background: #5f5f5f;
+  background: #3a3f48;
   padding-top: 8px;
   text-transform: capitalize;
 }
@@ -170,7 +170,7 @@
 }
 
 .player-list-tr { cursor: pointer; height: 45px }
-/*.player-list-tr:hover .table-td.-hover { background: #f1e382; }*/
+/*.player-list-tr:hover .table-td.-hover { background: #d3d8df; }*/
 /*.player-list-tr:hover .table-td { color: #000; }*/
 .table--junket .table-td:not(:last-child) { padding-right: 1px; margin-right: -1px; }
 
@@ -205,7 +205,7 @@
 }
 @keyframes chatAnimPM {
   0% { background: #d32f2e }
-  50% { background: rgba(22, 22, 22, 0.9) }
+  50% { background: rgba(22,24,28,0.9) }
   100% { background: #d32f2e }
 }
 
@@ -274,7 +274,7 @@
 .mdl_bg {
   position: absolute;
   width: 410px;
-  background: rgba(22, 22, 22, 0.9);
+  background: rgba(22,24,28,0.9);
   border-radius: 4px;
   top: 28%;
   right: 33%;
@@ -298,7 +298,7 @@
   margin: 10% 0 0 43%;
 }
 .mdl_alert_txt {
-  color: #f1e382;
+  color: #d3d8df;
   font: bold 25px lato-regular;
   text-align: center;
   padding-top: 11px;
@@ -350,22 +350,22 @@
   cursor: pointer;
 }
 .mdl_btn.-no {
-  background: #c9bc6e;
+  background: #d3d8df;
   border-radius: 0 0 0 4px;
 }
 .mdl_btn.-yes {
   right: 0;
-  background: #68a12e;
+  background: #a3e635;
   border-radius: 0 0 4px 0;
 }
 .mdl_btn.-confirm {
-  background: #68a12e;
+  background: #a3e635;
   border-radius: 0 0 4px 4px;
   width: 100%;
 }
 
 .mdl_btn span {
-  color: #fffffd;
+  color: #0c0d0f;
   font: bold 19px lato-regular;
   display: block;
   position: relative;
@@ -377,7 +377,7 @@
 
 .mdl_msg_bet {
   font: bold 30px lato-regular;
-  color: #343434;
+  color: #262a31;
   text-align: center;
   margin-top: 10px;
   display: none;
@@ -387,7 +387,7 @@
   bottom: 0;
   height: 70px;
   width: 100%;
-  background: #cbbb6e;
+  background: #d3d8df;
   border-radius: 0 0 4px 4px;
   cursor: pointer;
   text-align: center;

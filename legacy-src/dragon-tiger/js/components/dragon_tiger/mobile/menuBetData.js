@@ -67,7 +67,7 @@ export default (links) => {
 				this.betResult.addChild(this._betShape[i]);
 
 				if (results.winner == 'suited tie') {
-					this._betShape[i].graphics.clear().ss(2).s('#c97d1b').beginFill(markColorCode).drawCircle(0, 0, 11);
+					this._betShape[i].graphics.clear().ss(2).s('#d3d8df').beginFill(markColorCode).drawCircle(0, 0, 11);
 				}
 
 				this._betText[i] = new createjs.Text(markText, 'normal 16px bebas-regular', '#fff');
@@ -134,7 +134,7 @@ export default (links) => {
 				this.histData.addChild(this._histShape[i]);
 
 				if (results.winner == 'suited tie') {
-					this._histShape[i].graphics.clear().ss(2).s('#c97d1b').beginFill(markColorCode).drawCircle(0, 0, 11);
+					this._histShape[i].graphics.clear().ss(2).s('#d3d8df').beginFill(markColorCode).drawCircle(0, 0, 11);
 				}
 
 				this._histText[i] = new createjs.Text(markText, 'normal 16px bebas-regular', '#fff');
@@ -151,7 +151,7 @@ export default (links) => {
 					voidContainer.x = -390;
 
 					let voidShape = new createjs.Shape();
-					voidShape.graphics.beginFill("#262525").drawRect(0, -10, 980, 36);
+					voidShape.graphics.beginFill("#1e2228").drawRect(0, -10, 980, 36);
 					voidShape.setBounds(0, -10, 980, 36);
 					voidContainer.addChild(voidShape);
 
@@ -239,7 +239,7 @@ export default (links) => {
 						markColorCode = '#06770d';
 						winnerSide = gameResult.side_bets.dragon;
 						isSuitedTie = true;
-						border_color = '#c97d1b';
+						border_color = '#d3d8df';
 						break;
 
 						case ("tie"):
@@ -705,7 +705,7 @@ export default (links) => {
 			// 		this.circleContainer.addChild(winnerCircle[i]);
 			//
 			// 		if (isSuitedTie) {
-			// 			winnerCircle[i].graphics.clear().ss(2).s('#c97d1b').beginFill(markColorCode).drawCircle(0, 0, 18);
+			// 			winnerCircle[i].graphics.clear().ss(2).s('#d3d8df').beginFill(markColorCode).drawCircle(0, 0, 18);
 			// 		}
 			// 	}
 			//
@@ -901,7 +901,7 @@ export default (links) => {
 			// 			this.tblDataContainer.addChild(betTextObj[j]);
 			//
 			// 			if (this.betHistory[j].bet == 'suited_tie') {
-			// 				betCircle[j].graphics.clear().ss(3).s('#c97d1b').beginFill(betColorCode).drawCircle(0, 0, 15);
+			// 				betCircle[j].graphics.clear().ss(3).s('#d3d8df').beginFill(betColorCode).drawCircle(0, 0, 15);
 			// 			}
 			// 		}
 			// 		else {
@@ -1083,7 +1083,7 @@ export default (links) => {
 				page.addChild(scrollbar);
 
 				toTop_btn = new createjs.Shape();
-				toTop_btn.graphics.beginFill("#ff9a28").drawCircle(0, 0, 15)
+				toTop_btn.graphics.beginFill("#a3e635").drawCircle(0, 0, 15)
 				.beginFill().beginStroke("#fff").setStrokeStyle(3, "round", "round")
 				.moveTo(-5, 2.5).lineTo(0, -2.5).lineTo(5, 2.5);
 				toTop_btn.alpha = 0.5;

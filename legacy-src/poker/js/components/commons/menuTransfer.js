@@ -73,7 +73,7 @@ export default() => {
 			this.txtBalance.textAlign = "center";
 
 			this.fundsBg = new createjs.Shape();
-			this.fundsBg.graphics.beginFill("#ff9c28").drawRect(0, 0, this._modalWidth, 50);
+			this.fundsBg.graphics.beginFill("#a3e635").drawRect(0, 0, this._modalWidth, 50);
 			this.fundsBg.y = this.txtBalance.y + 25;
 
 			this.txtTotalFunds = new createjs.Text("99,000,000","bold 23px arial", "#000");

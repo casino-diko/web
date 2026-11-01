@@ -54,7 +54,7 @@ export default(self) => {
 
 	//grey loading bar
 	self.grey_loading = new createjs.Shape();
-	self.grey_loading.graphics.beginFill("#2d2d2d").drawRect(0,0,320,3);
+	self.grey_loading.graphics.beginFill("#1e2228").drawRect(0,0,320,3);
 	self.grey_loading.setBounds(0,0,320,5);
 	self.grey_loading.x = -190;
 	self.grey_loading.y = 16;
@@ -62,7 +62,7 @@ export default(self) => {
 	self.loading_container.addChild(self.grey_loading);
 	//gold loadiung
 	self.gold_loading = new createjs.Shape();
-	self.gold_loading.graphics.beginFill("#e0b226").drawRect(0,0,320,3);
+	self.gold_loading.graphics.beginFill("#a3e635").drawRect(0,0,320,3);
 	self.gold_loading.x = self.grey_loading.x
 	self.gold_loading.y = self.grey_loading.y;
 	self.gold_loading.scaleX = 0
@@ -78,7 +78,7 @@ export default(self) => {
 	/** clover **/	
 	self.clover_image = new createjs.Sprite(spriteSheet,"clover-grey");
 	self.clover_image.x = 100;
-	self.clover_image.shadow =  new createjs.Shadow("#e0b226",0,0,0)
+	self.clover_image.shadow =  new createjs.Shadow("#a3e635",0,0,0)
 	self.clover_image.scaleX = self.clover_image.scaleY = 1.2
 	/** diamond **/	
 	self.dimanond_image = new createjs.Sprite(spriteSheet,"diamond-grey");
@@ -99,13 +99,13 @@ export default(self) => {
 
 
 	let grey_bg = new createjs.Shape();
-	grey_bg.graphics.beginFill("#2f2f2f").drawCircle(0,0,100);
+	grey_bg.graphics.beginFill("#16181c").drawCircle(0,0,100);
 	grey_bg.x = (self.stage.baseWidth/2) - 32;
 	grey_bg.y = (self.stage.baseHeight/2) + 4;
 
 	self.loading_chip_container.addChild(grey_bg);
 
-	self.loadingText = new createjs.Text("0%", "60px arial", "#fccd40");
+	self.loadingText = new createjs.Text("0%", "60px arial", "#d3d8df");
 	self.loadingText.textBaseline = "bottom";
 	self.loadingText.textAlign = "center";
 	self.loadingText.x = (self.stage.baseWidth/2) - 28;
@@ -139,13 +139,13 @@ export default(self) => {
 	self.circle_grey = new createjs.Shape();
 	self.circle_red = new createjs.Shape();
 
-	self.circle_grey.graphics.ss(1).beginStroke("#2e2e2e").drawCircle(125/2,125/2,125);
+	self.circle_grey.graphics.ss(1).beginStroke("#262a31").drawCircle(125/2,125/2,125);
 	self.circle_grey.regX = 125/2;
 	self.circle_grey.regY = 125/2;
 	self.circle_grey.x = (self.stage.baseWidth/2) - 32;
 	self.circle_grey.y = (self.stage.baseHeight/2) + 4;
 
-	self.circle_red.graphics.ss(1).beginStroke("#b62320").drawCircle(120/2,120/2,120);
+	self.circle_red.graphics.ss(1).beginStroke("#a3e635").drawCircle(120/2,120/2,120);
 	self.circle_red.regX = 120/2;
 	self.circle_red.regY = 120/2;
 	self.circle_red.x = (self.stage.baseWidth/2) - 30;

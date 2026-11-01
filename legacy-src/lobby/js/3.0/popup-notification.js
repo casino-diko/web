@@ -4,7 +4,7 @@ popup_notification = {
     var self = this.context;
     this.winsArray = [];
     this.clearStacksTimeout = null;
-    this.background = '#E5C160';
+    this.background = '#d3d8df';
     this.removedArrs = [];
     this.init = 0;
   },
@@ -130,7 +130,7 @@ popup_notification = {
 
     //switch background
     if (this.winsArray[this.winsArray.length - 1]) {
-      this.background = this.winsArray[this.winsArray.length - 1].background == "#E5C160" ? '#F1E382' : "#E5C160";
+      this.background = this.winsArray[this.winsArray.length - 1].background == "#d3d8df" ? '#e4e8ec' : "#d3d8df";
     }
 
     notif_box.background = this.background;

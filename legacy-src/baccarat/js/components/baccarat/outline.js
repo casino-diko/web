@@ -525,33 +525,33 @@ export default (config) => {
 			outline_container.y = this.context.stage.baseHeight /2 + 84;
 
 			var line = new createjs.Shape();
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.2,0.8,1], 0,0,width,0)
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.2,0.8,1], 0,0,width,0)
 			line.graphics.moveTo(0,0).lineTo(width,0)
 			width = 1400;
 
 			let startX = -100;
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0)
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0)
 
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = 0;
 			let areaWidth = 264;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(areaWidth,0).lineTo(startX + areaWidth - 78, height);
 
 			startX = areaWidth;
 			areaWidth = 258;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth - 28, height);
 
 			startX = startX+areaWidth;
 			areaWidth = 258;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth + 26, height);
 
 			startX = startX+areaWidth;
 			areaWidth = 258;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth + 78, height);
 			outline_container.addChild(line);
 
@@ -622,12 +622,12 @@ export default (config) => {
 			outline_container.y = this.context.stage.baseHeight /2 + 84;
 
 			var line = new createjs.Shape();
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.2,0.8,1], 0,0,width,0)
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.2,0.8,1], 0,0,width,0)
 			line.graphics.moveTo(0,0).lineTo(width,0)
 			width = 1400;
 
 			let startX = -100;
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0)
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0)
 
 			line.graphics.moveTo(startX, height).lineTo(180, height);
 
@@ -639,32 +639,32 @@ export default (config) => {
 
 			startX = 0;
 			let areaWidth = 144;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth - 80, height);
 
 			startX = startX + areaWidth;
 			areaWidth = 178;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth - 28, height - 80);
 
 			startX = startX + areaWidth;
 			areaWidth = 222;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth - 20, height);
 
 			startX = startX + areaWidth;
 			areaWidth = 214;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth + 18, height);
 
 			startX = startX + areaWidth;
 			areaWidth = 222;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth + 24, height - 80);
 
 			startX = startX + areaWidth;
 			areaWidth = 176;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth + 82, height);
 
 			let img1 = new createjs.Bitmap(this.context.getResources('banker_bonus'));
@@ -741,37 +741,37 @@ export default (config) => {
 			outline_container.y = this.context.stage.baseHeight /2 + 84;
 
 			var line = new createjs.Shape();
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.2,0.8,1], 0,0,width,0)
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.2,0.8,1], 0,0,width,0)
 			line.graphics.moveTo(0,0).lineTo(width,0)
 			width = 1400;
 
 			let startX = -100;
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0)
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0)
 
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = 0;
 			let areaWidth = 264;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(areaWidth,0).lineTo(startX + areaWidth - 78, height);
 
 			startX = areaWidth;
 			areaWidth = 258;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth - 28, height);
 
 			startX = startX+areaWidth;
 			areaWidth = 258;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth + 26, height);
 
 			areaWidth = 258;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX-12,100).lineTo(startX + areaWidth + 12, 100);
 
 			startX = startX+areaWidth;
 			areaWidth = 258;
-			line.graphics.ss(2).s("#fff");
+			line.graphics.ss(2).s('rgba(211,216,223,0.8)');
 			line.graphics.moveTo(startX + areaWidth,0).lineTo(startX + areaWidth + 78, height);
 
 			outline_container.addChild(line);
@@ -848,164 +848,164 @@ export default (config) => {
 
 			var line = new createjs.Shape();
 
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.2,0.8,1], 0,0,width,0)
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.2,0.8,1], 0,0,width,0)
 			line.graphics.moveTo(0,0).lineTo(width,0)
 
 			startX = startX - 22;
 			width = width + 22;
 			height = 46;
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 22;
 			width = width + 22;
 			height = height + 46;
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 26;
 			width = width + 26;
 			height = height + 46;
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 30;
 			width = width + 30;
 			height = height + 54;
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			//player pair banker pair part
 			height = 30;
 			startX = 0;
 			width = 74;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 10, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 10, height + 16);
 
 			width = width + 88;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 8, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 8, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 6.5, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 6.5, height + 16);
 
 			width = width + 164;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 4.5, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 4.5, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 3, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 3, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 1.8, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 1.8, height + 16);
 
 			width = width + 174;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 1.8, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 1.8, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 3, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 3, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 4.5, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 4.5, height + 16);
 
 			width = width + 164;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 6.5, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 6.5, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 8, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 8, height + 16);
 
 			width = width + 88;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 10, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 10, height + 16);
 
 			// middle line
 			height = 0;
 			width = 1350/2;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width, height + 46);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width, height + 46);
 			///
 			height = 46;
 			startX = 0;
 			width = 164;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 3, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 3, height +6);
 
 			width = width + 190;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 1.5, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 1.5, height +6);
 
 			width = width + 188;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 1, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 1, height +6);
 
 			width = width + 266;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 0.8, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 0.8, height +6);
 
 			width = width + 188;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 1.5, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 1.5, height +6);
 
 			width = width + 190;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 3, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 3, height +6);
 
 			//
 			height = height + 37;
 			width = 148;
 			startX = 0;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
 
 			startX = 0;
 			width = width+194;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
 
 			startX = 0;
 			width = width+196;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 2, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 2, height +16);
 
 			startX = 0;
 			width = width+275;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
 
 			startX = 0;
 			width = width+196;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
 
 			startX = 0;
 			width = width+196;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
 
 			///
 			height = height + 48;
 			width = 124;
 			startX = 0;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
 
 			width = width + 202;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
 
 			width = width + 206;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 2.5, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 2.5, height +16);
 
 			width = width + 286;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
 
 			width = width + 205;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
 
 			width = width + 203;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
 
 			///
 			height = height + 52;
 			startX = 0;
 			width = 98;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 4, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 4, height +8);
 
 			width = width + 212;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 3, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 3, height +8);
 
 			width = width + 215;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 1.2, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 1.2, height +8);
 
 			width = width + 300;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 1.2, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 1.2, height +8);
 
 			width = width + 215;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 2.8, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 2.8, height +8);
 
 			width = width + 212;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 4, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 4, height +8);
 
 			outline_container.addChild(line);
 
@@ -1193,23 +1193,23 @@ export default (config) => {
 			width = 430;
 			height = 6;
 			startX = 0;
-			line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','#ecdc7d', '#dac06c'], [0,0.5,1], startX,0,width,0);
+			line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','#d3d8df', '#b4bac3'], [0,0.5,1], startX,0,width,0);
 			line.graphics.moveTo(startX + 16, height).lineTo(width, height).lineTo(width - 11, height + 42).lineTo(startX, height + 42);
 
 			startX = 920;
-			line.graphics.ss(1).beginLinearGradientStroke(['#dac06c', '#ecdc7d','rgba(255,255,255,0)'], [0,0.5,1], startX,0,startX+width,0);
+			line.graphics.ss(1).beginLinearGradientStroke(['#b4bac3', '#d3d8df','rgba(211,216,223,0)'], [0,0.5,1], startX,0,startX+width,0);
 			line.graphics.moveTo(startX, height).lineTo(startX+width - 16, height)
 			.moveTo(startX+width, height + 42)
 			.lineTo(startX + 10, height + 42).lineTo(startX, height);
 			////
 			startX = 450;
 			width = 216;
-			line.graphics.ss(1).s("#fff").moveTo(startX,height).lineTo(startX+width, height)
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX,height).lineTo(startX+width, height)
 			.lineTo(startX+width, height+42).lineTo(startX-10, height+42).lineTo(startX, height);
 
 			startX = startX+width+ 20;
 			width = 216;
-			line.graphics.ss(1).s("#fff").moveTo(startX,height).lineTo(startX+width, height)
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX,height).lineTo(startX+width, height)
 			.lineTo(startX+width+8, height+42).lineTo(startX, height+42).lineTo(startX, height);
 			///
 
@@ -1217,52 +1217,52 @@ export default (config) => {
 			startX = -22;
 			width = width + 22;
 			height = 66;
-			line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 22;
 			width = width + 22;
 			height = height + 42;
-			line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 26;
 			width = width + 26;
 			height = height + 40;
-			line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 26;
 			width = width + 26;
 			height = height + 46;
-			line.graphics.ss(1).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(1).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 			///
 			height = 68;
 			startX = 0;
 			width = 164;
 			width -= 10
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 3, height +6);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 3, height +6);
 
 			width = width + 190;
 			width += 2
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 1.5, height +6);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 1.5, height +6);
 
 			width = width + 188;
 			width += 4
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 1, height +6);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 1, height +6);
 
 			width = width + 266;
 			width += 6
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 0.8, height +6);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 0.8, height +6);
 
 			width = width + 188;
 			width += 6
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 1.5, height +6);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 1.5, height +6);
 
 			width = width + 190;
 			width += 4
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 3, height +6);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 3, height +6);
 
 			//
 			height = height + 37;
@@ -1270,32 +1270,32 @@ export default (config) => {
 			height -= 6
 			width -= 8;
 			startX = 0;
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
 
 			startX = 0;
 			width = width+194;
 			width += 2
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
 
 			startX = 0;
 			width = width+196;
 			width += 3
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 2, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 2, height +16);
 
 			startX = 0;
 			width = width+275;
 			width += 6
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
 
 			startX = 0;
 			width = width+196;
 			width += 2
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
 
 			startX = 0;
 			width = width+196;
 			width += 2
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
 
 			///
 			height = height + 48;
@@ -1303,48 +1303,48 @@ export default (config) => {
 			height -= 8
 			width -= 4;
 			startX = 0;
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
 
 			width = width + 202;
 			width += 2
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
 
 			width = width + 206;
 			width += 2
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 2.5, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 2.5, height +16);
 
 			width = width + 286;
 			width += 2
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
 
 			width = width + 205;
 			width += 2
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
 
 			width = width + 203;
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
 
 			///
 			height = height + 52;
 			height -= 6
 			startX = 0;
 			width = 98;
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 4, height +8);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 4, height +8);
 
 			width = width + 212;
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 3, height +8);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 3, height +8);
 
 			width = width + 215;
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 1.2, height +8);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 1.2, height +8);
 
 			width = width + 300;
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 1.2, height +8);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 1.2, height +8);
 
 			width = width + 215;
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 2.8, height +8);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 2.8, height +8);
 
 			width = width + 212;
-			line.graphics.ss(0.5).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 4, height +8);
+			line.graphics.ss(0.5).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 4, height +8);
 
 			outline_container.addChild(line);
 
@@ -1451,164 +1451,164 @@ export default (config) => {
 
 			var line = new createjs.Shape();
 
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.2,0.8,1], 0,0,width,0)
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.2,0.8,1], 0,0,width,0)
 			line.graphics.moveTo(0,0).lineTo(width,0)
 
 			startX = startX - 22;
 			width = width + 22;
 			height = 46;
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 22;
 			width = width + 22;
 			height = height + 46;
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 26;
 			width = width + 26;
 			height = height + 46;
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			startX = startX - 30;
 			width = width + 30;
 			height = height + 54;
-			line.graphics.ss(2).beginLinearGradientStroke(['rgba(255,255,255,0)','rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,0)'], [0,0.1,0.9,1], startX,0,width,0);
+			line.graphics.ss(2).beginLinearGradientStroke(['rgba(211,216,223,0)','rgba(211,216,223,0.8)', 'rgba(211,216,223,0.8)', 'rgba(211,216,223,0)'], [0,0.1,0.9,1], startX,0,width,0);
 			line.graphics.moveTo(startX, height).lineTo(width, height);
 
 			//player pair banker pair part
 			height = 30;
 			startX = 0;
 			width = 74;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 10, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 10, height + 16);
 
 			width = width + 88;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 8, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 8, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 6.5, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 6.5, height + 16);
 
 			width = width + 164;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 4.5, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 4.5, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 3, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 3, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 1.8, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 1.8, height + 16);
 
 			width = width + 174;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 1.8, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 1.8, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 3, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 3, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 4.5, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 4.5, height + 16);
 
 			width = width + 164;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 6.5, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 6.5, height + 16);
 
 			width = width + 87;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 8, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 8, height + 16);
 
 			width = width + 88;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 10, height + 16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 10, height + 16);
 
 			// middle line
 			height = 0;
 			width = 1350/2;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width, height + 46);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width, height + 46);
 			///
 			height = 46;
 			startX = 0;
 			width = 164;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 3, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 3, height +6);
 
 			width = width + 190;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 1.5, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 1.5, height +6);
 
 			width = width + 188;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 1, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 1, height +6);
 
 			width = width + 266;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 0.8, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 0.8, height +6);
 
 			width = width + 188;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 1.5, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 1.5, height +6);
 
 			width = width + 190;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 3, height +6);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 3, height +6);
 
 			//
 			height = height + 37;
 			width = 148;
 			startX = 0;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
 
 			startX = 0;
 			width = width+194;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
 
 			startX = 0;
 			width = width+196;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 2, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 2, height +16);
 
 			startX = 0;
 			width = width+275;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
 
 			startX = 0;
 			width = width+196;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
 
 			startX = 0;
 			width = width+196;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
 
 			///
 			height = height + 48;
 			width = 124;
 			startX = 0;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 8, height +16);
 
 			width = width + 202;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 5, height +16);
 
 			width = width + 206;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 2.5, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 2.5, height +16);
 
 			width = width + 286;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 2, height +16);
 
 			width = width + 205;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 5, height +16);
 
 			width = width + 203;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 8, height +16);
 
 			///
 			height = height + 52;
 			startX = 0;
 			width = 98;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 4, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 4, height +8);
 
 			width = width + 212;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 3, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 3, height +8);
 
 			width = width + 215;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width - 1.2, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width - 1.2, height +8);
 
 			width = width + 300;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 1.2, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 1.2, height +8);
 
 			width = width + 215;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 2.8, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 2.8, height +8);
 
 			width = width + 212;
-			line.graphics.ss(1).s('#fff').moveTo(startX+width, height).lineTo(startX+width + 4, height +8);
+			line.graphics.ss(1).s('rgba(211,216,223,0.8)').moveTo(startX+width, height).lineTo(startX+width + 4, height +8);
 
 			outline_container.addChild(line);
 

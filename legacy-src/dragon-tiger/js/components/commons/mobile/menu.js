@@ -292,7 +292,7 @@ export default () => {
 			let toggle_spriteSheet = new createjs.SpriteSheet(toggle_spritesheet_data);
 			let toggleMenu = new createjs.Sprite(toggle_spriteSheet,"up");
 			toggleMenu.x = this.context.stage.baseWidth - 115;
-			toggleMenu.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+			toggleMenu.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 			toggleMenu.y = 5;
 			menuCon.addChild(toggleMenu);
 
@@ -311,7 +311,7 @@ export default () => {
 			let refresh_spriteSheet = new createjs.SpriteSheet(refresh_spritesheet_data);
 			let refreshMenu = new createjs.Sprite(refresh_spriteSheet,"up");
 			refreshMenu.x = this.context.stage.baseWidth - 207;
-			refreshMenu.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+			refreshMenu.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 			refreshMenu.y = 3;
 			
 			menuCon.addChild(refreshMenu);

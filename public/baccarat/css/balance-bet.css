@@ -5,7 +5,7 @@
   position: absolute;
   top:26.8%; 
   /*21.6%;*/
-  background: rgba(22, 22, 22, 0.9);
+  background: rgba(22,24,28,0.9);
   right: 100%;
  	/*right: 78.6%;*/
 /* 	transition: top 0.2s, right 0.2s;
@@ -54,7 +54,7 @@
 	margin: 0;
 	font-family: lato-regular;
 	font-size: 20px;
-	color: #E1D37B;
+	color: #d3d8df;
 	vertical-align: middle;
 	padding: 7px 20px;
 	display: block;

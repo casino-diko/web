@@ -35,7 +35,7 @@ export default()=> {
 			this.addChild(this.dealer_text);
 
 			let community_bg = new createjs.Shape();
-			community_bg.graphics.beginFill("#5b5b5b").drawRoundRect(0,0,286,150,10);
+			community_bg.graphics.beginFill("#262a31").drawRoundRect(0,0,286,150,10);
 			community_bg.x = dealer_bg.x + 151 + 33;
 			community_bg.y = dealer_bg.y
 			community_bg.isBg = true;

@@ -19,7 +19,8 @@
 .header {
   @include wh(1920px, 72px);
   @include position(absolute, 0, 0);
-  background: #1f2021;
+  background: #000000;
+  box-shadow: inset 0 -1px 0 #22262c;
   display: block;
   z-index: 99;
 } //header
@@ -96,7 +97,7 @@
   .header-subnav {
     top: 55px;
     display: none;
-    & .header-subnav__items span { color: #bb8887; }
+    & .header-subnav__items span { color: #9aa0a8; }
     & .header-subnav__items.active span { color: #fff; }
     & .header-subnav__items .new, & .header-subnav__items.active .new { color: #000; }
   }
@@ -120,30 +121,31 @@
     }
   }
   &.active {
-    background: #8c1414;
-    &:hover { background: #8c1414; }
+    background: #a3e635;
+    &:hover { background: #a3e635; }
     &.-othergames {
-      background: #880e4f;
+      background: #a3e635;
     }
     &.-othergames:before {
-      background: #c2185b;
+      background: #a3e635;
     }
     &.-junket {
-      background: #00482d;
+      background: #a3e635;
     }
     &.-junket:before {
-      background: #52ae85;
+      background: #a3e635;
     }
     &:before {
       @include wh(100%, 9px);
-      background: #bc2424;
+      background: #a3e635;
     	content: "";
     	display: block;
     	position: absolute;
     	top: 0;
     }
     // > div i { background-position: 100%;  }
-    span { color: #fff; font-weight: bold; }
+    > div i { filter: brightness(0); }
+    span { color: #0c0d0f; font-weight: bold; }
   }
   &.-baccarat { width: 260px; }
   &.-othergames { width: 270px; }
@@ -174,7 +176,7 @@
     position: relative;
     overflow: hidden;
     span {
-      color: #fff;
+      color: #0c0d0f;
       display: block;
     	// display: inline-block;
     	// vertical-align: middle;
@@ -197,9 +199,9 @@
 
   .comingsoon {
     @include transform(translateX(-50%));
-  	background: #cf2f1f;
-  	border: 1px solid #9c2a20;
-  	color: #fff;
+  	background: #a3e635;
+  	border: 1px solid #84cc16;
+  	color: #0c0d0f;
   	display: block;
   	font: italic normal 12px ArvoItalic;
   	padding: 4px 4px;
@@ -211,8 +213,8 @@
 
   .new {
     @include transform(translateX(-50%));
-  	background: #f2e384;
-  	border: 1px solid #ccae66;
+  	background: #d3d8df;
+  	border: 1px solid #aeb4bc;
   	color: #000;
   	display: block;
   	font: italic normal 12px ArvoItalic;
@@ -225,10 +227,10 @@
 
 // themedgames
 .header-game__items.-othergames {
-  &:hover { background: #880e4f;
+  &:hover { background: #1e2228;
     &:before {
       @include wh(100%, 9px);
-      background: #c2185b;
+      background: #a3e635;
       content: "";
       display: block;
       position: absolute;
@@ -240,40 +242,40 @@
     span { font-weight: bold; }
   }
   &.active {
-    background: #880e4f;
+    background: #a3e635;
     // > div i { background-position: 100%;  }
     span { font-weight: bold; }
   }
   &:before {
-    background-color: #c2185b;
+    background-color: #a3e635;
   }
 }
 
 .header-game__items.-reelgames {
-  &:hover { background: #f57c00;
+  &:hover { background: #1e2228;
     &:before {
       @include wh(100%, 9px);
-      background: #ffb74e;
+      background: #a3e635;
       content: "";
       display: block;
       position: absolute;
       top: 0;
     }
-    span { color: #fff; font-weight: bold; }
+    span { color: #0c0d0f; font-weight: bold; }
   }
   &.active {
-    background: #f57c00;
-    &:hover { background: #f57c00; }
+    background: #a3e635;
+    &:hover { background: #a3e635; }
     &:before {
       @include wh(100%, 9px);
-      background: #ffb74e;
+      background: #a3e635;
       content: "";
       display: block;
       position: absolute;
       top: 0;
     }
     > div i { background-position: 100%;  }
-    span { color: #fff; font-weight: bold; }
+    span { color: #0c0d0f; font-weight: bold; }
   }
 }
 
@@ -290,9 +292,9 @@
 }
 .header-game__items.-baccarat {
   &:hover {
-    background: #8c1414;
+    background: #a3e635;
     // > div .ico-livegames { background-position: 100%; }
-    span { color: #fff; font-weight: bold; }
+    span { color: #0c0d0f; font-weight: bold; }
   } //hover
 } //.-baccarat
 
@@ -349,7 +351,7 @@
   span { display: block; }
 }
 .userinfo-dtl__name { color: #fff; font: normal 20px LatoRegular; }
-.userinfo-dtl__holdings { color: #ede080; font: normal 35px/ 33px BebasNeue; }
+.userinfo-dtl__holdings { color: #a3e635; font: normal 35px/ 33px BebasNeue; }
 
 .header__logout {
   @include wh(52px, 72px);
@@ -368,27 +370,27 @@
   }
 
   &.-baccarat {
-    background: #8c1414;
+    background: #1f2228;
     left: 170px;
   }
   &.-othergames {
-    background: #880e4f;
+    background: #1f2228;
     left: 328px;
   }
 
-  &.themedgames { background-color: #880e4f; }
+  &.themedgames { background-color: #1f2228; }
 } //.header-subna
 
 .header-subnav.reelgames {
   display: none;
-  background: #f57c00;
-  .header-subnav__items:hover { background: #d06900 }
-  .header-subnav__items.active { background: #d06900 }
+  background: #1f2228;
+  .header-subnav__items:hover { background: #262a31 }
+  .header-subnav__items.active { background: #262a31 }
 } //.header-subna
 
 .header-subnav.language {
   @include position(absolute, 68px, 148px);
-  background: rgba(31, 32, 33, 0.9);
+  background: rgba(22, 24, 28, 0.9);
   width: 15%;
   padding: 0 5px;
   height: 55px;
@@ -423,7 +425,7 @@
   	text-transform: uppercase;
   	vertical-align: middle;
   	position: relative;
-    &.header-subnav--lbl { @include text-shadow(1px 1px 2px #230505); top: -6px; }
+    &.header-subnav--lbl { @include text-shadow(1px 1px 2px #000000); top: -6px; }
   }
   i {
   	display: inline-block;
@@ -437,7 +439,7 @@
     .header-subnav-nav-.paigow { display: none; }
   }
   // &.active { background: #771111;}
-  &.-paigow.active { background: #771111; }
+  &.-paigow.active { background: #262a31; }
   &.-roulette, &.-redwhite {
     cursor: default;
     &:hover {	background: transparent; }
@@ -445,9 +447,9 @@
   }
   &.-allgames { width: 190px; }
   .comingsoon, .new {
-    background: #cf2f1f;
-    border: 1px solid #9c2a20;
-    color: #fff;
+    background: #a3e635;
+    border: 1px solid #84cc16;
+    color: #0c0d0f;
     display: table;
     font: italic normal 13px ArvoItalic;
     padding: 0 6px;
@@ -457,8 +459,8 @@
     right: 16px;
   }
   .new {
-    background: #f1e382;
-    border: 1px solid #ccae66;
+    background: #d3d8df;
+    border: 1px solid #aeb4bc;
     color: #000;
     // top: 18px;
   }
@@ -558,7 +560,7 @@
 } //.header-subnav__sort
 
 .header-subnav-nav {
-  background: #771111;
+  background: #262a31;
   display: none;
   position: absolute;
   height: 50px;
@@ -566,7 +568,7 @@
   left: 0;
 
   &.-paigow {
-    background: #771111;
+    background: #262a31;
   }
 } //header-subnav-nav
 
@@ -584,7 +586,7 @@
     }
   } // hoverable
   span {
-    color: #bb8887;
+    color: #9aa0a8;
     &:first-child {
       @include transform(translateY(-50%));
       top: 50%;
@@ -682,7 +684,8 @@
 
 .header-main-mb {
   @include wh(100%, 97px);
-  background: #1f2021;
+  background: #000000;
+  box-shadow: inset 0 -1px 0 #22262c;
   display: block;
   position: relative;
   overflow: hidden;
@@ -690,7 +693,7 @@
 
 .header-logo-mb {
   @include wh(95px, inherit);
-  background: #f1cf87;
+  background: #000000;
   display: block;
   float: left;
   position: relative;
@@ -701,8 +704,8 @@
     @include wh(77px, 106px);
     @include box-shadow(0px 0px 35px 0px rgba(0,0,0,0.75));
     @include transform(rotate(22deg));
-    background: #f1cf87;
-    // border-top: 98px solid #f1cf87;
+    background: #000000;
+    // border-top: 98px solid #000000;
     // border-right: 40px solid transparent;
     display: block;
     position: absolute;
@@ -713,7 +716,7 @@
 
   > div {
     @include wh(100%, 100%);
-    background: #f1cf87;
+    background: #000000;
     display: block;
     position: relative;
   }
@@ -736,7 +739,7 @@
 
 .header-nav-mb__items {
   @include wh(130px, inherit);
-  // background: #8c1414;
+  // background: #a3e635;
   display: block;
   float: left;
   position: relative;
@@ -748,10 +751,11 @@
   }
 
   &.active {
-    i { background-position: 100% }
-    &.-livegames-mb { background: #8c1414; }
-    &.-themed-mb { background: #880e4f; }
-    &.-reel-mb { background: #f57c00; }
+    i { background-position: 100%; filter: brightness(0); }
+    span { color: #0c0d0f; text-shadow: none; }
+    &.-livegames-mb { background: #a3e635; }
+    &.-themed-mb { background: #a3e635; }
+    &.-reel-mb { background: #a3e635; }
   }
 
   > div {
@@ -762,7 +766,7 @@
   }
 
   span {
-    @include text-shadow(1px 1px 2px #230505);
+    @include text-shadow(1px 1px 2px #000000);
     color: #fff;
     display: block;
     font: bold 18px "ArvoRegular";
@@ -772,8 +776,8 @@
     width: 100%;
 
     &.comingsoon-mb {
-      background: #cf2f1f;
-      color: #fff;
+      background: #a3e635;
+      color: #0c0d0f;
       display: block;
       font: italic normal 17px "TimesNewRoman";
       line-height: 1;
@@ -842,7 +846,7 @@
   overflow: hidden;
 
   span {
-    color: #ede080;
+    color: #a3e635;
     display: block;
     font: normal 34px BebasNeue;
     line-height: 1;
@@ -916,21 +920,21 @@
       padding: 1px 4px;
     }
     &.new-mb {
-      background: #f1e382;
+      background: #d3d8df;
       color: #000 !important;
     }
     &.soon-mb {
-      background: #cf2f1f;
-      color: #fff;
+      background: #a3e635;
+      color: #0c0d0f;
     }
   }
 } //.header-sub-mb__item
 
 .-livegames-sub {
-  background: #8c1415;
+  background: #1f2228;
   display:block;
   .header-sub-mb__items {
-    &.active { background: #781112; }
+    &.active { background: #262a31; }
     span {
       color: #fff;
     }
@@ -938,9 +942,9 @@
 } //.-livegames-sub
 
 .-themedgames-sub {
-  background: #880e4f;
+  background: #1f2228;
   .header-sub-mb__items {
-    &.active { background: #61103b; }
+    &.active { background: #262a31; }
     span {
       color: #fff;
     }
@@ -948,11 +952,11 @@
 } //.-livegames-sub
 
 .-reelgames-sub {
-  background: #f67c01;
+  background: #1f2228;
   .header-sub-mb__items {
-    &.active { background: #d06900; }
+    &.active { background: #262a31; }
     span {
-      color: #fffae0;
+      color: #ffffff;
     }
   }
 } //.-reelgames-sub
@@ -960,13 +964,13 @@
 .header-subnav-mb {
   @extend %cf;
   @include transform(translate3d(0,0,0));
-  background: #781112;
+  background: #262a31;
   height: 68px;
   display: none;
   left: 0;
   top: 68px;
   position: absolute;
-  .-paigow-mb & { background: #781112; }
+  .-paigow-mb & { background: #262a31; }
 } //header-subnav-mb
 
 .header-subnav-mb__items {
@@ -986,7 +990,7 @@
     &.subnav--lbl {
       @include transform(translateY(-50%));
       @include text-shadow(1px 1px 2px #000);
-      color: #bb898a;
+      color: #9aa0a8;
       top: 50%;
     }
   }
@@ -1015,10 +1019,10 @@
   .-admin-btn {
     width: 200px;
     height: 46px;
-    background:linear-gradient(to bottom, #fdf09e 30%, #9f8e52 80%, #fdf09e 150%);
-    -webkit-background:linear-gradient(to bottom, #fdf09e 30%, #9f8e52 80%, #fdf09e 150%);
-    -moz-background:linear-gradient(to bottom, #fdf09e 30%, #9f8e52 80%, #fdf09e 150%);
-    -o-background:linear-gradient(to bottom, #fdf09e 30%, #9f8e52 80%, #fdf09e 150%);
+    background:linear-gradient(to bottom, #a3e635 30%, #a3e635 80%, #a3e635 150%);
+    -webkit-background:linear-gradient(to bottom, #a3e635 30%, #a3e635 80%, #a3e635 150%);
+    -moz-background:linear-gradient(to bottom, #a3e635 30%, #a3e635 80%, #a3e635 150%);
+    -o-background:linear-gradient(to bottom, #a3e635 30%, #a3e635 80%, #a3e635 150%);
     border-radius: 10px;
     text-align: center;
     margin-top: 13px;
@@ -1039,7 +1043,7 @@
     position: relative;
     overflow: hidden;
     span {
-      color: #000;
+      color: #0c0d0f;
       display: block;
       white-space: nowrap;
       position: relative;
@@ -1055,7 +1059,8 @@ body.mb.newdesign {
     @include cf();
     width: 100%;
     height: 105px;
-    background: #1f2021;
+    background: #000000;
+  box-shadow: inset 0 -1px 0 #22262c;
     display: block;
     position: relative;
     overflow: hidden;
@@ -1137,14 +1142,14 @@ body.mb.newdesign {
   // Common
   .header-content {
     .header-logo-mb {
-      @include bg-gradient(lr3, #d8bd69, #f1e283, #d8bd69);
+      @include bg-gradient(lr3, #000000, #000000, #000000);
       > div {
-        @include bg-gradient(lr3, #d8bd69, #f1e283, #d8bd69);
+        @include bg-gradient(lr3, #000000, #000000, #000000);
       }
       &:before {
         @include wh(40px, 116px);
         @include transform(rotate(20deg));
-        background: #d9bf6a;
+        background: #000000;
         top: -14px;
         right: -22px;
       }
@@ -1160,9 +1165,9 @@ body.mb.newdesign {
       margin: 0;
     }
 
-    .-baccarat-mb.active { background: #8c1415; }
-    .-others-mb.active { background: #890e4f; }
-    .-reel-mb.active { background: #f67c01; }
+    .-baccarat-mb.active { background: #a3e635; }
+    .-others-mb.active { background: #a3e635; }
+    .-reel-mb.active { background: #a3e635; }
 
 
     .ico-baccarat-mb {

@@ -3,7 +3,7 @@
   height: 182px;
   display: block;
   z-index: 1;
-  // border-top: 1px solid #2b2b2b;
+  // border-top: 1px solid #262a31;
   overflow: hidden;
   pointer-events: auto;
 
@@ -12,7 +12,7 @@
       content: "";
       @include wh(0, 0);
       @include position(absolute, null, null, 0, 1px);
-      border-bottom: 50px solid #ffd67a;
+      border-bottom: 50px solid #d3d8df;
       border-right: 50px solid transparent;
       display: inline-block;
       position: absolute;
@@ -28,7 +28,7 @@
       @include vm();
       @include wh(100px, 100px);
       @include bradius(all, 50%);
-      @include border(all, 1px solid #ffd67a);
+      @include border(all, 1px solid #d3d8df);
       background: rgba(0, 0, 0, 0.5);
       &::before {
         content: "";
@@ -43,7 +43,7 @@
       @include transform(translateY(-50%));
       @include wh(100px, 100px);
       @include bradius(all, 50%);
-      @include border(all, 1px solid #ffd67a);
+      @include border(all, 1px solid #d3d8df);
       background: rgba(0, 0, 0, 0.5);
       display: none;
       cursor: pointer;
@@ -62,11 +62,11 @@
   }
 
   .game-con {
-    border-top: 1px solid #2b2b2b;
+    border-top: 1px solid #262a31;
     display: none;
     height: inherit;
     display: inline-block;
-    background: rgba(22, 22, 22, 0.9);
+    background: rgba(22, 24, 28, 0.9);
     position: relative;
     margin-left: 160px;
     top: 0;
@@ -78,11 +78,12 @@
     height: 36px;
     font: 15px LatoBold;
     @include bradius(all, 10px);
-    @include bg-gradient(tb2, #f1e382, #ffd474);
+    @include bg-gradient(tb2, #a3e635, #a3e635);
+    color: #0c0d0f;
     border: 0;
     cursor: pointer;
     &:hover {
-      @include bg-gradient(tb2, #d6ca76, #dcb660);
+      @include bg-gradient(tb2, #8fce24, #8fce24);
     }
     &.password {
       background: #fff;
@@ -243,7 +244,8 @@
   }
 
   .enter, .enter--users, .createroom--agent, .enter--agent {
-    @include background-image(linear-gradient(to bottom, #fff39f 20%, #9e8d55 70%, #9f8f53 87%, #e9d98b 100%));
+    @include background-image(linear-gradient(to bottom, #a3e635 20%, #a3e635 70%, #a3e635 87%, #a3e635 100%));
+    color: #0c0d0f;
 
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -258,7 +260,7 @@
     font: bold 18px lato;
     @include breakpoint(hoverable) {
       &:hover {
-        @include background-image(linear-gradient(to bottom, #dad18a 20%, #807245 70%, #7b6f40 87%, #c7ba79 100%));
+        @include background-image(linear-gradient(to bottom, #8fce24 20%, #8fce24 70%, #8fce24 87%, #8fce24 100%));
       }
     } // hoverable
 
@@ -415,18 +417,18 @@
   z-index: 10;
   display: none;
   .maintenance-header {
-    background: #141414;
+    background: #1e2228;
     height: 35px;
     border-top-left-radius: 10px;
     p {
-      color: #f1e382;
+      color: #d3d8df;
       font: 20px LatoBold;
       padding: 5px;
       margin-left: 15px;
     }
   }
   .maintenance-body {
-    background: #2b2b2b;
+    background: #16181c;
     height: 180px;
     position: relative;
 
@@ -449,7 +451,7 @@
 
     .maintext {
       @include position(absolute, 38px, null, null, 17%);
-      color: #f1e382;
+      color: #d3d8df;
       font: 21px LatoBold;
     }
 
@@ -494,7 +496,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #2b2b2b;
+  background-color: #262a31;
   @include transition(.4s);
   border-radius: 34px;
 
@@ -505,7 +507,7 @@
     width: 16px;
     left: 22px;
     bottom: 4px;
-    background-color: #f1e383;
+    background-color: #a3e635;
     @include transition(.4s);
     border-radius: 50%;
   }
@@ -535,7 +537,7 @@
   display: none;
   padding: 7px 10px;
   /* word-wrap: normal; */
-  background: rgba(22, 22, 22, 0.9);
+  background: rgba(22, 24, 28, 0.9);
   white-space: nowrap;
   /* border-radius: 5px; */
   border: 1px solid #ce1d1d;
@@ -608,7 +610,7 @@
 .btn-room-close {
   @include wh(50px, 50px);
   @include bradius(all, 50%);
-  background: #d32f2e;
+  background: #a3e635;
   position: absolute;
   right: 15px;
   top: 10px;
@@ -641,7 +643,7 @@ body.mb.newdesign {
     .game-con-mobile {
       display: none;
       @include wh(inherit, inherit);
-      background: rgba(22, 22, 22, 0.9);
+      background: rgba(22, 24, 28, 0.9);
       position: relative;
     }
 
@@ -654,7 +656,8 @@ body.mb.newdesign {
       @include wh(295px, 68px);
       font: 30px LatoBold;
       @include bradius(all, 20px);
-      @include bg-gradient(tb3, #fff29f, #bbb068, #ffef87);
+      @include bg-gradient(tb3, #a3e635, #a3e635, #a3e635);
+      color: #0c0d0f;
       border: 0;
       cursor: pointer;
     }

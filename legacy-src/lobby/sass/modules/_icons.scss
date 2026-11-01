@@ -116,7 +116,7 @@
 	.ico-language {
 		@include wh(50px, 50px);
 		border-radius: 50%;
-		border: 2px solid #f0e282;
+		border: 2px solid #d3d8df;
 		background-position: 2px 2px;
 		right: 6px;
 		bottom: -3px;
@@ -127,7 +127,7 @@
 .language-outline {
   	@include wh(50px, 50px);
     border-radius: 50%;
-    border: 2px solid #f0e282;
+    border: 2px solid #d3d8df;
     position: absolute;
     right: 23px;
     bottom: 0px;
@@ -198,7 +198,7 @@
 	background-size: contain;
 	border-radius: 50%;
 }
-.ico-lang.active { border: 2px solid #f0e282; }
+.ico-lang.active { border: 2px solid #d3d8df; }
 .ico-lang:not(:last-child) { margin-right: 6px; }
 
 .ico-lang--en { background-image: url("/img/sidebar/language/en.png"); }
@@ -299,7 +299,7 @@
 .ico-minus, .ico-plus {
 	@include wh(20px, 20px);
 	@include bradius(all, 50%);
-	background-color: #e4b241;
+	background-color: #d3d8df;
 	display: inline-block;
 	position: relative;
 	vertical-align: middle;

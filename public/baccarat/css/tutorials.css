@@ -21,7 +21,7 @@
 }
 .tutorial-modal__header {
   font: 20px lato-black;
-  color: #F1E382;
+  color: #d3d8df;
   padding: 3.6em 0 0.4em 0;
   position: relative;
 }
@@ -50,7 +50,7 @@
   width: 50%;
   height: 62px;
   float: left;
-  background: #C7BA6C;
+  background: #d3d8df;
   color: #000;
   font: 18px lato-black;
   text-align: center;
@@ -58,8 +58,8 @@
   cursor: pointer;
 }
 .tutorial-modal__button.-start {
-  background: #68A12E;
-  color: #fff;
+  background: #a3e635;
+  color: #0c0d0f;
 }
 .tutorial-items {
   margin-top: 24px;
@@ -71,7 +71,7 @@
   position: relative;
 }
 .tutorial-item__header {
-  color: #F1E382;
+  color: #d3d8df;
   font: 20px lato-black;
   padding: 16px 20px;
 }
@@ -113,7 +113,7 @@
 
 .tutorial-items .tutorial-item:after {
   content: '';
-  background: #F1E382;
+  background: #d3d8df;
   width: 100%;
   height: 1px;
   display: block;
@@ -123,7 +123,7 @@
 }
 .tutorial-items.-lower .tutorial-item:before {
   content: '';
-  background: #F1E382;
+  background: #d3d8df;
   width: 1px;
   height: 103px;
   display: block;
@@ -257,7 +257,7 @@
 }
 .junketMode .tutorial-item.-balancebet::before{
   content: '';
-  background: #F1E382;
+  background: #d3d8df;
   width: 1px;
   height: 238px;
   display: block;

@@ -9,7 +9,7 @@ export default () => {
 
       this.visible = window.tutorial_enabled;
       this.tut_bg = new createjs.Shape();
-      this.tut_bg.graphics.beginFill('rgba(22, 22, 22, 0.9)').drawRect(0,this.context.stage.baseWidth - 531.8,this.context.stage.baseWidth, 155);
+      this.tut_bg.graphics.beginFill('rgba(22, 24, 28, 0.9)').drawRect(0,this.context.stage.baseWidth - 531.8,this.context.stage.baseWidth, 155);
       this.tut_bg.visible = this.context.portrait;
       this.addChild(this.tut_bg)
 

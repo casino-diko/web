@@ -21,14 +21,14 @@ export default (self) => {
 			this.flop_bet_button = new createjs.Container();
 
 			let c_button = new createjs.Shape();
-			c_button.graphics.beginLinearGradientFill(["#279144","#37b14a","#279144"],[0,0.5,1], 0,0,130,0,170,0).drawCircle(0,0,58);
+			c_button.graphics.beginLinearGradientFill(["#84cc16","#a3e635","#84cc16"],[0,0.5,1], 0,0,130,0,170,0).drawCircle(0,0,58);
 
 			let check_1 = new createjs.Shape();
-			check_1.graphics.beginFill("#fff").drawRoundRect(-26,-8,70,13,4);
+			check_1.graphics.beginFill("#0c0d0f").drawRoundRect(-26,-8,70,13,4);
 			check_1.rotation = -40;
 
 			let check_2 = new createjs.Shape();
-			check_2.graphics.beginFill("#fff").drawRoundRect(-26,-35,13,40,4);
+			check_2.graphics.beginFill("#0c0d0f").drawRoundRect(-26,-35,13,40,4);
 			check_2.rotation = -40;
 
 			check_2.scaleX = check_1.scaleX = 0.88;
@@ -36,7 +36,7 @@ export default (self) => {
 			check_1.x = check_2.x = 2;
 			check_1.y = check_2.y = -8;
 
-			let text = new createjs.Text("RAISE" , "16px helvetica", "#fff");
+			let text = new createjs.Text("RAISE" , "16px helvetica", "#0c0d0f");
 			text.textAlign = "center";
 			text.y = 15;
 
@@ -64,7 +64,7 @@ export default (self) => {
 
 			// === turn bet button
 
-			let text2 = new createjs.Text("CALL" , "16px helvetica", "#fff");
+			let text2 = new createjs.Text("CALL" , "16px helvetica", "#0c0d0f");
 			text2.textAlign = "center";
 			text2.y = 15;
 
@@ -88,7 +88,7 @@ export default (self) => {
 
 			// === river bet button
 
-			let text3 = new createjs.Text("CALL" , "16px helvetica", "#fff");
+			let text3 = new createjs.Text("CALL" , "16px helvetica", "#0c0d0f");
 			text3.textAlign = "center";
 			text3.y = 15;
 

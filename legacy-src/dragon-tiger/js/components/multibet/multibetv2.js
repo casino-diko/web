@@ -42,12 +42,12 @@ export default() => {
 			// multibetListen(this);
 
 			this.bar = new createjs.Shape();
-			this.bar.graphics.beginFill('rgba(25, 25, 25, 0.9)').drawRect(0,0,355,this.context.stage.baseHeight);
+			this.bar.graphics.beginFill('rgba(22, 24, 28, 0.92)').drawRect(0,0,355,this.context.stage.baseHeight);
 			this.bar.cache(0,0,355,this.context.stage.baseHeight);
 			this.bar.x = -355
 
 			this.bar2 = new createjs.Shape();
-			this.bar2.graphics.beginFill('rgba(25, 25, 25, 0.9)').drawRect(0,0,355,this.context.stage.baseHeight);
+			this.bar2.graphics.beginFill('rgba(22, 24, 28, 0.92)').drawRect(0,0,355,this.context.stage.baseHeight);
 			this.bar2.cache(0,0,355,this.context.stage.baseHeight);
 			this.bar2.x = this.context.stage.baseWidth;
 			this.addChild(this.bar, this.bar2);

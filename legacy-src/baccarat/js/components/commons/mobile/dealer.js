@@ -20,7 +20,7 @@ export default() => {
 		this.addChild(this.bg);
 
 		this.imgBg = new createjs.Shape();
-		this.imgBg.graphics.beginFill("#d12e2e").drawCircle(0, 0, 35);
+		this.imgBg.graphics.beginFill("#a3e635").drawCircle(0, 0, 35);
 		this.imgBg.x = 44;
 		this.imgBg.y = 39;
 		this.addChild(this.imgBg);
@@ -52,6 +52,8 @@ export default() => {
 		this.setRound(window.round_id)
 	},
 	setDealer(dealer) {
+		// the dealer's pose behind the betting table (public/shared/table-dealer)
+		if (window.tgDealer && dealer) window.tgDealer.show(dealer.image);
 		let image = new Image();
 		image.src = dealer.image;
 		this.dealer_image.image = image;

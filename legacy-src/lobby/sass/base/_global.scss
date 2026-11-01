@@ -73,16 +73,16 @@ html, body {
 .canvas-container, .super-container {
 
   &.baccarat {
-    background: #3f0102;
+    background: #0c0d0f;
   }
   &.othergames {
-    background: #3d0123;
+    background: #0c0d0f;
   }
   &.junket {
-    background: #062818;
+    background: #0c0d0f;
   }
   &.reelgames {
-    background: #8d3607;
+    background: #0c0d0f;
   }
   // background: url('/img/main_bg.jpg');
   // background-size: cover;
@@ -193,7 +193,7 @@ html, body {
 
 .maintenanceBg {
   @include wh(100%, 100%);
-  background: #cf2112;
+  background: #0c0d0f;
 }//maintenanceBg
 
 .nihtanLogo {
@@ -233,7 +233,7 @@ html, body {
 .mainText{
   font: normal 50px Arial;
   text-align: center;
-  color: #ffb94a;
+  color: #d3d8df;
   position: fixed;
   top: 62%;
   width: 100%;
@@ -366,13 +366,13 @@ span {
   &::-webkit-scrollbar{	width: 6px; }
   &::-webkit-scrollbar-track{
   	width: 4px;
-  	background: #1d1d1d;
-  	box-shadow:inset #4d4d4d 2px 0px 0px, inset #4d4d4d -2px 0px 0px;
+  	background: #16181c;
+  	box-shadow:inset #262a31 2px 0px 0px, inset #262a31 -2px 0px 0px;
   }
   &::-webkit-scrollbar-thumb{
   	border-radius: 10px;
   	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  	background-color: #fff;
+  	background-color: #d3d8df;
   }
 }
 
@@ -460,7 +460,7 @@ body.mb {
     left: 50%;
     margin-left: -640px;
     margin-top: -360px;
-    background: url(/img/Lobby-MOBILE_v2.1-update/livegames-bg-mobile.png);
+    background: #0c0d0f;
   }
   #lobby {
     display: block;
@@ -483,7 +483,7 @@ body.mb {
     position: relative;
     overflow: hidden;
     top: 0;
-    background: url("/img/livegames-bg-mobile.png");
+    background: #0c0d0f;
     transform: none;
     background-position: 0px 0px;
     background-size: cover;
@@ -500,7 +500,7 @@ body.mb {
     overflow: hidden;
     top: 168px;
     z-index: 99;
-    background: url("/img/livegames-bg-mobile.png");
+    background: #0c0d0f;
     transform: none;
     background-position: 0px 0px;
     background-size: cover;

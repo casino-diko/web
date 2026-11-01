@@ -272,25 +272,25 @@ export default () => {
             let glowShape = new createjs.Shape();
 
             glowShape.graphics.f('rgba(0,0,0,0.01)').drawRect(0, 0, prop.width, prop.height)
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.4], 0, 0, -30, -30).moveTo(- 30, -30).drawRoundRectComplex(-30,-30, 30, 30, 30 ,0 ,0 ,0)
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.8], 0, 0, 0, -30).moveTo(0, -30).drawRect(0,-30, prop.width, 30)
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.4], prop.width, 0, prop.width + 30, - 30).moveTo(prop.width, -30).drawRoundRectComplex(prop.width,-30, 30, 30, 0 ,30 ,0 ,0)
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.8], prop.width, 0, prop.width + 30, 0).moveTo(prop.width, 0).drawRect(prop.width, 0, 30,prop.height)
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.4], prop.width, prop.height, prop.width + 30, prop.height + 30).moveTo(prop.width, prop.height).drawRoundRectComplex(prop.width,prop.height, 30, 30, 0 ,0, 30 ,0)
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.8], 0, prop.height, 0, prop.height + 30).moveTo(0, prop.height).drawRect(0, prop.height, prop.width, 30)
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.4], 0, prop.height, -30, prop.height + 30).moveTo(-30, prop.height).drawRoundRectComplex(-30,prop.height, 30, 30, 0 ,0 ,0 ,30)
-            glowShape.graphics.lf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.8], 0, 0, -30, 0).moveTo(-30, 0).drawRect(-30,0, 30, prop.height);
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.4], 0, 0, -30, -30).moveTo(- 30, -30).drawRoundRectComplex(-30,-30, 30, 30, 30 ,0 ,0 ,0)
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.8], 0, 0, 0, -30).moveTo(0, -30).drawRect(0,-30, prop.width, 30)
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.4], prop.width, 0, prop.width + 30, - 30).moveTo(prop.width, -30).drawRoundRectComplex(prop.width,-30, 30, 30, 0 ,30 ,0 ,0)
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.8], prop.width, 0, prop.width + 30, 0).moveTo(prop.width, 0).drawRect(prop.width, 0, 30,prop.height)
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.4], prop.width, prop.height, prop.width + 30, prop.height + 30).moveTo(prop.width, prop.height).drawRoundRectComplex(prop.width,prop.height, 30, 30, 0 ,0, 30 ,0)
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.8], 0, prop.height, 0, prop.height + 30).moveTo(0, prop.height).drawRect(0, prop.height, prop.width, 30)
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.4], 0, prop.height, -30, prop.height + 30).moveTo(-30, prop.height).drawRoundRectComplex(-30,prop.height, 30, 30, 0 ,0 ,0 ,30)
+            glowShape.graphics.lf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.8], 0, 0, -30, 0).moveTo(-30, 0).drawRect(-30,0, 30, prop.height);
 
             if(prop.radius)
             {   // for rounded corners
                 //-- left top
-                glowShape.graphics.rf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.8], prop.radius[0] * 0.5, prop.radius[0] * 0.5,0, 0, 0, 30)
+                glowShape.graphics.rf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.8], prop.radius[0] * 0.5, prop.radius[0] * 0.5,0, 0, 0, 30)
                 .moveTo(0, 0).lineTo(prop.radius[0], 0).curveTo(prop.radius[0] * 0.2, prop.radius[0] * 0.2, 0, prop.radius[0]).closePath();
-                glowShape.graphics.rf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.8], prop.width - prop.radius[1] * 0.5, prop.radius[1] * 0.5,0, prop.width, 0, 30)
+                glowShape.graphics.rf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.8], prop.width - prop.radius[1] * 0.5, prop.radius[1] * 0.5,0, prop.width, 0, 30)
                 .moveTo(prop.width - prop.radius[1], 0).curveTo(prop.width - prop.radius[1] * 0.2, prop.radius[1] * 0.2, prop.width, prop.radius[1]).lineTo(prop.width, 0).closePath();
-                glowShape.graphics.rf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.8], prop.width - prop.radius[2] * 0.5, prop.height - prop.radius[2] * 0.5,0, prop.width, prop.height, 30)
+                glowShape.graphics.rf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.8], prop.width - prop.radius[2] * 0.5, prop.height - prop.radius[2] * 0.5,0, prop.width, prop.height, 30)
                 .moveTo(prop.width, prop.height - prop.radius[2]).curveTo(prop.width - prop.radius[2] * 0.2, prop.height - prop.radius[2] * 0.2, prop.width - prop.radius[2], prop.height).lineTo(prop.width, prop.height).closePath();
-                glowShape.graphics.rf(['rgba(241, 227, 130, 0.6)','rgba(160, 152, 92, 0.05)'], [0, 0.8], prop.radius[3] * 0.5, prop.height - prop.radius[3] * 0.5,0, 0, prop.height, 30)
+                glowShape.graphics.rf(['rgba(211, 216, 223, 0.6)','rgba(154, 163, 174, 0.05)'], [0, 0.8], prop.radius[3] * 0.5, prop.height - prop.radius[3] * 0.5,0, 0, prop.height, 30)
                 .moveTo(0, prop.height - prop.radius[3]).curveTo(prop.radius[3] * 0.2, prop.height - prop.radius[3] * 0.2, prop.radius[3], prop.height).lineTo(0,prop.height).closePath();
             }
 

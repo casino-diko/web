@@ -133,7 +133,7 @@ export default(links) => {
 				if (i == 0) {
 					this.betRecordsTab[i].graphics.clear().beginFill(this.context.theme_color[window.theme].bet_record_tab_act);
 					this.betRecordstabIcon[i].gotoAndPlay("active");
-					this.betRecordstabLbl[i].color = "#ff9b28";
+					this.betRecordstabLbl[i].color = "#a3e635";
 				}
 
 				this.addChild(this.betRecordsTab[i], this.betRecordstabIcon[i], this.betRecordstabLbl[i]);
@@ -149,7 +149,7 @@ export default(links) => {
 
 						this.betRecordsTab[i].graphics.clear().beginFill(this.context.theme_color[window.theme].bet_record_tab_act);
 						this.betRecordstabIcon[i].gotoAndPlay("active");
-						this.betRecordstabLbl[i].color = "#ff9b28";
+						this.betRecordstabLbl[i].color = "#a3e635";
 
 						// Chande data on display
 						if (this.betRecordsTab[i].name == "transfer-"+window.theme) {
@@ -288,7 +288,7 @@ export default(links) => {
 
 					this.betRecordsTab[0].graphics.clear().beginFill(this.context.theme_color[window.theme].bet_record_tab_act);
 					this.betRecordstabIcon[0].gotoAndPlay("active");
-					this.betRecordstabLbl[0].color = "#ff9b28";
+					this.betRecordstabLbl[0].color = "#a3e635";
 
 					this._transferLogsCon.visible = true;
 					this._betLogsCon.visible = false;
@@ -627,7 +627,7 @@ export default(links) => {
           voidContainer.x = 10;
 
           let voidShape = new createjs.Shape();
-          voidShape.graphics.beginFill("#262525").drawRect(0, -10, 980, 36);
+          voidShape.graphics.beginFill("#1e2228").drawRect(0, -10, 980, 36);
           voidShape.setBounds(0, -10, 980, 36);
           voidContainer.addChild(voidShape);
 

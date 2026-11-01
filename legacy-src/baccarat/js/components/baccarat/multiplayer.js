@@ -368,7 +368,7 @@ export default (opposite_bet) => {
 				this[`user_${users[x]}_name`].x = user_icons[`user_${users[x]}_icon`].x  + 24;
 				this.addChild(this[`user_${users[x]}_name`]);
 
-				this[`user_${users[x]}_bet`] = new createjs.Text("","18px bebas-regular","#d8bd69");
+				this[`user_${users[x]}_bet`] = new createjs.Text("","18px bebas-regular","#a3e635");
 				this[`user_${users[x]}_bet`].y = 720;
 				this[`user_${users[x]}_bet`].x = this[`user_${users[x]}_name`].x + 155;
 				

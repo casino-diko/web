@@ -5,7 +5,7 @@ let instance = null;
 export default (config, type) => {
 	instance = instance || new blu.Component({
 		bet_areas: [],
-		default_color :"#fff",
+		default_color :"#d3d8df",
 		hit_color :"rgba(255, 58, 58, 0.4)",
 		fill_color : "rgba(255,255,255,0.1)",
 
@@ -15,8 +15,8 @@ export default (config, type) => {
 		side_bet_2 : "#558b2f",
 		side_bet_1 : "#454c33",
 
-		bonus_color : "#ddc671",
-		bonusplus_color : "#ddc671",
+		bonus_color : "#d3d8df",
+		bonusplus_color : "#d3d8df",
 
 		flop_area : null,
 		turn_area : null,
@@ -617,10 +617,10 @@ export default (config, type) => {
 
 			let betCon = new createjs.Container();
 			let ante = this.makeAnte();
-			ante.outer.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+			ante.outer.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 
 			let bonus = this.makeBonus();
-			bonus.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+			bonus.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 
 			betCon.addChild(bonus, bonus.board_img, ante, ante.board_img);
 			return betCon;
@@ -629,7 +629,7 @@ export default (config, type) => {
 		cloneFlop(){
 			let flopCon = new createjs.Container();
 			let flop = this.makeFlop();
-			flop.outer.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+			flop.outer.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 
 			flopCon.addChild(flop, flop.flop_label);
 			return flopCon;
@@ -638,7 +638,7 @@ export default (config, type) => {
 		cloneTurn(){
 			let turnCon = new createjs.Container();
 			let turn = this.makeTurn();
-			turn.outer.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+			turn.outer.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 
 			turnCon.addChild(turn, turn.turn_label);
 			return turnCon;
@@ -647,7 +647,7 @@ export default (config, type) => {
 		cloneRiver(){
 			let riverCon = new createjs.Container();
 			let river = this.makeRiver();
-			river.outer.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+			river.outer.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 
 			riverCon.addChild(river, river.river_label);
 			return riverCon;

@@ -337,7 +337,7 @@ export default (opposite_bet) => {
 				this[`${key}_name`].y = 400 + 250 + 55
 				this.addChild(this[`${key}_name`]);
 
-				this[`${key}_bet`] = new createjs.Text("", "20px bebas-regular", "#eddd7f");
+				this[`${key}_bet`] = new createjs.Text("", "20px bebas-regular", "#a3e635");
 				this[`${key}_bet`].x = this[`${key}_name`].x - 20;
 				this[`${key}_bet`].y = this[`${key}_name`].y + this[`${key}_name`].getMeasuredHeight();
 				this.addChild(this[`${key}_bet`]);

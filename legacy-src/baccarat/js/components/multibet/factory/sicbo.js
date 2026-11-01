@@ -332,11 +332,11 @@ let sicbo = {
 		  _target.eye_view_container.addChild(eye_bg)
 
 		  _target.size_button = new createjs.Shape();
-		  _target.size_button.graphics.beginLinearGradientFill(["#8f7d46","#bba35b","#8f7d46"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
+		  _target.size_button.graphics.beginLinearGradientFill(["#84cc16","#a3e635","#84cc16"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
 		  _target.size_button.y = 7;
 		  _target.size_button.x = 5;
 		  _target.eye_view_container.addChild(_target.size_button)
-		  _target.size_button.text =  new createjs.Text(window.language.multibet_sicbo.bigsmallcaps, window.language.locale == "zh" ? "bold 15px arial" : "bold 12px arial", "#fff");
+		  _target.size_button.text =  new createjs.Text(window.language.multibet_sicbo.bigsmallcaps, window.language.locale == "zh" ? "bold 15px arial" : "bold 12px arial", "#0c0d0f");
 		  _target.size_button.text.textAlign = "center";
 		  _target.size_button.text.textBaseline = "middle";
 		  _target.size_button.text.x = button_width/2 + 5;
@@ -347,7 +347,7 @@ let sicbo = {
 		  _target.eye_view_container.addChild(_target.size_button.text);
 
 		  _target.parity_button = new createjs.Shape();
-		  _target.parity_button.graphics.beginLinearGradientFill(["#dcc46e","#dcc46e","#dcc46e"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
+		  _target.parity_button.graphics.beginLinearGradientFill(["#b4bac3","#b4bac3","#b4bac3"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
 		  _target.eye_view_container.addChild(_target.parity_button);
 		  _target.parity_button.x = 5;
 		  _target.parity_button.y = _target.size_button.y + button_height + 8;
@@ -362,7 +362,7 @@ let sicbo = {
 		  _target.eye_view_container.addChild(_target.parity_button.text)
 
 		  _target.sum_button = new createjs.Shape();
-		  _target.sum_button.graphics.beginLinearGradientFill(["#dcc46e","#f9e391","#dcc46e"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
+		  _target.sum_button.graphics.beginLinearGradientFill(["#b4bac3","#d3d8df","#b4bac3"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
 		  _target.sum_button.y = _target.parity_button.y + button_height + 8;
 		  _target.sum_button.x = 5;
 		  _target.eye_view_container.addChild(_target.sum_button);
@@ -377,7 +377,7 @@ let sicbo = {
 		  _target.eye_view_container.addChild(_target.sum_button.text);
 
 		  _target.dice_button = new createjs.Shape();
-		  _target.dice_button.graphics.beginLinearGradientFill(["#dcc46e","#f9e391","#dcc46e"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
+		  _target.dice_button.graphics.beginLinearGradientFill(["#b4bac3","#d3d8df","#b4bac3"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
 		  _target.dice_button.y = _target.sum_button.y + button_height + 8;
 		  _target.dice_button.x = 5;
 		  _target.eye_view_container.addChild(_target.dice_button);
@@ -567,12 +567,12 @@ let sicbo = {
 			let changeButtonState = function(o, e) {
 			  if(o.state == "active") return;
 			  if(e == "hover") {
-				o.text.color = "#fff";
-						o.graphics.clear().beginLinearGradientFill(["#8f7d46","#bba35b","#8f7d46"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
+				o.text.color = "#0c0d0f";
+						o.graphics.clear().beginLinearGradientFill(["#84cc16","#a3e635","#84cc16"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
 			  }
 			  else {
 				o.text.color = "#000";
-						o.graphics.clear().beginLinearGradientFill(["#dcc46e","#f9e391","#dcc46e"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
+						o.graphics.clear().beginLinearGradientFill(["#b4bac3","#d3d8df","#b4bac3"], [0, 0.5, 1], 10, 0, 70, 0, 90, 0).drawRoundRect(0, 0, 70, button_height, 8);
 			  }
 
 			}.bind(this)

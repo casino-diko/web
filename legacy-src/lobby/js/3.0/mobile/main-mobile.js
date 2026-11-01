@@ -1336,9 +1336,7 @@ let main = {
 			let dealerImg = _.find(window.dealerImg, (e) => {return e.id === this.games[x].data.dealerId});
 
 			if(_.isEmpty(dealerImg)) continue;
-	    let dbImage = new Image();
-	    dbImage.src = dealerImg.dealer_image;
-	    this.games[x].dealerImg.image = dbImage;
+	    this.games[x].setDealerImage(dealerImg.dealer_image);
 	    this.games[x].stage.update();
 		}
 	},
@@ -1381,17 +1379,18 @@ let main = {
 	},
 	changeTableHeaderBg(slave) {
 		let headerColor = {
-			main : ['#871a51','#280f1a'],
-			baccarat : ['#970000','#2d0000'],
-			junket : ['#ffd67a','#ad800f']
+			main : '#1e2228',
+			baccarat : '#1e2228',
+			junket : '#1e2228',
+			line : '#a3e635'
 		}
 
 
 		for(let x=0; x < this.games.length; x++) {
 			if(this.games[x].roomdata.length) {
-				this.games[x].header.graphics.beginLinearGradientFill(headerColor.junket, [0,1], 0, 0, 400, 0).drawRoundRect(0, 0, 400, 35, 0);
-				this.games[x].gameName.color = "#000";
-				this.games[x].status.color = "#000";
+				this.games[x].header.graphics.beginFill(headerColor.junket).drawRect(0, 0, 400, 35).beginFill(headerColor.line).drawRect(0, 35 - 2, 400, 2);
+				this.games[x].gameName.color = "#d3d8df";
+				this.games[x].status.color = "#a3e635";
 				if(slave =='supersix') {
 					$(this.games[x].canvasOverlay).prepend('<i class="ico-room-supersix"></i>');
 					if(this.games[x].flippyImg) {
@@ -1404,12 +1403,12 @@ let main = {
 				this.games[x].stage.update();
 			} else {
 				if(this.games[x].data.gameName == "Baccarat") {
-					this.games[x].header.graphics.beginLinearGradientFill(headerColor.baccarat, [0,1], 0, 0, 400, 0).drawRoundRect(0, 0, 400, 35, 0);
+					this.games[x].header.graphics.beginFill(headerColor.baccarat).drawRect(0, 0, 400, 35).beginFill(headerColor.line).drawRect(0, 35 - 2, 400, 2);
 				} else {
-					this.games[x].header.graphics.beginLinearGradientFill(headerColor.main, [0,1], 0, 0, 400, 0).drawRoundRect(0, 0, 400, 35, 0);
+					this.games[x].header.graphics.beginFill(headerColor.main).drawRect(0, 0, 400, 35).beginFill(headerColor.line).drawRect(0, 35 - 2, 400, 2);
 				}
-				this.games[x].gameName.color = "#f1e382";
-				this.games[x].status.color = "#fff";
+				this.games[x].gameName.color = "#d3d8df";
+				this.games[x].status.color = "#a3e635";
 				this.games[x].stage.update();
 			} // end else
 		} // end for
@@ -1603,11 +1602,11 @@ let main = {
 		// Display
 		if (window.config.screen == 'black') {
 			$('#setTheme').addClass('switch-active');
-			$('#setThemeCircle').css({'margin-left': '63px', 'background': '#327e3e'});
+			$('#setThemeCircle').css({'margin-left': '63px', 'background': '#a3e635'});
 		}
 		if (window.config.tutorial == 'true') {
 			$('#setTut').addClass('switch-active');
-			$('#setTutCircle').css({'margin-left': '63px', 'background': '#327e3e'});
+			$('#setTutCircle').css({'margin-left': '63px', 'background': '#a3e635'});
 		}
 		$('.settings-switch-bg').click((e) => {
 			settings.setSwitchToggle(e.currentTarget);

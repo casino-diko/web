@@ -194,7 +194,7 @@ export default() => {
 				this.games[x].addChild(this.games[x].eye_panel_container)
 
 				this.games[x].imgBg = new createjs.Shape();
-				this.games[x].imgBg.graphics.beginFill("#d12e2e").drawCircle(0, 0, 42);
+				this.games[x].imgBg.graphics.beginFill("#a3e635").drawCircle(0, 0, 42);
 				this.games[x].imgBg.x = 64;
 				this.games[x].imgBg.y = 72 + 10;
 				this.games[x].eye_panel_container.addChild(this.games[x].imgBg);
@@ -481,11 +481,11 @@ export default() => {
 				}
 				this.games[x].minimize_btn = new createjs.Container();
 				let min_arrow1 = new createjs.Shape();
-				min_arrow1.graphics.beginFill("#efdf82").drawRoundRect(0,-2,4,20,2.5);
+				min_arrow1.graphics.beginFill("#d3d8df").drawRoundRect(0,-2,4,20,2.5);
 				min_arrow1.rotation = 35;
 				min_arrow1.is_minimize_btn = true;
 				let min_arrow2 = new createjs.Shape();
-				min_arrow2.graphics.beginFill("#efdf82").drawRoundRect(0,0,4,20,2.5);
+				min_arrow2.graphics.beginFill("#d3d8df").drawRoundRect(0,0,4,20,2.5);
 				min_arrow2.rotation = -35;
 				min_arrow2.is_minimize_btn = true;
 				this.games[x].minimize_btn.addChild(min_hit, min_arrow1, min_arrow2);
@@ -1037,11 +1037,11 @@ export default() => {
 							// reset shape and buttons position
 							game.slave_buttons.forEach((button) => {
 								button.x = button.ox;
-								button.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#fff39f", "#c3a240"], [0,1], 0,0,0,15).drawRoundRect(0,0,button.children[0].getBounds().width, 20, 10);
+								button.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#eef1f4", "#9aa1ab"], [0,1], 0,0,0,15).drawRoundRect(0,0,button.children[0].getBounds().width, 20, 10);
 							});
 
 							// == setting degfault ttogle button to classic
-							game.normal_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240", "#fff39f"], [0,1], 0,0,0,15).drawRoundRect(0,0,game.normal_toggle.children[0].getBounds().width, 20, 10);
+							game.normal_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#84cc16", "#bef264"], [0,1], 0,0,0,15).drawRoundRect(0,0,game.normal_toggle.children[0].getBounds().width, 20, 10);
 
 							createjs.Tween.get(game.betareas_container.children[0])
 							.to({
@@ -1081,8 +1081,8 @@ export default() => {
 							if(!game.data.slave.length) return;
 
 							// == setting degfault ttogle button to classic
-							game.poker_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240", "#fff39f"], [0,1], 0,0,0,15).drawRoundRect(0,0,game.poker_toggle.children[0].getBounds().width, 20, 10);
-							game.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#fff39f", "#c3a240"], [0,1], 0,0,0,15).drawRoundRect(0,0,game.bonus_plus_toggle.children[0].getBounds().width, 20, 10);
+							game.poker_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#84cc16", "#bef264"], [0,1], 0,0,0,15).drawRoundRect(0,0,game.poker_toggle.children[0].getBounds().width, 20, 10);
+							game.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#eef1f4", "#9aa1ab"], [0,1], 0,0,0,15).drawRoundRect(0,0,game.bonus_plus_toggle.children[0].getBounds().width, 20, 10);
 
 							game.bonus_plus_toggle.x = game.bonus_plus_toggle.ox;
 							game.poker_toggle.x = game.poker_toggle.ox;
@@ -1146,13 +1146,13 @@ export default() => {
 			if(parentTarget.data.gameName == 'Baccarat') {
 				parentTarget.slave_buttons.forEach((button) => {
 					button.x = button.ox;
-					button.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#fff39f", "#c3a240"], [0,1], 0,0,0,15).drawRoundRect(0,0,button.children[0].getBounds().width, 20, 10);
+					button.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#eef1f4", "#9aa1ab"], [0,1], 0,0,0,15).drawRoundRect(0,0,button.children[0].getBounds().width, 20, 10);
 				});
 			}
 
 			if(parentTarget.data.gameName == 'Poker') {
-				parentTarget.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#fff39f", "#c3a240"], [0,1], 0,0,0,15).drawRoundRect(0,0,parentTarget.bonus_plus_toggle.children[0].getBounds().width, 20, 10);
-				parentTarget.poker_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#fff39f", "#c3a240"], [0,1], 0,0,0,15).drawRoundRect(0,0,parentTarget.poker_toggle.children[0].getBounds().width, 20, 10);
+				parentTarget.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#eef1f4", "#9aa1ab"], [0,1], 0,0,0,15).drawRoundRect(0,0,parentTarget.bonus_plus_toggle.children[0].getBounds().width, 20, 10);
+				parentTarget.poker_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#eef1f4", "#9aa1ab"], [0,1], 0,0,0,15).drawRoundRect(0,0,parentTarget.poker_toggle.children[0].getBounds().width, 20, 10);
 
 				parentTarget.bonus_plus_toggle.x = parentTarget.bonus_plus_toggle.ox;
 				parentTarget.poker_toggle.x = parentTarget.poker_toggle.ox;
@@ -1167,7 +1167,7 @@ export default() => {
 
 								parentTarget.currentSlave = 'supersix';
 
-								button.graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240", "#fff39f"], [0,1], 0,0,0,15).drawRoundRect(0,0,button.getBounds().width, 20, 10);
+								button.graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#84cc16", "#bef264"], [0,1], 0,0,0,15).drawRoundRect(0,0,button.getBounds().width, 20, 10);
 								e.slave_visible = true;
 								for(var x = 0;x < e.betarea.length;  x++ ) {
 									if(e.betarea[x].table == "tie") {
@@ -1199,7 +1199,7 @@ export default() => {
 							case "normal":
 
 								parentTarget.currentSlave = 'normal';
-								button.graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240", "#fff39f"], [0,1], 0,0,0,15).drawRoundRect(0,0,button.getBounds().width, 20, 10);
+								button.graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#84cc16", "#bef264"], [0,1], 0,0,0,15).drawRoundRect(0,0,button.getBounds().width, 20, 10);
 								e.slave_visible = false;
 
 								for(var x = 0;x < e.betarea.length;  x++ ) {
@@ -1234,7 +1234,7 @@ export default() => {
 
 									e.minimize_btn.x = e.betareas_container.children[0].getTransformedBounds().width - 25
 
-									e.bonus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240", "#fff39f"], [0,1], 0,0,0,15).drawRoundRect(0,0,e.bonus_toggle.children[0].getBounds().width , 20, 10);
+									e.bonus_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#84cc16", "#bef264"], [0,1], 0,0,0,15).drawRoundRect(0,0,e.bonus_toggle.children[0].getBounds().width , 20, 10);
 
 									e.slave_buttons.forEach((button) => {
 										button.x += 74
@@ -1275,12 +1275,12 @@ export default() => {
 						switch(type) {
 							case "classicPoker":
 								parentTarget.currentSlave = 'normal';
-								e.poker_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240", "#fff39f"], [0,1], 0,0,0,15).drawRoundRect(0,0,e.poker_toggle.children[0].getBounds().width, 20, 10);
+								e.poker_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#84cc16", "#bef264"], [0,1], 0,0,0,15).drawRoundRect(0,0,e.poker_toggle.children[0].getBounds().width, 20, 10);
 								break;
 							case "bonusplus":
 								parentTarget.currentSlave = 'bonusplus';
 
-								e.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(["#c3a240", "#fff39f"], [0,1], 0,0,0,15).drawRoundRect(0,0,e.bonus_plus_toggle.children[0].getBounds().width, 20, 10);
+								e.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(["#84cc16", "#bef264"], [0,1], 0,0,0,15).drawRoundRect(0,0,e.bonus_plus_toggle.children[0].getBounds().width, 20, 10);
 
 								if(e.betareas_container.children[0].scaleX > 1) return;
 
@@ -1482,10 +1482,10 @@ export default() => {
 
 				game.player_win_val.visible = true;
 
-				game.children[1].graphics.clear().beginLinearGradientFill(["#d9be6a","#f0e182","#d9be6a"],[0,0.5,1], 60,0,150,0,150,0).drawRect(0,0,218,this.g_height);
+				game.children[1].graphics.clear().beginLinearGradientFill(["#a3e635","#bef264","#a3e635"],[0,0.5,1], 60,0,150,0,150,0).drawRect(0,0,218,this.g_height);
 
 				if(game.game.indexOf("icbo") > -1) {
-					game.children[1].graphics.clear().beginLinearGradientFill(["#d9be6a","#f0e182","#d9be6a"],[0,0.5,1], 20,0,100,0,150,0).drawRect(0,0,218,this.g_height + this.g_height);
+					game.children[1].graphics.clear().beginLinearGradientFill(["#a3e635","#bef264","#a3e635"],[0,0.5,1], 20,0,100,0,150,0).drawRect(0,0,218,this.g_height + this.g_height);
 				}
 			} else {
 				game.betareas_container.children[0].graphics.clear().beginFill(this.color_settings.inactive).drawRect(0,0,game.betareas_container.children[0].getBounds().width, game.betareas_container.children[0].getBounds().height);
@@ -2842,12 +2842,12 @@ export default() => {
 			let btn = new createjs.Shape();
 			btn_container.addChild(btn);
 
-			let def = ["#fff39f", "#c3a240"];
+			let def = ["#eef1f4", "#9aa1ab"];
 			if(type === 'classicPoker' || type === 'normal') {
-					def = ["#c3a240", "#fff39f"];
+					def = ["#84cc16", "#bef264"];
 			}
 
-			btn.graphics.ss(1).s("#8a6d34").beginLinearGradientFill(def, [0,1], 0,0,0,15).drawRoundRect(0,0,80, 20, 10);
+			btn.graphics.ss(1).s("#4a505a").beginLinearGradientFill(def, [0,1], 0,0,0,15).drawRoundRect(0,0,80, 20, 10);
 			btn.setBounds(0,0,80, 18);
 			btn_container.regX = (80/2);
 
@@ -3027,9 +3027,9 @@ export default() => {
 			if(target.data.gameName == 'Sicbo' || target.data.gameName == 'Dragon-Tiger') return;
 
 			let colors = {
-				selected : ["#c3a240", "#fff39f"],
+				selected : ["#84cc16", "#bef264"],
 				disabled : ["#797979", "#797979"],
-				enabled : ["#fff39f", "#c3a240"],
+				enabled : ["#eef1f4", "#9aa1ab"],
 			}
 
 			target.slave_buttons.forEach((e) => { // disable all
@@ -3039,19 +3039,19 @@ export default() => {
 			switch(target.currentSlave) {
 				case "normal":
 					if(target.data.gameName.toLowerCase() === 'baccarat') {
-						target.normal_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(colors.selected, [0,1], 0,0,0,15).drawRoundRect(0,0,target.normal_toggle.children[0].getBounds().width, 20, 10);
+						target.normal_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(colors.selected, [0,1], 0,0,0,15).drawRoundRect(0,0,target.normal_toggle.children[0].getBounds().width, 20, 10);
 					} else if(target.data.gameName.toLowerCase() === 'poker') {
-						target.poker_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(colors.selected, [0,1], 0,0,0,15).drawRoundRect(0,0,target.poker_toggle.children[0].getBounds().width, 20, 10);
+						target.poker_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(colors.selected, [0,1], 0,0,0,15).drawRoundRect(0,0,target.poker_toggle.children[0].getBounds().width, 20, 10);
 					}
 					break
 				case "supersix":
-					target.supersix_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(colors.selected, [0,1], 0,0,0,15).drawRoundRect(0,0,target.supersix_toggle.children[0].getBounds().width, 20, 10);
+					target.supersix_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(colors.selected, [0,1], 0,0,0,15).drawRoundRect(0,0,target.supersix_toggle.children[0].getBounds().width, 20, 10);
 					break
 				case "bonus":
-					target.bonus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(colors.selected, [0,1], 0,0,0,15).drawRoundRect(0,0,target.bonus_toggle.children[0].getBounds().width, 20, 10);
+					target.bonus_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(colors.selected, [0,1], 0,0,0,15).drawRoundRect(0,0,target.bonus_toggle.children[0].getBounds().width, 20, 10);
 					break
 				case "bonusplus":
-					target.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#8a6d34").beginLinearGradientFill(colors.selected, [0,1], 0,0,0,15).drawRoundRect(0,0,target.bonus_plus_toggle.children[0].getBounds().width, 20, 10);
+					target.bonus_plus_toggle.children[0].graphics.clear().ss(1).s("#4a505a").beginLinearGradientFill(colors.selected, [0,1], 0,0,0,15).drawRoundRect(0,0,target.bonus_plus_toggle.children[0].getBounds().width, 20, 10);
 					break
 			}
 		}

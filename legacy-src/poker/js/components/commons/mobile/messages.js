@@ -9,7 +9,7 @@ export default() => {
 			this.y  = this.context.stage.baseHeight/2 - 160;
 
 			this.gold_instance =  new createjs.Shape();
-			this.gold_instance.graphics.beginLinearGradientFill(["transparent","#d8bd69","transparent"], [0, 0.5, 1], -65, 65,this.context.stage.baseWidth- 100, 0).drawRect(0, 0, this.context.stage.baseWidth, 80);
+			this.gold_instance.graphics.beginLinearGradientFill(["transparent","#d3d8df","transparent"], [0, 0.5, 1], -65, 65,this.context.stage.baseWidth- 100, 0).drawRect(0, 0, this.context.stage.baseWidth, 80);
 			this.gold_instance.setBounds(0, 0, this.context.stage.baseWidth, 80)
 			this.gold_instance.regX = this.gold_instance.getBounds().width / 2;
 			this.gold_instance.scaleX = 0;

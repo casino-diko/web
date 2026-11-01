@@ -10,7 +10,7 @@ export default () => {
       this.y = this.context.stage.baseHeight / 2 - 155;
 
       this.gold_instance = new createjs.Shape();
-      this.gold_instance.graphics.beginLinearGradientFill(["transparent", "#d8bd69", "transparent"], [0, 0.5, 1], -65, 65, this.context.stage.baseWidth - 180, 0).drawRect(0, 0, this.context.stage.baseWidth - 180, 50);
+      this.gold_instance.graphics.beginLinearGradientFill(["transparent", "#d3d8df", "transparent"], [0, 0.5, 1], -65, 65, this.context.stage.baseWidth - 180, 0).drawRect(0, 0, this.context.stage.baseWidth - 180, 50);
       this.gold_instance.setBounds(0, 0, this.context.stage.baseWidth - 180, 50);
       this.gold_instance.regX = this.gold_instance.getBounds().width / 2;
       this.gold_instance.scaleX = 0;
@@ -27,7 +27,7 @@ export default () => {
       let prompt_w = this.context.stage.baseWidth - 100;
       let prompt_h = 50;
       this.autobet_prompt_bg = new createjs.Shape();
-      this.autobet_prompt_bg.graphics.beginLinearGradientFill(["transparent", "#26a69a", "transparent"], [0, 0.5, 1], 0, 0, prompt_w, 0).drawRect(0, 0, prompt_w, prompt_h);
+      this.autobet_prompt_bg.graphics.beginLinearGradientFill(["transparent", "#4d7c0f", "transparent"], [0, 0.5, 1], 0, 0, prompt_w, 0).drawRect(0, 0, prompt_w, prompt_h);
       this.autobet_prompt_bg.name = "autobet_prompt_bg";
       this.autobet_prompt_bg.regX = prompt_w / 2;
       this.autobet_prompt_bg.visible = false;

@@ -53,7 +53,7 @@ export default (config, type) => {
 			} //end for
 
 			//Define colors
-			this.default_color = "rgba(255,255,255,1)";
+			this.default_color = "rgba(211,216,223,1)";
 
 			this.ante_color = {
 				default : ["rgba(3, 95, 102, 0.5)", "rgba(3, 95, 102, 0.5)"],

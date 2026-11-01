@@ -200,7 +200,7 @@ export default () => {
 				  let voidContainer = new createjs.Container();
 
 				  let voidShape = new createjs.Shape();
-				  voidShape.graphics.beginFill("#212120").drawRect(-15,-4,512,45);
+				  voidShape.graphics.beginFill("#16181c").drawRect(-15,-4,512,45);
 				  voidContainer.addChild(voidShape);
 				  voidContainer.y = 36 + (x*46.1) + 1.5;
 				  voidContainer.x = 0;

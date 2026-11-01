@@ -64,7 +64,7 @@
 .tutorials h2 {
   font-size: 50px;
   text-transform: uppercase;
-  color: #efe280;
+  color: #d3d8df;
   margin: 0;
 }
 
@@ -149,10 +149,10 @@
 }
 
 .tutorials .btn:last-child { margin-right: 0; }
-.tutorials .btn-nevershow, .tutorials .btn-close, .tutorials .btn-cancel { background: #BC140C; }
-.tutorials .btn-nevershow:hover, .tutorials .btn-close:hover, .tutorials .btn-cancel:hover { background: #820000; }
-.tutorials .btn-continue, .tutorials .btn-next, .btn-startGame { background: #4A8900; }
-.tutorials .btn-continue:hover, .tutorials .btn-next:hover, .btn-startGame:hover { background: #3F6000; }
+.tutorials .btn-nevershow, .tutorials .btn-close, .tutorials .btn-cancel { background: #262a31; }
+.tutorials .btn-nevershow:hover, .tutorials .btn-close:hover, .tutorials .btn-cancel:hover { background: #1e2228; }
+.tutorials .btn-continue, .tutorials .btn-next, .btn-startGame { background: #a3e635; color: #0c0d0f; }
+.tutorials .btn-continue:hover, .tutorials .btn-next:hover, .btn-startGame:hover { background: #84cc16; color: #0c0d0f; }
 
 /* progress bar*/
 .progress-bar {

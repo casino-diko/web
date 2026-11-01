@@ -2,7 +2,7 @@ let adjustY = 10;
 let adjustX = 10;
 
 // let background = "rgba(33, 33, 33, 0.85)";
-let background = '#711d1d';
+let background = '#16181c';
 let borderColor = '#fff'; //b71c1c
 
 let rangeDetails = window.rangeDetails;

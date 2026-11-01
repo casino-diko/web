@@ -25,7 +25,7 @@ export default() => {
       this.card_bg.graphics.beginFill("rgba(0,0,0,0.5)").drawRect(0,0,195,260);
 
 			this.header = new createjs.Shape();
-			this.header.graphics.beginLinearGradientFill(['#d7bc6a', '#ebda7b', '#d7bc6a'], [0,0.5,1], 0,0,195,0).drawRect(0,0,195,55);
+			this.header.graphics.beginLinearGradientFill(['#b4bac3', '#d3d8df', '#b4bac3'], [0,0.5,1], 0,0,195,0).drawRect(0,0,195,55);
 			this.burn_card_con.addChild(this.header);
 
 			let burn_text = new createjs.Text("BURN CARD", '18px lato-black', '#000');

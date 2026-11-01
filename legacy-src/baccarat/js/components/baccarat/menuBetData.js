@@ -297,7 +297,7 @@ export default (links) => {
       this.tableContainer.y = -15;
 
       let detailHeaderBg = new createjs.Shape();
-      detailHeaderBg.graphics.beginFill('#ff9b28').drawRoundRect(0, 0, mdlDetailWidth - 3, 45, 7);
+      detailHeaderBg.graphics.beginFill('#d3d8df').drawRoundRect(0, 0, mdlDetailWidth - 3, 45, 7);
       detailHeaderBg.x = detailBg.x + 2;
       detailHeaderBg.y = detailBg.y + 2;
       this.betDetails.addChild(detailHeaderBg);
@@ -309,7 +309,7 @@ export default (links) => {
       this.betDetails.addChild(detailHeaderTxt);
 
       let shapeClose = new createjs.Shape();
-      shapeClose.graphics.beginFill("#ff9b28").drawRect(0, 0, 40, 40);
+      shapeClose.graphics.beginFill("#d3d8df").drawRect(0, 0, 40, 40);
       shapeClose.x = detailBg.x + (mdlDetailWidth - 30) - 15;
       shapeClose.y = detailBg.y + 5;
       shapeClose.cursor = "pointer";

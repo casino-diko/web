@@ -118,7 +118,7 @@ export default(opposite_bet) => {
 
 			chips_bg[x] = new createjs.Shape();
 			chips_bg[x].graphics.ss(0.5).beginStroke("#fff").beginLinearGradientFill(["transparent","#636467"], [0, 1], 0, -60,0,20).drawCircle(0, 0, 50);
-			chips_bg[x].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+			chips_bg[x].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 			chips_bg[x].x = this.context.stage.baseWidth - 78;
 			chips_bg[x].cache(-50,-50,100,100)
 			chips_bg[x].y = (x * 120) + 145;

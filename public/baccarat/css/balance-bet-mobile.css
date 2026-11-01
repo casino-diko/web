@@ -5,7 +5,7 @@
   position: absolute;
   top:26.8%; 
   /*21.6%;*/
-  background: rgba(22, 22, 22, 0.9);
+  background: rgba(22,24,28,0.9);
   right: 100%;
  	/*right: 78.6%;*/
 /* 	transition: top 0.2s, right 0.2s;
@@ -61,7 +61,7 @@
 	margin: 0;
 	font-family: lato-regular;
 	font-size: 26px;
-	color: #E1D37B;
+	color: #d3d8df;
 	vertical-align: middle;
 	padding: 7px 20px;
 	display: block;
@@ -208,7 +208,7 @@
 .separator {
 	width: 20px;
 	display: none;
-	color: #eedf7f
+	color: #d3d8df
 }
 
 .balance-bet-active .btn-junket {
@@ -247,8 +247,8 @@
 .-portrait .bar-con {width: 225px; padding-left: 0}
 .-portrait .total-info {top: 2px; font-family: lato-regular}
 .-portrait #player-total-bet {color: #1464c0}
-.-portrait #player-limit {color: #eedf7f}
-.-portrait #banker-limit {color: #eedf7f}
+.-portrait #player-limit {color: #d3d8df}
+.-portrait #banker-limit {color: #d3d8df}
 .-portrait #banker-total-bet {color: #d22e2e}
 
 .-portrait #player-total-bet,
@@ -271,7 +271,7 @@
 /*.-portrait #player-limit::before,
 .-portrait #banker-limit::before{
 	content :'/';
-	color: #eedf7f;
+	color: #d3d8df;
 	position:absolute;
 	margin-left: -10px
 }*/

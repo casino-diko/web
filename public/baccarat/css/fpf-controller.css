@@ -17,27 +17,27 @@ canvas {
     height: 40px;
     /*top: 65%;*/
     top: 84%;
-    background: #d5c470;
+    background: #d3d8df;
     color: #000;
     font: 20px lato-black;
-     background: #877842; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(to bottom, #fdf19f 40%, #a18e53 89%,#f8e998 105%); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(to bottom, #fdf19f 40%, #a18e53 89%,#f8e998 105%); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(to bottom, #fdf19f 40%, #a18e53 89%,#f8e998 105%); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom, #fdf19f 40%, #a18e53 89%,#f8e998 105%); /* Standard syntax */
-    background: linear-gradient(to bottom, #fdf19f 40%, #a18e53 89%,#f8e998 105%); /* Standard syntax */
+     background: #8b929c; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(to bottom, #d3d8df 40%, #b4bac3 89%,#d3d8df 105%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to bottom, #d3d8df 40%, #b4bac3 89%,#d3d8df 105%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to bottom, #d3d8df 40%, #b4bac3 89%,#d3d8df 105%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom, #d3d8df 40%, #b4bac3 89%,#d3d8df 105%); /* Standard syntax */
+    background: linear-gradient(to bottom, #d3d8df 40%, #b4bac3 89%,#d3d8df 105%); /* Standard syntax */
     /*box-shadow: inset 1px 2.4px 1px #4e4524*/
     border:1px solid #8c8058;
     border-radius: 12px;
 }
 #open-all:hover {
-    background: -webkit-linear-gradient(to top, #fdf19f 40%, #a18e53 89%,#f8e998 105%); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(to top, #fdf19f 40%, #a18e53 89%,#f8e998 105%); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(to top, #fdf19f 40%, #a18e53 89%,#f8e998 105%); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to top, #fdf19f 40%, #a18e53 89%,#f8e998 105%); /* Standard syntax */
-    background: linear-gradient(to top, #fdf19f 40%, #a18e53 89%,#f8e998 105%); /* Standard syntax */
+    background: -webkit-linear-gradient(to top, #d3d8df 40%, #b4bac3 89%,#d3d8df 105%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to top, #d3d8df 40%, #b4bac3 89%,#d3d8df 105%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to top, #d3d8df 40%, #b4bac3 89%,#d3d8df 105%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top, #d3d8df 40%, #b4bac3 89%,#d3d8df 105%); /* Standard syntax */
+    background: linear-gradient(to top, #d3d8df 40%, #b4bac3 89%,#d3d8df 105%); /* Standard syntax */
     /*box-shadow: inset 1px 2.4px 1px #4e4524;*/
-    /*text-shadow: 0px -2px #f9f9a8;*/
+    /*text-shadow: 0px -2px #d3d8df;*/
     cursor: pointer;
 }
 

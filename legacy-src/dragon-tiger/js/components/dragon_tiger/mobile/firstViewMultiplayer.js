@@ -382,32 +382,32 @@ export default (config) => {
 			this.user_8_name.y = user_8_icon.y;
 			this.addChild(this.user_8_name);
 
-			this.user_1_bet = new createjs.Text('',"18px bebas-regular","#d8bd69");
+			this.user_1_bet = new createjs.Text('',"18px bebas-regular","#a3e635");
 			this.user_1_bet.x = this.user_1_name.x;
 			this.user_1_bet.y = this.user_1_name.y + 20;
 			this.addChild(this.user_1_bet);
 
-			this.user_2_bet = new createjs.Text('',"18px bebas-regular","#d8bd69");
+			this.user_2_bet = new createjs.Text('',"18px bebas-regular","#a3e635");
 			this.user_2_bet.x = this.user_2_name.x;
 			this.user_2_bet.y = this.user_2_name.y + 20;
 			this.addChild(this.user_2_bet);
 
-			this.user_3_bet = new createjs.Text('',"18px bebas-regular","#d8bd69");
+			this.user_3_bet = new createjs.Text('',"18px bebas-regular","#a3e635");
 			this.user_3_bet.x = this.user_3_name.x;
 			this.user_3_bet.y = this.user_3_name.y + 20;
 			this.addChild(this.user_3_bet);
 
-			this.user_6_bet = new createjs.Text('',"18px bebas-regular","#d8bd69");
+			this.user_6_bet = new createjs.Text('',"18px bebas-regular","#a3e635");
 			this.user_6_bet.x = this.user_6_name.x;
 			this.user_6_bet.y = this.user_6_name.y + 20;
 			this.addChild(this.user_6_bet);
 
-			this.user_7_bet = new createjs.Text('',"18px bebas-regular","#d8bd69");
+			this.user_7_bet = new createjs.Text('',"18px bebas-regular","#a3e635");
 			this.user_7_bet.x = this.user_7_name.x;
 			this.user_7_bet.y = this.user_7_name.y + 20;
 			this.addChild(this.user_7_bet);
 
-			this.user_8_bet = new createjs.Text('',"18px bebas-regular","#d8bd69");
+			this.user_8_bet = new createjs.Text('',"18px bebas-regular","#a3e635");
 			this.user_8_bet.x = this.user_8_name.x;
 			this.user_8_bet.y = this.user_8_name.y + 20;
 			this.addChild(this.user_8_bet);

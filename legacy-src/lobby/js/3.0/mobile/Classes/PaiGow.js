@@ -21,7 +21,7 @@ class PaiGow extends Game {
     this.tiles = {};
     this.playArea = [];
 
-    this.dealingCardAnimationBg.graphics.clear().beginFill("rgba(22, 22, 22, 0.9)").drawRect(0,0,226,175);
+    this.dealingCardAnimationBg.graphics.clear().beginFill("rgba(31, 34, 40, 0.92)").drawRect(0,0,226,175);
 
     this.cardContainer = new createjs.Container();
     this.cardContainer.x = 135;

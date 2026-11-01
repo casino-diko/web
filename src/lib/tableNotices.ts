@@ -73,7 +73,9 @@ const scriptJson = (value: unknown) => JSON.stringify(value)
 /** adds the notices to a game page (before </head>); the lobby and fragments stay as they are */
 export function withTableNotices (html: string, app: App, locale: string): string {
 	if (app === 'lobby' || !/<\/head>/i.test(html)) return html;
+	// also the table's dealer, standing behind the betting table (public/shared/table-dealer)
 	const tags = `<script>window.tgNoticeText=${scriptJson(noticeTexts(locale))};</script>\n`
-		+ '<script src="/shared/table-notices/table-notices.js" defer></script>\n';
+		+ '<script src="/shared/table-notices/table-notices.js" defer></script>\n'
+		+ '<script src="/shared/table-dealer/table-dealer.js"></script>\n';
 	return html.replace(/<\/head>/i, m => tags + m);
 }

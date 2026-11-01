@@ -33,7 +33,7 @@
   top: 0;
   height: 100%;
   position: absolute;
-  background: #111111;
+  background: #16181c;
   z-index: 1;
 }
 
@@ -48,7 +48,7 @@
 
 .notif-box .notif-box__con:before{
   content: '';
-  background: #568E23;
+  background: #a3e635;
   display: block;
   width: 10px;
   position: absolute;
@@ -66,7 +66,7 @@
 
 .notif-box .notif-box__con span.notif-box_money {
   display: block;
-  color: #568E23;
+  color: #a3e635;
   font-size: 28px;
   font-family: bebasNeue;
 }
@@ -74,7 +74,7 @@
 .notif-box .notif-box__con i.notif-box_close:before {
   content:'x';
   display: block;
-  color: #d43030;
+  color: #a3e635;
   font-size: 30px;
   font-family: lato-regular;
   font-style: normal;

@@ -78,7 +78,7 @@ export default () => {
 			}
 
 			let announcementIconBg = new createjs.Shape();
-			announcementIconBg.graphics.beginFill('#f1e382').drawRoundRectComplex(0, 0, 60, 55, 0, 0, 0, 10);
+			announcementIconBg.graphics.beginFill('#d3d8df').drawRoundRectComplex(0, 0, 60, 55, 0, 0, 0, 10);
 			this.announcementCon.addChild(announcementIconBg);
 
 			let announcementIcon = new createjs.Bitmap(this.context.getResources('notice_ico'));
@@ -88,7 +88,7 @@ export default () => {
             this.announcementCon.addChild(announcementIcon);
 
 			let announcementTextBg = new createjs.Shape();
-			announcementTextBg.graphics.beginLinearGradientFill(['#59090a', 'rgba(89, 9, 10, 0.1)'], [0,1],0,0,570,0).drawRect(0,0,570,56); //.drawRoundRectComplex(0, 0, 550, 56, 0, 0, 10, 0); 
+			announcementTextBg.graphics.beginLinearGradientFill(['#16181c', 'rgba(22, 24, 28, 0.1)'], [0,1],0,0,570,0).drawRect(0,0,570,56); //.drawRoundRectComplex(0, 0, 550, 56, 0, 0, 10, 0); 
 			announcementTextBg.x = 60;
 			announcementTextBg.y = -1;
 			this.announcementCon.addChild(announcementTextBg);

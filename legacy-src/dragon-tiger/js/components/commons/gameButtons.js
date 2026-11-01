@@ -44,7 +44,7 @@ export default(link) => {
 			this.y = this.context.stage.baseHeight  - (h);
 
 			this.background = new createjs.Shape();
-			this.background.graphics.f('#2b2b2b').drawRect(0,0,482,h);
+			this.background.graphics.f('#16181c').drawRect(0,0,482,h);
 			this.background.regX = 242;
 //
 			this.addChild(this.background);

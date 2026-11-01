@@ -131,7 +131,7 @@ export default() => {
 
 			//Volume line bg
 			this.volumeBg = new createjs.Shape();
-			this.volumeBg.graphics.beginFill("#1d1d1d").drawRoundRect(0, 0, 115, 4, 2);
+			this.volumeBg.graphics.beginFill("#0c0d0f").drawRoundRect(0, 0, 115, 4, 2);
 			this.volumeBg.x = this.volumeMute.x + 30;
 			this.volumeBg.y = this.volumeMute.y + 8;
 			this.volumeBg.setBounds(0, 0, 115, 4);
@@ -141,13 +141,13 @@ export default() => {
 
 			//Volume line bg
 			this.volumeCurrent = new createjs.Shape();
-			this.volumeCurrent.graphics.beginFill("#7cb342").drawRoundRect(0, 0, saved_vol, 5, 2);
+			this.volumeCurrent.graphics.beginFill("#a3e635").drawRoundRect(0, 0, saved_vol, 5, 2);
 			this.volumeCurrent.x = this.volumeMute.x + 30;
 			this.volumeCurrent.y = this.volumeMute.y + 8;
 			this.volumeCurrent.setBounds(0, 0, saved_vol, 5);
 
 			this.volumeCircle = new createjs.Shape();
-			this.volumeCircle.graphics.beginFill("#2e7d32").drawCircle(0, 0, 16);
+			this.volumeCircle.graphics.beginFill("#d3d8df").drawCircle(0, 0, 16);
 			this.volumeCircle.x = this.volumeCurrent.x + saved_vol;
 			this.volumeCircle.y = this.volumeMute.y + 10;
 			this.volumeCircle.cursor = "pointer";
@@ -203,7 +203,7 @@ export default() => {
 						this.enableSetting(1);
 					}
 
-					this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, this.pos > 0 ? this.pos-80 : 0 , 5, 2);
+					this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, this.pos > 0 ? this.pos-80 : 0 , 5, 2);
 					this.volumeCurrent.setBounds(0, 0, this.pos, 5);
 
 					if (evt.currentTarget.x >= volumeStart && evt.currentTarget.x <= volumeEnd) {
@@ -232,7 +232,7 @@ export default() => {
 						this.pos = 185;
 					}
 
-					this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, this.pos > 0 ? this.pos-80 : this.pos , 5, 2);
+					this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, this.pos > 0 ? this.pos-80 : this.pos , 5, 2);
 					this.volumeCurrent.setBounds(0, 0, this.pos, 5);
 
 					let number = (this.volumeCurrent.getBounds().width - 70) / this.default_vol;
@@ -252,7 +252,7 @@ export default() => {
 				if (!parseInt(window.vendorSound)) return;
 
       	newVolume = 0;
-      	this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, newVolume, 5, 2);
+      	this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, newVolume, 5, 2);
       	this.volumeCircle.x = this.volumeCurrent.x;
 				this.volumeMute.gotoAndPlay("mute");
 				this.volumeMax.gotoAndPlay("mute");
@@ -272,7 +272,7 @@ export default() => {
 				if (!parseInt(window.vendorSound)) return;
 
       	newVolume = 115;
-      	this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, newVolume, 5, 2);
+      	this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, newVolume, 5, 2);
       	this.volumeCircle.x = this.volumeCurrent.x + newVolume;
 				this.volumeMute.gotoAndPlay("normal");
 				this.volumeMax.gotoAndPlay("normal");
@@ -302,12 +302,12 @@ export default() => {
 				this.settingsName[i].y = lblsettingsY;
 
 				this.settingsToggle[i] = new createjs.Shape();
-				this.settingsToggle[i].graphics.beginFill("#fff").drawRoundRect(0, 0, 65, 25, 14);
+				this.settingsToggle[i].graphics.beginFill("#a3e635").drawRoundRect(0, 0, 65, 25, 14);
 				this.settingsToggle[i].x = this.volumeMax.x - 40;
 				this.settingsToggle[i].y = lblsettingsY - 3;
 
 				this.settingsCircle[i] = new createjs.Shape();
-				this.settingsCircle[i].graphics.beginFill("#2e7d32").drawCircle(0, 0, 10);
+				this.settingsCircle[i].graphics.beginFill("#0c0d0f").drawCircle(0, 0, 10);
 
 				this.settingsCircle[i].x = this.settingsToggle[i].x + 50;
 				this.settingsCircle[i].y = this.settingsToggle[i].y + 12.5;
@@ -328,8 +328,8 @@ export default() => {
 				this.addChild(this.settingsName[i], this.settingsToggle[i], this.settingsCircle[i], this.settingsToggleHit[i]);
 
 				if(!parseInt(window.config.voice) && this.settingsToggleHit[i].name.toLowerCase() == "voice") {
-				this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-				this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+				this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+				this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 				this.settingsToggleHit[i].status = "disabled";
 
 			    createjs.Tween.get(this.settingsCircle[i], { loop: false })
@@ -337,8 +337,8 @@ export default() => {
 				}
 
 				if (!parseInt(window.config.effect) && this.settingsToggleHit[i].name.toLowerCase() == "sound effects") {
-					this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-					this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+					this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+					this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 					this.settingsToggleHit[i].status = "disabled";
 
 			    createjs.Tween.get(this.settingsCircle[i], { loop: false })
@@ -346,8 +346,8 @@ export default() => {
 				}
 
 				if(window.config.screen == "white" && this.settingsToggleHit[i].name.toLowerCase() == "dark theme") {
-					this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-					this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+					this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+					this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 					this.settingsToggleHit[i].status = "disabled";
 
 			    createjs.Tween.get(this.settingsCircle[i], { loop: false })
@@ -355,8 +355,8 @@ export default() => {
 				}
 
 				if(!window.tutorial_enabled && this.settingsToggleHit[i].name.toLowerCase() == "show tutorial") {
-					this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-					this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+					this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+					this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 					this.settingsToggleHit[i].status = "disabled";
 
 			    createjs.Tween.get(this.settingsCircle[i], { loop: false })
@@ -380,8 +380,8 @@ export default() => {
 				createjs.Tween.get(self.settingsCircle[i], { loop: false })
 					  .to({ x: disabledX }, 0)
 
-				self.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-				self.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+				self.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+				self.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 				self.settingsToggleHit[i].status = "disabled";
 
 
@@ -419,8 +419,8 @@ export default() => {
 			createjs.Tween.get(this.settingsCircle[i], { loop: false })
 				  .to({ x: this.enabledX }, 0)
 
-			this.settingsToggle[i].graphics.clear().beginFill("#fff").drawRoundRect(0, 0, 65, 25, 14);
-			this.settingsCircle[i].graphics.clear().beginFill("#2e7d32").drawCircle(0, 0, 10);
+			this.settingsToggle[i].graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, 65, 25, 14);
+			this.settingsCircle[i].graphics.clear().beginFill("#0c0d0f").drawCircle(0, 0, 10);
 			this.settingsToggleHit[i].status = "enabled";
 
 			if(this.settingsToggleHit[i].name.toLowerCase() == "voice") {
@@ -454,8 +454,8 @@ export default() => {
 			createjs.Tween.get(this.settingsCircle[3], { loop: false })
 				.to({ x: 175 }, 0)
 
-			this.settingsToggle[3].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-			this.settingsCircle[3].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+			this.settingsToggle[3].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+			this.settingsCircle[3].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 			this.settingsToggleHit[3].status = "disabled";
 		},
 		changeTheme(new_theme) {
@@ -604,7 +604,7 @@ export default() => {
 		},
 		setVolume(src, newCoor) {
 			this.currVol = Math.round( ((newCoor - 840) / 170) * 10 ) / 10;
-			this.volumeCurrent.graphics.clear().beginFill("#7cb342").drawRoundRect(0, 0, this.default_vol * parseFloat(this.currVol), 5, 2);
+			this.volumeCurrent.graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, this.default_vol * parseFloat(this.currVol), 5, 2);
 
 			this.context.playerVid.volume = this.currVol;
 
@@ -626,8 +626,8 @@ export default() => {
 				createjs.Tween.get(this.settingsCircle[i], { loop: false })
 				  .to({ x: 175 }, 0)
 
-				this.settingsToggle[i].graphics.clear().beginFill("#424242").drawRoundRect(0, 0, 65, 25, 14);
-				this.settingsCircle[i].graphics.clear().beginFill("#c62828").drawCircle(0, 0, 10);
+				this.settingsToggle[i].graphics.clear().beginFill("#262a31").drawRoundRect(0, 0, 65, 25, 14);
+				this.settingsCircle[i].graphics.clear().beginFill("#d3d8df").drawCircle(0, 0, 10);
 				this.settingsToggleHit[i].status = "disabled";
 			}
 
@@ -643,8 +643,8 @@ export default() => {
 				createjs.Tween.get(this.settingsCircle[i], { loop: false })
 					  .to({ x: 210 }, 0)
 
-				this.settingsToggle[i].graphics.clear().beginFill("#fff").drawRoundRect(0, 0, 65, 25, 14);
-				this.settingsCircle[i].graphics.clear().beginFill("#2e7d32").drawCircle(0, 0, 10);
+				this.settingsToggle[i].graphics.clear().beginFill("#a3e635").drawRoundRect(0, 0, 65, 25, 14);
+				this.settingsCircle[i].graphics.clear().beginFill("#0c0d0f").drawCircle(0, 0, 10);
 				this.settingsToggleHit[i].status = "enabled";
 			}
 		}

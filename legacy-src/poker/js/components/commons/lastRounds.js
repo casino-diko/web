@@ -10,7 +10,7 @@ export default () => {
       this.countdown = false;
 
       this._lastRoundsBg = new createjs.Shape();
-      this._lastRoundsBg.graphics.beginFill("#2b2b2b").drawRoundRect(0, 0, 130, 125, 8);
+      this._lastRoundsBg.graphics.beginFill("#16181c").drawRoundRect(0, 0, 130, 125, 8);
       this._lastRoundsBg.alpha = 0.8;
       this.addChild(this._lastRoundsBg);
 

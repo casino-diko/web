@@ -145,7 +145,7 @@ export default() => {
 			this.addChild(prediction_bg2);
 
 			let showcount_bg = new createjs.Shape();
-			showcount_bg.graphics.ss(1).s("rgba(255,255,255,0.3)").beginFill("#2b2b2b").drawRect(.5,0,80,45);
+			showcount_bg.graphics.ss(1).s("rgba(255,255,255,0.3)").beginFill("#16181c").drawRect(.5,0,80,45);
 			showcount_bg.x = 525;
 			showcount_bg.y = 105;
 			this.addChild(showcount_bg);

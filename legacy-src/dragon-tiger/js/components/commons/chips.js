@@ -90,7 +90,7 @@ export default(opposite_bet) => {
 
     	for (var x = 0; x < 5; x++) {
         chips_bg[x] = new createjs.Shape();
-        chips_bg[x].graphics.ss(1).beginLinearGradientFill(["transparent","#636467"], [0, 1], 0, -40, 0, 20).drawCircle(0, 0, 42);
+        chips_bg[x].graphics.ss(1).beginLinearGradientFill(["transparent","#30353d"], [0, 1], 0, -40, 0, 20).drawCircle(0, 0, 42);
         chips_bg[x].alpha = 0.7;
         chips_bg[x].x = (x * 92) + this.baseX;
         chips_bg[x].y = this.baseY;
@@ -232,7 +232,7 @@ export default(opposite_bet) => {
 
 			for (var x = 0; x < 5; x++) {
         chips_bg[x] = new createjs.Shape();
-        chips_bg[x].graphics.ss(1).beginLinearGradientFill(["transparent","#636467"], [0, 1], 0, -40, 0, 20).drawCircle(0, 0, 42);
+        chips_bg[x].graphics.ss(1).beginLinearGradientFill(["transparent","#30353d"], [0, 1], 0, -40, 0, 20).drawCircle(0, 0, 42);
         chips_bg[x].alpha = 0.7;
         chips_bg[x].x = (x * 90) + this.baseX;
         chips_bg[x].y = this.baseY;

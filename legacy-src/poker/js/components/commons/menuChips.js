@@ -41,7 +41,7 @@ export default() => {
 
 			//Modal Header
 			this._modalHeader = new createjs.Shape();
-			this._modalHeader.graphics.beginLinearGradientFill(["#EEDE7E","#a99143"], [0, 1], 0,0,this._modalWidth,0).drawRect(0,0, this._modalWidth, 35);
+			this._modalHeader.graphics.beginLinearGradientFill(["#d3d8df","#9aa3ae"], [0, 1], 0,0,this._modalWidth,0).drawRect(0,0, this._modalWidth, 35);
 			this.addChild(this._modalHeader);
 
 			//Header Text
@@ -53,7 +53,7 @@ export default() => {
 			this.addChild(this._headerTxt);
 
 			//Header Close button
-			this._headerClose = new createjs.Text("X","bold 25px arial", "#D32F2F");
+			this._headerClose = new createjs.Text("X","bold 25px arial", "#a3e635");
 			this._headerClose.x = this._modalWidth - 25;
 			this._headerClose.y = this._modalHeader.y + 4;
 			this.addChild(this._headerClose);
@@ -74,7 +74,7 @@ export default() => {
 	        });
 
 			this._modalBg = new createjs.Shape();
-			this._modalBg.graphics.beginFill("#2b2b2b").moveTo(0,0)
+			this._modalBg.graphics.beginFill("#16181c").moveTo(0,0)
 				.moveTo(0,0)
 				.lineTo(this._modalWidth, 0)
 				.lineTo(this._modalWidth, this._modalHeight)
@@ -87,7 +87,7 @@ export default() => {
 
 			//Button clear chips border
 			this.btnClearChips = new createjs.Shape();
-			this.btnClearChips.graphics.beginStroke("#F1E382");
+			this.btnClearChips.graphics.beginStroke("#d3d8df");
 			this.btnClearChips.graphics.setStrokeStyle(2);
 			this.btnClearChips.graphics.drawRect(0, 0, 166, 36);
 			this.btnClearChips.x = 62;
@@ -101,14 +101,14 @@ export default() => {
 			this.btnClearChipsHit.alpha = 0.01;
 			this.btnClearChipsHit.cursor = "pointer";
 
-			this.txtClearChips = new createjs.Text(window.language2.com_sub_bottomgamedetails_clearchips, window.language.locale == "zh" ? fontFormat(25, 'normal', 'lato') : fontFormat(18, 'bold', 'lato'), "#F1E382");
+			this.txtClearChips = new createjs.Text(window.language2.com_sub_bottomgamedetails_clearchips, window.language.locale == "zh" ? fontFormat(25, 'normal', 'lato') : fontFormat(18, 'bold', 'lato'), "#d3d8df");
 			this.txtClearChips.textAlign = "center";
 			this.txtClearChips.textBaseline = "middle";
 			this.txtClearChips.x = this.btnClearChips.x + (166/2);
 			this.txtClearChips.y = this.btnClearChips.y + (36/2);
 
 			this.btnApply = new createjs.Shape();
-			this.btnApply.graphics.beginLinearGradientFill(["#EEDE7E","#a99143"], [0, 1], 0, 0, 0, 166).drawRect(0,0, 166, 36);
+			this.btnApply.graphics.beginLinearGradientFill(["#bef264","#84cc16"], [0, 1], 0, 0, 0, 166).drawRect(0,0, 166, 36);
 			this.btnApply.x = this.btnClearChipsHit.x + 166 + 23;
 			this.btnApply.y = this.btnClearChips.y - 1;
 			this.btnApply.cursor = "pointer";

@@ -40,9 +40,9 @@
 }
 
 .menu-ico {
-  background: rgba(22, 22, 22, 0.8);
+  background: rgba(22,24,28,0.8);
   border-radius: 50%;
-  border: 2px solid #d1bc79;
+  border: 2px solid #d3d8df;
   display: block;
   position: relative;
   cursor: pointer;
@@ -58,9 +58,9 @@
 .menu-ico.menu-active { opacity: 0.7}
 
 .menu-ico.menu-toggle {
-  background: rgba(241, 227, 140, 0.9);
+  background: rgba(211,216,223,0.9);
   border-radius: 50%;
-  border: 2px solid #272727;
+  border: 2px solid #1e2228;
   float: right
 }
 
@@ -99,7 +99,7 @@
 }
 
 .video-quality {
-  color: #efe083;
+  color: #d3d8df;
   display: block;
   width: 100%;
   height: 100%;
@@ -121,7 +121,7 @@
   left: 0;
 }
 .modal-con__head {
-  background: rgba(224, 203, 114, 0.8);
+  background: rgba(211,216,223,0.8);
   display: block;
   height: 60px;
   position: relative;
@@ -139,7 +139,7 @@
            transform: translateY(-50%);
 }
 .modal-con__body {
-  background: rgba(22, 22, 22, 0.9);
+  background: rgba(22,24,28,0.9);
   display: block;
   position: relative;
   width: 100%;
@@ -154,7 +154,7 @@
 }
 .modal-body__items h3 {
   display: block;
-  color: #f2e280;
+  color: #d3d8df;
   font: 25px 'lato-black';
   padding: 0;
   margin: 0 0 30px 0;
@@ -199,7 +199,7 @@
 .modal-settings-con.-sounds .settings--tool { width: 65%; }
 
 
-.modal--settings .modal-body__items:first-child { border-bottom: 2px solid #5e5e5e }
+.modal--settings .modal-body__items:first-child { border-bottom: 2px solid #3a3f48 }
 .settings-ico {
   position: absolute;
   background-repeat: no-repeat;
@@ -229,26 +229,26 @@
   left: 65px;
   width: 270px;
   height: 10.5px;
-  background: #676767;
+  background: #3a3f48;
 }
 .settings-vol-slider {
   width: 100%;
   height: 100%;
-  background: #7bb443;
+  background: #a3e635;
   border-radius: 6px;
 }
 
 .settings-volume-circle {
   position: absolute;
   border-radius: 50%;
-  background: #d32d2d;
+  background: #d3d8df;
   cursor: pointer;
   top: 6px;
   width: 40px;
   height: 40px;
   z-index: 4;
 }
-.settings-volume-circle.active { background: #307f3e; }
+.settings-volume-circle.active { background: #a3e635; }
 .settings-switch-bg {
   position: absolute;
   top: -8px;
@@ -256,15 +256,15 @@
   width: 104px;
   height: 44px;
   border-radius: 20px;
-  border: 4px solid #605e5f;
+  border: 4px solid #3a3f48;
 }
 .switch-active {
-  background: #e0e0e0;
-  border: 4px solid #e0e0e0;
+  background: #a3e635;
+  border: 4px solid #a3e635;
 }
 .settings-switch-circle {
   border-radius: 50%;
-  background: #d42e30;
+  background: #d3d8df;
   width: 28px;
   height: 28px;
   margin: 4px 0 0 5px;
@@ -289,7 +289,7 @@
 .flag-con:not(:nth-child(3n)) { margin-right: 8%; }
 .flag-con.active:before {
   border-radius: 50%;
-  border: 4px solid #f0e281;
+  border: 4px solid #a3e635;
   content: '';
   position: absolute;
   height: 121%;
@@ -312,20 +312,20 @@
   width: 70px;
   height: 70px;
 
-  background: -moz-linear-gradient(left, rgba(205,176,91,1) 0%, rgba(226,210,111,1) 50%, rgba(205,176,91,1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(205,176,91,1)), color-stop(50%, rgba(226,210,111,1)), color-stop(100%, rgba(205,176,91,1)));
-  background: -webkit-linear-gradient(left, rgba(205,176,91,1) 0%, rgba(226,210,111,1) 50%, rgba(205,176,91,1) 100%);
-  background: -o-linear-gradient(left, rgba(205,176,91,1) 0%, rgba(226,210,111,1) 50%, rgba(205,176,91,1) 100%);
-  background: -ms-linear-gradient(left, rgba(205,176,91,1) 0%, rgba(226,210,111,1) 50%, rgba(205,176,91,1) 100%);
-  background: linear-gradient(to right, rgba(205,176,91,1) 0%, rgba(226,210,111,1) 50%, rgba(205,176,91,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdb05b', endColorstr='#cdb05b', GradientType=1 );
+  background: -moz-linear-gradient(left, rgba(180,186,195,1) 0%, rgba(211,216,223,1) 50%, rgba(180,186,195,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(180,186,195,1)), color-stop(50%, rgba(211,216,223,1)), color-stop(100%, rgba(180,186,195,1)));
+  background: -webkit-linear-gradient(left, rgba(180,186,195,1) 0%, rgba(211,216,223,1) 50%, rgba(180,186,195,1) 100%);
+  background: -o-linear-gradient(left, rgba(180,186,195,1) 0%, rgba(211,216,223,1) 50%, rgba(180,186,195,1) 100%);
+  background: -ms-linear-gradient(left, rgba(180,186,195,1) 0%, rgba(211,216,223,1) 50%, rgba(180,186,195,1) 100%);
+  background: linear-gradient(to right, rgba(180,186,195,1) 0%, rgba(211,216,223,1) 50%, rgba(180,186,195,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4bac3', endColorstr='#b4bac3', GradientType=1 );
 }
 
 .modal-avatar-con:not(:last-child) { margin-right: 7.2%; }
 
 .modal-avatar-con.active:before {
   border-radius: 50%;
-  border: 4px solid #f0e281;
+  border: 4px solid #a3e635;
   content: '';
   position: absolute;
   height: 150%;
@@ -361,10 +361,10 @@
   height: inherit;
 }
 .modal-con__btn .btn-music {
-  background: #f1e382;
+  background: #d3d8df;
 }
 .modal-con__btn .btn-music:last-child {
-  background: #68a12e;
+  background: #a3e635;
 }
 .modal-con__btn .btn-music span {
   color: #000;
@@ -429,7 +429,7 @@
 }
 
 .modal-radio-btn i {
-  /*background: #68a12e;*/
+  /*background: #a3e635;*/
   background: transparent;
   position: absolute;
   left: 50%;
@@ -443,7 +443,7 @@
 }
 
 .modal-radio-btn.checkedRadio i {
-  background: #68a12e;
+  background: #a3e635;
 }
 
 
@@ -459,7 +459,7 @@
 .modal--howtoplay .howto-wrap__items { padding-right: 5px; }
 .howto-menu {
   border: 1px solid #d3d3d3;
-  background: #161616;
+  background: #16181c;
   display: block;
   float: left;
   margin-right: 30px;
@@ -478,7 +478,7 @@
   padding: 15px 0;
 }
 .modal--howtoplay .gamerules-menu__items.active {
-  background: #e9dc7e;
+  background: #d3d8df;
 }
 .modal--howtoplay .gamerules-menu__items.active span {
   color: #000;
@@ -501,7 +501,7 @@
   line-height: 1.5;
 }
 .modal-con__body .howto--layers h4 {
-  color: #e9dc7e;
+  color: #d3d8df;
   font: bold 26px lato-regular;
   margin-bottom: 15px;
 }
@@ -606,7 +606,7 @@
   vertical-align: middle;
 }
 .page-con span {
-  /*background: #f6d063;*/
+  /*background: #d3d8df;*/
   border-radius: 50%;
   color: #fff;
   display: inline-block;
@@ -627,13 +627,13 @@
   background-size: contain;
   vertical-align: middle;
 }
-.page-con span.page-active { background: #f6d063; color: #000;}
+.page-con span.page-active { background: #a3e635; color: #0c0d0f;}
 .prev-page-ico { background-repeat: no-repeat; background-image: url('/img/menu/3.0/sub/prev.png'); margin-right: 3px; }
 .next-page-ico { background-repeat: no-repeat; background-image: url('/img/menu/3.0/sub/next.png'); }
 
 /*************** BET DETAILS ***************/
-.modal--betdetails .modal-con__head { background: rgba(224, 203, 114, 0.95); }
-.modal--betdetails .modal-con__body { background: rgba(22, 22, 22, 0.95); padding: 0; }
+.modal--betdetails .modal-con__head { background: rgba(211,216,223,0.95); }
+.modal--betdetails .modal-con__body { background: rgba(22,24,28,0.95); padding: 0; }
 
 .betlog-result-con {
   display: block;
@@ -908,7 +908,7 @@
   text-transform: capitalize;
 }
 .betlog-td:first-child { border-left: 1px solid #7c7c7c; }
-.betlog-table.tbl--head .betlog-td { background: #5e5e5e; }
+.betlog-table.tbl--head .betlog-td { background: #3a3f48; }
 .betlog-table.tbl--head .betlog-td span {font-weight: bold }
 .betlog-td.-bettype { width: 45%; }
 .betlog-td.-bets { width: 27.5%; }
@@ -1157,13 +1157,13 @@
   float: right;
   width: 65%;
   height: 75px;
-  background: #68a12e;
+  background: #a3e635;
   position: relative;
   margin-top: 45px;
 }
 .btn-changemusic span {
   display: block;
-  color: #fff;
+  color: #0c0d0f;
   font: bold 26px lato-bold;
   position: relative;
   text-align: center;
@@ -1234,15 +1234,15 @@
   position: relative;
   right: 0;
   height: 55px;
-  border: 0.1px solid #171715;
-  background: rgba(205,176,91,1);
-  background: -moz-linear-gradient(left, rgba(205,176,91,1) 0%, rgba(226,210,111,1) 50%, rgba(205,176,91,1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(205,176,91,1)), color-stop(50%, rgba(226,210,111,1)), color-stop(100%, rgba(205,176,91,1)));
-  background: -webkit-linear-gradient(left, rgba(205,176,91,1) 0%, rgba(226,210,111,1) 50%, rgba(205,176,91,1) 100%);
-  background: -o-linear-gradient(left, rgba(205,176,91,1) 0%, rgba(226,210,111,1) 50%, rgba(205,176,91,1) 100%);
-  background: -ms-linear-gradient(left, rgba(205,176,91,1) 0%, rgba(226,210,111,1) 50%, rgba(205,176,91,1) 100%);
-  background: linear-gradient(to right, rgba(205,176,91,1) 0%, rgba(226,210,111,1) 50%, rgba(205,176,91,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdb05b', endColorstr='#cdb05b', GradientType=1 );
+  border: 0.1px solid #16181c;
+  background: rgba(180,186,195,1);
+  background: -moz-linear-gradient(left, rgba(180,186,195,1) 0%, rgba(211,216,223,1) 50%, rgba(180,186,195,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(180,186,195,1)), color-stop(50%, rgba(211,216,223,1)), color-stop(100%, rgba(180,186,195,1)));
+  background: -webkit-linear-gradient(left, rgba(180,186,195,1) 0%, rgba(211,216,223,1) 50%, rgba(180,186,195,1) 100%);
+  background: -o-linear-gradient(left, rgba(180,186,195,1) 0%, rgba(211,216,223,1) 50%, rgba(180,186,195,1) 100%);
+  background: -ms-linear-gradient(left, rgba(180,186,195,1) 0%, rgba(211,216,223,1) 50%, rgba(180,186,195,1) 100%);
+  background: linear-gradient(to right, rgba(180,186,195,1) 0%, rgba(211,216,223,1) 50%, rgba(180,186,195,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4bac3', endColorstr='#b4bac3', GradientType=1 );
 }
 
 /* CHAT */
@@ -1263,9 +1263,9 @@
   animation: chatAnim 2s ease-in-out infinite;
 }
 @keyframes chatAnim {
-  0% { background: rgba(22, 22, 22, 0.9) }
+  0% { background: rgba(22,24,28,0.9) }
   50% { background: #fff }
-  100% { background: rgba(22, 22, 22, 0.9) }
+  100% { background: rgba(22,24,28,0.9) }
 }
 
 .modal--chat .modal-con__body {padding: 0}
@@ -1286,7 +1286,7 @@
 .message-data-con:not(:last-child) { margin-bottom: 10px; }
 .message-username {
   display: inline-block;
-  color: #f0e480;
+  color: #d3d8df;
   font-weight: bold;
   vertical-align: top;
   position: relative;
@@ -1313,8 +1313,8 @@
 .chat-input-con {
   width: 100%;
   height: 70px;
-  background: #333333;
-  border: 1px solid #515352;
+  background: #1e2228;
+  border: 1px solid #3a3f48;
 }
 .chat-input {
   color: #fff;
@@ -1322,7 +1322,7 @@
   height: 56px;
   border: none;
   float: left;
-  background: #333333;
+  background: #1e2228;
   margin: 8px 0 0 15px; /*10px*/
   font: 32px lato-regular;
   overflow-x: hidden;
@@ -1378,8 +1378,8 @@
   right: 10.7%;
   width: 1020px;
   height: 110px;
-  border: 1px solid #4c4c4c;
-  background: rgba(22, 22, 22, 0.9);
+  border: 1px solid #262a31;
+  background: rgba(22,24,28,0.9);
 }
 .chat-inner {
   display: block;
@@ -1423,8 +1423,8 @@
   width: 100%;
   height: 100%;
   transform: rotate(45deg);
-  border: 1px solid #4c4c4c;
-  background: rgba(22, 22, 22, 0.9);
+  border: 1px solid #262a31;
+  background: rgba(22,24,28,0.9);
 }
 
 /*portrait chat*/

@@ -91,15 +91,15 @@ export default (config) => {
       var container = new createjs.Container();
 
       let toggle_icon =  new createjs.Shape();
-      toggle_icon.strokeFill = toggle_icon.graphics.ss(2.5).s('#d7bd6a').command;
+      toggle_icon.strokeFill = toggle_icon.graphics.ss(2.5).s('#d3d8df').command;
       toggle_icon.graphics.drawRoundRect(15,7,33,15,7);
 
       let toggle_icon2 =  new createjs.Shape();
-      toggle_icon2.strokeFill = toggle_icon2.graphics.ss(1.5).s('#d7bd6a').command;
+      toggle_icon2.strokeFill = toggle_icon2.graphics.ss(1.5).s('#d3d8df').command;
       toggle_icon2.graphics.drawRoundRect(21,11,21,7,4);
 
       let line = new createjs.Shape();
-      line.strokeFill = line.graphics.ss(1.5).s('#d7bd6a').command;
+      line.strokeFill = line.graphics.ss(1.5).s('#d3d8df').command;
       line.graphics.moveTo(16,10).lineTo(21,13)
 
       line.graphics.moveTo(26,6).lineTo(27,11)
@@ -117,12 +117,12 @@ export default (config) => {
       line.graphics.moveTo(21,17).lineTo(16,20)
 
       var shape = new createjs.Shape();
-      container.strokeFill = shape.graphics.ss(2).s('#d7bd6a').command;
+      container.strokeFill = shape.graphics.ss(2).s('#d3d8df').command;
       container.fillCmd = shape.graphics.beginLinearGradientFill(["rgba(255,255,255,0.01)", "rgba(255,255,255,0.01)","rgba(255,255,255,0.01)"], [0,0.5,1], 0,0 , width,0).command;
       shape.graphics.drawRoundRect(0,0,width,30,15);
       container.addChild(shape,toggle_icon, toggle_icon2);
 
-      container.text = new createjs.Text(text, fontFormat(16, 'black', 'lato', true ) ,"#d9bf6b");
+      container.text = new createjs.Text(text, fontFormat(16, 'black', 'lato', true ) ,"#d3d8df");
       container.text.x = isCenter ? width/2 : 120;
       container.text.y = (30/2) - 1;
       container.text.textAlign = 'center';
@@ -136,31 +136,31 @@ export default (config) => {
 
       container.hover = function () {
         container.strokeFill.style = 'transparent';
-        container.fillCmd.linearGradient(["#d8be6a", "#efe180","#d9bf6b"], [0,0.5,1], 0,0 , width,0);
-        container.text.color = '#202020';
-        toggle_icon.strokeFill.style = '#473006';
-        toggle_icon2.strokeFill.style = '#473006';
-        line.strokeFill.style= '#473006';
+        container.fillCmd.linearGradient(["#a3e635", "#a3e635","#a3e635"], [0,0.5,1], 0,0 , width,0);
+        container.text.color = '#0c0d0f';
+        toggle_icon.strokeFill.style = '#0c0d0f';
+        toggle_icon2.strokeFill.style = '#0c0d0f';
+        line.strokeFill.style= '#0c0d0f';
       }
 
       container.active = function () {
         container.strokeFill.style = 'transparent';
-        container.fillCmd.linearGradient(["#d8be6a", "#efe180","#d9bf6b"], [0,0.5,1], 0,0 , width,0);
+        container.fillCmd.linearGradient(["#a3e635", "#a3e635","#a3e635"], [0,0.5,1], 0,0 , width,0);
         container.isActive = true;
-        container.text.color = '#202020'
-        toggle_icon.strokeFill.style = '#473006';
-        toggle_icon2.strokeFill.style = '#473006';
-        line.strokeFill.style= '#473006';
+        container.text.color = '#0c0d0f'
+        toggle_icon.strokeFill.style = '#0c0d0f';
+        toggle_icon2.strokeFill.style = '#0c0d0f';
+        line.strokeFill.style= '#0c0d0f';
       }
 
       container.default = function () {
-        container.strokeFill.style = '#d7bd6a';
+        container.strokeFill.style = '#d3d8df';
         container.fillCmd.linearGradient(["rgba(255,255,255,0.01)", "rgba(255,255,255,0.01)","rgba(255,255,255,0.01)"], [0,0.5,1], 0,0 , width,0)
         container.isActive = false;
-        container.text.color = '#d7bd6a'
-        toggle_icon.strokeFill.style = '#d7bd6a';
-        toggle_icon2.strokeFill.style = '#d7bd6a';
-        line.strokeFill.style= '#d7bd6a';
+        container.text.color = '#d3d8df'
+        toggle_icon.strokeFill.style = '#d3d8df';
+        toggle_icon2.strokeFill.style = '#d3d8df';
+        line.strokeFill.style= '#d3d8df';
       }
 
       return container;

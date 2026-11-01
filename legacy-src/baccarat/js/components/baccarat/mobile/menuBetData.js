@@ -287,7 +287,7 @@ export default (links) => {
 			this.tableContainer.y = - 90;
 
 			let detailHeaderBg = new createjs.Shape();
-			detailHeaderBg.graphics.beginFill('#ff9b28').drawRoundRect(0, 0, mdlDetailWidth-3, 45, 7);
+			detailHeaderBg.graphics.beginFill('#d3d8df').drawRoundRect(0, 0, mdlDetailWidth-3, 45, 7);
 			detailHeaderBg.x = detailBg.x + 2;
 			detailHeaderBg.y = detailBg.y + 2;
 			this.betDetails.addChild(detailHeaderBg);

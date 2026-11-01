@@ -24,7 +24,7 @@ export default() => {
 			this.bg.alpha = 0.8;
 			this.addChild(this.bg);
 
-			this.user_money = new createjs.Text("0", "26px bebas-regular", this.context.theme_color[window.theme].menu_text_color);
+			this.user_money = new createjs.Text("0", "26px bebas-regular", window.theme == 'white' ? this.context.theme_color[window.theme].menu_text_color : "#a3e635");
 			this.user_money.textAlign = "right";
 			this.user_money.x = 180;
 			this.user_money.y = 15;

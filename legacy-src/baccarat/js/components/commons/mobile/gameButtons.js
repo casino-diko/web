@@ -57,19 +57,19 @@ export default(link) => {
 			this.addChild(this.bg);
 
 			this.gradient_background_1 = new createjs.Shape();
-			this.gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d","#adacad"], [0, 1], 0, 5, 0, 25).beginLinearGradientFill(["#434244","#696a6d"], [0, 1], 0, 0, 0, 47).drawCircle(0,0,53);
+			this.gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#2f343c","#9aa1ab"], [0, 1], 0, 5, 0, 25).beginLinearGradientFill(["#1e2228","#2f343c"], [0, 1], 0, 0, 0, 47).drawCircle(0,0,53);
 			this.gradient_background_1.x = buttonposx;
 			this.gradient_background_1.y = buttonposy;
 			this.addChild(this.gradient_background_1);
 
 			this.gradient_background_2 = new createjs.Shape();
-			this.gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d","#adacad"], [0, 1], 0, 5, 0, 25).beginLinearGradientFill(["#434244","#696a6d"], [0, 1], 0, 0, 0, 47).drawCircle(0,0,53);
+			this.gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#2f343c","#9aa1ab"], [0, 1], 0, 5, 0, 25).beginLinearGradientFill(["#1e2228","#2f343c"], [0, 1], 0, 0, 0, 47).drawCircle(0,0,53);
 			this.gradient_background_2.x = this.gradient_background_1.x+(53*2)+15;
 			this.gradient_background_2.y = buttonposy;
 			this.addChild(this.gradient_background_2);
 
 			this.gradient_background_3 = new createjs.Shape();
-			this.gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d","#adacad"], [0, 1], 0, 5, 0, 25).beginLinearGradientFill(["#434244","#696a6d"], [0, 1], 0, 0, 0, 47).drawCircle(0,0,53);
+			this.gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#2f343c","#9aa1ab"], [0, 1], 0, 5, 0, 25).beginLinearGradientFill(["#1e2228","#2f343c"], [0, 1], 0, 0, 0, 47).drawCircle(0,0,53);
 			this.gradient_background_3.x = this.gradient_background_2.x+(53*2)+15;
 			this.gradient_background_3.y = buttonposy;
 			this.addChild(this.gradient_background_3);
@@ -472,20 +472,20 @@ export default(link) => {
 			cloneButtonsCon.y = this.context.stage.baseHeight  - 88;
 
 			let gradient_background_1 = new createjs.Shape();
-			gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d","#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244","#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
+			gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#2f343c","#9aa1ab"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#1e2228","#2f343c"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
 			gradient_background_1.y = 12;
 			gradient_background_1.cache(-70,-70,140,140)
 			cloneButtonsCon.addChild(gradient_background_1);
 
 			let gradient_background_2 = new createjs.Shape();
-			gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d","#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244","#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
+			gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#2f343c","#9aa1ab"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#1e2228","#2f343c"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
 			gradient_background_2.x = -140;
 			gradient_background_2.y = 12;
 			gradient_background_2.cache(-70,-70,140,140)
 			cloneButtonsCon.addChild(gradient_background_2);
 
 			let gradient_background_3 = new createjs.Shape();
-			gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d","#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244","#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
+			gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#2f343c","#9aa1ab"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#1e2228","#2f343c"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
 			gradient_background_3.x = 140;
 			gradient_background_3.y = 12;
 			gradient_background_3.cache(-70,-70,140,140)
@@ -493,9 +493,9 @@ export default(link) => {
 
 			if(!no_glow)
 			{
-				gradient_background_1.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
-				gradient_background_2.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
-				gradient_background_3.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+				gradient_background_1.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
+				gradient_background_2.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
+				gradient_background_3.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 			}
 
 			let confirmButton = this.makeConfirmButton();
@@ -861,7 +861,7 @@ export default(link) => {
 	       this.y = this.context.stage.baseHeight  - height;
 	     }
 
-	     this.bg.graphics.clear().beginFill('#2b2b2b').drawRect(0,0,width, height);
+	     this.bg.graphics.clear().beginFill('#16181c').drawRect(0,0,width, height);
 
 	     this.gradient_background_1.x = buttonposx;
 	     this.gradient_background_1.y = buttonposy;

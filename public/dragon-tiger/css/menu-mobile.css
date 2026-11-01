@@ -24,14 +24,14 @@
   z-index: 99;
 }
 .betlog-result__head {
-  background: #ff9b28;
+  background: #a3e635;
   display: block;
   position: relative;
   height: 35px;
   width: 100%;
 }
 .betlog-result__head span {
-  color: #2b2b2b;
+  color: #0c0d0f;
   display: block;
   text-align: center;
   font-family: lato-bold;
@@ -267,7 +267,7 @@
   font-size: 16px;
   font-family: lato-bold;
   font-weight: bold;
-  color: #242021;
+  color: #1e2228;
   text-align: right;
   padding: 7px 10px;
 
@@ -308,7 +308,7 @@
   border-radius: 0;
   width: 100%;
   height: auto;
-  color: #242021;
+  color: #1e2228;
 
 
 }

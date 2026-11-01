@@ -355,12 +355,12 @@ const confirmButton = function (scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").drawCircle(0,0,66);
+  this.bg.graphics.beginFill("#16181c").drawCircle(0,0,66);
   this.bg.alpha = 0.5;
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042","#585659","#696a6e"],[0,0.5,1], 0,0,0,100).drawCircle(0,2,56);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228","#262a31","#2f343c"],[0,0.5,1], 0,0,0,100).drawCircle(0,2,56);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -465,28 +465,28 @@ const confirmButton = function (scale) {
       this.container.currentAnimation = type;
       switch(type) {
         case 'up':
-          this.base.graphics.clear().beginLinearGradientFill(["#266443","#389368","#266443"],[0,0.5,1], 0,0,90,0).drawCircle(45,45,45);
-          this.fillCmd.style = "#fffde7";
-          this.fillCmd2.style = "#fffde7";
-          this.timer_text.color = "#fffde7";
+          this.base.graphics.clear().beginLinearGradientFill(["#8fd12a","#a3e635","#8fd12a"],[0,0.5,1], 0,0,90,0).drawCircle(45,45,45);
+          this.fillCmd.style = "#0c0d0f";
+          this.fillCmd2.style = "#0c0d0f";
+          this.timer_text.color = "#0c0d0f";
           break;
         case 'click':
-          this.base.graphics.clear().beginFill('#266443').drawCircle(45,45,45);
-          this.fillCmd.style = "#91af94";
-          this.fillCmd2.style = "#91af94";
-          this.timer_text.color = "#91af94";
+          this.base.graphics.clear().beginFill('#84cc16').drawCircle(45,45,45);
+          this.fillCmd.style = "#1e2228";
+          this.fillCmd2.style = "#1e2228";
+          this.timer_text.color = "#1e2228";
           break;
         case 'hover':
-          this.base.graphics.clear().beginLinearGradientFill(["#268f44","#37b14a","#268f44"],[0,0.5,1], 0,0,90,0).drawCircle(45,45,45);
-          this.fillCmd.style = "#fffde7";
-          this.fillCmd2.style = "#fffde7";
-          this.timer_text.color = "#fffde7";
+          this.base.graphics.clear().beginLinearGradientFill(["#a3e635","#bef264","#a3e635"],[0,0.5,1], 0,0,90,0).drawCircle(45,45,45);
+          this.fillCmd.style = "#0c0d0f";
+          this.fillCmd2.style = "#0c0d0f";
+          this.timer_text.color = "#0c0d0f";
           break;
         case 'disabled':
-          this.base.graphics.clear().ss(1).s('#808080').drawCircle(45,45,45);
-          this.fillCmd.style = "#7b7b79";
-          this.fillCmd2.style = "#7b7b79";
-          this.timer_text.color = "#7b7b79";
+          this.base.graphics.clear().ss(1).s('#a3e635').drawCircle(45,45,45);
+          this.fillCmd.style = "#a3e635";
+          this.fillCmd2.style = "#a3e635";
+          this.timer_text.color = "#a3e635";
           break;
       }
 
@@ -502,13 +502,13 @@ const clearButton =  function(scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").arc(0,0,68,10,0);
+  this.bg.graphics.beginFill("#16181c").arc(0,0,68,10,0);
   this.bg.alpha = 0.5;
   this.bg.rotation = -16
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042","#585659","#696a6e"],[0,0.5,1], 0,0,0,100).drawCircle(0,0,53);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228","#262a31","#2f343c"],[0,0.5,1], 0,0,0,100).drawCircle(0,0,53);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -539,24 +539,24 @@ const clearButton =  function(scale) {
     this.container.currentAnimation = type;
     switch(type) {
       case 'up':
-        this.base.graphics.clear().beginLinearGradientFill(["#632323","#802d2d","#632323"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
-        this.fillCmd.style = "#c68080";
-        this.fillCmd2.style = "#c68080";
+        this.base.graphics.clear().beginLinearGradientFill(["#b4bac3","#d3d8df","#b4bac3"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
+        this.fillCmd.style = "#1e2228";
+        this.fillCmd2.style = "#1e2228";
         break;
       case 'click':
-        this.base.graphics.clear().beginFill('#812727').drawCircle(44,44,44);
-        this.fillCmd.style = "#a35353";
-        this.fillCmd2.style = "#a35353";
+        this.base.graphics.clear().beginFill('#9aa1ab').drawCircle(44,44,44);
+        this.fillCmd.style = "#2f343c";
+        this.fillCmd2.style = "#2f343c";
         break;
       case 'hover':
-        this.base.graphics.clear().beginLinearGradientFill(["#992827","#ce282a","#992827"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
-        this.fillCmd.style = "#c68080";
-        this.fillCmd2.style = "#c68080";
+        this.base.graphics.clear().beginLinearGradientFill(["#d3d8df","#eef1f4","#d3d8df"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
+        this.fillCmd.style = "#1e2228";
+        this.fillCmd2.style = "#1e2228";
         break;
       case 'disabled':
-        this.base.graphics.clear().ss(1).s('#808080').drawCircle(44,44,44);
-        this.fillCmd.style = "#6b5d5f";
-        this.fillCmd2.style = "#6b5d5f";
+        this.base.graphics.clear().ss(1).s('#4a505a').drawCircle(44,44,44);
+        this.fillCmd.style = "#6b717b";
+        this.fillCmd2.style = "#6b717b";
         break;
     }
 
@@ -572,13 +572,13 @@ const undoButton =  function(scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").arc(0,0,68,10,0);
+  this.bg.graphics.beginFill("#16181c").arc(0,0,68,10,0);
   this.bg.alpha = 0.5;
   this.bg.rotation = -16
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042","#585659","#696a6e"],[0,0.5,1], 0,0,0,100).drawCircle(0,0,53);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228","#262a31","#2f343c"],[0,0.5,1], 0,0,0,100).drawCircle(0,0,53);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -629,20 +629,20 @@ const undoButton =  function(scale) {
     this.container.currentAnimation = type;
     switch(type) {
       case 'up':
-        this.base.graphics.clear().beginLinearGradientFill(["#1480a2","#0094db","#1480a2"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
-        this.fillCmd.style = "#8dc6d7";
+        this.base.graphics.clear().beginLinearGradientFill(["#b4bac3","#d3d8df","#b4bac3"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
+        this.fillCmd.style = "#1e2228";
         break;
       case 'click':
-        this.base.graphics.clear().beginFill('#2b79af').drawCircle(44,44,44);
-        this.fillCmd.style = "#5b9fc2";
+        this.base.graphics.clear().beginFill('#9aa1ab').drawCircle(44,44,44);
+        this.fillCmd.style = "#2f343c";
         break;
       case 'hover':
-        this.base.graphics.clear().beginLinearGradientFill(["#1895bd","#2ab7fa","#1895bd"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
-        this.fillCmd.style = "#8dc6d7";
+        this.base.graphics.clear().beginLinearGradientFill(["#d3d8df","#eef1f4","#d3d8df"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
+        this.fillCmd.style = "#1e2228";
         break;
       case 'disabled':
-        this.base.graphics.clear().ss(1).s('#808080').drawCircle(44,44,44);
-        this.fillCmd.style = "#657176";
+        this.base.graphics.clear().ss(1).s('#4a505a').drawCircle(44,44,44);
+        this.fillCmd.style = "#6b717b";
         break;
     }
 
@@ -658,13 +658,13 @@ const repeatButton =  function(scale) {
   this.container = new createjs.Container();
 
   this.bg = new createjs.Shape();
-  this.bg.graphics.beginFill("#2b2b2b").arc(0,0,68,10,0);
+  this.bg.graphics.beginFill("#16181c").arc(0,0,68,10,0);
   this.bg.alpha = 0.5;
   this.bg.rotation = -16
   this.container.addChild(this.bg);
 
   this.bg2 = new createjs.Shape();
-  this.bg2.graphics.beginLinearGradientFill(["#404042","#585659","#696a6e"],[0,0.5,1], 0,0,0,100).drawCircle(0,0,53);
+  this.bg2.graphics.beginLinearGradientFill(["#1e2228","#262a31","#2f343c"],[0,0.5,1], 0,0,0,100).drawCircle(0,0,53);
   this.container.addChild(this.bg2);
 
   this.base = new createjs.Shape();
@@ -732,24 +732,24 @@ const repeatButton =  function(scale) {
     this.container.currentAnimation = type;
     switch(type) {
       case 'up':
-        this.base.graphics.clear().beginLinearGradientFill(["#9e6510","#c77f14","#9e6510"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
-        this.fillCmd.style = "#edc38c";
-        this.fillCmd2.style = "#edc38c";
+        this.base.graphics.clear().beginLinearGradientFill(["#b4bac3","#d3d8df","#b4bac3"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
+        this.fillCmd.style = "#1e2228";
+        this.fillCmd2.style = "#1e2228";
         break;
       case 'click':
-        this.base.graphics.clear().beginFill('#b16b29').drawCircle(44,44,44);
-        this.fillCmd.style = "#ce965a";
-        this.fillCmd2.style = "#ce965a";
+        this.base.graphics.clear().beginFill('#9aa1ab').drawCircle(44,44,44);
+        this.fillCmd.style = "#2f343c";
+        this.fillCmd2.style = "#2f343c";
         break;
       case 'hover':
-        this.base.graphics.clear().beginLinearGradientFill(["#d18228","#ee9f22","#d18228"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
-        this.fillCmd.style = "#edc38c";
-        this.fillCmd2.style = "#edc38c";
+        this.base.graphics.clear().beginLinearGradientFill(["#d3d8df","#eef1f4","#d3d8df"],[0,0.5,1], 0,0,88,0).drawCircle(44,44,44);
+        this.fillCmd.style = "#1e2228";
+        this.fillCmd2.style = "#1e2228";
         break;
       case 'disabled':
-        this.base.graphics.clear().ss(1).s('#808080').drawCircle(44,44,44);
-        this.fillCmd.style = "#797168";
-        this.fillCmd2.style = "#797168";
+        this.base.graphics.clear().ss(1).s('#4a505a').drawCircle(44,44,44);
+        this.fillCmd.style = "#6b717b";
+        this.fillCmd2.style = "#6b717b";
         break;
     }
 

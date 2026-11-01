@@ -13,7 +13,7 @@ export default (config) => {
 
       // === Flat view components 
       let flatViewBg = new createjs.Shape();
-      flatViewBg.graphics.beginFill('#711d1d').drawRect(0, 0, this.context.context.width, this.context.context.height);
+      flatViewBg.graphics.beginFill('#16181c').drawRect(0, 0, this.context.context.width, this.context.context.height);
       flatViewBg.propCommon = true;
       this.addChild(flatViewBg);
 
@@ -23,19 +23,19 @@ export default (config) => {
       this.addChild(this.toggleView);
 
       let backBtnBg = new createjs.Shape();
-      backBtnBg.graphics.beginFill('#711d1d').drawRect(0, 0, 80, 50);
+      backBtnBg.graphics.beginFill('#16181c').drawRect(0, 0, 80, 50);
       backBtnBg.x = this.context.context.width - 105;
       backBtnBg.y = 20;
       this.toggleView.addChild(backBtnBg);
 
       let advBackBtn = new createjs.Shape();
-      advBackBtn.graphics.beginLinearGradientFill(['#dabf6b', '#f0e182', '#dabf6b'], [.2, .6, .9], 0, 0, 45, 0).drawRoundRect(0, 0, 65, 8, 4);
+      advBackBtn.graphics.beginLinearGradientFill(['#b9bfc8', '#d3d8df', '#b9bfc8'], [.2, .6, .9], 0, 0, 45, 0).drawRoundRect(0, 0, 65, 8, 4);
       advBackBtn.x = this.context.context.width - 95;
       advBackBtn.y = 41;
       this.toggleView.addChild(advBackBtn);
 
       let advBackBtn2 = new createjs.Shape();
-      advBackBtn2.graphics.beginStroke('#e0c971').setStrokeStyle(8, 'round').moveTo(0, 0).lineTo(-20, 20).lineTo(0, 40);
+      advBackBtn2.graphics.beginStroke('#d3d8df').setStrokeStyle(8, 'round').moveTo(0, 0).lineTo(-20, 20).lineTo(0, 40);
       advBackBtn2.x = this.context.context.width - 80;
       advBackBtn2.y = 25;
       this.toggleView.addChild(advBackBtn2);

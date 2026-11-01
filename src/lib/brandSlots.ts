@@ -22,24 +22,26 @@ export type Slot =
 	| { kind : 'icon'; scale : number; background : boolean }
 	| { kind : 'welcome'; lang : string };
 
-const RED = '#d22e21';
-const GOLD = '#e2b531';
-const LIGHT_GOLD = '#efd28e';
+// the lobby / game palette (black, lime and silver): the wordmark and mark in lime,
+// the variants that were gold in silver
+const LIME = '#a3e635';
+const SILVER = '#d3d8df';
+const LIGHT_SILVER = '#e6e9ee';
 
 const RULES : [RegExp, (m : RegExpMatchArray) => Slot][] = [
-	[/^(baccarat|dragon-tiger|poker)\/img\/nihtan-logo\.png$/, () => ({ kind : 'wordmark', colour : RED })],
-	[/^lobby\/img\/(nihtan_logo|logo|header\/logo)\.png$/, () => ({ kind : 'wordmark', colour : RED })],
-	[/^[a-z-]+\/img\/tutorials\/nihtan-red_logo\.png$/, () => ({ kind : 'wordmark', colour : RED })],
-	[/^[a-z-]+\/img\/maintenance\/logo\.png$/, () => ({ kind : 'wordmark', colour : LIGHT_GOLD })],
-	[/^[a-z-]+\/img\/confirmation\/nihtan-yellow_logo\.png$/, () => ({ kind : 'wordmark', colour : GOLD })],
-	[/^lobby\/img\/banner\/nihtan-banner_ico\.png$/, () => ({ kind : 'wordmark', colour : GOLD })],
-	[/^lobby\/img\/(icons\/)?nihtan_logo_mobile\.png$/, () => ({ kind : 'mark', colour : RED })],
-	[/^lobby\/img\/howtoplay\/redwhite\/nihtan_symbol\.png$/, () => ({ kind : 'mark', colour : RED })],
+	[/^(baccarat|dragon-tiger|poker)\/img\/nihtan-logo\.png$/, () => ({ kind : 'wordmark', colour : LIME })],
+	[/^lobby\/img\/(nihtan_logo|logo|header\/logo)\.png$/, () => ({ kind : 'wordmark', colour : LIME })],
+	[/^[a-z-]+\/img\/tutorials\/nihtan-red_logo\.png$/, () => ({ kind : 'wordmark', colour : LIME })],
+	[/^[a-z-]+\/img\/maintenance\/logo\.png$/, () => ({ kind : 'wordmark', colour : LIGHT_SILVER })],
+	[/^[a-z-]+\/img\/confirmation\/nihtan-yellow_logo\.png$/, () => ({ kind : 'wordmark', colour : SILVER })],
+	[/^lobby\/img\/banner\/nihtan-banner_ico\.png$/, () => ({ kind : 'wordmark', colour : SILVER })],
+	[/^lobby\/img\/(icons\/)?nihtan_logo_mobile\.png$/, () => ({ kind : 'mark', colour : LIME })],
+	[/^lobby\/img\/howtoplay\/redwhite\/nihtan_symbol\.png$/, () => ({ kind : 'mark', colour : LIME })],
 	// a faint watermark behind the lobby's how-to-play pages
 	[/^lobby\/img\/howtoplay\/lobby\/nihtan-logo\.png$/, () => ({ kind : 'mark', colour : '#555555' })],
 	// the seasonal lobby logos that are a single picture (the wide ones are animation strips nothing loads)
-	[/^lobby\/img\/seasonal_theme\/(lantern_theme|chinese_newyear_theme)\/logo_mobile\.png$/, () => ({ kind : 'mark', colour : RED })],
-	[/^[a-z-]+\/favicon\.ico$/, () => ({ kind : 'mark', colour : RED })],
+	[/^lobby\/img\/seasonal_theme\/(lantern_theme|chinese_newyear_theme)\/logo_mobile\.png$/, () => ({ kind : 'mark', colour : LIME })],
+	[/^[a-z-]+\/favicon\.ico$/, () => ({ kind : 'mark', colour : LIME })],
 	[/^shared\/app\/(icon-192|icon-512|apple-touch-icon)\.png$/, () => ({ kind : 'icon', scale : 0.62, background : true })],
 	[/^shared\/app\/icon-maskable-512\.png$/, () => ({ kind : 'icon', scale : 0.46, background : true })],
 	[/^lobby\/sound\/(en|kr|jp|zh|th)\/mode-\d\/welcome-nihtan[^/]*\.mp3$/, m => ({ kind : 'welcome', lang : m[1] })]

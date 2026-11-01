@@ -47,18 +47,18 @@ export default (link) => {
       **/
 
       let gradient_background_1 = new createjs.Shape();
-      gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d", "#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244", "#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
+      gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#262a31", "#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c", "#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
       gradient_background_1.y = 12;
       this.addChild(gradient_background_1);
 
       let gradient_background_2 = new createjs.Shape();
-      gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d", "#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244", "#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
+      gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#262a31", "#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c", "#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
       gradient_background_2.x = -140;
       gradient_background_2.y = 12;
       this.addChild(gradient_background_2);
 
       let gradient_background_3 = new createjs.Shape();
-      gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d", "#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244", "#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
+      gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#262a31", "#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c", "#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0, 2, 67);
       gradient_background_3.x = 140;
       gradient_background_3.y = 12;
       this.addChild(gradient_background_3);
@@ -283,25 +283,25 @@ export default (link) => {
             break;
 
           case "up":
-            this.button_bg.graphics.clear().beginLinearGradientFill(["#1998c2", "#2ab7f9", "#1998c2"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
+            this.button_bg.graphics.clear().beginLinearGradientFill(["#d3d8df", "#eef1f4", "#d3d8df"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
             this.button_bg.shadow = new createjs.Shadow("rgba(0,0,0,0.5)", 0, 2, 5)
-            this.undo_img.graphics.clear().ss(6).beginStroke("#9ee0ef").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
-            this.undo_img1.graphics.clear().beginFill("#9ee0ef").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.undo_button_text.color = "#9ee0ef"
+            this.undo_img.graphics.clear().ss(6).beginStroke("#1e2228").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
+            this.undo_img1.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.undo_button_text.color = "#1e2228"
             break;
 
           case "click":
-            this.button_bg.graphics.clear().beginFill("#2b79af").drawCircle(57, 53, 48);
-            this.undo_img.graphics.clear().ss(6).beginStroke("#1b3244").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
-            this.undo_img1.graphics.clear().beginFill("#1b3244").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.undo_button_text.color = "#1b3244"
+            this.button_bg.graphics.clear().beginFill("#9aa3ae").drawCircle(57, 53, 48);
+            this.undo_img.graphics.clear().ss(6).beginStroke("#3a4048").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
+            this.undo_img1.graphics.clear().beginFill("#3a4048").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.undo_button_text.color = "#3a4048"
             break;
 
           case "after_click":
-            this.button_bg.graphics.clear().beginLinearGradientFill(["#1381a5", "#0094da", "#1381a5"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
-            this.undo_img.graphics.clear().ss(6).beginStroke("#8dc6d7").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
-            this.undo_img1.graphics.clear().beginFill("#8dc6d7").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
-            this.undo_button_text.color = "#1b3244"
+            this.button_bg.graphics.clear().beginLinearGradientFill(["#aab2bc", "#d3d8df", "#aab2bc"], [0, 0.5, 1], 30, 0, 80, 0, 140, 0).drawCircle(57, 53, 48);
+            this.undo_img.graphics.clear().ss(6).beginStroke("#1e2228").setStrokeDash([50, 23], 0).drawRoundRectComplex(45, 32, 30, 23, 0, 6, 6, 0);
+            this.undo_img1.graphics.clear().beginFill("#1e2228").moveTo(0, 0).lineTo(12, -10).arcTo(14, -10, 16, -6, 2).lineTo(16, 8).arcTo(16, 10, 12, 8, 2).lineTo(0, 0);
+            this.undo_button_text.color = "#3a4048"
             break;
         }
       }
@@ -478,25 +478,25 @@ export default (link) => {
 						break;
 
 					case "up" :
-						this.button_bg.graphics.clear().beginLinearGradientFill(["#279144","#37b14a","#279144"],[0,0.5,1], 0,0,130,0,170,0).drawCircle(69,64,58);
+						this.button_bg.graphics.clear().beginLinearGradientFill(["#84cc16","#a3e635","#84cc16"],[0,0.5,1], 0,0,130,0,170,0).drawCircle(69,64,58);
 						this.button_bg.shadow = new createjs.Shadow("rgba(0,0,0,0.5)",0,2,5)
-						this.check_1.graphics.clear().f("#fff").drawRoundRect(-10,90,70,13,4);
-						this.check_2.graphics.clear().f("#fff").drawRoundRect(-12,60,13,40,4);
-						this.c_text.color = "#fdfce6";
+						this.check_1.graphics.clear().f("#0c0d0f").drawRoundRect(-10,90,70,13,4);
+						this.check_2.graphics.clear().f("#0c0d0f").drawRoundRect(-12,60,13,40,4);
+						this.c_text.color = "#0c0d0f";
 						break;
 
 					case "click" :
 						// console.log(this, "click");
-						this.button_bg.graphics.clear().beginFill("#246342").drawCircle(69,64,58);
-						this.check_1.graphics.clear().f("#1b3c29").drawRoundRect(-10,90,70,13,4);
-						this.check_2.graphics.clear().f("#1b3c29").drawRoundRect(-12,60,13,40,4);
-						this.c_text.color = "#1b3c29";
+						this.button_bg.graphics.clear().beginFill("#65a30d").drawCircle(69,64,58);
+						this.check_1.graphics.clear().f("#1a2e05").drawRoundRect(-10,90,70,13,4);
+						this.check_2.graphics.clear().f("#1a2e05").drawRoundRect(-12,60,13,40,4);
+						this.c_text.color = "#1a2e05";
 						break;
 
 					case "after_click" :
-						this.button_bg.graphics.clear().beginLinearGradientFill(["#266443","#33805c","#266443"],[0,0.5,1], 0,0,130,0,170,0).drawCircle(69,64,58);
-						this.check_1.graphics.clear().f("#fff").drawRoundRect(-10,90,70,13,4);
-						this.check_2.c_text.clear().f("#fff").drawRoundRect(-12,60,13,40,4);
+						this.button_bg.graphics.clear().beginLinearGradientFill(["#a3e635","#bef264","#a3e635"],[0,0.5,1], 0,0,130,0,170,0).drawCircle(69,64,58);
+						this.check_1.graphics.clear().f("#0c0d0f").drawRoundRect(-10,90,70,13,4);
+						this.check_2.c_text.clear().f("#0c0d0f").drawRoundRect(-12,60,13,40,4);
 						break;
 				}
 			}
@@ -648,33 +648,33 @@ export default (link) => {
 						break;
 
 					case "up" :
-						this.button_bg.graphics.clear().beginLinearGradientFill(["#d28328","#ed9e22","#d28328"],[0,0.5,1], 30,0,80,0,140,0).drawCircle(57,53,48);
+						this.button_bg.graphics.clear().beginLinearGradientFill(["#aab2bc","#d3d8df","#aab2bc"],[0,0.5,1], 30,0,80,0,140,0).drawCircle(57,53,48);
 						this.button_bg.shadow = new createjs.Shadow("rgba(0,0,0,0.5)",0,2,5)
-						this.arrow_1.graphics.clear().beginFill("#d28328").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.arrow2_1.graphics.clear().beginFill("#d28328").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.arrow.graphics.clear().beginFill("#ffd086").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.arrow2.graphics.clear().beginFill("#ffd086").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.repeat_icon.graphics.clear().ss(6).beginStroke("#ffd086").drawRoundRect(38,28,40,26,8);
-						this.repeat_button_text.color = "#ffd086"
+						this.arrow_1.graphics.clear().beginFill("#aab2bc").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.arrow2_1.graphics.clear().beginFill("#aab2bc").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.arrow.graphics.clear().beginFill("#1e2228").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.arrow2.graphics.clear().beginFill("#1e2228").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.repeat_icon.graphics.clear().ss(6).beginStroke("#1e2228").drawRoundRect(38,28,40,26,8);
+						this.repeat_button_text.color = "#1e2228"
 						break;
 
 					case "click" :
-						this.button_bg.graphics.clear().beginFill("#b16b29").drawCircle(57,53,48);
-						this.arrow_1.graphics.clear().beginFill("#b16b29").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.arrow2_1.graphics.clear().beginFill("#b16b29").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.arrow.graphics.clear().beginFill("#5d3b15").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.arrow2.graphics.clear().beginFill("#5d3b15").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.repeat_icon.graphics.clear().ss(6).beginStroke("#5d3b15").drawRoundRect(38,28,40,26,8);
+						this.button_bg.graphics.clear().beginFill("#9aa3ae").drawCircle(57,53,48);
+						this.arrow_1.graphics.clear().beginFill("#9aa3ae").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.arrow2_1.graphics.clear().beginFill("#9aa3ae").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.arrow.graphics.clear().beginFill("#3a4048").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.arrow2.graphics.clear().beginFill("#3a4048").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.repeat_icon.graphics.clear().ss(6).beginStroke("#3a4048").drawRoundRect(38,28,40,26,8);
 						this.repeat_button_text.color = "#8a898b"
 						break;
 
 					case "after_click" :
-						this.button_bg.graphics.clear().beginLinearGradientFill(["#a26b13","#c08000","#a26b13"],[0,0.5,1], 30,0,80,0,140,0).drawCircle(57,53,48);
-						this.arrow_1.graphics.clear().beginFill("#a26b13").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.arrow2_1.graphics.clear().beginFill("#a26b13").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.arrow.graphics.clear().beginFill("#bfa680").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.arrow2.graphics.clear().beginFill("#bfa680").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
-						this.repeat_icon.graphics.clear().ss(6).beginStroke("#bfa680").drawRoundRect(38,28,40,26,8);
+						this.button_bg.graphics.clear().beginLinearGradientFill(["#d3d8df","#eef1f4","#d3d8df"],[0,0.5,1], 30,0,80,0,140,0).drawCircle(57,53,48);
+						this.arrow_1.graphics.clear().beginFill("#d3d8df").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.arrow2_1.graphics.clear().beginFill("#d3d8df").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.arrow.graphics.clear().beginFill("#1e2228").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.arrow2.graphics.clear().beginFill("#1e2228").moveTo(0,0).lineTo(12,-10).arcTo(14, -10, 16,-6,2).lineTo(16,8).arcTo(16,10, 12,8, 2).lineTo(0,0);
+						this.repeat_icon.graphics.clear().ss(6).beginStroke("#1e2228").drawRoundRect(38,28,40,26,8);
 						this.repeat_button_text.color = "#8a898b"
 						break;
 				}
@@ -692,20 +692,20 @@ export default (link) => {
 			cloneButtonsCon.y = this.context.stage.baseHeight  - 88;
 
 			let gradient_background_1 = new createjs.Shape();
-			gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d","#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244","#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
+			gradient_background_1.graphics.ss(1.5).beginLinearGradientStroke(["#262a31","#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c","#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
 			gradient_background_1.y = 12;
 			gradient_background_1.cache(-70,-70,140,140)
 			cloneButtonsCon.addChild(gradient_background_1);
 
 			let gradient_background_2 = new createjs.Shape();
-			gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d","#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244","#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
+			gradient_background_2.graphics.ss(1.5).beginLinearGradientStroke(["#262a31","#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c","#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
 			gradient_background_2.x = -140;
 			gradient_background_2.y = 12;
 			gradient_background_2.cache(-70,-70,140,140)
 			cloneButtonsCon.addChild(gradient_background_2);
 
 			let gradient_background_3 = new createjs.Shape();
-			gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#4c4b4d","#adacad"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#434244","#696a6d"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
+			gradient_background_3.graphics.ss(1.5).beginLinearGradientStroke(["#262a31","#9aa3ae"], [0, 1], 0, 5, 0, 30).beginLinearGradientFill(["#16181c","#1e2228"], [0, 1], 0, 0, 0, 62).drawCircle(0,2,67);
 			gradient_background_3.x = 140;
 			gradient_background_3.y = 12;
 			gradient_background_3.cache(-70,-70,140,140)
@@ -713,9 +713,9 @@ export default (link) => {
 
       if(!no_glow)
 			{
-				gradient_background_1.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
-				gradient_background_2.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
-				gradient_background_3.shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+				gradient_background_1.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
+				gradient_background_2.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
+				gradient_background_3.shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 			}
 
 			let confirmButton = this.makeConfirmButton();

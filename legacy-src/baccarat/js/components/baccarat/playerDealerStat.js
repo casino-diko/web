@@ -24,19 +24,19 @@ export default() => {
 			
 						
 			this.player_banker_bg = new createjs.Shape();
-			this.player_banker_bg.graphics.beginFill("#e6c160").drawRoundRect(0,0,185,30,5);
+			this.player_banker_bg.graphics.beginFill("#d3d8df").drawRoundRect(0,0,185,30,5);
 			this.player_banker_bg.y = 14;
 			this.player_banker_bg.x = 46;
 			this.addChild(this.player_banker_bg);
 
 			this.tie_bg = new createjs.Shape();
-			this.tie_bg.graphics.beginFill("#e6c160").drawRoundRect(0,0,185,30,5);
+			this.tie_bg.graphics.beginFill("#d3d8df").drawRoundRect(0,0,185,30,5);
 			this.tie_bg.y = 14+35+10
 			this.tie_bg.x = 46;
 			this.addChild(this.tie_bg);
 
 			this.pb_pair_bg = new createjs.Shape();
-			this.pb_pair_bg.graphics.beginFill("#e6c160").drawRoundRect(0,0,185,30,5);
+			this.pb_pair_bg.graphics.beginFill("#d3d8df").drawRoundRect(0,0,185,30,5);
 			this.pb_pair_bg.y = 14+(35*2)+20
 			this.pb_pair_bg.x = 46;
 			this.addChild(this.pb_pair_bg);

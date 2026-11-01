@@ -90,7 +90,7 @@ let instance = null;
 
 			for (var x = 0; x < 4; x++) {
 				this.chip_bg[x] = new createjs.Shape();
-				this.chip_bg[x].graphics.ss(0.5).beginStroke("#fff").beginLinearGradientFill(["rgba(43,43,43, 0.3)","#6a6b6e"], [0, 1], 0, -60,0,20).drawCircle(0, 0, 52);
+				this.chip_bg[x].graphics.ss(0.5).beginStroke("#fff").beginLinearGradientFill(["rgba(22,24,28, 0.3)","#4a505a"], [0, 1], 0, -60,0,20).drawCircle(0, 0, 52);
 				this.chip_bg[x].x = (x * posX1) + posX;
 				this.chip_bg[x].y = (x * posY1) + posY;
 				this.addChild(this.chip_bg[x]);
@@ -165,8 +165,8 @@ let instance = null;
 			for (var x = 0; x < 4; x++) {
 
 				chips_bg[x] = new createjs.Shape();
-				chips_bg[x].graphics.ss(0.5).beginStroke("#fff").beginLinearGradientFill(["transparent","#636467"], [0, 1], 0, -60,0,20).drawCircle(0, 0, 52);
-				chips_bg[x].shadow = new createjs.Shadow('rgba(241, 227, 130, 1)', 0 ,0, 30);
+				chips_bg[x].graphics.ss(0.5).beginStroke("#fff").beginLinearGradientFill(["transparent","#4a505a"], [0, 1], 0, -60,0,20).drawCircle(0, 0, 52);
+				chips_bg[x].shadow = new createjs.Shadow('rgba(211, 216, 223, 1)', 0 ,0, 30);
 				chips_bg[x].x = this.context.stage.baseWidth - 78;
 				chips_bg[x].cache(-50,-50,100,100)
 				chips_bg[x].y = (x * 120) + 145;

@@ -41,7 +41,7 @@ export default() => {
 
 			//Modal Header
 			this._modalHeader = new createjs.Shape();
-			this._modalHeader.graphics.beginLinearGradientFill(["#EEDE7E","#a99143"], [0, 1], 0,0,this._modalWidth,0).drawRect(0,0, this._modalWidth, 35);
+			this._modalHeader.graphics.beginLinearGradientFill(["#d3d8df","#9aa1ab"], [0, 1], 0,0,this._modalWidth,0).drawRect(0,0, this._modalWidth, 35);
 			this.addChild(this._modalHeader);
 
 			//Header Text
@@ -53,7 +53,7 @@ export default() => {
 			this.addChild(this._headerTxt);
 
 			//Header Close button
-			this._headerClose = new createjs.Text("X","bold 25px arial", "#D32F2F");
+			this._headerClose = new createjs.Text("X","bold 25px arial", "#0c0d0f");
 			this._headerClose.x = this._modalWidth - 25;
 			this._headerClose.y = this._modalHeader.y + 4;
 			this.addChild(this._headerClose);
@@ -74,7 +74,7 @@ export default() => {
 	        });
 
 			this._modalBg = new createjs.Shape();
-			this._modalBg.graphics.beginFill("#2b2b2b").moveTo(0,0)
+			this._modalBg.graphics.beginFill("#16181c").moveTo(0,0)
 				.moveTo(0,0)
 				.lineTo(this._modalWidth, 0)
 				.lineTo(this._modalWidth, this._modalHeight)
@@ -87,7 +87,7 @@ export default() => {
 
 			//Button clear chips border
 			this.btnClearChips = new createjs.Shape();
-			this.btnClearChips.graphics.beginStroke("#F1E382");
+			this.btnClearChips.graphics.beginStroke("#d3d8df");
 			this.btnClearChips.graphics.setStrokeStyle(2);
 			this.btnClearChips.graphics.drawRect(0, 0, 166, 36);
 			this.btnClearChips.x = 62;
@@ -101,19 +101,19 @@ export default() => {
 			this.btnClearChipsHit.alpha = 0.01;
 			this.btnClearChipsHit.cursor = "pointer";
 
-			this.txtClearChips = new createjs.Text(window.language2.com_sub_bottomgamedetails_clearchips, window.language.locale == "zh" ? fontFormat(25, 'normal', 'lato') : fontFormat(18, 'bold', 'lato'), "#F1E382");
+			this.txtClearChips = new createjs.Text(window.language2.com_sub_bottomgamedetails_clearchips, window.language.locale == "zh" ? fontFormat(25, 'normal', 'lato') : fontFormat(18, 'bold', 'lato'), "#d3d8df");
 			this.txtClearChips.textAlign = "center";
 			this.txtClearChips.textBaseline = "middle";
 			this.txtClearChips.x = this.btnClearChips.x + (166/2);
 			this.txtClearChips.y = this.btnClearChips.y + (36/2);
 
 			this.btnApply = new createjs.Shape();
-			this.btnApply.graphics.beginLinearGradientFill(["#EEDE7E","#a99143"], [0, 1], 0, 0, 0, 166).drawRect(0,0, 166, 36);
+			this.btnApply.graphics.beginLinearGradientFill(["#a3e635","#84cc16"], [0, 1], 0, 0, 0, 166).drawRect(0,0, 166, 36);
 			this.btnApply.x = this.btnClearChipsHit.x + 166 + 23;
 			this.btnApply.y = this.btnClearChips.y - 1;
 			this.btnApply.cursor = "pointer";
 
-			this.txtBtnApply = new createjs.Text(window.language2.com_sub_bottomgamedetails_applynow, window.language.locale == "zh" ? fontFormat(25, 'normal', 'lato') : fontFormat(18, 'bold', 'lato'), "#000");
+			this.txtBtnApply = new createjs.Text(window.language2.com_sub_bottomgamedetails_applynow, window.language.locale == "zh" ? fontFormat(25, 'normal', 'lato') : fontFormat(18, 'bold', 'lato'), "#0c0d0f");
 			this.txtBtnApply.y = this.btnApply.y + (36/2);
 			this.txtBtnApply.x = this.btnApply.x + (166/2);
 			this.txtBtnApply.textAlign = "center";
@@ -213,7 +213,7 @@ export default() => {
 
 					//background chip
 					chip_container[i].bg = new createjs.Shape();
-					chip_container[i].bg.graphics.ss(1).beginLinearGradientFill(["transparent","#636467"], [0, 1], 0, -32, 0, 12).drawCircle(0, 0, 33);
+					chip_container[i].bg.graphics.ss(1).beginLinearGradientFill(["transparent","#4a505a"], [0, 1], 0, -32, 0, 12).drawCircle(0, 0, 33);
 					chip_container[i].bg.regX = chip_container[i].bg.regY = -33;
 					chip_container[i].bg.x = chip_container[i].x;
 					chip_container[i].bg.y = chip_container[i].y;
@@ -283,7 +283,7 @@ export default() => {
 					this.allchips_container.addChild(user_chip_container[j]);
 
 					let chipBG = new createjs.Shape();
-					chipBG.graphics.ss(1).beginLinearGradientFill(["transparent","#636467"], [0, 1], 0, -40, 0, 20).drawCircle(0, 0, 42);
+					chipBG.graphics.ss(1).beginLinearGradientFill(["transparent","#4a505a"], [0, 1], 0, -40, 0, 20).drawCircle(0, 0, 42);
 					chipBG.regX = -38;
 					chipBG.regY = -40;
 					chipBG.alpha = 0.7;

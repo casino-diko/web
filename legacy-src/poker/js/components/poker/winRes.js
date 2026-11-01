@@ -10,10 +10,10 @@ export default() => {
 			this.gold_spotlight_container = new createjs.Container();
 
 			let spotlight_1 = new createjs.Shape();
-			spotlight_1.graphics.beginRadialGradientFill(["#edd791","rgba(216, 182, 88, 0.01)"],[0,1], 0, 0, 30,0,0,220).drawCircle(0,0,220);
+			spotlight_1.graphics.beginRadialGradientFill(["#eef1f4","rgba(211, 216, 223, 0.01)"],[0,1], 0, 0, 30,0,0,220).drawCircle(0,0,220);
 
 			let spotlight_2 = new createjs.Shape();
-			spotlight_2.graphics.beginRadialGradientFill(["#edd791","rgba(216, 182, 88, 0.01)"],[0,1], 0, 0, 70,0,0,200).drawCircle(0,0,200);
+			spotlight_2.graphics.beginRadialGradientFill(["#eef1f4","rgba(211, 216, 223, 0.01)"],[0,1], 0, 0, 70,0,0,200).drawCircle(0,0,200);
 
 			this.gold_spotlight_container.addChild(spotlight_1, spotlight_2);
 			this.gold_spotlight_container.regX = 220/2;

@@ -64,18 +64,18 @@
 .tutorials h2 {
   font-size: 50px;
   text-transform: uppercase;
-  color: #efe280;
+  color: #d0d4da;
   margin: 0;
 }
 
 .tutorials h4 {
   font-size: 16px;
   text-transform: uppercase;
-  color: #4d4d4d;
+  color: #30353d;
   padding-bottom: 5px;
   margin: 0;
 }
-.tutorials p { font-size: 30px; color: #4d4d4d; }
+.tutorials p { font-size: 30px; color: #30353d; }
 
 /* intro */
 .tutorials--intro {
@@ -94,7 +94,7 @@
 .intro-text {
   font-size : 21px !important;
   line-height : 26px;
-  color : #4D4D4D;
+  color : #30353d;
 }
 
 .tutorials--intro img {
@@ -149,10 +149,10 @@
 }
 
 .tutorials .btn:last-child { margin-right: 0; }
-.tutorials .btn-nevershow, .tutorials .btn-close, .tutorials .btn-cancel { background: #BC140C; }
-.tutorials .btn-nevershow:hover, .tutorials .btn-close:hover, .tutorials .btn-cancel:hover { background: #820000; }
-.tutorials .btn-continue, .tutorials .btn-next, .btn-startGame { background: #4A8900; }
-.tutorials .btn-continue:hover, .tutorials .btn-next:hover, .btn-startGame:hover { background: #3F6000; }
+.tutorials .btn-nevershow, .tutorials .btn-close, .tutorials .btn-cancel { background: #262a31; }
+.tutorials .btn-nevershow:hover, .tutorials .btn-close:hover, .tutorials .btn-cancel:hover { background: #30353d; }
+.tutorials .btn-continue, .tutorials .btn-next, .btn-startGame, .tutorials .btn-startGame { background: #a3e635; color: #0c0d0f; }
+.tutorials .btn-continue:hover, .tutorials .btn-next:hover, .btn-startGame:hover { background: #8fd12a; color: #0c0d0f; }
 
 /* progress bar*/
 .progress-bar {

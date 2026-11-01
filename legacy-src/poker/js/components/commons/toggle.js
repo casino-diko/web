@@ -157,12 +157,12 @@ export default (config) => {
 			var container = new createjs.Container();
 
 			var shape = new createjs.Shape();
-			container.strokeFill = shape.graphics.ss(2).s('#d7bd6a').command;
+			container.strokeFill = shape.graphics.ss(2).s('#d3d8df').command;
 			container.fillCmd = shape.graphics.beginLinearGradientFill(["rgba(255,255,255,0.01)", "rgba(255,255,255,0.01)","rgba(255,255,255,0.01)"], [0,0.5,1], 0,0 , width,0).command;
 			shape.graphics.drawRoundRect(0,0,width,30,15);
 			container.addChild(shape);
 
-			container.text = new createjs.Text(text, fontFormat(16,'black','lato', true),"#d9bf6b");;
+			container.text = new createjs.Text(text, fontFormat(16,'black','lato', true),"#d3d8df");;
 			container.text.x = isCenter ? width/2 : 120;
 			container.text.y = 30/2;
 			container.text.textAlign = 'center';
@@ -172,22 +172,22 @@ export default (config) => {
 
 			container.hover = function () {
 				container.strokeFill.style = 'transparent';
-				container.fillCmd.linearGradient(["#d8be6a", "#efe180","#d9bf6b"], [0,0.5,1], 0,0 , width,0);
-				container.text.color = '#202020'
+				container.fillCmd.linearGradient(["#84cc16", "#a3e635","#84cc16"], [0,0.5,1], 0,0 , width,0);
+				container.text.color = '#0c0d0f'
 			}
 
 			container.active = function () {
 				container.strokeFill.style = 'transparent';
-				container.fillCmd.linearGradient(["#d8be6a", "#efe180","#d9bf6b"], [0,0.5,1], 0,0 , width,0);
+				container.fillCmd.linearGradient(["#84cc16", "#a3e635","#84cc16"], [0,0.5,1], 0,0 , width,0);
 				container.isActive = true;
-				container.text.color = '#202020'
+				container.text.color = '#0c0d0f'
 			}
 
 			container.default = function () {
-				container.strokeFill.style = '#d7bd6a';
+				container.strokeFill.style = '#d3d8df';
 				container.fillCmd.linearGradient(["rgba(255,255,255,0.01)", "rgba(255,255,255,0.01)","rgba(255,255,255,0.01)"], [0,0.5,1], 0,0 , width,0)
 				container.isActive = false;
-				container.text.color = '#d7bd6a'
+				container.text.color = '#d3d8df'
 			}
 
 			return container;

@@ -30,7 +30,7 @@ export default() => {
 			this.addChild(this.bg);
 
 			this.goldContainer = new createjs.Shape();
-			this.goldContainer.graphics.beginLinearGradientFill(['#d7bc6a', '#ebda7b', '#d7bc6a'], [0,0.5,1], 0,0,w,0).drawRect(0,0,w,goldHeight);
+			this.goldContainer.graphics.beginLinearGradientFill(['#a3e635', '#b5ee55', '#a3e635'], [0,0.5,1], 0,0,w,0).drawRect(0,0,w,goldHeight);
 			this.addChild(this.goldContainer);
 
 			//labels
@@ -50,7 +50,7 @@ export default() => {
 
 
 			//values
-			this.user_money = new createjs.Text("0", fontFormat(font, 'normal', 'bebas', false), "#000");
+			this.user_money = new createjs.Text("0", fontFormat(font, 'normal', 'bebas', false), "#0c0d0f");
 			this.user_money.textAlign = "right";
 			this.user_money.x = w - 15;
 			this.user_money.y = (goldHeight/2 ) + 2;
@@ -127,14 +127,14 @@ export default() => {
 
 
 			this.chipCircle = new createjs.Shape();
-			this.chipCircle.graphics.f('#3C3C3C').drawCircle(0,0,15);
+			this.chipCircle.graphics.f('#0c0d0f').drawCircle(0,0,15);
 			this.chipCircle.regX = this.chipCircle.regY = -15;
 			this.chipCircle.x = 12;
 			this.chipCircle.y = (goldHeight/2)-15;//8;
 			this.addChild(this.chipCircle);
 
 			this.chipCircleInner = new createjs.Shape();
-			this.chipCircleInner.graphics.beginStroke('#d7bc6a').setStrokeDash([8,4], 0).setStrokeStyle(2).drawCircle(0,0, 12);
+			this.chipCircleInner.graphics.beginStroke('#a3e635').setStrokeDash([8,4], 0).setStrokeStyle(2).drawCircle(0,0, 12);
 			this.chipCircleInner.regX = -12;
 			this.chipCircleInner.regY = -17.5;
 			this.chipCircleInner.x = 12;
@@ -142,7 +142,7 @@ export default() => {
 			this.chipCircleInner.rotation = -11;
 			this.addChild(this.chipCircleInner);
 
-			this.chipText = new createjs.Text(currency, `800 ${currencySize} lato-bold`, '#d7bc6a');
+			this.chipText = new createjs.Text(currency, `800 ${currencySize} lato-bold`, '#a3e635');
 			this.chipText.x = 27;
 			this.chipText.y = this.chipCircle.y + 7.5;
 			this.chipText.textAlign = "center";
@@ -162,7 +162,7 @@ export default() => {
 
 		 //user details
 		 this.avatarBg = new createjs.Shape();
-		 this.avatarBg.graphics.ss(0.8).s('#5c5a5b').beginFill('#dcc871').drawCircle(0, 0, 14);
+		 this.avatarBg.graphics.ss(0.8).s('#262a31').beginFill('#d3d8df').drawCircle(0, 0, 14);
 		 this.avatarBg.x = 29;
 		 this.avatarBg.y = h - 25;
 		 this.addChild(this.avatarBg);
@@ -371,7 +371,7 @@ export default() => {
 
 			this.bg.graphics.clear().beginFill(this.context.theme_color[window.theme].base_color).drawRect(0,0,w,h);
 
-			this.goldContainer.graphics.clear().beginLinearGradientFill(['#d7bc6a', '#ebda7b', '#d7bc6a'], [0,0.5,1], 0,0,w,0).drawRect(0,0,w,goldHeight);
+			this.goldContainer.graphics.clear().beginLinearGradientFill(['#a3e635', '#b5ee55', '#a3e635'], [0,0.5,1], 0,0,w,0).drawRect(0,0,w,goldHeight);
 
 			this.total_bet_label.y =  goldHeight + margin;//70;
 			this.winning_label.y = this.total_bet_label.y + (margin + 10);

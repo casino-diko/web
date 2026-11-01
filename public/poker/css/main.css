@@ -104,9 +104,9 @@
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
   border-radius: 15px;
-  -webkit-box-shadow: #f0cf85 0px 0px 35px 0px;
-  -moz-box-shadow: #f0cf85 0px 0px 35px 0px;
-  box-shadow: #f0cf85 0px 0px 35px 0px;
+  -webkit-box-shadow: #d3d8df 0px 0px 35px 0px;
+  -moz-box-shadow: #d3d8df 0px 0px 35px 0px;
+  box-shadow: #d3d8df 0px 0px 35px 0px;
   -webkit-animation: glow forwards infinite 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   -moz-animation: glow forwards infinite 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   animation: glow forwards infinite 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -114,8 +114,8 @@
 
 /* line 57, C:/Users/BFJOHDES/Documents/card-flip-laravel/card-flip-laravel/resources/assets/sass/6-pages/_index-page.scss */
 .card--percent {
-  /* color: #f0cf85; */
-  color: #d22e21;
+  /* color: #d3d8df; */
+  color: #a3e635;
   font: bold 1.25em bebas-regular;
   display: inline-block;
   position: absolute;
@@ -129,7 +129,7 @@
 
 /* line 63, C:/Users/BFJOHDES/Documents/card-flip-laravel/card-flip-laravel/resources/assets/sass/6-pages/_index-page.scss */
 .card--percent:last-child {
-  color: #f0cf85;
+  color: #d3d8df;
   -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
@@ -194,55 +194,55 @@
 
 @-webkit-keyframes glow {
   0% {
-    -webkit-box-shadow: #f0cf85 0px 0px 35px -5px;
-    -moz-box-shadow: #f0cf85 0px 0px 35px -5px;
-    box-shadow: #f0cf85 0px 0px 35px -5px;
+    -webkit-box-shadow: #d3d8df 0px 0px 35px -5px;
+    -moz-box-shadow: #d3d8df 0px 0px 35px -5px;
+    box-shadow: #d3d8df 0px 0px 35px -5px;
   }
   50% {
-    -webkit-box-shadow: #f0cf85 0px 0px 35px 0px;
-    -moz-box-shadow: #f0cf85 0px 0px 35px 0px;
-    box-shadow: #f0cf85 0px 0px 35px 0px;
+    -webkit-box-shadow: #d3d8df 0px 0px 35px 0px;
+    -moz-box-shadow: #d3d8df 0px 0px 35px 0px;
+    box-shadow: #d3d8df 0px 0px 35px 0px;
   }
   100% {
-    -webkit-box-shadow: #f0cf85 0px 0px 35px -5px;
-    -moz-box-shadow: #f0cf85 0px 0px 35px -5px;
-    box-shadow: #f0cf85 0px 0px 35px -5px;
+    -webkit-box-shadow: #d3d8df 0px 0px 35px -5px;
+    -moz-box-shadow: #d3d8df 0px 0px 35px -5px;
+    box-shadow: #d3d8df 0px 0px 35px -5px;
   }
 }
 
 @-moz-keyframes glow {
   0% {
-    -webkit-box-shadow: #f0cf85 0px 0px 35px -5px;
-    -moz-box-shadow: #f0cf85 0px 0px 35px -5px;
-    box-shadow: #f0cf85 0px 0px 35px -5px;
+    -webkit-box-shadow: #d3d8df 0px 0px 35px -5px;
+    -moz-box-shadow: #d3d8df 0px 0px 35px -5px;
+    box-shadow: #d3d8df 0px 0px 35px -5px;
   }
   50% {
-    -webkit-box-shadow: #f0cf85 0px 0px 35px 0px;
-    -moz-box-shadow: #f0cf85 0px 0px 35px 0px;
-    box-shadow: #f0cf85 0px 0px 35px 0px;
+    -webkit-box-shadow: #d3d8df 0px 0px 35px 0px;
+    -moz-box-shadow: #d3d8df 0px 0px 35px 0px;
+    box-shadow: #d3d8df 0px 0px 35px 0px;
   }
   100% {
-    -webkit-box-shadow: #f0cf85 0px 0px 35px -5px;
-    -moz-box-shadow: #f0cf85 0px 0px 35px -5px;
-    box-shadow: #f0cf85 0px 0px 35px -5px;
+    -webkit-box-shadow: #d3d8df 0px 0px 35px -5px;
+    -moz-box-shadow: #d3d8df 0px 0px 35px -5px;
+    box-shadow: #d3d8df 0px 0px 35px -5px;
   }
 }
 
 @keyframes glow {
   0% {
-    -webkit-box-shadow: #f0cf85 0px 0px 35px -5px;
-    -moz-box-shadow: #f0cf85 0px 0px 35px -5px;
-    box-shadow: #f0cf85 0px 0px 35px -5px;
+    -webkit-box-shadow: #d3d8df 0px 0px 35px -5px;
+    -moz-box-shadow: #d3d8df 0px 0px 35px -5px;
+    box-shadow: #d3d8df 0px 0px 35px -5px;
   }
   50% {
-    -webkit-box-shadow: #f0cf85 0px 0px 35px 0px;
-    -moz-box-shadow: #f0cf85 0px 0px 35px 0px;
-    box-shadow: #f0cf85 0px 0px 35px 0px;
+    -webkit-box-shadow: #d3d8df 0px 0px 35px 0px;
+    -moz-box-shadow: #d3d8df 0px 0px 35px 0px;
+    box-shadow: #d3d8df 0px 0px 35px 0px;
   }
   100% {
-    -webkit-box-shadow: #f0cf85 0px 0px 35px -5px;
-    -moz-box-shadow: #f0cf85 0px 0px 35px -5px;
-    box-shadow: #f0cf85 0px 0px 35px -5px;
+    -webkit-box-shadow: #d3d8df 0px 0px 35px -5px;
+    -moz-box-shadow: #d3d8df 0px 0px 35px -5px;
+    box-shadow: #d3d8df 0px 0px 35px -5px;
   }
 }
 

@@ -178,12 +178,12 @@ class Poker extends Game {
 
 		for(var x = 0; x < slaves.length; x++) {
 			this.slaveButtons[x] = new createjs.Shape();
-			this.slaveButtons[x].text = new createjs.Text(slaves[x].text.toUpperCase(), "12px lato-black", '#dac16d');
+			this.slaveButtons[x].text = new createjs.Text(slaves[x].text.toUpperCase(), "12px lato-black", '#d3d8df');
 			this.slaveButtons[x].text.textAlign = 'center';
 			this.slaveButtons[x].text.textBaseline = 'middle';
 			this.slaveButtons[x].text.y = (18/2)
 
-			this.slaveButtons[x].graphics.beginFill('rgba(255,255,255,0.01').ss(1.4).s('#dac16d').drawRect(0,0,162,18);
+			this.slaveButtons[x].graphics.beginFill('rgba(255,255,255,0.01').ss(1.4).s('#d3d8df').drawRect(0,0,162,18);
 			this.slaveButtons[x].set({x : (x * (162+6)) - 84, y : -  60});
 			this.slaveButtons[x].text.y = this.slaveButtons[x].y + (18/2);
 			this.slaveButtons[x].text.x = this.slaveButtons[x].x + (162/2);
@@ -193,13 +193,13 @@ class Poker extends Game {
 			this.slaveButtons[x].ctx = this;
 
 			this.slaveButtons[x].active = function () {
-				this.graphics.clear().beginFill('#dac16d').drawRect(0,0,162,18);
-				this.text.color = "#000";
+				this.graphics.clear().beginFill('#a3e635').drawRect(0,0,162,18);
+				this.text.color = "#0c0d0f";
 			}
 
 			this.slaveButtons[x].default = function () {
-				this.graphics.clear().beginFill('rgba(255,255,255,0.01').ss(1.4).s('#dac16d').drawRect(0,0,162,18);
-				this.text.color = "#dac16d";
+				this.graphics.clear().beginFill('rgba(255,255,255,0.01').ss(1.4).s('#d3d8df').drawRect(0,0,162,18);
+				this.text.color = "#d3d8df";
 			}
 
 			if(slaves[x].type === ctx.slave) {

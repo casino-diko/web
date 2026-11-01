@@ -101,7 +101,7 @@ export default() => {
 			window.theme == "white" ? this.chipsBg.alpha = 0.3 : this.chipsBg.alpha = 1;
 
 			this.btnApply = new createjs.Shape();
-			this.btnApply.graphics.beginFill("#ff9b28").drawRect(0, 0, 140, 40);
+			this.btnApply.graphics.beginFill("#a3e635").drawRect(0, 0, 140, 40);
 			this.btnApply.x = 120;
 			this.btnApply.y = this._modalHeader.y + 418;
 			this.btnApply.cursor = "pointer";

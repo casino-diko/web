@@ -78,7 +78,7 @@ export default() => {
 
 			for(var x = 0; x <= 4; x++) {
 				this.line[x] = new createjs.Shape();
-				this.line[x].graphics.setStrokeStyle(1).beginStroke("#4a4a4a");
+				this.line[x].graphics.setStrokeStyle(1).beginStroke("#262a31");
 				this.line[x].graphics.moveTo(0, (50 * x+1) + 83);
 				this.line[x].graphics.lineTo(450, (50 * x+1) + 83);
 				this.line[x].graphics.endStroke();

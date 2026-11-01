@@ -1,7 +1,7 @@
 .announcement {
   @include wh(1365px, 55px);
   @include prefix(transform-origin, bottom left);
-  @include background-image(linear-gradient(left, #59090a, #59090a, transparent));
+  @include background-image(linear-gradient(left, #16181c, #16181c, transparent));
   @include transform(translate3d(0, 0, 0));
   display: none;
   position: absolute;
@@ -27,7 +27,7 @@
 
 .announcement__ico {
   @include wh(60px, 55px);
-  background-color: #f1e382;
+  background-color: #d3d8df;
   display: inline-block;
   vertical-align: middle;
   z-index: 1;

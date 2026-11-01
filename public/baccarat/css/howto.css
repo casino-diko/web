@@ -7,14 +7,14 @@
   width: 5px;
   z-index: 10;
 }
-::-webkit-scrollbar-track {   background: #231f20; }
+::-webkit-scrollbar-track {   background: #1e2228; }
 ::-webkit-scrollbar-thumb {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
 	border-radius: 5px;
-  background-color: #ff9a28;
+  background-color: #a3e635;
 }
 
 .clearfix:before,
@@ -40,7 +40,7 @@
 }
 
 .howto-wrap {
-	background-color: #2b2b2b;
+	background-color: #1e2228;
 	/* display: none; */
 	height: 647px;
 	overflow-x: hidden;
@@ -57,7 +57,7 @@
 }
 
 .howto-wrap h4 {
-	color: #ff9a28;
+	color: #a3e635;
 	font: normal 19px 'lato-regular';
 	margin: 0 0 16px 0;
 	padding: 0;
@@ -68,11 +68,11 @@
 	display: none;
 	width: 420px;
 	height: 30px;
-	background: -moz-linear-gradient(top,  rgba(255, 154, 40, 0.44) 0%, transparent 100%);
-	background: -webkit-linear-gradient(top,  rgba(255, 154, 40, 0.44) 0%,transparent 100%);
+	background: -moz-linear-gradient(top,  rgba(163,230,53,0.44) 0%, transparent 100%);
+	background: -webkit-linear-gradient(top,  rgba(163,230,53,0.44) 0%,transparent 100%);
 	background-color: transparent;
-	background: linear-gradient(to bottom,  rgba(255, 154, 40, 0.44) 0%,transparent 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(255, 154, 40, 0.44)', endColorstr='transparent',GradientType=0 );
+	background: linear-gradient(to bottom,  rgba(163,230,53,0.44) 0%,transparent 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(163,230,53,0.44)', endColorstr='transparent',GradientType=0 );
 	position: fixed;
 	top: 18.1%;
 	right: 5.6%;
@@ -155,7 +155,7 @@
 }
 
 .gamerules-menu__items {
-	color: #ff9a28;
+	color: #a3e635;
 	/*height: 35px;*/
 	text-align: center;
 	width: 100%;
@@ -165,7 +165,7 @@
 }
 
 .gamerules-menu__items:hover {
-	background-color: #7f572a;
+	background-color: #8b929c;
 	color: #fff;
 }
 
@@ -432,7 +432,7 @@
 
 .arrow-up {
 	display: none;
-	background-color: #95632a;
+	background-color: #8b929c;
 	bottom: 195px;
 	height: 28px;
 	position: absolute;
@@ -452,7 +452,7 @@
 
 .howto-wrap-m .arrow-up { position: fixed; }
 
-.arrow-up:hover { background-color: #ff9a28; }
+.arrow-up:hover { background-color: #a3e635; }
 .arrow-up:hover:before {
 	-webkit-opacity: 1;
 	-moz-opacity: 1;
@@ -497,8 +497,8 @@
 /* white theme */
 .howto-wrap.white-theme { background: #dfe0e2; }
 .howto-wrap.white-theme p, .howto-wrap.white-theme .tbl--rules tbody tr td, .howto-wrap.white-theme .gameplay-list ul li span,
-.howto-wrap.white-theme .card-values__items.-desc p, .howto-wrap.white-theme .gameplay-list li { color: #686868; }
-.howto-wrap.white-theme #game-objective p { color: #4d4d4d; }
+.howto-wrap.white-theme .card-values__items.-desc p, .howto-wrap.white-theme .gameplay-list li { color: #3a3f48; }
+.howto-wrap.white-theme #game-objective p { color: #3a3f48; }
 .howto-wrap.white-theme .card-values__items span, .howto-wrap.white-theme .gameplay-list ol li span, .howto-wrap.white-theme .card-positioning-con span { color: #000000; }
 .howto-wrap.white-theme h4, .howto-wrap.white-theme h5, .howto-wrap.white-theme .tx-card-duringdeal, .howto-wrap.white-theme .tx-card-resultsshow,
 .howto-wrap.white-theme .gamerules-menu__items { color: #ff6828; }

@@ -26,7 +26,7 @@ export default() => {
 			this.addChild(this.background);
 
 			this.goldContainer = new createjs.Shape();
-			this.goldContainer.graphics.beginLinearGradientFill(['#d7bc6a', '#ebda7b', '#d7bc6a'], [0,0.5,1], 0,0,w,0).drawRect(0,0,w,45);
+			this.goldContainer.graphics.beginLinearGradientFill(['#a3e635', '#a3e635', '#a3e635'], [0,0.5,1], 0,0,w,0).drawRect(0,0,w,45);
 			this.addChild(this.goldContainer);
 
 			//labels
@@ -45,7 +45,7 @@ export default() => {
 			this.addChild(this.winning_label);
 
 			//values
-			this.user_money = new createjs.Text("0", fontFormat(22, 'normal', 'bebas', false), "#000");
+			this.user_money = new createjs.Text("0", fontFormat(22, 'normal', 'bebas', false), "#0c0d0f");
 			this.user_money.textAlign = "right";
 			this.user_money.x = 194;
 			this.user_money.y = 45/2 + 2;
@@ -121,13 +121,13 @@ export default() => {
 			}
 
 			let chipCircle = new createjs.Shape();
-			chipCircle.graphics.f('#3C3C3C').drawCircle(0,0,15);
+			chipCircle.graphics.f('#0c0d0f').drawCircle(0,0,15);
 			chipCircle.regX = chipCircle.regY = -15;
 			chipCircle.x = 12;
 			chipCircle.y = 8;
 			this.addChild(chipCircle);
 			let chipCircleInner = new createjs.Shape();
-			chipCircleInner.graphics.beginStroke('#d7bc6a').setStrokeDash([8,4], 0).setStrokeStyle(2).drawCircle(0,0, 12);
+			chipCircleInner.graphics.beginStroke('#a3e635').setStrokeDash([8,4], 0).setStrokeStyle(2).drawCircle(0,0, 12);
 			chipCircleInner.regX = -12;
 			chipCircleInner.regY = -17.5;
 			chipCircleInner.x = 12;
@@ -135,7 +135,7 @@ export default() => {
 			chipCircleInner.rotation = -11;
 			this.addChild(chipCircleInner);
 
-			let chipText = new createjs.Text(currency, `800 ${currencySize} lato-bold`, '#d7bc6a');
+			let chipText = new createjs.Text(currency, `800 ${currencySize} lato-bold`, '#a3e635');
 			chipText.x = 27;
 			chipText.y = 15;
 			chipText.textAlign = "center";
@@ -155,7 +155,7 @@ export default() => {
 
 			//user details
 			let avatarBg = new createjs.Shape();
-			avatarBg.graphics.ss(0.8).s('#5c5a5b').beginFill('#dcc871').drawCircle(0, 0, 14);
+			avatarBg.graphics.ss(0.8).s('#262a31').beginFill('#d3d8df').drawCircle(0, 0, 14);
 			avatarBg.x = 29;
 			avatarBg.y = 145;
 			this.addChild(avatarBg);
@@ -184,7 +184,7 @@ export default() => {
 			this.total_win_amt.color = this.context.theme_color[new_theme].text_color;
 			this.user_name.color = this.context.theme_color[new_theme].text_color;
 			this.background.graphics.clear().beginFill(this.context.theme_color[window.theme].base_color).drawRect(0,0,w,180);
-			this.goldContainer.graphics.clear().beginLinearGradientFill(['#d7bc6a', '#ebda7b', '#d7bc6a'], [0,0.5,1], 0,0,w,0).drawRect(0,0,w,45);
+			this.goldContainer.graphics.clear().beginLinearGradientFill(['#a3e635', '#a3e635', '#a3e635'], [0,0.5,1], 0,0,w,0).drawRect(0,0,w,45);
 		},
 		setUserAvatar() {
 			let avatar = window.config.default.split("_")[0];

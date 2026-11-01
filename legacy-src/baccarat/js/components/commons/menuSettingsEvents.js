@@ -107,11 +107,11 @@ export default () => {
       // Display
       if (window.config.screen == 'black') {
         $('#setTheme').addClass('switch-active');
-        $('#setThemeCircle').css({'margin-left': '35px', 'background': '#327e3e'});
+        $('#setThemeCircle').css({'margin-left': '35px', 'background': '#0c0d0f'});
       }
       if (window.config.tutorial == 'true') {
         $('#setTut').addClass('switch-active');
-        $('#setTutCircle').css({'margin-left': '35px', 'background': '#327e3e'});
+        $('#setTutCircle').css({'margin-left': '35px', 'background': '#0c0d0f'});
       }
       $('.settings-switch-bg').click((e) => {
         this.setSwitchToggle(e.currentTarget);
@@ -202,13 +202,13 @@ export default () => {
       if ($(target).hasClass('switch-active')) {
         isActive = false;
         $(target).removeClass('switch-active');
-        $(target).children(':first').css('background', '#d42e30');
+        $(target).children(':first').css('background', '#d3d8df');
         $(target).children(':first').animate({'margin-left': '2px'}, 'fast');
       }
       else {
         isActive = true;
         $(target).addClass('switch-active');
-        $(target).children(':first').css('background', '#307f3e');
+        $(target).children(':first').css('background', '#0c0d0f');
         $(target).children(':first').animate({'margin-left': '35px'}, 'fast');
       }
 

@@ -55,6 +55,8 @@ export default() => {
 			this.setRound(window.round_id);
 		},
 		setDealer(dealer) {
+			// the dealer's pose behind the betting table (public/shared/table-dealer)
+			if (window.tgDealer && dealer) window.tgDealer.show(dealer.image);
 			// let image = new Image();
 			// image.src = dealer.image;
 			// this.dealer_image.image = image;

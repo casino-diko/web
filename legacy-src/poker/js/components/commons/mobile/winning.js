@@ -37,7 +37,7 @@ export default(win_assets) => {
 				this.win_suit_obj[x].ox = pos.xValues[x];
 
 				this.lines_obj[x] = new createjs.Shape();
-				this.lines_obj[x].graphics.beginFill("#d8bd69").drawRect(0,0,6,90);
+				this.lines_obj[x].graphics.beginFill("#d3d8df").drawRect(0,0,6,90);
 				this.lines_obj[x].setBounds(0,0,6,90);
 				this.lines_obj[x].regX = this.lines_obj[x].getTransformedBounds().width/2;
 				this.lines_obj[x].regY = 0;
@@ -47,7 +47,7 @@ export default(win_assets) => {
 
 			//gold bar
 			this.gold_instance =  new createjs.Shape();
-			this.gold_instance.graphics.beginLinearGradientFill(["transparent","#d8bd69","transparent"], [0, 0.5, 1], 0, 0, this.context.stage.baseWidth-180, 0).drawRect(0, 0, this.context.stage.baseWidth-180, 90);
+			this.gold_instance.graphics.beginLinearGradientFill(["transparent","#d3d8df","transparent"], [0, 0.5, 1], 0, 0, this.context.stage.baseWidth-180, 0).drawRect(0, 0, this.context.stage.baseWidth-180, 90);
 			this.regX = (this.context.stage.baseWidth-180)/2;
 			this.gold_instance.regX = (this.context.stage.baseWidth-180)/2;
 			this.gold_instance.x = (this.context.stage.baseWidth-180)/2
@@ -240,7 +240,7 @@ export default(win_assets) => {
 
 			for(var x = 0;x<textArray.length;x++) {
 				this.win_text[x] = new createjs.Text(textArray[x].toUpperCase(),window.language.locale == "zh"? "400 80px arvo" : "700 80px arvo", color);
-				this.win_text[x].shadow = new createjs.Shadow("#ecd489",4,4,0);
+				this.win_text[x].shadow = new createjs.Shadow("#eef1f4",4,4,0);
 				this.win_text[x].textBaseline = "middle";
 				this.win_text[x].skewX = 10;
 				let posX = (x*62);

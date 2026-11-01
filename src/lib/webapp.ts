@@ -19,7 +19,7 @@ import { brandName } from './brandText';
 
 const esc = (v: string) => v.replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`);
 
-export const THEME_COLOR = '#111111';
+export const THEME_COLOR = '#0c0d0f';
 
 export const appHead = () => [
 	'<link rel="manifest" href="/manifest.webmanifest">',

@@ -21,7 +21,7 @@ export default()=> {
 			this.addChild(dealer_bg)
 
 			let community_bg = new createjs.Shape();
-			community_bg.graphics.beginFill("#555555").drawRoundRect(150,0,295,128,10);
+			community_bg.graphics.beginFill("#262a31").drawRoundRect(150,0,295,128,10);
 			community_bg.isBg = true;
 			this.addChild(community_bg)
 

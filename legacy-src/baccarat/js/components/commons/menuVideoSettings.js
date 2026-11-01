@@ -144,7 +144,7 @@ export default(links) => {
 			this.addChild(this.qualitySD);
 
 			let radioSD = new createjs.Shape();
-			radioSD.graphics.beginFill('#424242').drawCircle(0, 0, 12);
+			radioSD.graphics.beginFill('#262a31').drawCircle(0, 0, 12);
 			radioSD.x = this.qualitySD.x + 45;
 			radioSD.y = this.qualitySD.y + 7;
 			radioSD.cursor = 'pointer';
@@ -152,7 +152,7 @@ export default(links) => {
 			this.addChild(radioSD);
 
 			let activeCircle = new createjs.Shape();
-			activeCircle.graphics.beginFill('#2e7d32').drawCircle(0, 0, 8);
+			activeCircle.graphics.beginFill('#84cc16').drawCircle(0, 0, 8);
 			activeCircle.x = radioHD.x;
 			activeCircle.y = radioHD.y;
 			activeCircle.cursor = 'pointer';
@@ -178,7 +178,7 @@ export default(links) => {
 		},
 
 		setActiveQuality(active, inactive, activeCircle) {
-			inactive.graphics.clear().beginFill('#424242').drawCircle(0, 0, 12);
+			inactive.graphics.clear().beginFill('#262a31').drawCircle(0, 0, 12);
 			active.graphics.clear().beginFill('#fff').drawCircle(0, 0, 12);
 
 			activeCircle.x = active.x;

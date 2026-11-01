@@ -4,7 +4,7 @@
 .game-range-sel {
 	width: 355px;
 	height: 30px;
-	background: #5f5f5f;
+	background: #3a3f48;
 	position: absolute;
 	right: 100%;
 	display: table;
@@ -103,7 +103,7 @@
 	position: absolute;
 	height: 25px;
 	width: 1px;
-	background: #4b4b4b;
+	background: #262a31;
 	left: -12px;
 	top: -2px;
 }
@@ -136,7 +136,7 @@
 	padding-top: 10px;
 	position: relative;
 	top: -21px;
-	background: rgba(224, 200, 114,0.9);
+	background: rgba(211,216,223,0.9);
 	right: -360px;
 	opacity: 0
 }
@@ -305,7 +305,7 @@
 
 .range-list > div:hover{
 	cursor: pointer;
-	color: #eadd7f;
+	color: #d3d8df;
 	transition: all 0.3s
 }
 
@@ -370,15 +370,15 @@
 	color: #1565c0
 }
 .game-list > div > i.result-gold {
-	color: #d9bf6c
+	color: #d3d8df
 }
 
 .game-list > div > i.inputitem {
-	color: #666666;
+	color: #3a3f48;
 }
 
 .game-list > div > span:hover {
-	color: #e0c870;
+	color: #d3d8df;
 	/*font-family: 'latoblack';*/
 	cursor: pointer;
 	transition: all 0.3s;
@@ -424,7 +424,7 @@
 
 #roadmap-container::after{
 	content: '';
-	background: rgba(15, 15, 15, 0.8);
+	background: rgba(22,24,28,0.8);
 	width: 650px;
 	height: 205px;
 	position: absolute;
@@ -434,7 +434,7 @@
 
 #roadmap-list-container::after {
 	content: '';
-	background: rgba(15, 15, 15, 0.8);
+	background: rgba(22,24,28,0.8);
 	width: 505px;
 	height: 145px;
 	position: absolute;
@@ -499,8 +499,8 @@
 .button-list {
 	height: 160px;
 	width: 36px;
-	background: rgba(25,25,25,0.9);
-	border:2px solid #867647;
+	background: rgba(22,24,28,0.9);
+	border:2px solid #8b929c;
 	border-radius: 10px 0px 0px 10px;
 	background-image: url('/img/multibet/3.0/show_table.png');
 	background-repeat: no-repeat;
@@ -519,7 +519,7 @@
 .all-table-list {
 	height: auto;
 	width: 200px;
-	background: rgba(25,25,25,0.9);
+	background: rgba(22,24,28,0.9);
 }
 .all-table-list .game-table {
 	height: 40px;
@@ -739,7 +739,7 @@
 	display: block !important;
 }
 .game-table.active {
-	background: rgba(66, 63, 62, 0.9);
+	background: rgba(38,42,49,0.9);
 }
 .game-table.maintenance,
 .game-table.disabled,
@@ -799,10 +799,10 @@
 }
 
 .all-table-list .game-table > .game-status.inputitem {
-	/*color: #666666;*/
+	/*color: #3a3f48;*/
 }
 .all-table-list .game-table > .game-status.result-gold {
-	color: #d9bf6c
+	color: #d3d8df
 }
 .all-table-list .game-table > .game-status.result-blue {
 	color: #1565c0

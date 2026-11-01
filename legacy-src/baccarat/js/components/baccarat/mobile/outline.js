@@ -300,8 +300,8 @@ export default (config) => {
 		singleClassic() {
 			let width = 700;
 			let height = 402;
-			let gradColor = 'rgba(255,255,255,0)';
-			let defaultColor = 'rgba(255,255,255,1)';
+			let gradColor = 'rgba(211,216,223,0)';
+			let defaultColor = 'rgba(211,216,223,0.8)';
 			let portrait_outline = new createjs.Container();
 			let landscape_outline = new createjs.Container();
 			
@@ -469,8 +469,8 @@ export default (config) => {
 		singleSuper() {
 			let width = 700;
 			let height = 402;
-			let gradColor = 'rgba(255,255,255,0)';
-			let defaultColor = 'rgba(255,255,255,1)';
+			let gradColor = 'rgba(211,216,223,0)';
+			let defaultColor = 'rgba(211,216,223,0.8)';
 			let portrait_outline = new createjs.Container();
 			let landscape_outline = new createjs.Container();
 			
@@ -642,8 +642,8 @@ export default (config) => {
 		},
 		multiClassic () {
 			let width = 700;
-			let gradColor = 'rgba(255,255,255,0)';
-			let defaultColor = 'rgba(255,255,255,1)';
+			let gradColor = 'rgba(211,216,223,0)';
+			let defaultColor = 'rgba(211,216,223,0.8)';
 			let portrait_outline = new createjs.Container();
 			let landscape_outline = new createjs.Container();
 			
@@ -683,8 +683,8 @@ export default (config) => {
 		},
 		multiSuper () {
 			let width = 700;
-			let gradColor = 'rgba(255,255,255,0)';
-			let defaultColor = 'rgba(255,255,255,1)';
+			let gradColor = 'rgba(211,216,223,0)';
+			let defaultColor = 'rgba(211,216,223,0.8)';
 			let portrait_outline = new createjs.Container();
 			let landscape_outline = new createjs.Container();
 			

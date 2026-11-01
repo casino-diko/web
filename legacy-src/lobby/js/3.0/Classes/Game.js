@@ -603,7 +603,7 @@ class Game {
 
 		//background
 		this.bgCon = new createjs.Shape();
-		this.bgCon.graphics.beginFill('#2b2b2b').drawRoundRectComplex(0,0, 915, 215, 10, 0, 0, 0)
+		this.bgCon.graphics.beginFill('#16181c').drawRoundRectComplex(0,0, 915, 215, 10, 0, 0, 0).beginFill('#1a1d22').drawRect(0, 35, 160, 180)
 		this.stage.addChild(this.bgCon);
 
 		//header
@@ -612,9 +612,10 @@ class Game {
 		let level = "";
 		let tableNumber = 0;
 		let headerColor = {
-			main : ['#871a51','#280f1a'],
-			baccarat : ['#970000','#2d0000'],
-			junket : ['#ffd67a','#ad800f']
+			main : '#1e2228',
+			baccarat : '#1e2228',
+			junket : '#1e2228',
+			line : '#a3e635'
 		}
 
 		this.header = new createjs.Shape();
@@ -629,7 +630,7 @@ class Game {
 			} else if(data.roomType == "v") {
 				level = window.language2.lobby_baccaratpage_vip;
 			} else {
-				level = window.language2.lobby_baccaratpage_main;
+				level = window.language2.lobby_gamename_baccarat || window.language2.lobby_baccaratpage_main;
 			}
 
 			if(window.isJunket > 0) {
@@ -679,8 +680,8 @@ class Game {
 				$(this.canvasHover).addClass('roomactive');
 				$(this.canvasHover).prepend('<div class="password-con"></div>');
 				$(this.canvasHover).prepend(`<div id="room-close-${roomId}" class="remove-con"></div>`);
-				this.header.graphics.beginLinearGradientFill(headerColor.junket, [0,1], 0, 0, 400, 0).drawRoundRect(0, 0, 400, 34, 0);
-				this.gameName.color = "#000"
+				this.header.graphics.beginFill(headerColor.junket).drawRect(0, 0, 400, 34).beginFill(headerColor.line).drawRect(0, 34 - 2, 400, 2);
+				this.gameName.color = "#d3d8df"
 
 				if(slave == 'supersix') {
 					$(this.canvasOverlay).prepend('<i class="ico-room-supersix"></i>')
@@ -721,19 +722,19 @@ class Game {
 				$(this.canvasHover).find('.remove-con').remove();
 				$(this.canvasHover).removeClass('roomactive');
 				if(data.gameName == "Baccarat") {
-					this.header.graphics.beginLinearGradientFill(headerColor.baccarat, [0,1], 0, 0, 400, 0).drawRoundRect(0, 0, 400, 35, 0);
+					this.header.graphics.beginFill(headerColor.baccarat).drawRect(0, 0, 400, 35).beginFill(headerColor.line).drawRect(0, 35 - 2, 400, 2);
 				} else {
-					this.header.graphics.beginLinearGradientFill(headerColor.main, [0,1], 0, 0, 400, 0).drawRoundRect(0, 0, 400, 35, 0);
+					this.header.graphics.beginFill(headerColor.main).drawRect(0, 0, 400, 35).beginFill(headerColor.line).drawRect(0, 35 - 2, 400, 2);
 				}
-				this.gameName.color = "#f1e382"
+				this.gameName.color = "#d3d8df"
 			}
 		} else {
 			if(data.gameName == "Baccarat") {
-				this.header.graphics.beginLinearGradientFill(headerColor.baccarat, [0,1], 0, 0, 400, 0).drawRoundRect(0, 0, 400, 35, 0);
+				this.header.graphics.beginFill(headerColor.baccarat).drawRect(0, 0, 400, 35).beginFill(headerColor.line).drawRect(0, 35 - 2, 400, 2);
 			} else {
-				this.header.graphics.beginLinearGradientFill(headerColor.main, [0,1], 0, 0, 400, 0).drawRoundRect(0, 0, 400, 35, 0);
+				this.header.graphics.beginFill(headerColor.main).drawRect(0, 0, 400, 35).beginFill(headerColor.line).drawRect(0, 35 - 2, 400, 2);
 			}
-			this.gameName.color = "#f1e382"
+			this.gameName.color = "#d3d8df"
 		}
 
 		this.stage.addChild(this.header);
@@ -770,18 +771,18 @@ class Game {
 		//status
 		if(window.isJunket > 0) {
 			if(!_.isEmpty(this.roomdata)) {
-				this.status = this.getText(390,35/2, status,fontFormat(20, 'black', 'lato', true),"#000","right","middle");
+				this.status = this.getText(390,35/2, status,fontFormat(20, 'black', 'lato', true),"#a3e635","right","middle");
 			} else {
-				this.status = this.getText(390,35/2, status,fontFormat(20, 'black', 'lato', true),"#fff","right","middle");
+				this.status = this.getText(390,35/2, status,fontFormat(20, 'black', 'lato', true),"#a3e635","right","middle");
 			}
 		} else {
-			this.status = this.getText(390,35/2, status,fontFormat(20, 'black', 'lato', true),"#fff","right","middle");
+			this.status = this.getText(390,35/2, status,fontFormat(20, 'black', 'lato', true),"#a3e635","right","middle");
 		}
 		this.stage.addChild(this.status);
 
 		//dealer
 		this.dealerBg = new createjs.Shape();
-		this.dealerBg.graphics.beginFill("#deca72").drawCircle(0,0,50);
+		this.dealerBg.graphics.beginFill("#d3d8df").drawCircle(0,0,50);
 		this.dealerBg.set({x : 80, y : 108})
 		this.stage.addChild(this.dealerBg);
 
@@ -791,17 +792,16 @@ class Game {
 		this.stage.addChild(this.dealer_name);
 
 		//dealer image
+		// the dealer's picture, centred on the disc whatever its size (setDealerImage); the timer canvas
+		// it is drawn on sits 4px left of and 3px above this one
 		this.dealerImg = new createjs.Bitmap();
-		this.dealerImg.set({x:this.dealerBg.x, y: this.dealerBg.y - 1, regX:60, regY:60});
-		this.dealerImg.scaleX = this.dealerImg.scaleY = 0.77;
+		this.dealerImg.set({x: this.dealerBg.x + 4, y: this.dealerBg.y + 3});
+		this.dealerImgSize = 92;
 		this.timer_stage.addChild(this.dealerImg);
 
 		for (var i = 0; i < window.dealerImg.length; i++) {
       if (window.dealerImg[i].id == data.dealerId) {
-        let dbImage = new Image();
-        dbImage.src = window.dealerImg[i].dealer_image;
-
-        this.dealerImg.image = dbImage;
+        this.setDealerImage(window.dealerImg[i].dealer_image);
       }
     }
 
@@ -899,7 +899,7 @@ class Game {
 		this.stage.addChild(this.resultContainer);
 
 		this.dealingCardAnimationBg = new createjs.Shape();
-		this.dealingCardAnimationBg.graphics.beginFill("rgba(22, 22, 22, 0.9)").drawRect(0,0,240,180);
+		this.dealingCardAnimationBg.graphics.beginFill("rgba(31, 34, 40, 0.92)").drawRect(0,0,240,180);
 		this.dealingCardAnimationBg.scaleX = 0;
 		this.resultContainer.addChild(this.dealingCardAnimationBg);
 
@@ -917,11 +917,11 @@ class Game {
 		this.stage.addChild(this.balanceContainer);
 
 		this.balanceAnimationBg = new createjs.Shape();
-		this.balanceAnimationBg.graphics.beginFill("rgba(22, 22, 22, 0.9)").drawRect(0,0,240,180);
+		this.balanceAnimationBg.graphics.beginFill("rgba(31, 34, 40, 0.92)").drawRect(0,0,240,180);
 		this.balanceAnimationBg.scaleX = 0;
 		this.balanceContainer.addChild(this.balanceAnimationBg);
 
-		this.balanceLabel = new createjs.Text("Balance Bet", "20px lato-black", "#deca72");
+		this.balanceLabel = new createjs.Text("Balance Bet", "20px lato-black", "#d3d8df");
 		this.balanceLabel.set({x: 20, textAlign: 'left', textBaseline: 'middle', y : 40, alpha : 0});
 		this.balanceContainer.addChild(this.balanceLabel);
 
@@ -1730,13 +1730,23 @@ class Game {
 		}
 	}
 
+	/** the dealer's picture, scaled to the disc and centred on it once it has loaded */
+	setDealerImage(src) {
+		let img = new Image();
+		img.onload = () => {
+			let scale = this.dealerImgSize / (Math.max(img.width, img.height) || 1);
+			this.dealerImg.set({regX: img.width / 2, regY: img.height / 2, scaleX: scale, scaleY: scale});
+			this.timer_stage.update();
+		};
+		img.src = src;
+		this.dealerImg.image = img;
+	}
+
 	dealerChange(data, gameList) {
 
 		for (var x = 0; x < window.dealerImg.length; x++) {
 			if (this.data.dealerId == window.dealerImg[x].id) {
-				let dbImage = new Image();
-				dbImage.src = window.dealerImg[x].dealer_image;
-				this.dealerImg.image = dbImage;
+				this.setDealerImage(window.dealerImg[x].dealer_image);
 			}
 		}
 

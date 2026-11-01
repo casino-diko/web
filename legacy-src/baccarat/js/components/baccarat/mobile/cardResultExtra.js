@@ -25,7 +25,7 @@ let width = 0;
 
 			this.player_color = 'rgba(21, 101, 192, 1)';
 			this.banker_color = 'rgba(234, 67, 53, 1)';
-			this.overlay_color = "rgba(22, 22, 22, 0.9)"
+			this.overlay_color = "rgba(22, 24, 28, 0.9)"
 
 			this.player_overlay = new createjs.Shape();
 			this.player_overlay.graphics.beginFill(this.overlay_color).drawRect(0,0,width,height);
@@ -138,8 +138,8 @@ let width = 0;
 			this.player_bg.visible = false;
 			this.banker_bg.alpha = 0;
 			this.player_bg.alpha = 0;
-			// this.bankerFill.style = 'rgba(22, 22, 22, 0.9)';
-			// this.playerFill.style = 'rgba(22, 22, 22, 0.9)';
+			// this.bankerFill.style = 'rgba(22, 24, 28, 0.9)';
+			// this.playerFill.style = 'rgba(22, 24, 28, 0.9)';
 		},
 		screenOrientation() {
 			let width = 0;

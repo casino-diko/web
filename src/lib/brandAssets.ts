@@ -26,7 +26,7 @@ import type { Slot } from './brandSlots';
 import type { Db } from './db';
 
 const PUBLIC = path.join(process.cwd(), 'public');
-const ICON_BACKGROUND = '#111111';
+const ICON_BACKGROUND = '#0c0d0f';
 
 let font: opentype.Font | null = null;
 const lato = () => (font ??= opentype.parse(readFileSync(path.join(PUBLIC, 'lobby/fonts/Lato-Black.ttf')).buffer as ArrayBuffer));
@@ -112,7 +112,7 @@ export async function brandAsset (db: Db, publicPath: string, slot: Slot): Promi
 			body = await mark(db, current.name, w, h, slot.colour);
 		} else {
 			const inner = Math.round(Math.min(w, h) * slot.scale);
-			const m = await mark(db, current.name, inner, inner, '#d22e21');
+			const m = await mark(db, current.name, inner, inner, '#a3e635');
 			body = await sharp({ create : { width : w, height : h, channels : 4, background : slot.background ? ICON_BACKGROUND : transparent } })
 				.composite([{ input : m, gravity : 'center' }]).png().toBuffer();
 		}
