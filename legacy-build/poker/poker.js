@@ -91457,6 +91457,10 @@ exports['default'] = function (self, type) {
         if (!self.mobile) multi.displayRollback(data);
         if (window.tgNotice) window.tgNotice.roundVoided(data, self);
         break;
+      // voided after its result, not the latest one (the road map updates on the next visit)
+      case "roundvoided":
+        if (window.tgNotice) window.tgNotice.roundVoided(data, self);
+        break;
       // round cancelled before a result, stakes refunded (public/shared/table-notices)
       case "roundcancelled":
         if (window.tgNotice) window.tgNotice.roundCancelled(data, self);

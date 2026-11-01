@@ -58942,6 +58942,10 @@ exports['default'] = function (self, type) {
 					self.component_lastRounds.setRound(data_push.lastround, parseInt(data_push.lastround) > 0);
 					break;
 
+				// voided after its result, not the latest one (the road map updates on the next visit)
+				case "roundvoided":
+					if (window.tgNotice) window.tgNotice.roundVoided(data_push, self);
+					break;
 				// round cancelled before a result, stakes refunded (public/shared/table-notices)
 				case "roundcancelled":
 					if (window.tgNotice) window.tgNotice.roundCancelled(data_push, self);
