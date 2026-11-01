@@ -25,6 +25,7 @@ import path from 'node:path';
 import { translator } from './i18n';
 import type { App } from './config';
 import { withAppHead } from './webapp';
+import { withTableNotices } from './tableNotices';
 
 type Ctx = Record<string, any>;
 type Node =
@@ -274,5 +275,7 @@ export function htmlResponse (html: string, status = 200): Response {
 	});
 }
 
-// full pages get the home-screen app tags (manifest, icons, service worker)
-export const renderPage = (app: App, name: string, ctx: Ctx = {}) => htmlResponse(withAppHead(render(app, name, ctx)));
+// full pages get the home-screen app tags (manifest, icons, service worker);
+// game pages also get the round cancel / void / last rounds notices
+export const renderPage = (app: App, name: string, ctx: Ctx = {}) =>
+	htmlResponse(withTableNotices(withAppHead(render(app, name, ctx)), app, ctx.locale || 'en'));

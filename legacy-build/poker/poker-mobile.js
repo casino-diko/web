@@ -58937,8 +58937,14 @@ exports['default'] = function (self, type) {
 					self.component_dealer.setDealer(dealerData);
 					break;
 
+				// hidden at 0 (countdown cleared, or the table closed)
 				case "lastrounds":
-					self.component_lastRounds.setRound(data_push.lastround, true);
+					self.component_lastRounds.setRound(data_push.lastround, parseInt(data_push.lastround) > 0);
+					break;
+
+				// round cancelled before a result, stakes refunded (public/shared/table-notices)
+				case "roundcancelled":
+					if (window.tgNotice) window.tgNotice.roundCancelled(data_push, self);
 					break;
 
 				case "displaymodify":
@@ -58985,6 +58991,7 @@ exports['default'] = function (self, type) {
 				case "displayRollback":
 					console.log('rollback: ', data_push.data);
 					setVoid(data_push.data);
+					if (window.tgNotice) window.tgNotice.roundVoided(data_push, self);
 					break;
 			}
 		}, 1000);

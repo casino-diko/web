@@ -2026,6 +2026,14 @@ export default(self) => {
           evt.displayRollback(data);
           if(!self.mobile)
            multi.displayRollback(data);
+          if (window.tgNotice) window.tgNotice.roundVoided(data, self);
+          break;
+        // round cancelled before a result, stakes refunded (public/shared/table-notices)
+        case "roundcancelled":
+          if (window.tgNotice) window.tgNotice.roundCancelled(data, self);
+          break;
+        case "lastrounds":
+          if (window.tgNotice) window.tgNotice.lastRounds(data.lastround, data);
           break;
         case "displaymodify" :
           evt.displaymodify(data);
@@ -2041,6 +2049,7 @@ export default(self) => {
           evt.newround(data);
           if(!self.mobile)
         	 multi.newround(data);
+          if (window.tgNotice) window.tgNotice.lastRounds(data.lastround, data);
         	break;
         case "create_room":
           // if (parseInt(data.data.banker.user_id) == parseInt(window.userId)) {

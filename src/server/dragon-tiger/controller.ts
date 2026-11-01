@@ -22,7 +22,7 @@ import { config } from '@/lib/config';
 import { defineModel, type Db } from '@/lib/db';
 import { input, isMobile, clientIp } from '@/lib/http';
 import { tableVideo } from '@/lib/video';
-import { render, htmlResponse } from '@/lib/template';
+import { render, htmlResponse, renderPage } from '@/lib/template';
 import { getUserCredits, getJunketCredits, transact } from '@/lib/vendor';
 import * as h from './helpers';
 import { storeBet, revertBet, cancelBet, restoreBet, Refused, type StoreParams } from './bets';
@@ -224,7 +224,8 @@ async function page (req: Request, view: string, table: string, opts: { gameType
 
 	const r: any = await pageContext(req, a, table, opts);
 	if (r.redirect) return redirect(r.redirect);
-	return htmlResponse(render(APP, view, r.ctx));
+	// game pages get the home-screen app tags and the table notices like the other games
+	return renderPage(APP, view, r.ctx);
 }
 
 /**

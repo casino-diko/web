@@ -374,6 +374,7 @@ export default (self) => {
 				break;
 
 				case ("newround"):
+					if (window.tgNotice) window.tgNotice.lastRounds(data_push.lastround, data_push);
 					newround(data_push);
 					self.component_multiplayer.removePlayersOnNewRound()
 
@@ -455,6 +456,16 @@ export default (self) => {
 
 				case "displayRollback":
 					setVoid();
+					if (window.tgNotice) window.tgNotice.roundVoided(data_push, self);
+					break;
+
+				// round cancelled before a result, stakes refunded (public/shared/table-notices)
+				case "roundcancelled":
+					if (window.tgNotice) window.tgNotice.roundCancelled(data_push, self);
+					break;
+
+				case "lastrounds":
+					if (window.tgNotice) window.tgNotice.lastRounds(data_push.lastround, data_push);
 					break;
 			}
 		}, 1000)

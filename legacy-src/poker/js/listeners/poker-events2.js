@@ -205,7 +205,8 @@ export default (self, type) => {
 
     lastrounds: function(data) {
       if(!this.fnFilterData(data)) return;
-      self.component_lastRounds.setRound(data.lastround, true);
+      // hidden at 0 (countdown cleared, or the table closed)
+      self.component_lastRounds.setRound(data.lastround, parseInt(data.lastround) > 0);
     }, // === end of lastrounds
 
     removeitem: function (data) {
@@ -1534,6 +1535,11 @@ export default (self, type) => {
         evt.displayRollback(data)
         if(!self.mobile)
           multi.displayRollback(data);
+        if (window.tgNotice) window.tgNotice.roundVoided(data, self);
+        break;
+      // round cancelled before a result, stakes refunded (public/shared/table-notices)
+      case "roundcancelled":
+        if (window.tgNotice) window.tgNotice.roundCancelled(data, self);
         break;
       case "setbettingtime":
         multi.setbettingtime(data);
