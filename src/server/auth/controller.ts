@@ -235,6 +235,13 @@ export async function exit (req: Request) {
 
 /** GET|POST /logout: back to the operator's site when there is one */
 export async function logout (req: Request) {
+	// the lobby's exit button posts here with jQuery and opens the answer as the next page
+	// (`window.location.href = redirect`, Laravel answered with the URL): give it this page as
+	// a plain URL, so the logout itself runs as a page load (redirect, or the operator frame's
+	// exit page), never inside an XHR that would swallow the redirect
+	if (req.headers.get('x-requested-with') === 'XMLHttpRequest') {
+		return new Response('/logout', { headers : { 'content-type' : 'text/plain; charset=utf-8', 'cache-control' : 'no-store' } });
+	}
 	const session = await readSession();
 	let back = config.devLogin ? '/login/dev' : '/login';
 	if (session) {
